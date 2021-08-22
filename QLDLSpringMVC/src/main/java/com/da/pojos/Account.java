@@ -6,12 +6,14 @@
 package com.da.pojos;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -41,6 +43,16 @@ public class Account implements Serializable{
     @ManyToOne
     @JoinColumn ( name = "user_role")
     private Role role;
+    
+    @OneToMany (mappedBy = "account")
+    private Set<Rating> ratings;
+    
+    @OneToMany (mappedBy = "account")
+    private Set<Post> posts;
+    
+    @OneToMany (mappedBy = "account")
+    private Set<Comment> comments;
+    
     /**
      * @return the id
      */
@@ -123,5 +135,47 @@ public class Account implements Serializable{
      */
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    /**
+     * @return the ratings
+     */
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    /**
+     * @param ratings the ratings to set
+     */
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
+    /**
+     * @return the posts
+     */
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    /**
+     * @param posts the posts to set
+     */
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
+    }
+
+    /**
+     * @return the comments
+     */
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    /**
+     * @param comments the comments to set
+     */
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 }

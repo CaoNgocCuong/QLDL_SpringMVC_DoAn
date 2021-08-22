@@ -31,7 +31,6 @@ public class Role implements Serializable {
     @OneToMany (mappedBy = "role")
     private Set<Account> accounts;
     
-
     /**
      * @return the id
      */

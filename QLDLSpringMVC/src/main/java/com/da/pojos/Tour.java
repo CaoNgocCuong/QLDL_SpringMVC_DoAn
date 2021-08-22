@@ -15,6 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -55,8 +57,18 @@ public class Tour implements Serializable {
     @Column (name = "active")
     private Boolean active;
     
+    @OneToOne (mappedBy = "tour")
+    @PrimaryKeyJoinColumn
+    private TourDetail tourDetail;
+     
     @OneToMany (mappedBy = "tour")
     private Set<Booking> bookings;
+    
+    @OneToMany (mappedBy = "tour")
+    private Set<TourPhoto> tourPhotos;
+    
+    @OneToMany (mappedBy = "tour")
+    private Set<Rating> ratings;
 
     /**
      * @return the id
@@ -224,5 +236,47 @@ public class Tour implements Serializable {
      */
     public void setBookings(Set<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    /**
+     * @return the tourDetail
+     */
+    public TourDetail getTourDetail() {
+        return tourDetail;
+    }
+
+    /**
+     * @param tourDetail the tourDetail to set
+     */
+    public void setTourDetail(TourDetail tourDetail) {
+        this.tourDetail = tourDetail;
+    }
+
+    /**
+     * @return the tourPhotos
+     */
+    public Set<TourPhoto> getTourPhotos() {
+        return tourPhotos;
+    }
+
+    /**
+     * @param tourPhotos the tourPhotos to set
+     */
+    public void setTourPhotos(Set<TourPhoto> tourPhotos) {
+        this.tourPhotos = tourPhotos;
+    }
+
+    /**
+     * @return the ratings
+     */
+    public Set<Rating> getRatings() {
+        return ratings;
+    }
+
+    /**
+     * @param ratings the ratings to set
+     */
+    public void setRatings(Set<Rating> ratings) {
+        this.ratings = ratings;
     }
 }

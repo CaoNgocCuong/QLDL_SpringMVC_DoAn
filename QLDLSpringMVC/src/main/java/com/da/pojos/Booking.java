@@ -6,12 +6,16 @@
 package com.da.pojos;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -36,6 +40,14 @@ public class Booking implements Serializable {
     @ManyToOne
     @JoinColumn (name = "tour_id")
     private Tour tour;
+    
+    @OneToMany (mappedBy = "booking")
+    private Set<Billing> billings;
+    
+    @OneToOne (mappedBy = "booking")
+    @PrimaryKeyJoinColumn
+    private Cancellation cancellation;
+    
    
     /**
      * @return the id
@@ -119,5 +131,33 @@ public class Booking implements Serializable {
      */
     public void setTour(Tour tour) {
         this.tour = tour;
+    }
+
+    /**
+     * @return the billings
+     */
+    public Set<Billing> getBillings() {
+        return billings;
+    }
+
+    /**
+     * @param billings the billings to set
+     */
+    public void setBillings(Set<Billing> billings) {
+        this.billings = billings;
+    }
+
+    /**
+     * @return the cancellation
+     */
+    public Cancellation getCancellation() {
+        return cancellation;
+    }
+
+    /**
+     * @param cancellation the cancellation to set
+     */
+    public void setCancellation(Cancellation cancellation) {
+        this.cancellation = cancellation;
     }
 }
