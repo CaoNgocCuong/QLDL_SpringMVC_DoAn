@@ -7,11 +7,13 @@ package com.da.repository;
 
 import com.da.pojos.Category;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author CaoNgocCuong
  */
+@Repository
 public interface CategoryRepository {
     List<Category> getCategories();
 }

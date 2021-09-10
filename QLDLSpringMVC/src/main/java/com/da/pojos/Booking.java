@@ -34,8 +34,8 @@ public class Booking implements Serializable {
     private String status;
     
     @ManyToOne
-    @JoinColumn (name = "customer_id")
-    private Customer customer;
+    @JoinColumn (name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn (name = "tour_id")
@@ -106,17 +106,17 @@ public class Booking implements Serializable {
     }
 
     /**
-     * @return the customer
+     * @return the user
      */
-    public Customer getCustomer() {
-        return customer;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * @param customer the customer to set
+     * @param user the user to set
      */
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**

@@ -10,33 +10,20 @@
 
 <!DOCTYPE html>
 <html>
+    <!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><tiles:insertAttribute name="title"/></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="manifest" href="site.webmanifest"> -->
-        <link rel="shortcut icon" type="image/x-icon" href="<c:url value="/img/world-airplane.svg" />">
-        <!-- Place favicon.ico in the root directory -->
-
-        <!-- CSS here -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="/QLDLSpringMVC/css/all.css" >
-        <link rel="stylesheet" href="<c:url value="/css/font-awesome.min.css" />">
-        <link rel="stylesheet" href="<c:url value="/css/themify-icons.css"/>">
-        <link rel="stylesheet" href="css/nice-select.css">
-        <link rel="stylesheet" href="css/flaticon.css">
-        <link rel="stylesheet" href="css/gijgo.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/slick.css">
-        <link rel="stylesheet" href="css/slicknav.css">
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-
-        <link rel="stylesheet" href="css/style.css">
-        <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./fonts/fontawesome-free-5.15.4-web/css/all.min.css">
+        <link rel="stylesheet" href="./css/grid_system.css">
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
         <!-- Header -->

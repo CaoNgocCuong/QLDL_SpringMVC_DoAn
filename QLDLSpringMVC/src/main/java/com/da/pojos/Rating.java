@@ -38,7 +38,7 @@ public class Rating implements Serializable {
     
     @ManyToOne
     @JoinColumn (name = "user_id")
-    private Account account;
+    private User user;
     
     @ManyToOne
     @JoinColumn (name = "tour_id")
@@ -101,17 +101,17 @@ public class Rating implements Serializable {
     }
 
     /**
-     * @return the account
+     * @return the user
      */
-    public Account getAccount() {
-        return account;
+    public User getUser() {
+        return user;
     }
 
     /**
-     * @param account the account to set
+     * @param user the user to set
      */
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
