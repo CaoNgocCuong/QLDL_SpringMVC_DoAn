@@ -1,0 +1,32 @@
+:root {
+    --primary-color: #1ec6b6;
+    --secondary-color: #FF4A52;
+    --text-color: #040E27;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6em;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style-type: none;
+}
+
+.align-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
