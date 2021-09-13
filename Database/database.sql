@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: localhost    Database: travelmsdbjava
+-- Host: 127.0.0.1    Database: travelmsdbjava
 -- ------------------------------------------------------
--- Server version	8.0.19
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,35 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `account`
---
-
-DROP TABLE IF EXISTS `account`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `account` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_role` int NOT NULL,
-  `username` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_accont_role_idx` (`user_role`),
-  CONSTRAINT `fk_accont_role` FOREIGN KEY (`user_role`) REFERENCES `role` (`id`),
-  CONSTRAINT `fk_acount_customer` FOREIGN KEY (`id`) REFERENCES `customer` (`id`),
-  CONSTRAINT `fk_acount_employees` FOREIGN KEY (`id`) REFERENCES `employees` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `account`
---
-
-LOCK TABLES `account` WRITE;
-/*!40000 ALTER TABLE `account` DISABLE KEYS */;
-/*!40000 ALTER TABLE `account` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `billing`
 --
 
@@ -55,7 +26,7 @@ CREATE TABLE `billing` (
   `id` int NOT NULL AUTO_INCREMENT,
   `booking_id` int NOT NULL,
   `money` decimal(8,0) NOT NULL,
-  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_billing_booking_idx` (`booking_id`),
   CONSTRAINT `fk_billing_booking` FOREIGN KEY (`booking_id`) REFERENCES `booking` (`id`)
@@ -84,12 +55,12 @@ CREATE TABLE `booking` (
   `tour_id` int NOT NULL,
   `adults` int NOT NULL,
   `children` int NOT NULL,
-  `status` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_booking_customer_idx` (`customer_id`),
   KEY `fk_booking_tour_idx` (`tour_id`),
-  CONSTRAINT `fk_booking_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
-  CONSTRAINT `fk_booking_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`)
+  KEY `fk_booking_user_idx` (`customer_id`),
+  CONSTRAINT `fk_booking_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`),
+  CONSTRAINT `fk_booking_user` FOREIGN KEY (`customer_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -111,7 +82,7 @@ DROP TABLE IF EXISTS `cancellation`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cancellation` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `reason` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_cancellation_booking` FOREIGN KEY (`id`) REFERENCES `booking` (`id`)
@@ -136,8 +107,8 @@ DROP TABLE IF EXISTS `category`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `category` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -163,14 +134,14 @@ CREATE TABLE `comment` (
   `id` int NOT NULL AUTO_INCREMENT,
   `post_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `content` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `like` tinyint DEFAULT '1',
   `date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_comment_user_idx` (`user_id`),
   KEY `fk_comment_post_idx` (`post_id`),
+  KEY `fk_comment_user_idx` (`user_id`),
   CONSTRAINT `fk_comment_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
-  CONSTRAINT `fk_comment_user` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`)
+  CONSTRAINT `fk_comment_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -184,65 +155,6 @@ LOCK TABLES `comment` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `customer`
---
-
-DROP TABLE IF EXISTS `customer`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customer` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `d_o_b` date NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone_number` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `active` tinyint NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `customer`
---
-
-LOCK TABLES `customer` WRITE;
-/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `employees`
---
-
-DROP TABLE IF EXISTS `employees`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `employees` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `d_o_b` date DEFAULT NULL,
-  `hire_date` date NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `active` tinyint NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `employees`
---
-
-LOCK TABLES `employees` WRITE;
-/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `post`
 --
 
@@ -253,16 +165,16 @@ CREATE TABLE `post` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `category_id` int NOT NULL,
-  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` date NOT NULL,
+  `photo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  KEY `fk_post_user_idx` (`user_id`),
   KEY `fk_post_cate_idx` (`category_id`),
   CONSTRAINT `fk_post_cate` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
-  CONSTRAINT `fk_post_user` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `fk_post_user` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,6 +183,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (1,9,1,'Cô gái mở đường ra đi cứu nước','Hơn cả bà Hằng là người dân thường duy nhất cho tới hiện tại đủ tầm và tâm để lôi sự sai trái, mặt tối của giới nghệ sĩ. Cho công chúng biết được trước giờ chúng ta gửi tiền từ thiện cho chúng thì chúng đớp 9 gửi đi 1, và mọi người coi chúng như thánh sống. Ngoài bà Hằng tôi đố ai đủ tiềm lực để lôi bọn kia ra ánh sáng mà ko bị vùi dập.','2021-09-13','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1),(2,7,1,'Cô gái mở đường ra đi cứu nước 2','Hơn cả bà Hằng là người dân thường duy nhất cho tới hiện tại đủ tầm và tâm để lôi sự sai trái, mặt tối của giới nghệ sĩ. Cho công chúng biết được trước giờ chúng ta gửi tiền từ thiện cho chúng thì chúng đớp 9 gửi đi 1, và mọi người coi chúng như thánh sống. Ngoài bà Hằng tôi đố ai đủ tiềm lực để lôi bọn kia ra ánh sáng mà ko bị vùi dập.','2021-09-13','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1);
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,13 +199,13 @@ CREATE TABLE `rating` (
   `tour_id` int NOT NULL,
   `user_id` int NOT NULL,
   `rating` tinyint DEFAULT NULL,
-  `comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comment` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `rating_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_rating_tourid_idx` (`tour_id`),
-  KEY `fk_rating_userid_idx` (`user_id`),
+  KEY `fk_rating_user_idx` (`user_id`),
   CONSTRAINT `fk_rating_tourid` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`),
-  CONSTRAINT `fk_rating_userid` FOREIGN KEY (`user_id`) REFERENCES `account` (`id`)
+  CONSTRAINT `fk_rating_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -306,29 +219,6 @@ LOCK TABLES `rating` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `role`
---
-
-DROP TABLE IF EXISTS `role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `role_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `role`
---
-
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tag`
 --
 
@@ -337,7 +227,7 @@ DROP TABLE IF EXISTS `tag`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tag` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -387,9 +277,9 @@ DROP TABLE IF EXISTS `tour`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tour` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tour_type` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tour_type` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tour_days` int NOT NULL,
   `tour_nights` int NOT NULL,
   `adults_price` decimal(8,0) NOT NULL,
@@ -398,7 +288,7 @@ CREATE TABLE `tour` (
   `end_date` date NOT NULL,
   `active` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -407,6 +297,7 @@ CREATE TABLE `tour` (
 
 LOCK TABLES `tour` WRITE;
 /*!40000 ALTER TABLE `tour` DISABLE KEYS */;
+INSERT INTO `tour` VALUES (1,'Nhà Nobita','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,500000,200000,'2021-09-09','2021-09-13',1),(2,'Nhà Doraemon','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,1,100000,80000,'2021-09-09','2021-09-13',1),(3,'1','1','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,11,11,'2021-09-09','2021-09-09',1),(4,'2','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,11,22,'2021-09-09','2021-09-09',1),(5,'2','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,3,33,33,'2021-09-09','2021-09-09',1),(6,'a','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1,1,121,12,'2021-09-09','2021-09-09',1),(7,'s','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(8,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1,3,12,12,'2021-09-09','2021-09-09',1),(9,'s','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(10,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(11,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(12,'g','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(13,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(14,'v','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(15,'t','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,3,12,12,'2021-09-09','2021-09-09',1),(16,'hjhj','3','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,2,2,'2021-09-09','2021-09-09',1),(17,'Nhà ai đây','3','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,3,3,'2021-09-09','2021-09-09',1);
 /*!40000 ALTER TABLE `tour` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,11 +310,11 @@ DROP TABLE IF EXISTS `tour_detail`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tour_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `departure` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `destination` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `departure` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `destination` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `end_date` datetime DEFAULT NULL,
-  `content` longtext COLLATE utf8mb4_unicode_ci,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_tour_detail_tour` FOREIGN KEY (`id`) REFERENCES `tour` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -448,7 +339,7 @@ DROP TABLE IF EXISTS `tour_photo`;
 CREATE TABLE `tour_photo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tour_id` int NOT NULL,
-  `photo` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `photo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tour_photo_tour_idx` (`tour_id`),
   CONSTRAINT `fk_tour_photo_tour` FOREIGN KEY (`tour_id`) REFERENCES `tour` (`id`)
@@ -463,6 +354,42 @@ LOCK TABLES `tour_photo` WRITE;
 /*!40000 ALTER TABLE `tour_photo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tour_photo` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `date_created` date NOT NULL,
+  `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `active` bit(1) NOT NULL DEFAULT b'1',
+  `user_role` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username_UNIQUE` (`username`),
+  UNIQUE KEY `phone_UNIQUE` (`phone`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'caubengok','12345','nguyen van a','2021-09-02','0332568794','a@gmail.com','13456yhgbv','quang ngai',_binary '','USER'),(2,'khang','123','Trần Vũ Khang','2021-09-02','0334010050','1851050059khang@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630526042/hhkhyk6bnqzyx5bugdvn.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(3,'a','123','Trần Vũ Khang','2021-09-02','0334010051','khangbum@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630526120/slmjkv8ojorjhq0kf8gj.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(4,'khanghjhj','$2a$10$opMY9TTrlEPAwuYVu0hYC.ZRnyaX4nqrJBFiIM6JDQg56QOUAf5H.','Trần Vũ Khang','2021-09-04','0334010052','khangbum123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630698713/dfpg7mimllx8oj40mjpe.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(5,'cuong','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','cao ngoc cuong','2021-09-04','0334010053','khang123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630699758/oyuu3z3ljaxvz7ztgfal.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(7,'cuong1','$2a$10$UxI/qloY0nzq4c6zduvjD.dwCjuFeR8GZbgolXO7QJAR/ElfOX8cm','Cao Ngọc Cường','2021-09-04','0334010054','1851050013cuong@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630703824/bmotykys7usrgwvcf2d3.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(9,'cuong2','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-04','0334010055','cu@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -473,4 +400,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-24 22:30:08
+-- Dump completed on 2021-09-13 10:59:15
