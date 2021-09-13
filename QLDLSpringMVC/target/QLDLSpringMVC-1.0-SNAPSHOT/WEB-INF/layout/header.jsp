@@ -11,76 +11,6 @@
             <![endif]-->
 
         <!-- header-start -->
-<!--        <header>
-            <div class="header-area ">
-                <div id="sticky-header" class="main-header-area">
-                    <div class="container-fluid">
-                        <div class="header_bottom_border">
-                            <div class="row align-items-center">
-                                <div class="col-xl-2 col-lg-2">
-                                    <div class="logo">
-                                        <a href="index.html">
-                                            <img src="<c:url value="/img/logo.png"/>" alt="logo" />
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="main-menu  d-none d-lg-block">
-                                        <nav>
-                                            <ul id="navigation">
-                                                <li><a class="active" href="/QLDLSpringMVC/">Home</a></li>
-                                                <li><a href="about.html">About</a></li>
-                                                <li><a class="" href="travel_destination.html">Destination</a></l/li>
-                                                <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                                    <ul class="submenu">
-                                                            <li><a href="destination_details.html">Destinations details</a></li>
-                                                            <li><a href="elements.html">elements</a></li>
-                                                    </ul>
-                                                </li>
-                                                
-                                                <li><a href="contact.html">Contact</a></li>
-                                                <li><a href="<c:url value="/register" />">Register</a></li>
-                                                <c:if test="${pageContext.request.userPrincipal.name == null}">
-                                                    <li><a class="nav-link text-danger" href="<c:url value="/login" />">Login</a></li>
-                                                </c:if>
-                                                <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                                    <li><a class="nav-link text-danger" href="<c:url value="/" />">${pageContext.request.userPrincipal.name}</a></li>
-                                                    <li><a class="nav-link text-danger" href="<c:url value="/logout" />">Logout</a></li>
-                                                </c:if>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-lg-4 d-none d-lg-block">
-                                    <div class="social_wrap d-flex align-items-center justify-content-end">
-                                        <div class="number">
-                                            <p> <i class="fas fa-phone-alt"></i> 10(256)-928 256</p>
-                                        </div>
-                                        <div class="social_links d-none d-xl-block">
-                                            <ul>
-                                                <li><a href="#"> <i class="fa fa-instagram"></i> </a></li>
-                                                <li><a href="#"> <i class="fa fa-linkedin"></i> </a></li>
-                                                <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                                                <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="seach_icon">
-                                    <a data-toggle="modal" data-target="#exampleModalCenter" href="#">
-                                        <i class="fa fa-search"></i>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <div class="mobile_menu d-block d-lg-none"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </header>-->
 
  <header id="header">
         <div class="top-header">
@@ -111,13 +41,13 @@
                 <div class="col m-6 l-6">
                     <ul class="navbar-list">
                         <li class="navbar-list__item active">
-                            <a href="#">Trang chủ</a>
+                            <a href="<c:url value="/"/>">Trang chủ</a>
                         </li>
                         <li class="navbar-list__item">
                             <a href="./tour.html">Du lịch <i class="fas fa-caret-down"></i></a>
                             <ul class="sub-nav">
                                 <li class="sub-nav__list">
-                                    <a href="./tour.html">Du lịch trong nước</a>
+                                    <a href="<c:url value="/tours"/>">Du lịch trong nước</a>
                                 </li>
                                 <li class="sub-nav__list">
                                     <a href="./tour.html">Du lịch ngoài nước</a>
@@ -128,13 +58,13 @@
                             <a href="">Vé máy bay</a>
                         </li>
                         <li class="navbar-list__item">
-                            <a href="">Tin tức</a>
+                            <a href="<c:url value="/blog"/>">Tin tức</a>
                         </li>
                         <li class="navbar-list__item">
-                            <a href="./contact.html">Liên hệ</a>
+                            <a href="<c:url value="/contact"/>">Liên hệ</a>
                         </li>
                         <li class="navbar-list__item">
-                            <a href="./about.html">Về chúng tôi</a>
+                            <a href="<c:url value="/about"/>">Về chúng tôi</a>
                         </li>
                     </ul>
                 </div>
@@ -163,11 +93,11 @@
                                 <i class="fas fa-angle-down user-down"></i>
                                 <ul class="user-dropdown">
                                     <li class="btn-login-wrap">
-                                        <a href="./admin.html" class="btn-login">Đăng nhập</a>
+                                        <a href="<c:url value="/login"/>" class="btn-login">Đăng nhập</a>
                                     </li>
                                     <li class="register-text">
                                         Chưa có tài khoản?
-                                        <a class="register-link">Đăng ký</a>
+                                        <a href="<c:url value="/register"/>" class="register-link">Đăng ký</a>
                                         ngay!
                                     </li>
                                 </ul>

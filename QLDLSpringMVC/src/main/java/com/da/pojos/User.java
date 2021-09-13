@@ -28,6 +28,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class User implements Serializable{
     
     public static final String ROLE_USER = "USER";
+    public static final String ROLE_EMPLOYEE = "EMPLOYEE";
     public static final String ROLE_ADMIN = "ADMIN";
     
     @Id

@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.da.repository;
+package com.da.service;
 
-import com.da.pojos.Category;
+import com.da.pojos.Tour;
 import java.util.List;
-import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author CaoNgocCuong
+ * @author Admin
  */
-@Repository
-public interface CategoryRepository {
-    List<Category> getCategories();
-    
+public interface ToursService {
+    List<Tour> getTours(String tourName, int page);
+    long countTours();
 }

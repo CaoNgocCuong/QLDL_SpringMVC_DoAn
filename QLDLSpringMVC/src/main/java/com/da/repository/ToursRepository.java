@@ -5,16 +5,15 @@
  */
 package com.da.repository;
 
-import com.da.pojos.Category;
+import com.da.pojos.Tour;
 import java.util.List;
-import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author CaoNgocCuong
+ * @author Admin
  */
-@Repository
-public interface CategoryRepository {
-    List<Category> getCategories();
+public interface ToursRepository {
+    List<Tour> getTours(String tourName, int page);
     
+    long countTours();
 }

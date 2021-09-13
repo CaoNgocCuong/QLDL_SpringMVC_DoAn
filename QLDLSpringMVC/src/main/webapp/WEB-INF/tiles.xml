@@ -28,4 +28,20 @@ and open the template in the editor.
         <put-attribute name="title" value="Đăng nhập" />
         <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
     </definition>
+    <definition name="tours" extends="baseLayout">
+        <put-attribute name="tours" value="Chuyến du lịch" />
+        <put-attribute name="content" value="/WEB-INF/jsp/tours.jsp" />
+    </definition>
+    <definition name="blog" extends="baseLayout">
+        <put-attribute name="blog" value="Tin tức" />
+        <put-attribute name="content" value="/WEB-INF/jsp/blog.jsp" />
+    </definition>
+    <definition name="blog_details" extends="baseLayout">
+        <put-attribute name="blog_details" value="Bài đăng" />
+        <put-attribute name="content" value="/WEB-INF/jsp/blog_details.jsp" />
+    </definition>
+    <definition name="contact" extends="baseLayout">
+        <put-attribute name="contact" value="Liên hệ" />
+        <put-attribute name="content" value="/WEB-INF/jsp/contact.jsp" />
+    </definition>
 </tiles-definitions>

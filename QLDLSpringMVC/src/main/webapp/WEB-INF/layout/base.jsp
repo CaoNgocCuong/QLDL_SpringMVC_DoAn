@@ -24,6 +24,10 @@
         <link rel="stylesheet" href="./css/grid_system.css">
         <link rel="stylesheet" href="./css/base.css">
         <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/tour.css">
+        <link rel="stylesheet" href="./css/blog.css">
+        <link rel="stylesheet" href="./css/blog-details.css">
+        <link rel="stylesheet" href="./css/contact.css">
     </head>
     <body>
         <!-- Header -->
