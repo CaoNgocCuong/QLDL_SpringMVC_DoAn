@@ -368,17 +368,17 @@ CREATE TABLE `user` (
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `fullname` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `date_created` date NOT NULL,
-  `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(45) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `avatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` bit(1) NOT NULL DEFAULT b'1',
   `user_role` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
-  UNIQUE KEY `phone_UNIQUE` (`phone`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  UNIQUE KEY `phone_UNIQUE` (`phone`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -387,7 +387,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'caubengok','12345','nguyen van a','2021-09-02','0332568794','a@gmail.com','13456yhgbv','quang ngai',_binary '','USER'),(2,'khang','123','Trần Vũ Khang','2021-09-02','0334010050','1851050059khang@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630526042/hhkhyk6bnqzyx5bugdvn.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(3,'a','123','Trần Vũ Khang','2021-09-02','0334010051','khangbum@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630526120/slmjkv8ojorjhq0kf8gj.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(4,'khanghjhj','$2a$10$opMY9TTrlEPAwuYVu0hYC.ZRnyaX4nqrJBFiIM6JDQg56QOUAf5H.','Trần Vũ Khang','2021-09-04','0334010052','khangbum123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630698713/dfpg7mimllx8oj40mjpe.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(5,'cuong','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','cao ngoc cuong','2021-09-04','0334010053','khang123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630699758/oyuu3z3ljaxvz7ztgfal.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(7,'cuong1','$2a$10$UxI/qloY0nzq4c6zduvjD.dwCjuFeR8GZbgolXO7QJAR/ElfOX8cm','Cao Ngọc Cường','2021-09-04','0334010054','1851050013cuong@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630703824/bmotykys7usrgwvcf2d3.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(9,'cuong2','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-04','0334010055','cu@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER');
+INSERT INTO `user` VALUES (1,'caubengok','12345','nguyen van a','2021-09-02','0332568794','a@gmail.com','13456yhgbv','quang ngai',_binary '','USER'),(2,'khang','123','Trần Vũ Khang','2021-09-02','0334010050','1851050059khang@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630526042/hhkhyk6bnqzyx5bugdvn.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(3,'a','123','Trần Vũ Khang','2021-09-02','0334010051','khangbum@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630526120/slmjkv8ojorjhq0kf8gj.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(4,'khanghjhj','$2a$10$opMY9TTrlEPAwuYVu0hYC.ZRnyaX4nqrJBFiIM6JDQg56QOUAf5H.','Trần Vũ Khang','2021-09-04','0334010052','khangbum123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630698713/dfpg7mimllx8oj40mjpe.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(5,'cuong','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','cao ngoc cuong','2021-09-04','0334010053','khang123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630699758/oyuu3z3ljaxvz7ztgfal.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(7,'cuong1','$2a$10$UxI/qloY0nzq4c6zduvjD.dwCjuFeR8GZbgolXO7QJAR/ElfOX8cm','Cao Ngọc Cường','2021-09-04','0334010054','1851050013cuong@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630703824/bmotykys7usrgwvcf2d3.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(9,'cuong2','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-04','0334010055','cu@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(10,'cuong3','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-13','0334010056','cu2@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(11,'vukhang123','$2a$10$T1xvMAlTUu2IHDHOluXm3uQIixXiWmapMsfXqD6mhQonth4AXruwy','Trần Vũ Khang','2021-09-13',NULL,'123a@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1631513867/ajrqu1hdzffbf4ve1a5o.jpg',NULL,_binary '','USER');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -400,4 +400,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-13 10:59:15
+-- Dump completed on 2021-09-13 17:08:35

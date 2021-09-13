@@ -41,14 +41,13 @@ public class User implements Serializable{
     @Column (name = "date_created")
     private Date createdDate;
     
-    @Size(min = 10, max = 10, message ="{user.phone.lenErr}")
     private String phone;
     
     private String email;
     private String address;
     private String avatar;
     private boolean active;
-    @Size(min = 5, max = 10, message ="{user.username.lenErr}")
+    @Size(min = 5, max = 20, message ="{user.username.lenErr}")
     private String username;
     private String password;
    
