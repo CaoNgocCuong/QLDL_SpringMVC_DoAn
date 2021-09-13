@@ -20,6 +20,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -34,6 +35,12 @@ public class Post implements Serializable {
     private String title;
     private String content;
     private Date date;
+    private String photo;
+    
+    @Transient
+    private int day;
+    @Transient
+    private int month;
     
     @Column (name = "active")
     private Boolean active;
@@ -172,5 +179,47 @@ public class Post implements Serializable {
      */
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    /**
+     * @return the photo
+     */
+    public String getPhoto() {
+        return photo;
+    }
+
+    /**
+     * @param photo the photo to set
+     */
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    /**
+     * @return the day
+     */
+    public int getDay() {
+        return day;
+    }
+
+    /**
+     * @param day the day to set
+     */
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    /**
+     * @return the month
+     */
+    public int getMonth() {
+        return month;
+    }
+
+    /**
+     * @param month the month to set
+     */
+    public void setMonth(int month) {
+        this.month = month;
     }
 }

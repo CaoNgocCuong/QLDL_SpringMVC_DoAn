@@ -33,8 +33,8 @@
                         <div class="row">
                             <div class="col l-12 slider-text-align">
                                 <div class="slider-text">
-                                    <h3>Indonesia</h3>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <h3>Kontum</h3>
+                                    <p>Vẻ đẹp thiên nhiên không thể chối từ</p>
                                 </div>
                             </div>
                         </div>
