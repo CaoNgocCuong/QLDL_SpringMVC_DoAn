@@ -7,9 +7,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<c:url value="/blog/blog-details" var="action"/>
 
-<div id="main" action="${action}">
+<div id="main" action="">
     <!-- -------- brad-cam start ----------- -->
     <div class="bradcam bradcam-img">
         <div class="grid wide">
@@ -410,3 +409,10 @@
     </section>
     <!-- Section Blog end -->
 </div>
+<script>
+    // ------------------------ Like comments blog-details ------------------- 
+    var likeInfo = document.querySelector('.like-info')
+    likeInfo.addEventListener('click', () => {
+        likeInfo.classList.toggle('liked')
+    })
+</script>

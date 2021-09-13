@@ -31,6 +31,7 @@ com\da\pojos\User.class
 com\da\repository\impl\UserRepositoryImpl.class
 com\da\pojos\Category.class
 com\da\configs\SpringSecurityConfig.class
+com\da\controllers\ContactController.class
 com\da\configs\WebApplicationContextConfig.class
 com\da\repository\impl\BlogRepositoryImpl.class
 com\da\pojos\Tour.class

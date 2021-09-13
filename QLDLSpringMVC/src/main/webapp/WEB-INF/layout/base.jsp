@@ -26,8 +26,11 @@
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/tour.css">
         <link rel="stylesheet" href="./css/blog.css">
-        <link rel="stylesheet" href="./css/blog-details.css">
+        <link rel="stylesheet" href="./css/blog_details.css">
         <link rel="stylesheet" href="./css/contact.css">
+        <link rel="stylesheet" href="./css/login.css">
+        <link rel="stylesheet" href="./css/about.css">
+        
     </head>
     <body>
         <!-- Header -->
