@@ -14,6 +14,12 @@
     </div>
 </c:if>
 
+<c:if test="${param.accessDenied != null}"> 
+    <div>
+        Bạn không có quyền truy cập vào trang quản trị!
+    </div>
+</c:if>
+
 <c:url value="/login" var="action" />
 
 <div class="main">

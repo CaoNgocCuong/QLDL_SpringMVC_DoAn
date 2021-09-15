@@ -18,6 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -56,6 +58,9 @@ public class Tour implements Serializable {
     
     @Column (name = "active")
     private Boolean active;
+    
+    @Transient
+    private MultipartFile file;
     
     @OneToOne (mappedBy = "tour")
     @PrimaryKeyJoinColumn
@@ -278,5 +283,19 @@ public class Tour implements Serializable {
      */
     public void setRatings(Set<Rating> ratings) {
         this.ratings = ratings;
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 }

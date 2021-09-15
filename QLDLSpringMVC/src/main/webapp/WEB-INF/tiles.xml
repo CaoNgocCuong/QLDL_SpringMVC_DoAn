@@ -16,6 +16,12 @@ and open the template in the editor.
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
         <put-attribute name="content" value="Demo content"/>
     </definition>
+    <definition name="adminBaseLayout" template="/WEB-INF/layout/admin_base.jsp">
+        <put-attribute name="title" value="Admin CK"/>
+        <put-attribute name="admin_header" value="/WEB-INF/layout/admin_header.jsp"/>
+        <put-attribute name="admin_side_bar" value="/WEB-INF/layout/admin_side_bar.jsp"/>
+        <put-attribute name="admin_content" value="Demo admin content"/>
+    </definition>
     <definition name="index" extends = "baseLayout">
         <put-attribute name="title" value="Trang chủ"/>
         <put-attribute name="content" value="/WEB-INF/jsp/body.jsp"/>
@@ -33,23 +39,35 @@ and open the template in the editor.
         <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
     </definition>
     <definition name="tours" extends="baseLayout">
-        <put-attribute name="tours" value="Chuyến du lịch" />
+        <put-attribute name="title" value="Chuyến du lịch" />
         <put-attribute name="content" value="/WEB-INF/jsp/tours.jsp" />
     </definition>
     <definition name="blog" extends="baseLayout">
-        <put-attribute name="blog" value="Tin tức" />
+        <put-attribute name="title" value="Tin tức" />
         <put-attribute name="content" value="/WEB-INF/jsp/blog.jsp" />
     </definition>
     <definition name="blog_details" extends="baseLayout">
-        <put-attribute name="blog_details" value="Bài đăng" />
+        <put-attribute name="title" value="Bài đăng" />
         <put-attribute name="content" value="/WEB-INF/jsp/blog_details.jsp" />
     </definition>
     <definition name="contact" extends="baseLayout">
-        <put-attribute name="contact" value="Liên hệ" />
+        <put-attribute name="title" value="Liên hệ" />
         <put-attribute name="content" value="/WEB-INF/jsp/contact.jsp" />
     </definition>
     <definition name="about" extends="baseLayout">
-        <put-attribute name="about" value="Về chúng tôi" />
+        <put-attribute name="title" value="Về chúng tôi" />
         <put-attribute name="content" value="/WEB-INF/jsp/about.jsp" />
+    </definition>
+    <definition name="admin" extends="adminBaseLayout">
+        <put-attribute name="title" value="Admin CK" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/admin.jsp" />
+    </definition>
+    <definition name="tour_management" extends="adminBaseLayout">
+        <put-attribute name="title" value="Quản lý tour" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/tour_management.jsp" />
+    </definition>
+    <definition name="user_management" extends="adminBaseLayout">
+        <put-attribute name="title" value="Quản lý người dùng" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/user_management.jsp" />
     </definition>
 </tiles-definitions>

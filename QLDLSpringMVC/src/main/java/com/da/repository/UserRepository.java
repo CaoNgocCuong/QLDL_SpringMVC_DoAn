@@ -16,5 +16,6 @@ import org.springframework.stereotype.Repository;
 
 public interface UserRepository {
     boolean addUser(User user);
+    boolean addEmployeeUser(User employee);
     List<User> getUsers(String username);
 }

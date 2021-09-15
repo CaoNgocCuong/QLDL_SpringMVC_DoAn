@@ -27,9 +27,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Table (name = "user")
 public class User implements Serializable{
     
-    public static final String ROLE_USER = "USER";
-    public static final String ROLE_EMPLOYEE = "EMPLOYEE";
-    public static final String ROLE_ADMIN = "ADMIN";
+    public static final String ROLE_USER = "ROLE_USER";
+    public static final String ROLE_EMPLOYEE = "ROLE_EMPLOYEE";
+    public static final String ROLE_ADMIN = "ROLE_ADMIN";
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
