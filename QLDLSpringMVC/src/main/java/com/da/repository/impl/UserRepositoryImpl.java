@@ -51,12 +51,27 @@ public class UserRepositoryImpl implements UserRepository{
         CriteriaQuery<User> query = builder.createQuery(User.class);
         Root root = query.from(User.class);
         query.select(root);
+        if(!username.isEmpty()){
+            Predicate p = builder.equal(root.get("username").as(String.class), username.trim());
+            query = query.where(p); 
+        }
         
-        Predicate p = builder.equal(root.get("username").as(String.class), username.trim());
-        query = query.where(p);
         
         Query q = session.createQuery(query);
         return q.getResultList();
+    }
+
+    @Override
+    public boolean addEmployeeUser(User employee) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(employee);
+            return true;
+        } catch (HibernateException e) {
+            System.err.println("==Add employee error==" + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
     }
 
     

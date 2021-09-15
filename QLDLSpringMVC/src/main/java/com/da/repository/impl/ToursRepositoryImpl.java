@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -59,6 +60,37 @@ public class ToursRepositoryImpl implements ToursRepository{
         Query query = session.createQuery("SELECT COUNT(*) FROM Tour");
         
         return Long.parseLong(query.getSingleResult().toString());
+    }
+
+    @Override
+    public List<Tour> getTours(String tourName) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> query = builder.createQuery(Tour.class);
+        Root root = query.from(Tour.class);
+        query = query.select(root);
+        
+        if(!tourName.isEmpty() && tourName != null){
+            Predicate p = builder.like(root.get("name").as(String.class), String.format("%%%s%%", tourName));
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query);
+        
+        return q.getResultList();
+    }
+
+    @Override
+    public boolean addTour(Tour tour) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(tour);
+            return true;
+        } catch (HibernateException e) {
+            System.err.println("==Add tour error==" + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
     }
     
 }

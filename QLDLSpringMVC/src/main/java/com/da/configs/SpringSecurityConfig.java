@@ -7,10 +7,13 @@ package com.da.configs;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -44,6 +47,24 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         return c;
     }   
     
+//    public JavaMailSender getMailSender(){
+//        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+//        
+//        mailSender.setHost("smtp.gmail.com");
+//        mailSender.setPort(587);
+////        mailSender.setUsername("vukhang297");
+////        mailSender.setPassword("khangbum10a8");
+//        
+//        Properties javaMailProperties = new Properties();
+//        javaMailProperties.put("mail.smtp.starttls.enable", "true");
+//        javaMailProperties.put("mail.smtp.auth", "true");
+//        javaMailProperties.put("mail.transport.protocol", "smtp");
+//        javaMailProperties.put("mail.debug", "true");
+//        
+//        mailSender.setJavaMailProperties(javaMailProperties);
+//        return mailSender;
+//    }
+    
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -59,6 +80,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         http.formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/").failureUrl("/login?error");
         http.logout().logoutSuccessUrl("/login");
+        
+        http.exceptionHandling().accessDeniedPage("/login?accessDenied");
+        
+        http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')");
+        
         http.csrf().disable();
     }
     
