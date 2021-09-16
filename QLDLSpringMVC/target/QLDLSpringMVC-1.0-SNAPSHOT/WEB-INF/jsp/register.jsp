@@ -44,7 +44,7 @@
       <div class="form-group">
         <label for="username" class="form-label">Tài khoản</label>
         <input id="username" name="username" type="text" placeholder="VD: ngoccuong0103" path="username" required="true" class="form-control">
-        <form:errors path="username" cssClass="alert alert-danger" element="div" required="true"/>
+        <form:errors path="username" cssClass="form-message" element="span" required="true"/>
         <span class="form-message"></span>
       </div>
 
