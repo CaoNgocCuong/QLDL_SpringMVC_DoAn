@@ -18,8 +18,16 @@
     font-size: 1.6em;
 }
 
-.popular-place .popular-place__box-top.hide li i:last-child {
+.popular-place .popular-place__box-top li i:last-child {
     display: none;
+}
+
+.popular-place .popular-place__box-top li.hide i:first-child {
+    display: none;
+}
+
+.popular-place .popular-place__box-top li.hide i:last-child {
+    display: inline-block;
 }
 
 .popular-place .popular-place__box-top ul li {

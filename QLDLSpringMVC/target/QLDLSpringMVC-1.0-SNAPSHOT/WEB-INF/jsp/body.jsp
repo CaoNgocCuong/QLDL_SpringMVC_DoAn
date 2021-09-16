@@ -8,14 +8,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<!--<h1>Hello main</h1>
-<ul>
-    <c:forEach var="category" items="${categories}">
-        <li>${category.name}</li>
-        <li>${category.description}</li>
-    </c:forEach>
-</ul>-->
-
 <div id="main">
     <!-- Slider start -->
     <div class="slider">
@@ -30,12 +22,12 @@
             <!-- Slide image start -->
             <div class="slide first">
                 <img src="./img/banner2.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
-                                <h3>Kontum</h3>
-                                <p>Vẻ đẹp thiên nhiên không thể chối từ</p>
+                                <h3>Indonesia</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
                         </div>
                     </div>
@@ -43,9 +35,9 @@
             </div>
             <div class="slide ">
                 <img src="./img/banner4.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -56,9 +48,9 @@
             </div>
             <div class="slide ">
                 <img src="./img/banner3.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -69,9 +61,9 @@
             </div>
             <div class="slide ">
                 <img src="./img/banner.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -104,14 +96,14 @@
 
     <!-- Search start -->
     <div class="search-area">
-        <div class="grid wide">
+        <div class="container">
             <div class="row">
-                <div class="col l-3">
+                <div class="col col-lg-3">
                     <div class="form-ask">
                         <h3>Bạn muốn đi đâu?</h3>
                     </div>
                 </div>
-                <div class="col l-9">
+                <div class="col col-lg-9">
                     <div class="search-wrap">
                         <form action="" class="search-form">
                             <div class="form-item">
@@ -128,7 +120,7 @@
                                 </select>
                             </div>
                             <div class="form-item">
-                                <button type="submit" class="btn">Search</button>
+                                <button type="submit" class="btn">Tìm kiếm</button>
                             </div>
                         </form>
                     </div>
@@ -140,9 +132,9 @@
 
     <!-- Popular area start -->
     <section class="travel-main popular-destination">
-        <div class="grid wide">
+        <div class="container">
             <div class="row align-item">
-                <div class="col l-6">
+                <div class="col col-lg-6">
                     <div class="section-title">
                         <h3>
                             Địa điểm nổi tiếng
@@ -154,7 +146,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-destination">
                         <div class="thumb">
                             <img src="./img/1.png" alt="thumb1">
@@ -166,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-destination">
                         <div class="thumb">
                             <img src="./img/1.png" alt="thumb1">
@@ -178,7 +170,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-destination">
                         <div class="thumb">
                             <img src="./img/1.png" alt="thumb1">
@@ -190,7 +182,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-destination">
                         <div class="thumb">
                             <img src="./img/1.png" alt="thumb1">
@@ -202,7 +194,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-destination">
                         <div class="thumb">
                             <img src="./img/1.png" alt="thumb1">
@@ -214,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-destination">
                         <div class="thumb">
                             <img src="./img/1.png" alt="thumb1">
@@ -233,25 +225,25 @@
 
     <!-- Newletter area start -->
     <section class="newletter-area overlay">
-        <div class="grid wide">
+        <div class="container">
             <div class="row align-item">
-                <div class="col l-10">
+                <div class="col col-lg-10">
                     <div class="row">
-                        <div class="col l-5">
+                        <div class="col col-lg-5">
                             <div class="letter-text">
                                 <h4>Đăng kí bản tin của chúng tôi</h4>
                                 <p>Đăng ký bản tin để nhận ưu đãi và về các địa điểm mới để khám phá.</p>
                             </div>
                         </div>
-                        <div class="col l-7 align-item">
+                        <div class="col col-lg-7 align-item">
                             <div class="letter-form">
                                 <div class="row">
-                                    <div class="col l-9">
+                                    <div class="col col-lg-9">
                                         <div class="newsletter_field">
                                             <input type="email" name="" id="" placeholder="Nhập email của bạn...">
                                         </div>
                                     </div>
-                                    <div class="col l-3">
+                                    <div class="col col-lg-3">
                                         <div class="newletter_btn">
                                             <button type="submit" class="btn">Đăng kí</button>
                                         </div>
@@ -268,9 +260,9 @@
 
     <!-- Popular places start -->
     <section class="travel-main popular-place">
-        <div class="grid wide">
+        <div class="container">
             <div class="row align-item">
-                <div class="col l-6">
+                <div class="col col-lg-6">
                     <div class="section-title">
                         <h3>Địa điểm phổ biến</h3>
                         <p>Suffered alteration in some form, by injected humour or good day randomised booth anim 8-bit hella wolf moon beard words.</p>
@@ -278,14 +270,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/2.png" alt="popular place">
-                            <a href="" class="price">$500</a>
+                            <a href="./tour-detail.html" class="price">$500</a>
                         </div>
                         <div class="place-info">
-                            <a href="">
+                            <a href="./tour-detail.html">
                                 <h3>California</h3>
                             </a>
                             <p>United State of America</p>
@@ -307,7 +299,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/6.png" alt="popular place">
@@ -336,7 +328,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/3.png" alt="popular place">
@@ -365,7 +357,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/6.png" alt="popular place">
@@ -394,7 +386,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/1.png" alt="popular place">
@@ -423,7 +415,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/2.png" alt="popular place">
@@ -452,7 +444,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/6.png" alt="popular place">
@@ -481,7 +473,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/1.png" alt="popular place">
@@ -510,7 +502,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="./img/tour/2.png" alt="popular place">
@@ -541,7 +533,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col l-12">
+                <div class="col col-lg-12">
                     <div class="popular-place-pagi">
                         <ul>
                             <li class="arrow disabled"><i class="fas fa-chevron-left"></i></li>
@@ -561,9 +553,9 @@
 
     <!-- Travel variation area start -->
     <section class="travel-variation overlay">
-        <div class="grid wide">
+        <div class="container">
             <div class="row">
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-travel">
                         <div class="icon">
                             <img src="./img/train.svg" alt="train service">
@@ -572,7 +564,7 @@
                         <p>Một sự thanh thản tuyệt vời đã chiếm hữu toàn bộ tâm hồn tôi.</p>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-travel">
                         <div class="icon">
                             <img src="./img/hotel.svg" alt="train service">
@@ -581,7 +573,7 @@
                         <p>Một sự thanh thản tuyệt vời đã chiếm hữu toàn bộ tâm hồn tôi.</p>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-travel">
                         <div class="icon">
                             <img src="./img/world.svg" alt="train service">
@@ -597,7 +589,7 @@
 
     <!-- Testmonial start -->
     <section class="testimonial-area">
-        <div class="grid wide">
+        <div class="container">
             <div class="row align-item">
                 <div class="testimonial-col">
                     <div class="testimonial-main">
@@ -676,16 +668,16 @@
 
     <!-- Trip start -->
     <section class="travel-main trip">
-        <div class="grid wide">
+        <div class="container">
             <div class="row align-item">
-                <div class="col l-6">
+                <div class="col col-lg-6">
                     <div class="section-title">
-                        <h3>Chuyến đi gần đây</h3>
+                        <h3>Bản tin gần đây</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-trip">
                         <div class="single-trip__img">
                             <img src="./img/trips/trip-1.png" alt="trip1">
@@ -700,7 +692,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-trip">
                         <div class="single-trip__img">
                             <img src="./img/trips/trip-2.png" alt="trip1">
@@ -715,7 +707,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="single-trip">
                         <div class="single-trip__img">
                             <img src="./img/trips/trip-3.png" alt="trip1">

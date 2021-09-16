@@ -35,7 +35,11 @@ public class TourDetail implements Serializable {
     
     @Column (name = "end_date")
     private Date endDate;
-    private String content;
+    @Column (name = "travel_schedule")
+    private String travelSchedule;
+    private String introduction;
+    private String service;
+    private String note;
     
     @OneToOne
     @MapsId
@@ -113,17 +117,17 @@ public class TourDetail implements Serializable {
     }
 
     /**
-     * @return the content
+     * @return the travelSchedule
      */
-    public String getContent() {
-        return content;
+    public String getTravelSchedule() {
+        return travelSchedule;
     }
 
     /**
-     * @param content the content to set
+     * @param travelSchedule the travelSchedule to set
      */
-    public void setContent(String content) {
-        this.content = content;
+    public void setTravelSchedule(String travelSchedule) {
+        this.travelSchedule = travelSchedule;
     }
 
     /**
@@ -138,5 +142,47 @@ public class TourDetail implements Serializable {
      */
     public void setTour(Tour tour) {
         this.tour = tour;
+    }
+
+    /**
+     * @return the introduction
+     */
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    /**
+     * @param introduction the introduction to set
+     */
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    /**
+     * @return the service
+     */
+    public String getService() {
+        return service;
+    }
+
+    /**
+     * @param service the service to set
+     */
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    /**
+     * @return the note
+     */
+    public String getNote() {
+        return note;
+    }
+
+    /**
+     * @param note the note to set
+     */
+    public void setNote(String note) {
+        this.note = note;
     }
 }

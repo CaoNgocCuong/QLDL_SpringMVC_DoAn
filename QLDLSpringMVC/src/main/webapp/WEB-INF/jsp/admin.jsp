@@ -9,7 +9,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
- <div class="main-content">
+<script src="<c:url value="/js/script-adminpage.js"/>"></script>
+
+<div class="main-content">
     <div class="info-card">
         <div class="card">
             <div class="card-icon">
@@ -81,10 +83,9 @@
                             </c:if>
                             <td><a href="#" class="btn active">${user.active}</a></td>
                         </tr>
-                    </c:forEach>                   
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<script src="./js/script-adminpage.js"></script>

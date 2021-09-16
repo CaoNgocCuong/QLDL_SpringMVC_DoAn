@@ -6,6 +6,7 @@
 package com.da.repository;
 
 import com.da.pojos.Tour;
+import com.da.pojos.TourDetail;
 import java.util.List;
 
 /**
@@ -16,5 +17,6 @@ public interface ToursRepository {
     List<Tour> getTours(String tourName, int page);
     List<Tour> getTours(String tourName);
     boolean addTour(Tour tour);
+    boolean addTourDetails(TourDetail tourDetail);
     long countTours();
 }

@@ -8,6 +8,7 @@ package com.da.service.impl;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.da.pojos.Tour;
+import com.da.pojos.TourDetail;
 import com.da.repository.ToursRepository;
 import com.da.service.ToursService;
 import java.io.IOException;
@@ -57,6 +58,11 @@ public class ToursServiceImpl implements ToursService{
         }  
 
         return false;
+    }
+
+    @Override
+    public boolean addTourDetail(TourDetail tourDetail) {
+        return this.toursRepository.addTourDetails(tourDetail);
     }
     
 }

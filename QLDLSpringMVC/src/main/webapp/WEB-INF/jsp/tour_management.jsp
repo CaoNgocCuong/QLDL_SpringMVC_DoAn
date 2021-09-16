@@ -9,6 +9,8 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<c:url value="/admin/tour_management" var="action"/>
+
 <!-- Main - content start -->
 <div class="main-content">
     <div class="main-table">
@@ -41,7 +43,7 @@
                     <tr>
                         <td>${tour.id}</td>
                         <td>${tour.name}</td>
-                        <td>Du lịch trong nước</td>
+                        <td>${tour.tourType}</td>
                         <td>${tour.tourDays}</td>
                         <td>${tour.tourNights}</td>
                         <td>${tour.adultsPrice}</td>
@@ -68,7 +70,12 @@
         <div class="main-title">
             <h2><i class="fas fa-plus mr-2"></i></i>Thêm chuyến đi</h2>
         </div>
-        <form:form class="form-add" modelAttribute="tour" enctype="multipart/form-data">
+        <c:if test="${errMsg != null}">
+            <div class = "alert alert-danger">
+                ${errMsg}
+            </div>
+        </c:if>
+        <form:form action="${action}" class="form-add" modelAttribute="tour" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName" class="form-label col-form-label-lg ">Tên chuyến đi</label>
@@ -114,11 +121,11 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu</label>
-                    <input type="datetime-local" name="startDate" path="startDate" class="form-control form-control-lg" id="inputTimeStart">
+                    <input type="date" name="startDate" path="startDate" class="form-control form-control-lg" id="inputTimeStart">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc</label>
-                    <input type="datetime-local" name="endDate" path="endDate" class="form-control form-control-lg" id="inputTimeEnd">
+                    <input type="date" name="endDate" path="endDate" class="form-control form-control-lg" id="inputTimeEnd">
                 </div>
             </div>
             <div class="form-group">
@@ -144,51 +151,46 @@
         </form:form>
         <hr class="m-5" />
         <div class="main-title">
-            <h2><i class="fas fa-plus mr-2"></i></i>Thêm chuyến đi chi tiết</h2>
+            <h2><i class="fas fa-plus mr-2"></i></i>Thêm chi tiết chuyến đi</h2>
         </div>
-        <form class="form-add">
+        <form:form class="form-add" modelAttribute="tourDetail" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <select id="inputListTour" class="form-control form-control-lg">
-                    <option selected disabled>Chọn mã</option>
-                    <option value="0001">0001</option>
-                    <option value="0002">0002</option>
+                <select id="inputListTour" name="id" path="id" class="form-control form-control-lg">
+                    <option selected disabled>Chọn mã tour</option>
+                    <c:forEach var="tour" items="${tours}">
+                        <option value="${tour.id}">${tour.id}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputDeparture" class="form-label col-form-label-lg">Điểm khởi hành</label>
-                    <input type="text" class="form-control form-control-lg" id="inputDeparture">
+                    <input type="text" name="departure" path="departure" class="form-control form-control-lg" id="inputDeparture">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputDestination" class="form-label col-form-label-lg">Điểm đến</label>
-                    <input type="text" class="form-control form-control-lg" id="inputDestination">
+                    <input type="text" name="destination" path="destination" class="form-control form-control-lg" id="inputDestination">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu</label>
-                    <input type="date" class="form-control form-control-lg" id="inputTimeStart">
+                    <input type="date" name="startDate" path="startDate" class="form-control form-control-lg" id="inputTimeStart">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc</label>
-                    <input type="date" class="form-control form-control-lg" id="inputTimeEnd">
+                    <input type="date" name="endDate" path="endDate" class="form-control form-control-lg" id="inputTimeEnd">
                 </div>
             </div>
             <div class="form-group">
                 <label for="summernote" class="form-label col-form-label-lg">Nội dung</label>
-                <textarea class="form-control" id="summernote" name="editordata" rows="3"></textarea>
-              </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="activeCheck-detail" checked="true">
-                <label class="form-check-label" for="activeCheck-detail">
-                    Active
-                </label>
+                <textarea class="form-control" id="summernote" name="content" path="content" rows="3"></textarea>
             </div>
             <div class="form-group btn-wrapper">
                 <button type="submit" class="btn btn-lg">Thêm</button>
             </div>
-        </form>
+        </form:form>
     </div>
 </div>
 <!-- Main - content end -->

@@ -9,11 +9,11 @@
 
 <div class="side-bar">
     <div class="logo">
-        <a href="#"><img src="./img/logo.png" alt="travelCK"></a>
+        <a href="#"><img src="<c:url value="/img/logo.png"/>" alt="travelCK"></a>
     </div>
     <div class="avtar">
         <div class="avtar-img">
-            <img src="./img/avtar/avtar.jpg" alt="avtar">
+            <img src="<c:url value="/img/avtar/avtar.jpg"/>" alt="avtar">
         </div>
         <div class="name-pos">
             <h3>Cao Ngọc Cường</h3>
@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li> 
-                <a href="#" class="link-wrapper">
+                <a href="<c:url value="/logout"/>" class="link-wrapper">
                     <span><i class="fas fa-sign-out-alt"></i></span>
                     <span class="nav-link">Đăng xuất</span>
                 </a>

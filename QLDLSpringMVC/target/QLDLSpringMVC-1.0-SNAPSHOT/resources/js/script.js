@@ -29,39 +29,13 @@ slider(1, 2000, "testimonial-radio")
 
 // Slider automatic ends
 
-// slide testimonial 
-var btnTestimonial = document.querySelectorAll(".btn-testimonial")
-var slide = document.getElementById("slide-testimonial")
+// ------------------------- Tour -------------------------
+var popularSearchItems = document.querySelectorAll('.popular-place__list .popular-place__item')
 
-btnTestimonial[0].onclick = function() {
-    slide.style.transform = "translateX(0px)"
-
-    for (let i = 0; i < 4; i++) {
-        btnTestimonial[i].classList.remove("active")
+popularSearchItems.forEach(item => {
+    item.onclick = () => {
+        item.classList.toggle('hide')
     }
-    this.classList.add("active")
-}
+})
 
-btnTestimonial[1].onclick = function() {
-    slide.style.transform = "translateX(-800px)"
-    for (let i = 0; i < 4; i++) {
-        btnTestimonial[i].classList.remove("active")
-    }
-    this.classList.add("active")
-}
 
-btnTestimonial[2].onclick = function() {
-    slide.style.transform = "translateX(-1600px)"
-    for (let i = 0; i < 4; i++) {
-        btnTestimonial[i].classList.remove("active")
-    }
-    this.classList.add("active")
-}
-
-btnTestimonial[3].onclick = function() {
-    slide.style.transform = "translateX(-2400px)"
-    for (let i = 0; i < 4; i++) {
-        btnTestimonial[i].classList.remove("active")
-    }
-    this.classList.add("active")
-}
