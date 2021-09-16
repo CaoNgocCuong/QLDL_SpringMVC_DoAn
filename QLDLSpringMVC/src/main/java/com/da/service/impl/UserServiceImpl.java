@@ -77,5 +77,23 @@ public class UserServiceImpl implements UserService{
     public List<User> getUsers(String username) {
         return this.userRepository.getUsers(username);
     }
+
+    @Override
+    public boolean addEmployeeUser(User employee) {
+        String pass = employee.getPassword();
+        employee.setPassword(this.passwordEncoder.encode(pass));
+        employee.setUserRole(User.ROLE_EMPLOYEE);
+        employee.setActive(TRUE);
+        try {
+             Map r = this.cloudinary.uploader().upload(employee.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+             employee.setAvatar((String) r.get("secure_url"));
+             return this.userRepository.addUser(employee);
+        } catch (IOException ex) {
+             System.err.println("===ADD===" + ex.getMessage());
+             ex.printStackTrace();
+        }  
+
+        return false;
+    }
     
 }

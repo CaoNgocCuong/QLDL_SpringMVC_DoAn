@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="blog-item__content">
                                     <h3 class="blog-item__content-title">
-                                        <a href="<c:url value="/blog/blog-details"/>">${post.title}</a>
+                                        <a href="<c:url value="/blog/blog_details"/>">${post.title}</a>
                                     </h3>
                                     <p>${post.content}</p>
                                     <div class="blog-item__wrap">

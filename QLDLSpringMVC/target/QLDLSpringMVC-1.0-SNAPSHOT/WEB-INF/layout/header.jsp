@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
         <!--[if lte IE 9]>
                 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
             <![endif]-->
@@ -66,6 +67,11 @@
                         <li class="navbar-list__item">
                             <a href="<c:url value="/about"/>">Về chúng tôi</a>
                         </li>
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <li class="navbar-list__item">
+                                <a href="<c:url value="/admin"/>">Admin</a>
+                            </li>
+                        </sec:authorize>
                     </ul>
                 </div>
                 <div class="col m-4 l-4">
@@ -88,20 +94,30 @@
                         </div>
                         <div class="user-wrapper">
                             <i class="far fa-user user-icon"></i>
-                            <div class="wrap">
-                                <span class="user-header">Tài khoản</span>
-                                <i class="fas fa-angle-down user-down"></i>
-                                <ul class="user-dropdown">
-                                    <li class="btn-login-wrap">
-                                        <a href="<c:url value="/login"/>" class="btn-login">Đăng nhập</a>
-                                    </li>
-                                    <li class="register-text">
-                                        Chưa có tài khoản?
-                                        <a href="<c:url value="/register"/>" class="register-link">Đăng ký</a>
-                                        ngay!
-                                    </li>
-                                </ul>
-                            </div>
+                            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                <div class="wrap">
+                                    <span class="user-header">Tài khoản</span>
+                                    <i class="fas fa-angle-down user-down"></i>
+                                    <ul class="user-dropdown">
+                                        <li class="btn-login-wrap">
+                                            <a href="<c:url value="/login"/>" class="btn-login">Đăng nhập</a>
+                                        </li>
+                                        <li class="register-text">
+                                            Chưa có tài khoản?
+                                            <a href="<c:url value="/register"/>" class="register-link">Đăng ký</a>
+                                            ngay!
+                                        </li>
+                                    </ul>
+                                </div>
+                            </c:if>      
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <div class="wrap">
+                                    <span class="user-header">
+                                        <a href="#">${pageContext.request.userPrincipal.name}</a>
+                                        <a href="<c:url value="/logout"/>">(Đăng xuất)</a>
+                                    </span>
+                                </div>
+                            </c:if>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,10 @@
+@media screen and (max-width: 1119px) {
+    .main-content .main-table .user-table table {
+        width: 180%;
+    }
+}
+
+
 /* Tablet */
 @media screen and (max-width: 992px) {
     .side-bar {
@@ -16,6 +23,10 @@
 
     .slide-left {
         margin-left: 0;
+    }
+
+    .main-content .main-table .user-table table {
+        width: 180%;
     }
 
     .side-bar.hide .avtar .name-pos,

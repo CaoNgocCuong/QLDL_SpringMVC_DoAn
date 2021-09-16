@@ -14,5 +14,7 @@ import java.util.List;
  */
 public interface ToursService {
     List<Tour> getTours(String tourName, int page);
+    List<Tour> getTours(String tourName);
+    boolean addTour(Tour tour);
     long countTours();
 }

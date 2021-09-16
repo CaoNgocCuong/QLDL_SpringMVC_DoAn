@@ -34,6 +34,7 @@ com\da\configs\SpringSecurityConfig.class
 com\da\controllers\ContactController.class
 com\da\configs\WebApplicationContextConfig.class
 com\da\repository\impl\BlogRepositoryImpl.class
+com\da\controllers\Admin_HomeController.class
 com\da\pojos\Tour.class
 com\da\service\BlogService.class
 com\da\controllers\AboutController.class

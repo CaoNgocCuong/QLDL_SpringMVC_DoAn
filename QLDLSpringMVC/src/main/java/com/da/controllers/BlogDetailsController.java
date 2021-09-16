@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @ControllerAdvice
 public class BlogDetailsController {
-    @GetMapping("/blog/blog-details")
+    @GetMapping("/blog/blog_details")
     public String blogDeltailsView() {
       return "blog_details";
     }
