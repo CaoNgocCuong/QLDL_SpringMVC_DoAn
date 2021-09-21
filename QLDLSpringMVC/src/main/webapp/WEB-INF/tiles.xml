@@ -66,6 +66,10 @@ and open the template in the editor.
         <put-attribute name="title" value="Quản lý tour" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/tour_management.jsp" />
     </definition>
+    <definition name="tour-detail-management" extends="adminBaseLayout">
+        <put-attribute name="title" value="Quản lý chi tiết tour" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/tour-detail-management.jsp" />
+    </definition>
     <definition name="user_management" extends="adminBaseLayout">
         <put-attribute name="title" value="Quản lý người dùng" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/user_management.jsp" />

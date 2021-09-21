@@ -35,10 +35,31 @@
                 </a>
             </li>
             <li>
-                <a href="<c:url value="/admin/tour_management"/>" class="link-wrapper active">
+                <div class="link-wrapper active">
                     <span><i class="fas fa-route"></i></span>
-                    <span class="nav-link">Quản lý du lịch</span>
-                </a>
+                    <span class="nav-link">
+                        Quản lý du lịch
+                    </span>
+                    <span class="ml-5"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <ul class="side-bar-subnav">
+                    <li>
+                        <a href="<c:url value="/admin/tour_management"/>">
+                            <i class="fas fa-plus mr-2"></i>
+                            <span class="hide-nav">Thêm chuyến đi</span>
+                        </a>
+                    </li>
+                    <li class="page-2">
+                        <a href="<c:url value="/admin/tour-detail-management"/>"><i class="fas fa-plus mr-2"></i>
+                            <span class="hide-nav">Thêm chi tiết chuyến đi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<c:url value="/admin/tour-photo-management"/>"><i class="fas fa-images mr-2"></i>
+                            <span class="hide-nav">Thêm ảnh cho chuyến đi</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#" class="link-wrapper">

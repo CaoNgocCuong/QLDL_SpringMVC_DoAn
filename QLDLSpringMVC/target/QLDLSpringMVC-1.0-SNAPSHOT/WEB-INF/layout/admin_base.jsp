@@ -37,6 +37,7 @@
         <link href="<c:url value="/css/dashboard.css"/>" rel="stylesheet"/>
         <link href="<c:url value="/css/responsive-adminpage.css"/>" rel="stylesheet"/>
         <link href="<c:url value="/css/admin-management.css"/>" rel="stylesheet"/>
+        <script src="<c:url value="/js/script-adminpage.js"/>"></script>
     </head>
     <body>
         <!-- Side bar -->

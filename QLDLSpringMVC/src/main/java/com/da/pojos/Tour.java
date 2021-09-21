@@ -59,6 +59,10 @@ public class Tour implements Serializable {
     @Column (name = "active")
     private Boolean active;
     
+    private String introduction;
+    private String service;
+    private String note;
+    
     @Transient
     private MultipartFile file;
     
@@ -297,5 +301,47 @@ public class Tour implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the introduction
+     */
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    /**
+     * @param introduction the introduction to set
+     */
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
+    /**
+     * @return the service
+     */
+    public String getService() {
+        return service;
+    }
+
+    /**
+     * @param service the service to set
+     */
+    public void setService(String service) {
+        this.service = service;
+    }
+
+    /**
+     * @return the note
+     */
+    public String getNote() {
+        return note;
+    }
+
+    /**
+     * @param note the note to set
+     */
+    public void setNote(String note) {
+        this.note = note;
     }
 }
