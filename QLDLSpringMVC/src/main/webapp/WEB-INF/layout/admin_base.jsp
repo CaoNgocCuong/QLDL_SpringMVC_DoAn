@@ -5,19 +5,22 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Travel</title>
+        <title>
+            <tiles:insertAttribute name="title" />
+        </title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./fonts/fontawesome-free-5.15.4-web/css/all.min.css">
+        <link rel="stylesheet" href="<c:url value="/fonts/fontawesome-free-5.15.4-web/css/all.min.css"/>"/>
 
         <!-- Bootstrap 4 and summernote start -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -30,17 +33,18 @@
         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
         <!-- Bootstrap 4 and summernote end --> 
 
-        <link rel="stylesheet" href="./css/base.css">   
-        <link rel="stylesheet" href="./css/dashboard.css">
-        <link rel="stylesheet" href="./css/responsive-adminpage.css">
-        <link rel="stylesheet" href="./css/admin-management.css">
+        <link href="<c:url value="/css/base.css"/>" rel="stylesheet"/>   
+        <link href="<c:url value="/css/dashboard.css"/>" rel="stylesheet"/>
+        <link href="<c:url value="/css/responsive-adminpage.css"/>" rel="stylesheet"/>
+        <link href="<c:url value="/css/admin-management.css"/>" rel="stylesheet"/>
+        <script src="<c:url value="/js/script-adminpage.js"/>"></script>
     </head>
     <body>
-        <!-- Header -->
-        <tiles:insertAttribute name="admin_header"/>
-        
         <!-- Side bar -->
         <tiles:insertAttribute name="admin_side_bar" />
+        
+        <!-- Header -->
+        <tiles:insertAttribute name="admin_header"/>
         
         <!-- Content -->
         <tiles:insertAttribute name="admin_content" />

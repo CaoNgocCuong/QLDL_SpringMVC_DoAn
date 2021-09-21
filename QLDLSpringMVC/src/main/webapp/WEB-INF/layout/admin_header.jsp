@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <header>
@@ -13,7 +14,7 @@
                 <li>
                     <div class="profile">
                         <div class="avtar-img">
-                            <img src="./img/avtar/avtar.jpg" alt="avtar">
+                            <img src="<c:url value="/img/avtar/avtar.jpg"/>" alt="avtar">
                         </div>
                         <div class="avtar-name">
                             <h3>Cao Ngọc Cường</h3>

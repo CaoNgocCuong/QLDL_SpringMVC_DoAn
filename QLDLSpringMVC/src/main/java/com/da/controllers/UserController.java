@@ -35,10 +35,10 @@ public class UserController {
     @Autowired
     private WebAppValidator userValidator;
     
-    @InitBinder
-    public void initBinder(WebDataBinder binder){
-        binder.setValidator(userValidator);
-    }
+//    @InitBinder
+//    public void initBinder(WebDataBinder binder){
+//        binder.setValidator(userValidator);
+//    }
     
     @GetMapping("/register")
     public String registerView(Model model) {

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: travelmsdbjava
 -- ------------------------------------------------------
@@ -230,7 +230,7 @@ CREATE TABLE `tag` (
   `name` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,6 +239,7 @@ CREATE TABLE `tag` (
 
 LOCK TABLES `tag` WRITE;
 /*!40000 ALTER TABLE `tag` DISABLE KEYS */;
+INSERT INTO `tag` VALUES (5,'Bien'),(2,'DaLat'),(8,'HoiAn'),(4,'NhaTrang'),(1,'PhuQuoc'),(3,'QuangNgai'),(7,'Sapa'),(6,'VinhHaLong');
 /*!40000 ALTER TABLE `tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +289,7 @@ CREATE TABLE `tour` (
   `end_date` date NOT NULL,
   `active` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -297,7 +298,7 @@ CREATE TABLE `tour` (
 
 LOCK TABLES `tour` WRITE;
 /*!40000 ALTER TABLE `tour` DISABLE KEYS */;
-INSERT INTO `tour` VALUES (1,'Nhà Nobita','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,500000,200000,'2021-09-09','2021-09-13',1),(2,'Nhà Doraemon','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,1,100000,80000,'2021-09-09','2021-09-13',1),(3,'1','1','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,11,11,'2021-09-09','2021-09-09',1),(4,'2','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,11,22,'2021-09-09','2021-09-09',1),(5,'2','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,3,33,33,'2021-09-09','2021-09-09',1),(6,'a','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1,1,121,12,'2021-09-09','2021-09-09',1),(7,'s','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(8,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1,3,12,12,'2021-09-09','2021-09-09',1),(9,'s','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(10,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(11,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(12,'g','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(13,'d','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(14,'v','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(15,'t','2','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,3,12,12,'2021-09-09','2021-09-09',1),(16,'hjhj','3','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,2,2,'2021-09-09','2021-09-09',1),(17,'Nhà ai đây','3','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,3,3,'2021-09-09','2021-09-09',1);
+INSERT INTO `tour` VALUES (1,'Nhà Nobita','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,500000,200000,'2021-09-09','2021-09-13',1),(2,'Nhà Doraemon','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,1,100000,80000,'2021-09-09','2021-09-13',1),(3,'1','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,11,11,'2021-09-09','2021-09-09',0),(4,'2','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,11,22,'2021-09-09','2021-09-09',1),(5,'2','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,3,33,33,'2021-09-09','2021-09-09',1),(6,'a','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1,1,121,12,'2021-09-09','2021-09-09',1),(7,'s','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(8,'d','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',1,3,12,12,'2021-09-09','2021-09-09',1),(9,'s','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',0),(10,'d','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(11,'d','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(12,'g','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,12,12,'2021-09-09','2021-09-09',1),(13,'d','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(14,'v','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,2,12,12,'2021-09-09','2021-09-09',1),(15,'t','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',3,3,12,12,'2021-09-09','2021-09-09',1),(16,'hjhj','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,2,2,'2021-09-09','2021-09-09',1),(17,'Nhà ai đây','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg',2,2,3,3,'2021-09-09','2021-09-09',1),(18,'Bắc Giang','Du lịch trong nước','https://res.cloudinary.com/khangou/image/upload/v1631748952/fvpnmnpcycurdns6d06r.jpg',10,10,10,10,'2021-09-16','2021-09-25',1),(19,'Bắc Giang','Du lịch nước ngoài','https://res.cloudinary.com/khangou/image/upload/v1631748952/fvpnmnpcycurdns6d06r.jpg',10,10,2222220,1111110,'2021-09-16','2021-09-25',1);
 /*!40000 ALTER TABLE `tour` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,7 +315,10 @@ CREATE TABLE `tour_detail` (
   `destination` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `end_date` datetime DEFAULT NULL,
-  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `travel_schedule` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `introduction` longtext COLLATE utf8mb4_unicode_ci,
+  `service` longtext COLLATE utf8mb4_unicode_ci,
+  `note` longtext COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_tour_detail_tour` FOREIGN KEY (`id`) REFERENCES `tour` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -373,12 +377,12 @@ CREATE TABLE `user` (
   `avatar` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` bit(1) NOT NULL DEFAULT b'1',
-  `user_role` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `user_role` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `phone_UNIQUE` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -387,7 +391,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'caubengok','12345','nguyen van a','2021-09-02','0332568794','a@gmail.com','13456yhgbv','quang ngai',_binary '','USER'),(2,'khang','123','Trần Vũ Khang','2021-09-02','0334010050','1851050059khang@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630526042/hhkhyk6bnqzyx5bugdvn.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(3,'a','123','Trần Vũ Khang','2021-09-02','0334010051','khangbum@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630526120/slmjkv8ojorjhq0kf8gj.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(4,'khanghjhj','$2a$10$opMY9TTrlEPAwuYVu0hYC.ZRnyaX4nqrJBFiIM6JDQg56QOUAf5H.','Trần Vũ Khang','2021-09-04','0334010052','khangbum123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630698713/dfpg7mimllx8oj40mjpe.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(5,'cuong','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','cao ngoc cuong','2021-09-04','0334010053','khang123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630699758/oyuu3z3ljaxvz7ztgfal.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(7,'cuong1','$2a$10$UxI/qloY0nzq4c6zduvjD.dwCjuFeR8GZbgolXO7QJAR/ElfOX8cm','Cao Ngọc Cường','2021-09-04','0334010054','1851050013cuong@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630703824/bmotykys7usrgwvcf2d3.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(9,'cuong2','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-04','0334010055','cu@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(10,'cuong3','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-13','0334010056','cu2@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','USER'),(11,'vukhang123','$2a$10$T1xvMAlTUu2IHDHOluXm3uQIixXiWmapMsfXqD6mhQonth4AXruwy','Trần Vũ Khang','2021-09-13',NULL,'123a@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1631513867/ajrqu1hdzffbf4ve1a5o.jpg',NULL,_binary '','USER');
+INSERT INTO `user` VALUES (1,'caubengok','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','nguyen van a','2021-09-02','0332568794','a@gmail.com','13456yhgbv','quang ngai',_binary '','ROLE_USER'),(2,'khang','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','Trần Vũ Khang','2021-09-02','0334010050','1851050059khang@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630526042/hhkhyk6bnqzyx5bugdvn.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(3,'a','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','Trần Vũ Khang','2021-09-02','0334010051','khangbum@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630526120/slmjkv8ojorjhq0kf8gj.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(4,'khanghjhj','$2a$10$opMY9TTrlEPAwuYVu0hYC.ZRnyaX4nqrJBFiIM6JDQg56QOUAf5H.','Trần Vũ Khang','2021-09-04','0334010052','khangbum123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630698713/dfpg7mimllx8oj40mjpe.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(5,'cuong','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','cao ngoc cuong','2021-09-04','0334010053','khang123@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630699758/oyuu3z3ljaxvz7ztgfal.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(7,'cuong1','$2a$10$UxI/qloY0nzq4c6zduvjD.dwCjuFeR8GZbgolXO7QJAR/ElfOX8cm','Cao Ngọc Cường','2021-09-04','0334010054','1851050013cuong@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1630703824/bmotykys7usrgwvcf2d3.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(9,'cuong2','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-04','0334010055','cu@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(10,'cuong3','$2a$10$KlVYjYwnZ4tQYcbvm3RnY.mffgmYbsf7PoxZdCCeusuNQ2KNOOn6u','Cao Ngọc Cường','2021-09-13','0334010056','cu2@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1630703989/mrqymli6wjxl2edupcj1.jpg','117 ĐHT 05, phường Tân Hưng Thuận, quận 12, Tp.HCM',_binary '','ROLE_USER'),(11,'vukhang123','$2a$10$T1xvMAlTUu2IHDHOluXm3uQIixXiWmapMsfXqD6mhQonth4AXruwy','Trần Vũ Khang','2021-09-13','0334010012','123a@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1631513867/ajrqu1hdzffbf4ve1a5o.jpg',NULL,_binary '','ROLE_USER'),(12,'admin','$2a$10$EAIQ8coJ0HYxGkEANW8AXueAgnNCAhfYhSyfJ0XY4sfWikw99x2qW','Trần Vũ Khang','2021-09-14','0334010256','admin@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1631513867/ajrqu1hdzffbf4ve1a5o.jpg',NULL,_binary '','ROLE_ADMIN'),(13,'dhthanh','$2a$10$Cu0Xc8c05UO996wn8l218ON6PeME.J1pDYvo6QjoAA2O00j/KK2l2','Dương Hữu Thành','2021-09-15','0334015854','thanh@ou.edu.vn','https://res.cloudinary.com/khangou/image/upload/v1631656277/rpln9c3ckkgcyp1adjob.jpg','VinHome Bình Thạnh, Tp. HCM',_binary '','ROLE_EMPLOYEE'),(14,'hieu123','$2a$10$X2uWsxHaFjPRZvF33QBWz.lslPxcFpxbKduDl5Yo3TNls.ekEBHfm','Hồ Quang Hiếu','2021-09-17','0334011212','hieu@gmail.com','https://res.cloudinary.com/khangou/image/upload/v1631816209/eglzksjgckmfplvcinbj.jpg','VinHome Bình Thạnh, Tp. HCM',_binary '','ROLE_EMPLOYEE');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -400,4 +404,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-13 17:08:35
+-- Dump completed on 2021-09-17  1:54:37

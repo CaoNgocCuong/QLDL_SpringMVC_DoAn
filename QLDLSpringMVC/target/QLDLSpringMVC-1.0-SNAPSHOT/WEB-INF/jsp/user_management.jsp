@@ -10,12 +10,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+
+<!-- Script -->
+<script src="<c:url value="/js/script-adminpage.js"/>"></script>
 <div class="main-content">
     <div class="main-table">
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Người dùng trong hệ thống</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" name="userName" placeholder="Tìm kiếm...">
+                <input type="text" placeholder="Tìm kiếm..." required="">
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>   
@@ -54,6 +57,10 @@
                                 <td>Admin</td>
                             </c:if>
                             <td><a href="#" class="btn active">${user.active}</a></td>
+                            <td>
+                                <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
+                                <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                            </td>   
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -62,7 +69,7 @@
     </div>
     <div class="container-fluid main-table">
         <div class="main-title">
-            <h2><i class="fas fa-user-plus mr-2"></i>Thêm nhân viên</h2>
+            <h2><i class="fas fa-user-plus mr-2"></i>Thêm người dùng</h2>
         </div>
         <form:form class="form-add" modelAttribute="user" enctype="multipart/form-data">
             <div class="form-row">
@@ -134,6 +141,3 @@
         </form:form>
     </div>
 </div>
-
-<!-- Script -->
-<script src="./js/script-adminpage.js"></script>

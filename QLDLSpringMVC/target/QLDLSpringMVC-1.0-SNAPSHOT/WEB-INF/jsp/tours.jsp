@@ -9,7 +9,8 @@
 
 <c:url value="/tours" var="action" />
 
-<div id="main" var="">
+
+<div id="main">
     <!-- Slider start -->
     <div class="slider">
         <div class="sliders">
@@ -23,9 +24,9 @@
             <!-- Slide image start -->
             <div class="slide first">
                 <img src="./img/banner2.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -36,9 +37,9 @@
             </div>
             <div class="slide ">
                 <img src="./img/banner4.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -49,9 +50,9 @@
             </div>
             <div class="slide ">
                 <img src="./img/banner3.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -62,9 +63,9 @@
             </div>
             <div class="slide ">
                 <img src="./img/banner.png" alt="">
-                <div class="grid wide">
+                <div class="container">
                     <div class="row">
-                        <div class="col l-12 slider-text-align">
+                        <div class="col col-lg-12 slider-text-align">
                             <div class="slider-text">
                                 <h3>Indonesia</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -97,18 +98,18 @@
 
     <!-- Search start -->
     <div class="search-area">
-        <div class="grid wide">
+        <div class="container">
             <div class="row">
-                <div class="col l-3">
+                <div class="col col-lg-3">
                     <div class="form-ask">
                         <h3>Bạn muốn đi đâu?</h3>
                     </div>
                 </div>
-                <div class="col l-9">
+                <div class="col col-lg-9">
                     <div class="search-wrap">
                         <form action="" class="search-form">
                             <div class="form-item">
-                                <input type="text" name="tourName" id="" placeholder="Bạn muốn đi đâu?">
+                                <input type="text" name="" id="" placeholder="Bạn muốn đi đâu?">
                             </div>
                             <div class="form-item">
                                 <input type="date" name="" id="">
@@ -133,13 +134,13 @@
 
     <!-- Popular places start -->
     <section class="travel-main popular-place">
-        <div class="grid wide">
+        <div class="container">
             <div class="row align-item">
-                <div class="col l-12">
-                    <div class="popular-place__box-top hide">
+                <div class="col col-lg-12">
+                    <div class="popular-place__box-top">
                         <span>Sắp xếp:</span>
                         <ul class="popular-place__list">
-                            <li class="popular-place__item">Ngày khởi hành 
+                            <li class="popular-place__item hide">Ngày khởi hành 
                                 <i class="fas fa-long-arrow-alt-down"></i>
                                 <i class="fas fa-long-arrow-alt-up"></i>
                             </li>
@@ -159,18 +160,17 @@
                     </div>
                 </div>
             </div>
-            
             <div class="row">
-                <c:forEach var="t" items="${tours}">
-                    <div class="col l-4">
+                <c:forEach var="tour" items="${tours}">
+                    <div class="col col-lg-4">
                         <div class="single-place">
                             <div class="thumb">
-                                <img src="${t.photo}" alt="popular place">
-                                <a href="" class="price">${t.childrenPrice} - ${t.adultsPrice} (VNĐ)</a>
+                                <img src="${tour.photo}" alt="popular place">
+                                <a href="#" class="price">${tour.childrenPrice} - ${tour.adultsPrice} (VNĐ)</a>
                             </div>
                             <div class="place-info">
-                                <a href="">
-                                    <h3>${t.name}</h3>
+                                <a href="./tour-detail.html">
+                                    <h3>${tour.name}</h3>
                                 </a>
                                 <p>United State of America</p>
                                 <div class="rating-days">
@@ -184,7 +184,7 @@
                                     </span>
                                     <div class="days">
                                         <i class="far fa-clock"></i>
-                                        <a href="">${t.tourDays} ngày ${t.tourNights} đêm</a>
+                                        <a href="">${tour.tourDays} ngày ${tour.tourNights} đêm</a>
                                     </div>
 
                                 </div>
@@ -194,7 +194,7 @@
                 </c:forEach>
             </div>
             <div class="row">
-                <div class="col l-12">
+                <div class="col col-lg-12">
                     <div class="popular-place-pagi">
                         <ul>
                             <li class="arrow disabled"><i class="fas fa-chevron-left"></i></li>
@@ -207,6 +207,102 @@
                             </c:forEach>
                             <li class="arrow"><i class="fas fa-chevron-right"></i></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Popular places ends -->
+
+     <!-- Newletter area start -->
+     <section class="newletter-area overlay">
+        <div class="container">
+            <div class="row align-item">
+                <div class="col col-lg-10">
+                    <div class="row">
+                        <div class="col col-lg-5">
+                            <div class="letter-text">
+                                <h4>Đăng kí bản tin của chúng tôi</h4>
+                                <p>Đăng ký bản tin để nhận ưu đãi và về các địa điểm mới để khám phá.</p>
+                            </div>
+                        </div>
+                        <div class="col col-lg-7 align-item">
+                            <div class="letter-form">
+                                <div class="row">
+                                    <div class="col col-lg-9">
+                                        <div class="newsletter_field">
+                                            <input type="email" name="" id="" placeholder="Nhập email của bạn...">
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-3">
+                                        <div class="newletter_btn">
+                                            <button type="submit" class="btn">Đăng kí</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newletter area end -->
+
+    <!-- Trip start -->
+    <section class="travel-main trip">
+        <div class="container">
+            <div class="row align-item">
+                <div class="col col-lg-6">
+                    <div class="section-title">
+                        <h3>Bản tin gần đây</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-4">
+                    <div class="single-trip">
+                        <div class="single-trip__img">
+                            <img src="./img/trips/trip-1.png" alt="trip1">
+                        </div>
+                        <div class="single-trip__info">
+                            <div class="single-trip__date">
+                                <span>Oct 12, 2019</span>
+                            </div>
+                            <a href="">
+                                <h3>Journeys Are Best Measured In New Friends</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-4">
+                    <div class="single-trip">
+                        <div class="single-trip__img">
+                            <img src="./img/trips/trip-2.png" alt="trip1">
+                        </div>
+                        <div class="single-trip__info">
+                            <div class="single-trip__date">
+                                <span>Oct 12, 2019</span>
+                            </div>
+                            <a href="">
+                                <h3>Journeys Are Best Measured In New Friends</h3>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-4">
+                    <div class="single-trip">
+                        <div class="single-trip__img">
+                            <img src="./img/trips/trip-3.png" alt="trip1">
+                        </div>
+                        <div class="single-trip__info">
+                            <div class="single-trip__date">
+                                <span>Oct 12, 2019</span>
+                            </div>
+                            <a href="">
+                                <h3>Journeys Are Best Measured In New Friends</h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

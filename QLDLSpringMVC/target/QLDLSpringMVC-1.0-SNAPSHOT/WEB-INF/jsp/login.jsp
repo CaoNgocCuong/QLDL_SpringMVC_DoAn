@@ -21,7 +21,7 @@
 </c:if>
 
 <c:url value="/login" var="action" />
-
+      
 <div class="main">
     <form action="${action}" method="POST" class="form" id="form-2">
       <h3 class="heading">Đăng nhập</h3>
@@ -53,12 +53,11 @@
         <span class="form-message"></span>
       </div>
       <div class="forgot-password">
-        <a href="#">Quên mật khẩu?</a>
+        <a href="./management.html">Quên mật khẩu?</a>
       </div>
       <button class="form-submit">Đăng nhập</button>
       <div class="form-extends">
-        <p>Bạn chưa có tài khoản? Hãy <a href="./register.html">đăng ký</a> ngay!</p>
+          <p>Bạn chưa có tài khoản? Hãy <a href="<c:url value="/register"/>">đăng ký</a> ngay!</p>
       </div>
-    </form>
-
-  </div>
+    </form> 
+</div>

@@ -1,11 +1,57 @@
+/* ---------------- Bradcam common ----------------- */
+#main .bradcam {
+    position: relative;
+
+    margin-top: 140px;
+    padding: 175px 0;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    z-index: 0;
+}
+
+#main .bradcam:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    
+    background-color: #040E27;
+
+    opacity: 0.15;
+    z-index: -1;
+}
+
+#main .bradcam .bradcam-text {
+    text-align: center;
+}
+
+#main .bradcam .bradcam-text h3 {
+    font-size: 8em;
+    font-weight: 500;
+    line-height: 90px;
+    text-transform: capitalize;
+    font-family: "Nothing You Could Do", cursive;
+
+    color: #fff;
+}
+
+#main .bradcam .bradcam-text p {
+    padding: 8px 0;
+    font-size: 1.8em;
+    font-weight: 400;
+    line-height: 30px;
+    color: #fff;
+}
+
 /* -------------- Top header ---------- */
 .top-header {
     height: 40px;
     background-color: #505768;
-}
-
-.top-header .number-contact {
-    margin-left: 34px;
 }
 
 .number-contact p {
@@ -40,21 +86,8 @@
     z-index: 10;
 }
 
-.btn {
-    width: 134px;
-    padding: 13px 30px;
-    border-radius: 5px;
-    
-    font-size: 2em;
-
-    font-weight: 700;
-
-    background-color: var(--secondary-color);
-    color: #fff;
-
-    border: 0;
-    cursor: pointer;
-    transition: .6s;
+.btn:hover {
+    opacity: 0.9;
 }
 
 .overlay {
@@ -88,7 +121,7 @@
     height: 40px;
     width: 140px;
     margin: 30px;
-
+    margin-left: 0;
 }
 
 .header .logo .logo__heading img {
@@ -97,6 +130,10 @@
 }
 
 /* -------------------- Navbar ---------------------- */
+.login {
+    justify-content: flex-end;
+}
+
 .login,
 .login .user-wrapper {
     display: flex;
@@ -255,7 +292,7 @@
 }
 
 .header .navbar-list .navbar-list__item:hover .sub-nav {
-    top: 171%;
+    top: 155%;
     visibility: visible;
     opacity: 1;
 }
@@ -342,7 +379,7 @@
     display: none;
 }
 
-.slide {
+.sliders .slide {
     position: relative;
     width: 20%;
     transition: 2s;
@@ -920,11 +957,14 @@
     padding: 14px;
     border-radius: 50%;
 
-    font-size: 2.7em;
     text-align: center;
 
     color: #fff;
     background-color: var(--primary-color);
+}
+
+.testimonial-thumb span i {  
+    font-size: 2.2em;
 }
 
 .testimonial-info {
@@ -1132,6 +1172,15 @@
 
 .footer-widget .footer-info__item a:hover {
     color: var(--secondary-color);
+}
+
+.footer-widget .footer-info__item a i {
+    margin-right: 6px;
+}
+
+.footer-widget .footer-info__item:nth-child(2) a i {
+    padding-left: 3px;
+    padding-right: 2px;
 }
 
 .footer-socials__list {

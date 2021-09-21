@@ -8,12 +8,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<div id="main" action="">
+<div id="main">
     <!-- -------- brad-cam start ----------- -->
     <div class="bradcam bradcam-img">
-        <div class="grid wide">
+        <div class="container">
             <div class="row">
-                <div class="col l-12">
+                <div class="col col-lg-12">
                     <div class="bradcam-text">
                         <h3>Tin tức</h3>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, inventore!</p>
@@ -26,9 +26,9 @@
 
     <!-- Section Blog start -->
     <section class="travel-main blog">
-        <div class="grid wide">
+        <div class="container">
             <div class="row">
-                <div class="col l-8">
+                <div class="col col-lg-8">
                     <div class="blog__left-sidebar">
                         <article class="blog-item">
                             <div class="blog-item__img">
@@ -212,7 +212,7 @@
                         </div>          
                     </div>
                 </div>
-                <div class="col l-4">
+                <div class="col col-lg-4">
                     <div class="blog__right-sidebar">
                         <aside class="single-sidebar-widget search-widget">
                             <form action="">
@@ -359,32 +359,32 @@
                             <ul class="instagram-list clear">
                                 <li class="instagram-list__item">
                                     <a href="#">
-                                        <img src="./img/instagram-sidebar/post_10.png" alt="instagram">
+                                        <img src="<c:url value="/img/instagram-sidebar/post_10.png"/>" alt="instagram">
                                     </a>
                                 </li>
                                 <li class="instagram-list__item">
                                     <a href="#">
-                                        <img src="./img/instagram-sidebar/post_5.png" alt="instagram">
+                                        <img src="<c:url value="/img/instagram-sidebar/post_5.png"/>" alt="instagram">
                                     </a>
                                 </li>
                                 <li class="instagram-list__item">
                                     <a href="#">
-                                        <img src="./img/instagram-sidebar/post_6.png" alt="instagram">
+                                        <img src="<c:url value="/img/instagram-sidebar/post_6.png"/>" alt="instagram">
                                     </a>
                                 </li>
                                 <li class="instagram-list__item">
                                     <a href="#">
-                                        <img src="./img/instagram-sidebar/post_7.png" alt="instagram">
+                                        <img src="<c:url value="/img/instagram-sidebar/post_7.png"/>" alt="instagram">
                                     </a>
                                 </li>
                                 <li class="instagram-list__item">
                                     <a href="#">
-                                        <img src="./img/instagram-sidebar/post_9.png" alt="instagram">
+                                        <img src="<c:url value="/img/instagram-sidebar/post_8.png"/>" alt="instagram">
                                     </a>
                                 </li>
                                 <li class="instagram-list__item">
                                     <a href="#">
-                                        <img src="./img/instagram-sidebar/post_8.png" alt="instagram">
+                                        <img src="<c:url value="/img/instagram-sidebar/post_9.png"/>" alt="instagram">
                                     </a>
                                 </li>
                             </ul>
@@ -408,7 +408,7 @@
         </div>
     </section>
     <!-- Section Blog end -->
-</div>
+    </div>
 <script>
     // ------------------------ Like comments blog-details ------------------- 
     var likeInfo = document.querySelector('.like-info')
