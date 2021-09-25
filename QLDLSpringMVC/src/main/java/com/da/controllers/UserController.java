@@ -51,8 +51,8 @@ public class UserController {
         String errMsg ="";
         if(!result.hasErrors()){
             if(user.getPassword().equals(user.getConfirmPassword())){
-                if(this.userService.addUser(user))
-                    return "redirect:/login";
+                if(this.userService.addUser(user) == true)
+                    return "redirect:/";
                 else
                     errMsg = "Đã có lỗi xảy ra!!!";
             }
@@ -70,20 +70,20 @@ public class UserController {
         return "login";
     }
     
-    @GetMapping("/admin/user_management")
+    @GetMapping("/admin/user-management")
     public String userManagementView(Model model, @RequestParam(value = "userName", required = false, defaultValue = "") String userName) {
         model.addAttribute("users", this.userService.getUsers(userName));
-        return "user_management";
+        return "user-management";
     }
     
-    @PostMapping("/admin/user_management")
+    @PostMapping("/admin/user-management")
     public String addEmployee(Model model, @ModelAttribute(value="user") @Valid User employee, BindingResult result) {
         String errMsg ="";
         if(!result.hasErrors()){
             if(employee.getPassword().equals(employee.getConfirmPassword())){
                 if(this.userService.addEmployeeUser(employee)){
                     errMsg = "Thêm thành công!";
-                    return "redirect:/admin/user_management";
+                    return "redirect:/admin/user-management";
                 }                   
                 else
                     errMsg = "Đã có lỗi xảy ra!!!";
@@ -95,6 +95,6 @@ public class UserController {
             errMsg = "Đã có lỗi xảy ra!";
         model.addAttribute("errMsg", errMsg);
 
-        return "user_management";
+        return "user-management";
     }
 }

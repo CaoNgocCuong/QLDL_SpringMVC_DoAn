@@ -45,20 +45,20 @@ public class ToursController {
         return "tours";
     }
     
-    @GetMapping("/admin/tour_management")
+    @GetMapping("/admin/tour-management")
     public String tourManagementView(Model model, @RequestParam(value = "tourName", required = false, defaultValue = "") String tourName){
         model.addAttribute("tours", this.toursService.getTours(tourName));
-        return "tour_management";
+        return "tour-management";
     }
     
-    @PostMapping("/admin/tour_management")
+    @PostMapping("/admin/tour-management")
     public String addTour(Model model, @ModelAttribute(value="tour") @Valid Tour tour, BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
             
             if(this.toursService.addTour(tour)){
                 errMsg = "Thêm thành công!";
-                return "redirect:/admin/tour_management";
+                return "redirect:/admin/tour-management";
             }                   
             else
                 errMsg = "Đã có lỗi xảy ra!!!";    
@@ -66,17 +66,17 @@ public class ToursController {
         else
             errMsg = "Đã có lỗi xảy ra!";
         model.addAttribute("errMsg", errMsg);
-        return "tour_management";
+        return "tour-management";
     }
     
-    @PostMapping("/admin/tour_management1")
+    @PostMapping("/admin/tour-management1")
     public String addTourDetail(Model model, @ModelAttribute(value="tourDetail") @Valid TourDetail tourDetail, BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
             
             if(this.toursService.addTourDetail(tourDetail)){
                 errMsg = "Thêm thành công!";
-                return "redirect:/admin/tour_management";
+                return "redirect:/admin/tour-management";
             }                   
             else
                 errMsg = "Đã có lỗi xảy ra!!!";    
@@ -84,6 +84,6 @@ public class ToursController {
         else
             errMsg = "Đã có lỗi xảy ra!";
         model.addAttribute("errMsg", errMsg);
-        return "tour_management";
+        return "tour-management";
     }
 }

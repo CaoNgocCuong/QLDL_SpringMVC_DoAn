@@ -19,7 +19,7 @@ thead tr {
 .side-bar {
     position: fixed;
 
-    width: 250px;
+    width: 300px;
     height: 100vh;
     padding: 15px 0 15px 15px;
     box-shadow: 0 0 8px rgb(230, 230, 230);
@@ -89,6 +89,7 @@ thead tr {
     background-color: var(--primary-color);
 }
 
+.side-bar-nav ul li div,
 .side-bar-nav ul li a {
     display: flex;
     align-items: center;
@@ -99,13 +100,49 @@ thead tr {
 
     font-size: 1.6em;
     font-weight: 400;
+    cursor: pointer;
+}
 
+.side-bar-nav ul li .side-bar-subnav li a {
+    padding-left: 30px;
+
+    color: #494B55;
+}
+
+.side-bar-nav ul li div.link-wrapper ~ .side-bar-subnav {
+    height: 0px;
+
+    background-color: #fff;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav {
+    display: block;
+    height: 210px;
+}
+
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-1:nth-child(1),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-2:nth-child(2),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-3:nth-child(3) {
+    background-color: var(--primary-color);
+}
+
+.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav li.page-1:nth-child(1) a,
+.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav li.page-1:nth-child(1) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-2:nth-child(2) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-2:nth-child(2) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-3:nth-child(3) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-3:nth-child(3) a span {
+    color: #fff;
 }
 
 .side-bar-nav ul li a span {
     color: #494B55;
 }
 
+.side-bar-nav ul li .side-bar-subnav li:hover a,
+.side-bar-nav ul li .side-bar-subnav li:hover a span,
 .side-bar-nav ul li:hover .link-wrapper span {
     color: #fff;
 }
@@ -121,6 +158,7 @@ thead tr {
     color: #fff;
 }
 
+.side-bar-nav ul li div .nav-link,
 .side-bar-nav ul li a .nav-link {
     margin-left: 15px;
 }
@@ -128,7 +166,7 @@ thead tr {
 /* ----------------- header start ------------------- */
 header {
     min-height: 80px;
-    margin-left: 250px;
+    margin-left: 300px;
     padding: 15px;
     box-shadow: 0 0 8px rgb(192, 192, 192);
 }
@@ -242,7 +280,7 @@ header .head_inner .left-part ul li.have_dots span::before {
 /* ---------- Main content ----------- */
 .main-content {
     margin: 15px;
-    margin-left: 275px;
+    margin-left: 325px;
     padding: 15px;
     box-shadow: 0 0 8px rgb(230, 230, 230);
 
@@ -374,8 +412,7 @@ header .head_inner .left-part ul li.have_dots span::before {
 
 .main-table .user-table tbody tr td .btn {
     display: inline-block;
-    width: 70%;
-
+    width: 85%;
     padding: 7px 15px;
     border-radius: 3px;
 
@@ -406,6 +443,9 @@ header .head_inner .left-part ul li.have_dots span::before {
 }
 
 .side-bar.hide .avtar .name-pos,
+.side-bar.hide .side-bar-nav ul li div .nav-link,
+.side-bar.hide .side-bar-nav ul li div span:last-child,
+.side-bar.hide  li .link-wrapper ~ .side-bar-subnav .hide-nav,
 .side-bar.hide .side-bar-nav ul li a .nav-link {
     display: none;
 }

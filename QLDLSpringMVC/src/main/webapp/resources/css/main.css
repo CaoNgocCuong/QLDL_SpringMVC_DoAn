@@ -1,4 +1,11 @@
 /* ---------------- Bradcam common ----------------- */
+.container-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 #main .bradcam {
     position: relative;
 
@@ -152,6 +159,20 @@
 
 .user-wrapper .wrap {
     position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-wrapper .wrap::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    display: block;
+    width: 125%;
+    height: 35px;
 }
 
 .login .user-wrapper .user-down {
@@ -162,9 +183,17 @@
 }
 
 .login .user-wrapper .user-header {
-    padding: 12px 0 12px 4px;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+
     font-size: 1.6em;
     font-weight: 500;
+    line-height: 40px;
+    text-align: left;
+
+    overflow: hidden;
 }
 
 .user-wrapper .wrap:hover {
@@ -193,6 +222,18 @@
     opacity: 1;
 }
 
+.user-wrapper .user-dropdown .user-manage__text {
+    border-bottom: 1px solid #ccc;
+}
+
+.user-wrapper .user-dropdown .user-manage__text .user-manage {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+
+    color: #494B55;
+}
+
 .user-dropdown .btn-login-wrap {
     padding: 12px;
 }
@@ -213,8 +254,18 @@
     transition: 0.3s;
 }
 
+.user-dropdown .btn-login-wrap .btn-logout {
+    background-color: var(--secondary-color);
+}
+
 .user-dropdown .btn-login-wrap .btn-login:hover {
     background-color: rgba(30, 198, 182, 0.8);
+}
+
+.user-dropdown .btn-login-wrap .btn-logout:hover {
+    background-color: var(--secondary-color);
+    
+    opacity: 0.8;
 }
 
 .user-dropdown .register-text {
@@ -257,6 +308,16 @@
     font-size: 1.6em;
     font-weight: 500;
     list-style-type: none;
+}
+
+.header .navbar-list .navbar-list__item::before {
+    content: "";
+    position: absolute;
+    top: 70%;
+    left: 0;
+    display: block;
+    height: 60px;
+    width: 100%;
 }
 
 .header .navbar-list .navbar-list__item::after {
@@ -349,7 +410,7 @@
 }
 
 .header .socials-list .socials-list__item a {
-    margin: 11px;
+    margin: 3px;
     padding: 5px;
 
     text-decoration: none;
@@ -779,14 +840,21 @@
 }
 
 .single-place .place-info a h3 {
-    height: 26px;
-    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 
-    font-size: 2.2em;
+    height: 52px;
+    margin-bottom: 5px;
+    
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: 26px;
+
     color: #040E27;
+    
     transition: 0.3s;
+    overflow: hidden;
 }
 
 .single-place .place-info p {

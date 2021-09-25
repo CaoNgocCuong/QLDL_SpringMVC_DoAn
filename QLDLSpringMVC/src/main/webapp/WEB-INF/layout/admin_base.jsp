@@ -37,16 +37,19 @@
         <link href="<c:url value="/css/dashboard.css"/>" rel="stylesheet"/>
         <link href="<c:url value="/css/responsive-adminpage.css"/>" rel="stylesheet"/>
         <link href="<c:url value="/css/admin-management.css"/>" rel="stylesheet"/>
-        <script src="<c:url value="/js/script-adminpage.js"/>"></script>
+        
     </head>
     <body>
-        <!-- Side bar -->
-        <tiles:insertAttribute name="admin_side_bar" />
-        
-        <!-- Header -->
-        <tiles:insertAttribute name="admin_header"/>
-        
-        <!-- Content -->
-        <tiles:insertAttribute name="admin_content" />
+        <div id="main">
+            <!-- Side bar -->
+            <tiles:insertAttribute name="admin_side_bar" />
+
+            <!-- Header -->
+            <tiles:insertAttribute name="admin_header"/>
+
+            <!-- Content -->
+            <tiles:insertAttribute name="admin_content" />
+        </div>
+        <script src="<c:url value="/js/script-adminpage.js"/>"></script>
     </body>
 </html>
