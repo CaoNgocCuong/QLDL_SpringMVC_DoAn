@@ -10,9 +10,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-
-<!-- Script -->
-<script src="<c:url value="/js/script-adminpage.js"/>"></script>
 <div class="main-content">
     <div class="main-table">
         <div class="row main-title d-flex justify-content-between">

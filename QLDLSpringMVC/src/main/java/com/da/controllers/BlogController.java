@@ -38,4 +38,9 @@ public class BlogController {
         
         return "blog";
     }
+    
+    @GetMapping("/admin/blog-management")
+    public String addBlog() {
+        return "blog-management";
+    }
 }

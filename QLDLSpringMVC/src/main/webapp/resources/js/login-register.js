@@ -8,9 +8,6 @@ const cancelBtn = $('#cancel-btn')
 const fileName = $('.img-wrapper .file-name')
 let regexExp = /[0-9a-zA-Z\^\&\@\{\}\[\]\,\&\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 
-console.log(fileName)
-console.log(img)
-
 function inputActiveDefault(element, inputEle) {
     element.onclick = (event) => {
         event.preventDefault()

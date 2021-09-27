@@ -42,7 +42,9 @@ p {
     
 } */
 
-.form {
+/* .form {
+    position: relative;
+
     width: 420px;
     min-height: 100px;
     padding: 32px 24px;
@@ -53,6 +55,23 @@ p {
     align-self: center;
     box-shadow: 0 0px 10px 0 rgba(121, 184, 251, 0.5);
     z-index: 10;
+} */
+
+.form .icon-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    display: inline-block;
+    padding: 6px 8px;
+
+    font-size: 1.6rem;
+    transition: 0.2s;
+}
+
+
+.form .icon-close:hover {
+    color: var(--secondary-color);
 }
 
 .login-with-another {
@@ -68,7 +87,7 @@ p {
 }
 
 .login-with-another p a {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     text-decoration: none;
 
@@ -182,6 +201,7 @@ p {
 
     margin-bottom: 16px;
 
+    text-align: center;
     font-size: 1.4rem;
     
     color: rgba(47, 47, 47, 0.8);
@@ -192,7 +212,7 @@ p {
     display: inline-block;
     position: absolute;
     top: 50%;
-    width: 100px;
+    width: 200px;
     border: 1px solid #ccc;
 }
 
@@ -219,7 +239,7 @@ p {
 
 .form-extends p {
     padding: 16px 0px 8px;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: left;
     transition: all 0.3s linear;
 }
@@ -239,7 +259,7 @@ p {
     justify-content: center;
 
     width: 100%;
-    min-height: 150px;
+    min-height: 300px;
     border: 2px dashed #ccc;
     border-radius: 4px;
     overflow: hidden;
@@ -271,6 +291,7 @@ p {
 }
 
 .img-wrapper .upload-icon {
+    text-align: center;
     font-size: 4rem;
     color: #1dbfaf;
 }
@@ -349,4 +370,8 @@ p {
 
 .form #custom-upload-btn:hover {
     opacity: 0.85;
+}
+
+.wrap-submit .btn {
+    padding: 8px 16px;
 }

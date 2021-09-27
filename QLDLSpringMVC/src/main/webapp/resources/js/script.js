@@ -38,4 +38,49 @@ popularSearchItems.forEach(item => {
     }
 })
 
+// ------------------------------ Modal -----------------------
+// var btnLogin = document.querySelector('.user-dropdown .btn-login-wrap .btn-login')
+// var modal = document.querySelector('.modal-form')
+// var overlay = document.querySelector('.modal-form__overlay')
+// var formLogin = document.querySelector('.modal__content-login')
+// var btnInnerRegister = document.querySelector('.register-inner-form')
+// var btnInnerLogin = document.querySelector('.login-inner-form')
+// var btnCloses = document.querySelectorAll('.form .icon-close')
+// var navRegister = document.querySelector('.register-link')
+
+// function modalFade(eleAddEvent, eleAddHide, eleAddClasForm) {
+//     eleAddEvent.addEventListener('click', function(event) {
+//         event.preventDefault()
+//         eleAddHide.classList.toggle('hide')
+//         eleAddClasForm.classList.add('show')
+//     })
+// }
+
+// modalFade(btnLogin, modal, formLogin)
+// modalFade(overlay, modal, formLogin)
+
+// btnCloses.forEach(btn => {
+//     btn.addEventListener('click', function() {
+//         modal.classList.add('hide')
+//     })
+// })
+
+// navRegister.addEventListener('click', function(event) {
+//     event.preventDefault()
+//     formLogin.classList.remove('show')
+//     modal.classList.toggle('hide')
+// })
+
+
+// btnInnerRegister.addEventListener('click', function(event) {
+//     event.preventDefault()
+
+//     formLogin.classList.remove('show')
+// })
+
+// btnInnerLogin.addEventListener('click', function(event) {
+//     event.preventDefault()
+
+//     formLogin.classList.add('show')
+// })
 

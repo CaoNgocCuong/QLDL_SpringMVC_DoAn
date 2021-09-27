@@ -91,16 +91,15 @@
 
 <!-- Script -->
 <script>
-function summernote(id, placeholder) {
-    $(id).summernote({
-        placeholder: placeholder,
-        tabsize: 2,
-        height: 100,
-    });
-}
-summernote('#summernote', 'Nhập điểm nhấn hành trình')
-summernote('#summernote2', 'Nhập lịch trình chuyến đi')
-summernote('#summernote3', 'Nhập dịch vụ chuyến đi')
-summernote('#summernote4', 'Nhập ghi chú chuyến đi')
+    function summernote(id, placeholder) {
+        $(id).summernote({
+            placeholder: placeholder,
+            tabsize: 2,
+            height: 100,
+        });
+    }
+    summernote('#summernote', 'Nhập điểm nhấn hành trình')
+    summernote('#summernote2', 'Nhập lịch trình chuyến đi')
+    summernote('#summernote3', 'Nhập dịch vụ chuyến đi')
+    summernote('#summernote4', 'Nhập ghi chú chuyến đi')
 </script>
-<script src="<c:url value="/js/script-adminpage.js"/>"></script>

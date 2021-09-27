@@ -15,7 +15,7 @@
                     <div class="footer-widget">
                         <div class="footer-logo">
                             <a href="">
-                                <img src="./img/logo.png" alt="travelCK">
+                                <img src="<c:url value="/img/logo.png" />" alt="travelCK">
                             </a>
                         </div>
                         <ul class="footer-info">
@@ -110,32 +110,32 @@
                         <div class="instagram-feed">
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="./img/instagram/1.png" alt="">
+                                    <img src="<c:url value="/img/instagram/1.png"/>" alt="">
                                 </a>
                             </div>
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="./img/instagram/2.png" alt="">
+                                    <img src="<c:url value="/img/instagram/2.png"/>" alt="">
                                 </a>
                             </div>
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="./img/instagram/3.png" alt="">
+                                    <img src="<c:url value="/img/instagram/3.png"/>" alt="">
                                 </a>
                             </div>
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="./img/instagram/4.png" alt="">
+                                    <img src="<c:url value="/img/instagram/4.png"/>" alt="">
                                 </a>
                             </div>
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="./img/instagram/5.png" alt="">
+                                    <img src="<c:url value="/img/instagram/5.png"/>" alt="">
                                 </a>
                             </div>
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="./img/instagram/6.png" alt="">
+                                    <img src="<c:url value="./img/instagram/6.png"/>" alt="">
                                 </a>
                             </div>
                         </div>

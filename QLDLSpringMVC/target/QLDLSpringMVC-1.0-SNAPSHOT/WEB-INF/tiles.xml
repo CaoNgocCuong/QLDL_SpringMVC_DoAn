@@ -10,68 +10,138 @@ and open the template in the editor.
     "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
+    
+    <!-- ===================== Layout base ========================= -->
+    
     <definition name="baseLayout" template="/WEB-INF/layout/base.jsp">
         <put-attribute name="title" value="Demo"/>
         <put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="slide_header" value=""/>
+        <put-attribute name="contact" value=""/>
+        <put-attribute name="about" value=""/>
+        <put-attribute name="search_header" value=""/>
+        <put-attribute name="destination_famous" value="" />
+        <put-attribute name="destination_popular" value="" />
+        <put-attribute name="register_news" value="" />
+        <put-attribute name="service" value="" />
+        <put-attribute name="testimonial" value=""/>
+        <put-attribute name="blog" value="" />
+        <put-attribute name="auth" value="" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
-        <put-attribute name="content" value="Demo content"/>
     </definition>
+    
     <definition name="adminBaseLayout" template="/WEB-INF/layout/admin_base.jsp">
         <put-attribute name="title" value="Admin CK"/>
         <put-attribute name="admin_header" value="/WEB-INF/layout/admin_header.jsp"/>
-        <put-attribute name="admin_side_bar" value="/WEB-INF/layout/admin_side_bar.jsp"/>
+        <put-attribute name="admin_side_bar" value="Demo sidebar"/>
         <put-attribute name="admin_content" value="Demo admin content"/>
     </definition>
-    <definition name="index" extends = "baseLayout">
+    
+    
+    <!-- ================== Layout Client =========================== -->
+    <definition name="index" extends="baseLayout">
         <put-attribute name="title" value="Trang chủ"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/body.jsp"/>
+        <put-attribute name="slide_header" value="/WEB-INF/jsp/slide_header.jsp" />
+        <put-attribute name="search_header" value="/WEB-INF/jsp/search_header.jsp" />
+        <put-attribute name="destination_famous" value="/WEB-INF/jsp/destination_famous.jsp" />
+        <put-attribute name="register_news" value="/WEB-INF/jsp/register_news.jsp"/>
+        <put-attribute name="destination_popular" value="/WEB-INF/jsp/destination_popular_homepage.jsp" />
+        <put-attribute name="service" value="/WEB-INF/jsp/services.jsp" />
+        <put-attribute name="testimonial" value="/WEB-INF/jsp/testimonial.jsp" />
+        <put-attribute name="blog" value="/WEB-INF/jsp/blogs.jsp" />
     </definition>
+    
+    <definition name="login" extends="baseLayout">
+        <put-attribute name="title" value="Đăng nhập"/>
+        <put-attribute name="auth" value="/WEB-INF/jsp/login.jsp" />
+    </definition>
+    
     <definition name="register" extends="baseLayout">
+        <put-attribute name="title" value="Đăng ký"/>
+        <put-attribute name="auth" value="/WEB-INF/jsp/register.jsp" />
+    </definition>
+    
+<!--    <definition name="register" extends="baseLayout">
         <put-attribute name="title" value="Đăng ký" />
         <put-attribute name="header" value=""/>
         <put-attribute name="footer" value=""/>
         <put-attribute name="content" value="/WEB-INF/jsp/register.jsp" />
-    </definition>
-    <definition name="login" extends="baseLayout">
+    </definition>-->
+    
+<!--    <definition name="login" extends="baseLayout">
         <put-attribute name="title" value="Đăng nhập" />
         <put-attribute name="header" value=""/>
         <put-attribute name="footer" value=""/>
         <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
-    </definition>
+        
+    </definition>-->
+    
     <definition name="tours" extends="baseLayout">
         <put-attribute name="title" value="Chuyến du lịch" />
-        <put-attribute name="content" value="/WEB-INF/jsp/tours.jsp" />
+        <put-attribute name="slide_header" value="/WEB-INF/jsp/slide_header.jsp" />
+        <put-attribute name="search_header" value="/WEB-INF/jsp/search_header.jsp" />
+        <put-attribute name="destination_popular" value="/WEB-INF/jsp/destination_popular_tourspage.jsp" />
+        <put-attribute name="register_news" value="/WEB-INF/jsp/register_news.jsp"/>
+        <put-attribute name="blog" value="/WEB-INF/jsp/blogs.jsp" />
     </definition>
+    
     <definition name="blog" extends="baseLayout">
         <put-attribute name="title" value="Tin tức" />
-        <put-attribute name="content" value="/WEB-INF/jsp/blog.jsp" />
+        <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_news.jsp" />
+        <put-attribute name="blog" value="/WEB-INF/jsp/blogspage.jsp" />
     </definition>
+    
     <definition name="blog_details" extends="baseLayout">
         <put-attribute name="title" value="Bài đăng" />
-        <put-attribute name="content" value="/WEB-INF/jsp/blog_details.jsp" />
+        <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_news.jsp" />
+        <put-attribute name="blog" value="/WEB-INF/jsp/blog_details.jsp" />
     </definition>
+    
     <definition name="contact" extends="baseLayout">
         <put-attribute name="title" value="Liên hệ" />
-        <put-attribute name="content" value="/WEB-INF/jsp/contact.jsp" />
+        <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_contact.jsp" />
+        <put-attribute name="contact" value="/WEB-INF/jsp/contact.jsp" />
     </definition>
+    
     <definition name="about" extends="baseLayout">
         <put-attribute name="title" value="Về chúng tôi" />
-        <put-attribute name="content" value="/WEB-INF/jsp/about.jsp" />
+        <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_about.jsp" />
+        <put-attribute name="about" value="/WEB-INF/jsp/about.jsp" />
+        <put-attribute name="service" value="/WEB-INF/jsp/services.jsp" />
+        <put-attribute name="testimonial" value="/WEB-INF/jsp/testimonial.jsp" />
+        <put-attribute name="blog" value="/WEB-INF/jsp/blogs.jsp" />
     </definition>
+    
+    <!-- ================== Layout Admin ================= -->
+    
     <definition name="admin" extends="adminBaseLayout">
         <put-attribute name="title" value="Admin CK" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_homepage.jsp" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/admin.jsp" />
     </definition>
-    <definition name="tour_management" extends="adminBaseLayout">
+    
+    <definition name="tour-management" extends="adminBaseLayout">
         <put-attribute name="title" value="Quản lý tour" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_add_tourmanagement.jsp" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/tour_management.jsp" />
     </definition>
+    
+    <definition name="blog-management" extends="adminBaseLayout">
+        <put-attribute name="title" value="Quản lý tour" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_blogmanagement.jsp" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/blog_management.jsp" />
+    </definition>
+    
     <definition name="tour-detail-management" extends="adminBaseLayout">
         <put-attribute name="title" value="Quản lý chi tiết tour" />
-        <put-attribute name="admin_content" value="/WEB-INF/jsp/tour-detail-management.jsp" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_addtourdetail.jsp" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/tour_detail_management.jsp" />
     </definition>
-    <definition name="user_management" extends="adminBaseLayout">
+    
+    <definition name="user-management" extends="adminBaseLayout">
         <put-attribute name="title" value="Quản lý người dùng" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_usermanagement.jsp" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/user_management.jsp" />
     </definition>
+    
 </tiles-definitions>

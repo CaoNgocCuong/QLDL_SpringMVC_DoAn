@@ -146,6 +146,7 @@
 
 .single-sidebar-widget .form-group {
     display: flex;
+    flex-direction: row;
     margin-bottom: 1rem;
 }
 

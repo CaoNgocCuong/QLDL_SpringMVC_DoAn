@@ -9,7 +9,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<c:url value="/admin/tour_management" var="action"/>
+<c:url value="/admin/tour-management" var="action"/>
 
 <!-- Main - content start -->
 <div class="main-content">
@@ -115,7 +115,7 @@
                     <div class="input-group">
                         <input type="number" name="childrenPrice" path="childrenPrice" class="form-control" id="inputPriceChild" aria-label="Dollar amount (with dot and two decimal places)" value="0" min="0">
                         <span class="input-group-text">$</span>
-                        </div>
+                    </div>
                 </div>
             </div>
             <div class="form-row">
@@ -150,47 +150,6 @@
             </div>
         </form:form>
         <hr class="m-5" />
-        <div class="main-title">
-            <h2><i class="fas fa-plus mr-2"></i></i>Thêm chi tiết chuyến đi</h2>
-        </div>
-        <form:form class="form-add" modelAttribute="tourDetail" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <select id="inputListTour" name="id" path="id" class="form-control form-control-lg">
-                    <option selected disabled>Chọn mã tour</option>
-                    <c:forEach var="tour" items="${tours}">
-                        <option value="${tour.id}">${tour.id}</option>
-                    </c:forEach>
-                </select>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputDeparture" class="form-label col-form-label-lg">Điểm khởi hành</label>
-                    <input type="text" name="departure" path="departure" class="form-control form-control-lg" id="inputDeparture">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputDestination" class="form-label col-form-label-lg">Điểm đến</label>
-                    <input type="text" name="destination" path="destination" class="form-control form-control-lg" id="inputDestination">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu</label>
-                    <input type="date" name="startDate" path="startDate" class="form-control form-control-lg" id="inputTimeStart">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc</label>
-                    <input type="date" name="endDate" path="endDate" class="form-control form-control-lg" id="inputTimeEnd">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="summernote" class="form-label col-form-label-lg">Nội dung</label>
-                <textarea class="form-control" id="summernote" name="content" path="content" rows="3"></textarea>
-            </div>
-            <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm</button>
-            </div>
-        </form:form>
     </div>
 </div>
 <!-- Main - content end -->
@@ -205,4 +164,3 @@ $('#summernote').summernote({
   height: 100,
 });
 </script>
-<script src="./js/script-adminpage.js"></script>

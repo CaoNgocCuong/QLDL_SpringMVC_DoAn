@@ -48,7 +48,7 @@ public class ToursRepositoryImpl implements ToursRepository{
         
         Query q = session.createQuery(query);
         
-        int max = 15;
+        int max = 9;
         q.setMaxResults(max);
         q.setFirstResult((page - 1) * max);
         
