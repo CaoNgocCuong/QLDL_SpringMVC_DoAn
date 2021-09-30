@@ -62,6 +62,11 @@ public class Tour implements Serializable {
     private String introduction;
     private String service;
     private String note;
+    @Column (name = "min_customer")
+    private int minCustomer;
+    @Column (name = "max_customer")
+    private int maxCustomer;
+    private String country;
     
     @Transient
     private MultipartFile file;
@@ -343,5 +348,47 @@ public class Tour implements Serializable {
      */
     public void setNote(String note) {
         this.note = note;
+    }
+
+    /**
+     * @return the minCustomer
+     */
+    public int getMinCustomer() {
+        return minCustomer;
+    }
+
+    /**
+     * @param minCustomer the minCustomer to set
+     */
+    public void setMinCustomer(int minCustomer) {
+        this.minCustomer = minCustomer;
+    }
+
+    /**
+     * @return the maxCustomer
+     */
+    public int getMaxCustomer() {
+        return maxCustomer;
+    }
+
+    /**
+     * @param maxCustomer the maxCustomer to set
+     */
+    public void setMaxCustomer(int maxCustomer) {
+        this.maxCustomer = maxCustomer;
+    }
+
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * @param country the country to set
+     */
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

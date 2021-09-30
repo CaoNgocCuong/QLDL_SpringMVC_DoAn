@@ -9,6 +9,7 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.da.pojos.Tour;
 import com.da.pojos.TourDetail;
+import com.da.pojos.TourPhoto;
 import com.da.repository.ToursRepository;
 import com.da.service.ToursService;
 import java.io.IOException;
@@ -63,6 +64,19 @@ public class ToursServiceImpl implements ToursService{
     @Override
     public boolean addTourDetail(TourDetail tourDetail) {
         return this.toursRepository.addTourDetails(tourDetail);
+    }
+
+    @Override
+    public boolean addTourPhoto(TourPhoto tourPhoto) {
+        try {
+            Map r = this.cloudinary.uploader().upload(tourPhoto.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+            tourPhoto.setPhoto((String) r.get("secure_url"));
+            return this.toursRepository.addTourPhoto(tourPhoto);
+       } catch (IOException ex) {
+            System.err.println("===ADD===" + ex.getMessage());
+            ex.printStackTrace();
+       }  
+       return false;
     }
     
 }

@@ -4,6 +4,7 @@
     Author     : CaoNgocCuong
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/tours" var="action" />
@@ -47,7 +48,7 @@
                             <a href="./tour-detail.html">
                                 <h3>${tour.name}</h3>
                             </a>
-                            <p>United State of America</p>
+                            <p>${tour.country}</p>
                             <div class="rating-days">
                                 <span>
                                     <i class="far fa-star"></i>

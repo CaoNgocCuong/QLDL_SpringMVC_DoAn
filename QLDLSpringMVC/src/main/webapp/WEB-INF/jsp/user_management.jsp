@@ -15,7 +15,7 @@
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Người dùng trong hệ thống</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" placeholder="Tìm kiếm..." required="">
+                <input type="text" name="userName" placeholder="Tìm kiếm..." required="">
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>   

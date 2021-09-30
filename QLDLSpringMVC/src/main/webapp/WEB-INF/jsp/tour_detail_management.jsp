@@ -4,7 +4,9 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="main-content">
@@ -65,10 +67,10 @@
         <div class="main-title">
             <h2><i class="fas fa-plus mr-2"></i></i>Thêm chi tiết chuyến đi</h2>
         </div>
-        <form:form class="form-add" modelAttribute="tourDetail" enctype="multipart/form-data">
+        <form:form class="form-add" modelAttribute="tourDetail">
             <div class="form-group">
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <select id="inputListTour" name="id" path="id" class="form-control form-control-lg">
+                <select id="inputListTour" name="tourId" path="tourId" class="form-control form-control-lg">
                     <option selected disabled>Chọn mã tour</option>
                     <c:forEach var="tour" items="${tours}">
                         <option value="${tour.id}">${tour.id}</option>

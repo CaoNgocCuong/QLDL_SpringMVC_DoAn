@@ -13,8 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +26,8 @@ public class TourDetail implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @Column (name = "tour_id")
+    private int tourId;
     private String departure;
     private String destination;
     
@@ -35,12 +36,11 @@ public class TourDetail implements Serializable {
     
     @Column (name = "end_date")
     private Date endDate;
-    @Column (name = "travel_schedule")
-    private String travelSchedule;
+    @Column (name = "content")
+    private String content;
     
-    @OneToOne
-    @MapsId
-    @JoinColumn (name = "id")
+    @ManyToOne
+    @JoinColumn (name = "tour_id", insertable = false, updatable = false)
     private Tour tour;
 
     /**
@@ -114,17 +114,17 @@ public class TourDetail implements Serializable {
     }
 
     /**
-     * @return the travelSchedule
+     * @return the content
      */
-    public String getTravelSchedule() {
-        return travelSchedule;
+    public String getContent() {
+        return content;
     }
 
     /**
-     * @param travelSchedule the travelSchedule to set
+     * @param content the content to set
      */
-    public void setTravelSchedule(String travelSchedule) {
-        this.travelSchedule = travelSchedule;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     /**
@@ -139,5 +139,19 @@ public class TourDetail implements Serializable {
      */
     public void setTour(Tour tour) {
         this.tour = tour;
+    }
+
+    /**
+     * @return the tourId
+     */
+    public int getTourId() {
+        return tourId;
+    }
+
+    /**
+     * @param tourId the tourId to set
+     */
+    public void setTourId(int tourId) {
+        this.tourId = tourId;
     }
 }

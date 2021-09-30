@@ -6,14 +6,17 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<c:url value="/admin/tour-photo-management" var="action" />
 
 <div class="main-content">
-    <div class="main-table">
+        <div class="main-table">
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Danh sách chuyến đi</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" placeholder="Tìm kiếm..." required="">
+                <input type="text" name="tourName" placeholder="Tìm kiếm..." required="">
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>   
@@ -35,22 +38,29 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <c:forEach var="tour" items="${tours}">
                     <tr>
-                        <td>0001</td>
-                        <td>Du lịch Miền Trung</td>
-                        <td>Du lịch trong nước</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>1.200.000</td>
-                        <td>800.000</td>
-                        <td>12/02/2021</td>
-                        <td>12/05/2021</td>
-                        <td><a href="#" class="btn active">Đang hoạt động</a></td>
+                        <td>${tour.id}</td>
+                        <td>${tour.name}</td>
+                        <td>${tour.tourType}</td>
+                        <td>${tour.tourDays}</td>
+                        <td>${tour.tourNights}</td>
+                        <td>${tour.adultsPrice}</td>
+                        <td>${tour.childrenPrice}</td>
+                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.startDate}"/></td>
+                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.endDate}"/></td>
+                        <c:if test="${tour.active == true}">
+                            <td><a href="#" class="btn active">Đang hoạt động</a></td>
+                        </c:if>
+                        <c:if test="${tour.active != true}">
+                            <td><a href="#" class="btn active">Ngưng hoạt động</a></td>
+                        </c:if>
                         <td>
                             <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
                             <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
                         </td>   
-                    </tr>                   
+                    </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
@@ -59,13 +69,14 @@
         <div class="main-title">
             <h2><i class="fas fa-images mr-2"></i>Thêm ảnh cho từng chuyến đi</h2>
         </div>
-        <form class="form-add">
+        <form:form method="post" action="${action}" class="form-add" modelAttribute="tourPhoto" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <select id="inputListTour" class="form-control form-control-lg">
-                    <option selected disabled>Chọn mã</option>
-                    <option value="0001">0001</option>
-                    <option value="0002">0002</option>
+                <select id="inputListTour" name="tourId" path="tourId" class="form-control form-control-lg">
+                    <option selected disabled>Chọn mã tour</option>
+                    <c:forEach var="tour" items="${tours}">
+                        <option value="${tour.id}">${tour.id}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="form-group">
@@ -75,14 +86,14 @@
                     <span class="input-group-text">Thêm ảnh</span>
                     </div>
                     <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputFileTourDetail">
+                        <input type="file" class="custom-file-input" id="inputFileTourDetail" name="file" path="file" accept="image/*">
                     <label class="custom-file-label" for="inputFileTourDetail">Chọn ảnh</label>
                 </div>
             </div>
             <div class="form-group btn-wrapper">
                 <button type="submit" class="btn btn-lg">Thêm</button>
             </div>
-        </form>
+        </form:form>
     </div>
 </div>
 <!-- Main - content end -->
