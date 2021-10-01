@@ -70,7 +70,7 @@
                         <select id="inputCate" name="cateId" path="cateId" class="form-control">
                             <option selected disabled>Chọn danh mục</option>
                             <c:forEach var="cate" items="${cates}">
-                                <option>${cate.id}</option>
+                                <option value="${cate.id}">${cate.name}</option>
                             </c:forEach>
                         </select>
                     </div>

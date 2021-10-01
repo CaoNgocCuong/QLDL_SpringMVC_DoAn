@@ -31,7 +31,7 @@
                                 <div class="blog-item__wrap">
                                     <ul class="blog-item__info">
                                         <li>
-                                            <a href="#"><i class="fas fa-user"></i>Cao Ngọc Cường</a>
+                                            <a href="#"><i class="fas fa-user"></i>${post.author}</a>
                                         </li>
                                         <li>
                                             <a href="#"><i class="fas fa-comments"></i>03 comments</a>
@@ -48,7 +48,7 @@
                     <div class="popular-place-pagi">
                         <ul>
                             <li class="arrow disabled"><i class="fas fa-chevron-left"></i></li>
-                            <c:forEach begin="1" end="${Math.ceil(counter/15)}" var="page">
+                            <c:forEach begin="1" end="${Math.ceil(counter/5)}" var="page">
                                 <li class="num active">
                                     <a href="<c:url value="/blog"/>?page=${page}">
                                         ${page}
