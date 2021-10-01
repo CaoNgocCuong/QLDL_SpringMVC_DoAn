@@ -62,8 +62,7 @@ public class Post implements Serializable {
             inverseJoinColumns = {
                 @JoinColumn (name = "tag_id")
             }
-    )
-            
+    )           
     Set<Tag> tags = new HashSet<>();
     
 
