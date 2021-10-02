@@ -95,6 +95,10 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="textDescription" class="form-label col-form-label-lg">Mô tả</label>
+                <textarea class="form-control" name="description" path="description" id="textDescription" rows="10"></textarea>
+            </div>
+            <div class="form-group">
                 <label for="summernoteContent" class="form-label col-form-label-lg">Nội dung</label>
                 <textarea class="form-control" name="content" path="content" id="summernoteContent" name="editordata" rows="10"></textarea>
             </div>

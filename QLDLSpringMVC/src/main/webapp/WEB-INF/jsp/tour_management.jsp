@@ -28,6 +28,7 @@
                         <td>Mã chuyến đi</td>
                         <td>Tên chuyến đi</td>
                         <td>Loại chuyến đi</td>
+                        <td>Quốc gia</td>
                         <td>Số ngày</td>
                         <td>Số đêm</td>
                         <td>Số khách tối thiểu</td>
@@ -48,10 +49,11 @@
                         <td>${tour.id}</td>
                         <td>${tour.name}</td>
                         <td>${tour.tourType}</td>
+                        <td>${tour.country}</td>
                         <td>${tour.tourDays}</td>
                         <td>${tour.tourNights}</td>
-                        <td>20</td>
-                        <td>40</td>
+                        <td>${tour.minCustomer}</td>
+                        <td>${tour.maxCustomer}</td>
                         <td>14</td>
                         <td>26</td>
                         <td>${tour.adultsPrice}</td>
@@ -146,16 +148,35 @@
                     <input type="date" name="endDate" path="endDate" class="form-control form-control-lg" id="inputTimeEnd">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="inputFileTour" class="form-label col-form-label-lg">Ảnh chuyến đi</label>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                    <span class="input-group-text">Thêm ảnh</span>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFileTour" class="form-label col-form-label-lg">Ảnh chuyến đi</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Thêm ảnh</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" name="file" path="file" class="custom-file-input" id="inputFileTour">
+                            <label class="custom-file-label" for="inputFileTour">Chọn ảnh</label>
+                        </div>
                     </div>
-                    <div class="custom-file">
-                        <input type="file" accept="image/*" name="file" path="file" class="custom-file-input" id="inputFileTour">
-                    <label class="custom-file-label" for="inputFileTour">Chọn ảnh</label>
                 </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCountry" class="form-label col-form-label-lg">Quốc gia</label>
+                    <input type="text" name="country" path="country" class="form-control form-control-lg" id="inputCountry">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="summernote" class="form-label col-form-label-lg">Giới thiệu</label>
+                <textarea class="form-control" id="summernote" path="introduction" name="introduction" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="summernote3" class="form-label col-form-label-lg">Dịch vụ</label>
+                <textarea class="form-control" id="summernote3" path="service" name="service" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="summernote4" class="form-label col-form-label-lg">Ghi chú</label>
+                <textarea class="form-control" id="summernote4" path="note" name="note" rows="3"></textarea>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">
@@ -167,7 +188,6 @@
                 <button type="submit" class="btn btn-lg">Thêm</button>
             </div>
         </form:form>
-        <hr class="m-5" />
     </div>
 </div>
 <!-- Main - content end -->
@@ -176,9 +196,14 @@
 
 <!-- Script -->
 <script>
-$('#summernote').summernote({
-  placeholder: 'Nhập nội dung chuyến đi',
-  tabsize: 2,
-  height: 100,
-});
+    function summernote(id, placeholder) {
+        $(id).summernote({
+            placeholder: placeholder,
+            tabsize: 2,
+            height: 100,
+        });
+    }
+    summernote('#summernote', 'Nhập điểm nhấn hành trình')
+    summernote('#summernote3', 'Nhập dịch vụ chuyến đi')
+    summernote('#summernote4', 'Nhập ghi chú chuyến đi')
 </script>

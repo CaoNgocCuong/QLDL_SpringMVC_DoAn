@@ -17,6 +17,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,6 +43,12 @@ public class BlogController {
         model.addAttribute("categories", this.categoryService.getCategories());
         
         return "blog";
+    }
+    
+    @GetMapping("/blogs/{blogId}")
+    public String blogDetail(Model model, @PathVariable(value = "blogId") int blogId) {
+        model.addAttribute("blog", this.blogService.getPostById(blogId));
+        return "blog-details";
     }
     
     @GetMapping("/admin/blog-management")

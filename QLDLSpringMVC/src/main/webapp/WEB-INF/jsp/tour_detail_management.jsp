@@ -25,6 +25,7 @@
                         <td>Mã chuyến đi</td>
                         <td>Tên chuyến đi</td>
                         <td>Loại chuyến đi</td>
+                        <td>Quốc gia</td>
                         <td>Số ngày</td>
                         <td>Số đêm</td>
                         <td>Số khách tối thiểu</td>
@@ -45,10 +46,11 @@
                         <td>${tour.id}</td>
                         <td>${tour.name}</td>
                         <td>${tour.tourType}</td>
+                        <td>${tour.country}</td>
                         <td>${tour.tourDays}</td>
                         <td>${tour.tourNights}</td>
-                        <td>20</td>
-                        <td>40</td>
+                        <td>${tour.minCustomer}</td>
+                        <td>${tour.maxCustomer}</td>
                         <td>14</td>
                         <td>26</td>
                         <td>${tour.adultsPrice}</td>
@@ -124,8 +126,5 @@
             height: 100,
         });
     }
-    summernote('#summernote', 'Nhập điểm nhấn hành trình')
-    summernote('#summernote2', 'Nhập lịch trình chuyến đi')
-    summernote('#summernote3', 'Nhập dịch vụ chuyến đi')
-    summernote('#summernote4', 'Nhập ghi chú chuyến đi')
+    summernote('#summernote', 'Nhập lịch trình chuyến đi')
 </script>

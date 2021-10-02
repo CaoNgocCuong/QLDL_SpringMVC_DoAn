@@ -78,5 +78,10 @@ public class ToursServiceImpl implements ToursService{
        }  
        return false;
     }
-    
+
+    @Override
+    public Tour getTourById(int id) {
+        return this.toursRepository.getTourById(id);
+    }
+
 }

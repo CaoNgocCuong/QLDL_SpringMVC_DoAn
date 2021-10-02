@@ -85,13 +85,19 @@ and open the template in the editor.
         <put-attribute name="blog" value="/WEB-INF/jsp/blogs.jsp" />
     </definition>
     
+    <definition name="tour_details" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiết chuyến du lịch" />
+        <put-attribute name="destination_popular" value="/WEB-INF/jsp/tour_details.jsp" />
+    </definition>
+    
+    
     <definition name="blog" extends="baseLayout">
         <put-attribute name="title" value="Tin tức" />
         <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_news.jsp" />
         <put-attribute name="blog" value="/WEB-INF/jsp/blogspage.jsp" />
     </definition>
     
-    <definition name="blog_details" extends="baseLayout">
+    <definition name="blog-details" extends="baseLayout">
         <put-attribute name="title" value="Bài đăng" />
         <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_news.jsp" />
         <put-attribute name="blog" value="/WEB-INF/jsp/blog_details.jsp" />

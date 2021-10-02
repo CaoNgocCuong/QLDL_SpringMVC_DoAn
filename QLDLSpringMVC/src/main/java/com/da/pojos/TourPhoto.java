@@ -8,6 +8,7 @@ package com.da.pojos;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,14 +28,13 @@ public class TourPhoto implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
-    @Column (name = "tour_id")
-    private int tourId;
+
     private String photo;
     
     @Transient
     private MultipartFile file;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "tour_id", insertable = false, updatable = false)
     private Tour tour;
 
@@ -65,21 +65,6 @@ public class TourPhoto implements Serializable {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-
-    /**
-     * @return the tour
-     */
-    public Tour getTour() {
-        return tour;
-    }
-
-    /**
-     * @param tour the tour to set
-     */
-    public void setTour(Tour tour) {
-        this.tour = tour;
-    }
-
     /**
      * @return the file
      */
@@ -95,16 +80,17 @@ public class TourPhoto implements Serializable {
     }
 
     /**
-     * @return the tourId
+     * @return the tour
      */
-    public int getTourId() {
-        return tourId;
+    public Tour getTour() {
+        return tour;
     }
 
     /**
-     * @param tourId the tourId to set
+     * @param tour the tour to set
      */
-    public void setTourId(int tourId) {
-        this.tourId = tourId;
+    public void setTour(Tour tour) {
+        this.tour = tour;
     }
+
 }

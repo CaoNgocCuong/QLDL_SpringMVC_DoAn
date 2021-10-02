@@ -29,6 +29,15 @@ slider(1, 2000, "testimonial-radio")
 
 // Slider automatic ends
 
+// ----------------------- overrite carousel of bootstrap 4 --------------
+var carouselItems = document.querySelectorAll('.carousel-item')
+var carouselItem = document.querySelector('.carousel-item')
+var carouselIndicatorList = document.querySelectorAll('.carousel-indicators li')
+carouselItems.forEach(carousel => {
+    carousel.classList.remove('active')
+})
+carouselItem.classList.add('active')
+
 // ------------------------- Tour -------------------------
 var popularSearchItems = document.querySelectorAll('.popular-place__list .popular-place__item')
 
@@ -38,49 +47,14 @@ popularSearchItems.forEach(item => {
     }
 })
 
-// ------------------------------ Modal -----------------------
-// var btnLogin = document.querySelector('.user-dropdown .btn-login-wrap .btn-login')
-// var modal = document.querySelector('.modal-form')
-// var overlay = document.querySelector('.modal-form__overlay')
-// var formLogin = document.querySelector('.modal__content-login')
-// var btnInnerRegister = document.querySelector('.register-inner-form')
-// var btnInnerLogin = document.querySelector('.login-inner-form')
-// var btnCloses = document.querySelectorAll('.form .icon-close')
-// var navRegister = document.querySelector('.register-link')
+var toursBox = document.querySelectorAll('.tour-box-index ul li')
 
-// function modalFade(eleAddEvent, eleAddHide, eleAddClasForm) {
-//     eleAddEvent.addEventListener('click', function(event) {
-//         event.preventDefault()
-//         eleAddHide.classList.toggle('hide')
-//         eleAddClasForm.classList.add('show')
-//     })
-// }
-
-// modalFade(btnLogin, modal, formLogin)
-// modalFade(overlay, modal, formLogin)
-
-// btnCloses.forEach(btn => {
-//     btn.addEventListener('click', function() {
-//         modal.classList.add('hide')
-//     })
-// })
-
-// navRegister.addEventListener('click', function(event) {
-//     event.preventDefault()
-//     formLogin.classList.remove('show')
-//     modal.classList.toggle('hide')
-// })
-
-
-// btnInnerRegister.addEventListener('click', function(event) {
-//     event.preventDefault()
-
-//     formLogin.classList.remove('show')
-// })
-
-// btnInnerLogin.addEventListener('click', function(event) {
-//     event.preventDefault()
-
-//     formLogin.classList.add('show')
-// })
+toursBox.forEach(tour => {
+    tour.onclick = () => {
+        toursBox.forEach(tour => {
+            tour.classList.remove('active')
+        })
+        tour.classList.add('active')
+    }
+})
 

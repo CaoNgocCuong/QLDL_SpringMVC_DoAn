@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -16,20 +17,21 @@
                 <div class="blog__left-sidebar">
                     <article class="blog-item">
                         <div class="blog-item__img">
-                            <img src="<c:url value="/img/blog/single_blog_4.png" />" alt="blog 2">
+                            <img src="<c:url value="${blog.photo}" />" alt="${blog.title}">
                             <a href="#" class="blog-item__date">
-                                <h3>01</h3>
-                                <p>Tháng 3</p>
+                                <h3><fmt:formatDate pattern="dd" value="${blog.date}" /></h3>
+                                <p>Tháng <fmt:formatDate pattern="MM" value="${blog.date}" /></p>
+                                <h3><fmt:formatDate pattern="yyyy" value="${blog.date}" /></h3>
                             </a>
                         </div>
                         <div class="blog-item__content">
                             <h3 class="blog-item__content-title">
-                                <a href="#">Chuyện lương lậu khi thực tập IT</a>
+                                <a href="#">${blog.title}</a>
                             </h3>
                             <div class="blog-item__wrap">
                                 <ul class="blog-item__info">
                                     <li>
-                                        <a href="#"><i class="fas fa-user"></i>Bùi Văn Nguyện</a>
+                                        <a href="#"><i class="fas fa-user"></i>${blog.author}</a>
                                     </li>
                                     <li>
                                         <a href="#"><i class="fas fa-comments"></i>03 comments</a>
@@ -37,29 +39,7 @@
                                 </ul>
                             </div>
                             <div class="blog-item__content-detail">
-                                <p>Có lẽ đây là chủ đề nhạy cảm khó nói vì nó liên quan đến tiền bạc, đối với các bạn sinh viên thì khoản lương để trang trải cuộc sống khi thực tập rất được các bạn quan tâm.</p>
-                                <p>Bài viết này mình viết quan điểm cá nhân, dựa trên sự thấu hiểu cả hai bên. Mình đã train cho khá nhiều các bạn thực tập (có lương), có bạn thì mình đề xuất tăng thêm lương, còn có bạn thì mình lại thấy chả xứng đáng đồng nào. Chắc các bạn hiểu điều này.</p>
-                                <blockquote>
-                                    <p>Có bạn cho rằng “cty không trả lương cho SV là biểu hiện họ không cần SV, cũng không cần cái thằng đó khi đã thực tập xong”.</p>
-                                </blockquote>
-                                <p>Hơi buồn nhưng thật sự mà nói thì đúng là nhiều cty KHÔNG cần SV thật. Các cty sản xuất phần mềm đã có quy trình sản xuất tốt, các lập trình viên giỏi, họ sẵn sàng trả mức lương cao, đang hoạt động hiệu quả, thì chẳng có lý do gì họ phải tuyển sinh viên thực tập để mất thời gian, làm rối quy trình của họ cả.</p>
-                                <p>Còn nếu cty có chương trình “đào tạo nhân lực từ SV” thì trừ phi bạn thuộc top xuất sắc, thể hiện ở giai đoạn thực tập rất tốt, thì họ sẵn sàng trả cho bạn nhiều tiền để làm cho họ. Nhưng vấn đề là phải xong thực tập họ mới biết được bạn là ai, bạn giỏi đến đâu mà đúng không? Như vậy nói rằng cty không trả lương cho bạn thì cũng tội họ lắm.</p>
-                                <p>Trước hết để cho thoải mái, chúng ta cứ xác định rằng giai đoạn thực tập không phải là VÌ TIỀN, sau này khi đi làm rồi bạn sẽ kiếm được nhiều tiền hơn thế nhiều lần. Kiếm tiền cả đời chứ gì mấy tháng thực tập ít ỏi.</p>
-                                <p>Nếu lúc đăng tuyển thực tập, họ ghi là “không lương” mà bạn “đòi” có lương thì không nên. Sau này đã có kinh nghiệm, đi phỏng vấn xin việc các bạn có thể đòi bao nhiêu cũng được.</p>
-                                <p>Cty mất cho bạn nhiều hơn bạn tưởng, cứ tính đơn giản thằng leader lương khoảng 2 chục củ đi, tháng làm 22 ngày (trừ t7 chủ nhật) tính ra lão làm mỗi ngày 1 củ, 8 tiếng, mỗi ngày mất cho bạn 1 tiếng cty mỗi tháng cũng mất cho bạn kha khá rồi. Đây là khoản đầu tư của cty để có cơ hội tìm được người phù hợp. Nhưng nếu bạn ra đi thì nghĩ cho họ một tí.</p>
-                                <blockquote>
-                                    <p>Công thức chung ở đây vẫn là: Con người tạo ra giá trị, giá trị tạo ra tiền.</p>
-                                </blockquote>
-                                <p>Đừng vội quy kết, chưa gì đã lo người ta “bóc lột” mình, bởi vì họ chưa thấy giá trị của bạn thôi, điều này cho ta thấy mình cần phải cố gắng hơn nữa. Trong cty có đầy lập trình viên giỏi, bóc lột bọn đó ngon hơn.</p>
-                                <p>Cũng phải hiểu cho nhau một chút, bọn mình làm trong môi trường “sản xuất”, nó khác với môi trường “học tập”. Bọn mình kiếm tiền, nhìn vào kết quả, tiến độ dự án để làm, các yếu tố tác động đến tiến độ (trong đó có thực tập) đều phải xem xét.</p>
-                                <p>Có lần, team của mình được thông báo rằng sẽ có 2 bạn sinh viên sẽ join team để thực tập, bạn biết thế nào không? Team member phản đối. Họ nói rằng: team đang làm rất tốt, tiến độ đang đúng dự kiến, chúng ta có thể release phiên bản này sớm hơn 1 đến 2 tuần. Tại sao phải có thêm các bạn sinh viên vào chứ? Mình chỉ hơi buồn chút thôi :(</p>
-                                <h2 id="theo-quan-điểm-của-mình-dưới-góc-độ-sinh-viên-thì">Theo quan điểm của mình dưới góc độ sinh viên thì:</h2>
-                                <p>Nếu cảm thấy tốt cho mình, ở đó mình sẽ học được nhiều thứ, thì không lương vẫn làm. Nếu lúc đăng tuyển thực tập, họ ghi là “không lương”, phải xem xét kỹ nếu thực tập ở đó bạn có học được nhiều hay không?</p>
-                                <blockquote>
-                                    <p>Nếu có lương, thì cứ nhận, CÓ lương vẫn tốt hơn. Tại sao?</p>
-                                </blockquote>
-                                <p>Khi có lương, bạn sẽ có trách nhiệm hơn với công việc, cũng coi như là một tí động lực để cố gắng. Như vậy bạn sẽ làm tốt hơn, học được nhiều hơn. Mình vẫn ủng hộ thực tập có lương, nhưng phải xứng đáng cơ. Dù gì các bạn sinh viên cũng có những khoản phải chi trả. Nhưng đừng vì không lương mà làm kém hoặc gây hậu quả đâu nhé.</p>
-                                <p>Thực tập với tinh thần thoải mái, học hỏi, thân thiện với nhân viên cty. Có nhiều bạn thực tập xong người ta thôi, còn có bạn thực tập xong người ta đi nhậu chia tay, lấy số các kiểu. Đấy, nó khác nhau ở chỗ đấy.</p>
+                                ${blog.content}
                             </div>
                             <div class="blog-tag">
                                 Tag: 

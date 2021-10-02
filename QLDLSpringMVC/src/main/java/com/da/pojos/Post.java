@@ -38,6 +38,7 @@ public class Post implements Serializable {
     private Date date;
     private String photo;
     private String author;
+    private String description;
     @Column (name = "category_id")
     private int cateId;
     private Boolean active;
@@ -230,5 +231,19 @@ public class Post implements Serializable {
      */
     public void setTags(Set<Tag> tags) {
         this.tags = tags;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

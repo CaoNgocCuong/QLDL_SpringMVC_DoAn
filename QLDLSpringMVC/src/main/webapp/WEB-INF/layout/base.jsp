@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="<c:url value="/css/contact.css" />">
         <link rel="stylesheet" href="<c:url value="/css/blog.css" />">
         <link rel="stylesheet" href="<c:url value="/css/blog-details.css" />">
+        <link rel="stylesheet" href="<c:url value="/css/tour-detail.css" />">
         <link rel="stylesheet" href="<c:url value="/css/bookTour.css"/>"/>
         <link rel="stylesheet" href="<c:url value="/css/login.css" />" />
     </head>

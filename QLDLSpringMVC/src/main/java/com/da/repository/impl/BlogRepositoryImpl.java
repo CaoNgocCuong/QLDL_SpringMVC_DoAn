@@ -93,5 +93,12 @@ public class BlogRepositoryImpl implements BlogRepository{
         return false;
     }
 
+    @Override
+    public Post getPostById(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        
+        return session.get(Post.class, id);
+    }
+
     
 }

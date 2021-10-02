@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,8 +27,7 @@ public class TourDetail implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
-    @Column (name = "tour_id")
-    private int tourId;
+    
     private String departure;
     private String destination;
     
@@ -39,8 +39,8 @@ public class TourDetail implements Serializable {
     @Column (name = "content")
     private String content;
     
-    @ManyToOne
-    @JoinColumn (name = "tour_id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn (name = "tour_id", nullable = false)
     private Tour tour;
 
     /**
@@ -141,17 +141,4 @@ public class TourDetail implements Serializable {
         this.tour = tour;
     }
 
-    /**
-     * @return the tourId
-     */
-    public int getTourId() {
-        return tourId;
-    }
-
-    /**
-     * @param tourId the tourId to set
-     */
-    public void setTourId(int tourId) {
-        this.tourId = tourId;
-    }
 }

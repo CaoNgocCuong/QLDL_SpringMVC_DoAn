@@ -86,11 +86,11 @@
     color: #555555;
 }
 
-.tour-detail__content .tour-detail__content-title h4 {
+.tour-detail__content .tour-detail__content-title h3 {
     padding: 10px;
     padding-left: 0;
 
-    color: #666666;
+    color: var(--secondary-color);
 }
 
 .tour-detail__content  .tour-detail__content-main h4 {

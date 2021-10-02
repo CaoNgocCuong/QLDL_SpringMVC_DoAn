@@ -80,6 +80,12 @@ public class ToursRepositoryImpl implements ToursRepository{
         
         return q.getResultList();
     }
+    
+    @Override
+    public Tour getTourById(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Tour.class, id);
+    } 
 
     @Override
     public boolean addTour(Tour tour) {
@@ -119,5 +125,5 @@ public class ToursRepositoryImpl implements ToursRepository{
         }
         return false;
     }
-    
+
 }

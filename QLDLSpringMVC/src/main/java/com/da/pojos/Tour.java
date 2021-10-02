@@ -8,15 +8,15 @@ package com.da.pojos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,15 +71,14 @@ public class Tour implements Serializable {
     @Transient
     private MultipartFile file;
     
-    @OneToOne (mappedBy = "tour")
-    @PrimaryKeyJoinColumn
-    private TourDetail tourDetail;
+    @OneToMany(mappedBy = "tour", fetch = FetchType.EAGER)
+    private Set<TourDetail> tourDetails = new HashSet<>();
      
     @OneToMany (mappedBy = "tour")
     private Set<Booking> bookings;
     
-    @OneToMany (mappedBy = "tour")
-    private Set<TourPhoto> tourPhotos;
+    @OneToMany (mappedBy = "tour", fetch = FetchType.EAGER)
+    private Set<TourPhoto> tourPhotos = new HashSet<>();
     
     @OneToMany (mappedBy = "tour")
     private Set<Rating> ratings;
@@ -252,19 +251,6 @@ public class Tour implements Serializable {
         this.bookings = bookings;
     }
 
-    /**
-     * @return the tourDetail
-     */
-    public TourDetail getTourDetail() {
-        return tourDetail;
-    }
-
-    /**
-     * @param tourDetail the tourDetail to set
-     */
-    public void setTourDetail(TourDetail tourDetail) {
-        this.tourDetail = tourDetail;
-    }
 
     /**
      * @return the tourPhotos
@@ -390,5 +376,19 @@ public class Tour implements Serializable {
      */
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    /**
+     * @return the tourDetails
+     */
+    public Set<TourDetail> getTourDetails() {
+        return tourDetails;
+    }
+
+    /**
+     * @param tourDetails the tourDetails to set
+     */
+    public void setTourDetails(Set<TourDetail> tourDetails) {
+        this.tourDetails = tourDetails;
     }
 }

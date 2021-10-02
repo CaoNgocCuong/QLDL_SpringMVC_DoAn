@@ -23,10 +23,10 @@
                     <div class="single-place">
                         <div class="thumb">
                             <img src="<c:url value="${tour.photo}" />" alt="popular place">
-                            <a href="" class="price">${tour.childrenPrice} - ${tour.adultsPrice} VNĐ</a>
+                            <a href="<c:url value="/tours/${tour.id}" />" class="price">${tour.childrenPrice} - ${tour.adultsPrice} VNĐ</a>
                         </div>
                         <div class="place-info">
-                            <a href="">
+                            <a href="<c:url value="/tours/${tour.id}" />">
                                 <h3>${tour.name}</h3>
                             </a>
                             <p>${tour.country}</p>

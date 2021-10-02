@@ -17,6 +17,7 @@ import java.util.List;
 public interface ToursService {
     List<Tour> getTours(String tourName, int page);
     List<Tour> getTours(String tourName);
+    Tour getTourById(int id);
     boolean addTour(Tour tour);
     boolean addTourDetail(TourDetail tourDetail);
     boolean addTourPhoto(TourPhoto tourPhoto);

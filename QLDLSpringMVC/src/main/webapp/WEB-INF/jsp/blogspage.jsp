@@ -16,8 +16,8 @@
                     <c:forEach var="post" items="${posts}">
                         <article class="blog-item">
                             <div class="blog-item__img">
-                                <img src="${post.photo}" alt="blog 2">
-                                <a href="#" class="blog-item__date">
+                                <img src="${post.photo}" alt="${post.title}">
+                                <a href="<c:url value="/blogs/${post.id}" />" class="blog-item__date">
                                     <h3><fmt:formatDate pattern="dd" value="${post.date}" /></h3>
                                     <p>Tháng <fmt:formatDate pattern="MM" value="${post.date}" /></p>
                                     <h3><fmt:formatDate pattern="yyyy" value="${post.date}" /></h3>
@@ -25,9 +25,9 @@
                             </div>
                             <div class="blog-item__content">
                                 <h3 class="blog-item__content-title">
-                                    <a href="<c:url value="/blog/blog_details"/>">${post.title}</a>
+                                    <a href="<c:url value="/blogs/${post.id}"/>">${post.title}</a>
                                 </h3>
-                                <p>${post.content}</p>
+                                <p>${post.description}</p>
                                 <div class="blog-item__wrap">
                                     <ul class="blog-item__info">
                                         <li>
@@ -38,7 +38,7 @@
                                         </li>
                                     </ul>
                                     <div class="read-more">
-                                        <a href="./blog-detail.html" class="read-more-btn">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                                        <a href="<c:url value="/blogs/${post.id}" />" class="read-more-btn">Xem thêm <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
