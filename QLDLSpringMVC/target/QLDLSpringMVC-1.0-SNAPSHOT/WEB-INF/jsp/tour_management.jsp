@@ -104,6 +104,16 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
+                    <label for="inputMinCustomer" class="form-label col-form-label-lg">Số khách tối thiểu</label>
+                    <input type="number" name="minCustomer" path="minCustomer" class="form-control form-control-lg" id="inputDay" value="0" min="0">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputMaxCustomer" class="form-label col-form-label-lg">Số Khách tối đa</label>
+                    <input type="number" name="maxCustomer" path="maxCustomer" class="form-control form-control-lg" id="inputNight" value="0" min="0">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
                     <label for="inputPriceAdult" class="form-label col-form-label-lg">Giá người lớn</label>
                     <div class="input-group">
                         <input type="number" name="adultsPrice" path="adultsPrice" class="form-control" id="inputPriceAdult" aria-label="Dollar amount (with dot and two decimal places)" value="0" min="0">

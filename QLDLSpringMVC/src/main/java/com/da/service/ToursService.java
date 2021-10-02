@@ -7,6 +7,7 @@ package com.da.service;
 
 import com.da.pojos.Tour;
 import com.da.pojos.TourDetail;
+import com.da.pojos.TourPhoto;
 import java.util.List;
 
 /**
@@ -18,5 +19,6 @@ public interface ToursService {
     List<Tour> getTours(String tourName);
     boolean addTour(Tour tour);
     boolean addTourDetail(TourDetail tourDetail);
+    boolean addTourPhoto(TourPhoto tourPhoto);
     long countTours();
 }

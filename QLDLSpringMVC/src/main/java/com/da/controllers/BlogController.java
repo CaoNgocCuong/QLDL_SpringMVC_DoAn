@@ -5,14 +5,19 @@
  */
 package com.da.controllers;
 
+import com.da.pojos.Post;
 import com.da.service.BlogService;
 import com.da.service.CategoryService;
 import java.util.Map;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -40,7 +45,24 @@ public class BlogController {
     }
     
     @GetMapping("/admin/blog-management")
-    public String addBlog() {
+    public String blogManagementView(Model model, @RequestParam(value = "blogTitle", required = false, defaultValue = "") String blogTitle) {
+        model.addAttribute("posts", this.blogService.getPosts(blogTitle));
+        model.addAttribute("cates", this.categoryService.getCategories());
+        return "blog-management";
+    }
+    
+    @PostMapping("/admin/blog-management")
+    public String addPost(Model model, @ModelAttribute(value="post") @Valid Post post, BindingResult result){
+        String errMsg ="";
+//        if(!result.hasErrors()){
+            if(this.blogService.addPost(post) == true)
+                return "redirect:/admin/blog-management";
+            else
+                errMsg = "Lỗi! Thêm thất bại!";     
+//        }
+//        else
+//            errMsg = "Lỗi! Thông tin nhập không hợp lệ!";
+        model.addAttribute("errMsg", errMsg);
         return "blog-management";
     }
 }

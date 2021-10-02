@@ -6,6 +6,7 @@
 package com.da.pojos;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -24,10 +27,15 @@ public class TourPhoto implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @Column (name = "tour_id")
+    private int tourId;
     private String photo;
     
+    @Transient
+    private MultipartFile file;
+    
     @ManyToOne
-    @JoinColumn (name = "tour_id")
+    @JoinColumn (name = "tour_id", insertable = false, updatable = false)
     private Tour tour;
 
     /**
@@ -70,5 +78,33 @@ public class TourPhoto implements Serializable {
      */
     public void setTour(Tour tour) {
         this.tour = tour;
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+
+    /**
+     * @return the tourId
+     */
+    public int getTourId() {
+        return tourId;
+    }
+
+    /**
+     * @param tourId the tourId to set
+     */
+    public void setTourId(int tourId) {
+        this.tourId = tourId;
     }
 }

@@ -4,14 +4,19 @@
     Author     : CaoNgocCuong
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<c:url value="/admin/blog-management" var="action" />
+
 <!-- Main - content start -->
 <div class="main-content">
     <div class="main-table">
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Danh sách bài viết</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" placeholder="Tìm kiếm..." required="">
+                <input type="text" name="blogTitle" placeholder="Tìm kiếm..." required="">
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>   
@@ -29,54 +34,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>0001</td>
-                        <td>0101</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>Thanh niên bỏ game để theo đuổi đam mê lập trình</td>
-                        <td>12/01/2021</td>
-                        <td><a href="#" class="btn active">True</a></td>
-                        <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                        </td>   
-                    </tr>
-                    <tr>
-                        <td>0002</td>
-                        <td>0101</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>Cuộc sống không như là mơ</td>
-                        <td>12/01/2021</td>
-                        <td><a href="#" class="btn active">True</a></td>
-                        <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                        </td>   
-                    </tr>
-                    <tr>
-                        <td>0003</td>
-                        <td>0102</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>Ai rồi cũng qua môn thôi</td>
-                        <td>12/01/2021</td>
-                        <td><a href="#" class="btn active">True</a></td>
-                        <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                        </td>   
-                    </tr>
-                    <tr>
-                        <td>0004</td>
-                        <td>0103</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>Thanh niên bỏ game để theo đuổi đam mê lập trình</td>
-                        <td>12/01/2021</td>
-                        <td><a href="#" class="btn active">True</a></td>
-                        <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                        </td>   
-                    </tr>
+                    <c:forEach var="post" items="${posts}">
+                        <tr>
+                            <td>${post.id}</td>
+                            <td>${post.cateId}</td>
+                            <td>${post.author}</td>
+                            <td>${post.title}</td>
+                            <td>${post.date}</td>
+                            <td><a href="#" class="btn active">${post.active}</a></td>
+                            <td>
+                                <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
+                                <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                            </td>   
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
@@ -85,28 +56,29 @@
         <div class="main-title">
             <h2><i class="fas fa-user-plus mr-2"></i>Thêm bài viết</h2>
         </div>
-        <form class="form-add">
+        <form:form method="post" action="${action}" class="form-add" modelAttribute="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="inputAuthor" class="form-label col-form-label-lg">Tên tác giả</label>
-                        <input type="email" class="form-control form-control-lg" id="inputAuthor">
+                        <input type="text" name="author" path="author" class="form-control form-control-lg" id="inputAuthor">
                     </div>
                 </div> 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="inputCate" class="form-label col-form-label-lg">Mã danh mục</label>
-                        <select id="inputCate" class="form-control">
+                        <select id="inputCate" name="cateId" path="cateId" class="form-control">
                             <option selected disabled>Chọn danh mục</option>
-                            <option>00001</option>
-                            <option>00002</option>
+                            <c:forEach var="cate" items="${cates}">
+                                <option value="${cate.id}">${cate.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div> 
             </div>
             <div class="form-group">
                 <label for="inputTitle" class="form-label col-form-label-lg">Tiêu đề bài viết</label>
-                <input type="email" class="form-control form-control-lg" id="inputTitle">
+                <input type="text" name="title" path="title" class="form-control form-control-lg" id="inputTitle">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -116,7 +88,7 @@
                           <span class="input-group-text">Thêm ảnh</span>
                         </div>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="inputAvatar">
+                        <input type="file" name="file" path="file" accept="image/*" class="custom-file-input" id="inputAvatar">
                           <label class="custom-file-label" for="inputAvatar">Chọn ảnh bài viết</label>
                         </div>
                     </div>
@@ -124,7 +96,7 @@
             </div>
             <div class="form-group">
                 <label for="summernoteContent" class="form-label col-form-label-lg">Nội dung</label>
-                <textarea class="form-control" id="summernoteContent" name="editordata" rows="3"></textarea>
+                <textarea class="form-control" name="content" path="content" id="summernoteContent" name="editordata" rows="10"></textarea>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">
@@ -135,7 +107,12 @@
             <div class="form-group btn-wrapper">
                 <button type="submit" class="btn btn-lg">Thêm bài</button>
             </div>
-        </form>
+        </form:form>
+        <c:if test="${errMsg != null}">
+            <div class = "alert alert-danger">
+                ${errMsg}
+            </div>
+        </c:if>
     </div>
 </div>
 <!-- Main - content end -->

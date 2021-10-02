@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface BlogService {
     List<Post> getPosts(String title, int page);
-    
+    List<Post> getPosts(String title);
+    boolean addPost(Post post);
     long countPosts();
 }

@@ -29,7 +29,7 @@
                             <a href="">
                                 <h3>${tour.name}</h3>
                             </a>
-                            <p>United State of America</p>
+                            <p>${tour.country}</p>
                             <div class="rating-days">
                                 <span>
                                     <i class="far fa-star"></i>

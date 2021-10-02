@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -59,6 +60,37 @@ public class BlogRepositoryImpl implements BlogRepository{
         Query query = session.createQuery("SELECT COUNT(*) FROM Post");
         
         return Long.parseLong(query.getSingleResult().toString());
+    }
+
+    @Override
+    public List<Post> getPosts(String title) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Post> query = builder.createQuery(Post.class);
+        Root root = query.from(Post.class);
+        query = query.select(root);
+        
+        if(!title.isEmpty() && title != null){
+            Predicate p = builder.like(root.get("title").as(String.class), String.format("%%%s%%", title));
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query);
+        
+        return q.getResultList();
+    }
+
+    @Override
+    public boolean addPost(Post post) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(post);
+            return true;
+        } catch (HibernateException e) {
+            System.err.println("==Add post error==" + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
     }
 
     

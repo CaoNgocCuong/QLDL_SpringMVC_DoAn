@@ -7,7 +7,7 @@ package com.da.repository.impl;
 
 import com.da.pojos.Tour;
 import com.da.pojos.TourDetail;
-import com.da.pojos.User;
+import com.da.pojos.TourPhoto;
 import com.da.repository.ToursRepository;
 import java.util.List;
 import javax.persistence.Query;
@@ -99,6 +99,19 @@ public class ToursRepositoryImpl implements ToursRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
             session.save(tourDetail);
+            return true;
+        } catch (HibernateException e) {
+            System.err.println("==Add tour error==" + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addTourPhoto(TourPhoto tourPhoto) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(tourPhoto);
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add tour error==" + e.getMessage());

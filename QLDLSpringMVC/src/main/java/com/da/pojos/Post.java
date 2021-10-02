@@ -21,6 +21,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -36,21 +37,17 @@ public class Post implements Serializable {
     private String content;
     private Date date;
     private String photo;
-    
-    @Transient
-    private int day;
-    @Transient
-    private int month;
-    
-    @Column (name = "active")
+    private String author;
+    @Column (name = "category_id")
+    private int cateId;
+    @Column (name = "tag_id")
+    private int tagId;
     private Boolean active;
+    @Transient
+    private MultipartFile file;
     
     @ManyToOne
-    @JoinColumn (name = "user_id")
-    private User user;
-    
-    @ManyToOne
-    @JoinColumn (name = "category_id")
+    @JoinColumn (name = "category_id", insertable = false, updatable = false)
     private Category category;
     
     @OneToMany (mappedBy = "post")
@@ -65,7 +62,7 @@ public class Post implements Serializable {
             inverseJoinColumns = {
                 @JoinColumn (name = "tag_id")
             }
-    )
+    )           
     Set<Tag> tags = new HashSet<>();
     
 
@@ -140,20 +137,6 @@ public class Post implements Serializable {
     }
 
     /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    /**
      * @return the comments
      */
     public Set<Comment> getComments() {
@@ -196,30 +179,58 @@ public class Post implements Serializable {
     }
 
     /**
-     * @return the day
+     * @return the author
      */
-    public int getDay() {
-        return day;
+    public String getAuthor() {
+        return author;
     }
 
     /**
-     * @param day the day to set
+     * @param author the author to set
      */
-    public void setDay(int day) {
-        this.day = day;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     /**
-     * @return the month
+     * @return the cateId
      */
-    public int getMonth() {
-        return month;
+    public int getCateId() {
+        return cateId;
     }
 
     /**
-     * @param month the month to set
+     * @param cateId the cateId to set
      */
-    public void setMonth(int month) {
-        this.month = month;
+    public void setCateId(int cateId) {
+        this.cateId = cateId;
+    }
+
+    /**
+     * @return the tagId
+     */
+    public int getTagId() {
+        return tagId;
+    }
+
+    /**
+     * @param tagId the tagId to set
+     */
+    public void setTagId(int tagId) {
+        this.tagId = tagId;
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
 }

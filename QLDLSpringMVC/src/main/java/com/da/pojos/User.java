@@ -64,9 +64,6 @@ public class User implements Serializable{
     private Set<Rating> ratings;
     
     @OneToMany (mappedBy = "user")
-    private Set<Post> posts;
-    
-    @OneToMany (mappedBy = "user")
     private Set<Comment> comments;
     
     @OneToMany (mappedBy = "user")
@@ -239,20 +236,6 @@ public class User implements Serializable{
      */
     public void setRatings(Set<Rating> ratings) {
         this.ratings = ratings;
-    }
-
-    /**
-     * @return the posts
-     */
-    public Set<Post> getPosts() {
-        return posts;
-    }
-
-    /**
-     * @param posts the posts to set
-     */
-    public void setPosts(Set<Post> posts) {
-        this.posts = posts;
     }
 
     /**
