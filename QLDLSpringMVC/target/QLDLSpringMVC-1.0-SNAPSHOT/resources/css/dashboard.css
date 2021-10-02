@@ -393,11 +393,12 @@ header .head_inner .left-part ul li.have_dots span::before {
 }
 
 .main-table .user-table table thead tr td {
-    padding: 20px 4px;
-
+    padding: 12px 10px;
+    min-width: 139px;
     font-size: 1.4em;
     font-weight: bold;
     color: #fff;
+    text-align: center;
 }
 
 .main-table .user-table table tbody tr:nth-child(2n + 1) {
@@ -408,6 +409,7 @@ header .head_inner .left-part ul li.have_dots span::before {
     padding: 15px 8px 15px 0;
     font-size: 1.5rem;
     cursor: pointer;
+    text-align: center;
 }
 
 .main-table .user-table tbody tr td .btn {

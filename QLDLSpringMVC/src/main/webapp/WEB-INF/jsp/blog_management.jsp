@@ -116,3 +116,13 @@
     </div>
 </div>
 <!-- Main - content end -->
+<script>
+    function summernote(id, placeholder) {
+        $(id).summernote({
+            placeholder: placeholder,
+            tabsize: 2,
+            height: 100
+        });
+    }
+    summernote('#summernoteContent', 'Nhập nội dung cho bài viết')
+</script>

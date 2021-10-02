@@ -40,8 +40,6 @@ public class Post implements Serializable {
     private String author;
     @Column (name = "category_id")
     private int cateId;
-    @Column (name = "tag_id")
-    private int tagId;
     private Boolean active;
     @Transient
     private MultipartFile file;
@@ -63,7 +61,7 @@ public class Post implements Serializable {
                 @JoinColumn (name = "tag_id")
             }
     )           
-    Set<Tag> tags = new HashSet<>();
+    private Set<Tag> tags = new HashSet<>();
     
 
     /**
@@ -207,20 +205,6 @@ public class Post implements Serializable {
     }
 
     /**
-     * @return the tagId
-     */
-    public int getTagId() {
-        return tagId;
-    }
-
-    /**
-     * @param tagId the tagId to set
-     */
-    public void setTagId(int tagId) {
-        this.tagId = tagId;
-    }
-
-    /**
      * @return the file
      */
     public MultipartFile getFile() {
@@ -232,5 +216,19 @@ public class Post implements Serializable {
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the tags
+     */
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    /**
+     * @param tags the tags to set
+     */
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
     }
 }

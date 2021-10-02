@@ -29,6 +29,10 @@
                         <td>Loại chuyến đi</td>
                         <td>Số ngày</td>
                         <td>Số đêm</td>
+                        <td>Số khách tối thiểu</td>
+                        <td>Số khách tối đa</td>
+                        <td>Vé đã đặt</td>
+                        <td>Vé còn lại</td>
                         <td>Giá người lớn</td>
                         <td>Giá trẻ em</td>
                         <td>Ngày bắt đầu</td>
@@ -45,6 +49,10 @@
                         <td>${tour.tourType}</td>
                         <td>${tour.tourDays}</td>
                         <td>${tour.tourNights}</td>
+                        <td>20</td>
+                        <td>40</td>
+                        <td>14</td>
+                        <td>26</td>
                         <td>${tour.adultsPrice}</td>
                         <td>${tour.childrenPrice}</td>
                         <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.startDate}"/></td>
