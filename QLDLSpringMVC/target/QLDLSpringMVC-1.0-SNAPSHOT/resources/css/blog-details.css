@@ -161,6 +161,10 @@
     color: #7a7a7a;
 }
 
+.single-comment__des {
+    flex: 1;
+}
+
 .single-comment__des .comment-user {
     display: flex;
     align-items: center;
