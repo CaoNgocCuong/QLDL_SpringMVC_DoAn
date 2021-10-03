@@ -96,5 +96,10 @@ public class UserServiceImpl implements UserService{
 
         return false;
     }
+
+    @Override
+    public User getUserById(int id) {
+        return this.userRepository.getUserById(id);
+    }
     
 }

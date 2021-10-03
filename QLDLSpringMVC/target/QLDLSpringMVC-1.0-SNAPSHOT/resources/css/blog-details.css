@@ -138,14 +138,16 @@
 }
 
 .comments-list .single-comment .single-comment__thumb {
-    min-width: 70px;
+    width: 70px;
     height: 70px;
-    border-radius: 50%;
     margin-right: 14px;
 }
 
 .comments-list .single-comment .single-comment__thumb img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .single-comment .single-comment__des .single-comment__content {
@@ -202,6 +204,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .comment-box .user-comment {
@@ -241,6 +244,10 @@
     background: transparent;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.comment-box .user-comment .user-action .user-btn:focus {
+    outline: none;
 }
 
 .comment-box .user-comment .user-action .user-btn:first-child {

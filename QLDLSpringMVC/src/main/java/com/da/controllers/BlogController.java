@@ -8,6 +8,7 @@ package com.da.controllers;
 import com.da.pojos.Post;
 import com.da.service.BlogService;
 import com.da.service.CategoryService;
+import com.da.service.TagService;
 import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,9 @@ public class BlogController {
     @Autowired
     private CategoryService categoryService;
     
+    @Autowired
+    private TagService tagService;
+    
     @GetMapping("/blog")
     public String blogView(Model model, @RequestParam(value = "title", required = false, defaultValue = "") String title,
             @RequestParam(required = false) Map<String, String> params) {
@@ -41,15 +45,11 @@ public class BlogController {
         model.addAttribute("posts", this.blogService.getPosts(title, page));
         model.addAttribute("counter", this.blogService.countPosts());
         model.addAttribute("categories", this.categoryService.getCategories());
+        model.addAttribute("tags", this.tagService.getTags());
         
         return "blog";
     }
     
-    @GetMapping("/blogs/{blogId}")
-    public String blogDetail(Model model, @PathVariable(value = "blogId") int blogId) {
-        model.addAttribute("blog", this.blogService.getPostById(blogId));
-        return "blog-details";
-    }
     
     @GetMapping("/admin/blog-management")
     public String blogManagementView(Model model, @RequestParam(value = "blogTitle", required = false, defaultValue = "") String blogTitle) {

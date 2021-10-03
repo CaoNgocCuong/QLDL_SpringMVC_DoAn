@@ -5,8 +5,9 @@
  */
 package com.da.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,23 +25,35 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "comment")
 public class Comment implements Serializable {
+    
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     private String content;
     
     @Column (name = "like")
+    @JsonIgnore
     private Boolean like;
+    
+    @Column (name="date")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date date;
     
     @ManyToOne
     @JoinColumn (name = "user_id")
+    @JsonIgnore
     private User user;
     
     @ManyToOne
     @JoinColumn (name = "post_id")
+    @JsonIgnore
     private Post post;
 
+    public Comment() {
+    }
+
+    
     /**
      * @return the id
      */

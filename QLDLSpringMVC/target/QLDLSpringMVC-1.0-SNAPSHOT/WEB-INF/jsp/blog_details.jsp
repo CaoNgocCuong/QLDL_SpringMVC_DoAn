@@ -42,10 +42,10 @@
                                 ${blog.content}
                             </div>
                             <div class="blog-tag">
-                                Tag: 
-                                <a href="#">life style</a>,
-                                <a href="#">travel</a>,
-                                <a href="#">coder</a>
+                                Tag:
+                                <c:forEach var="tag" items="${blog.tags}">
+                                    <a href="#">${tag.name}</a>,
+                                </c:forEach>
                             </div>
                             <div class="blog-cate">
                                 Danh mục:
@@ -100,66 +100,20 @@
                     <div class="comments-area">
                         <h4>05 bình luận</h4>
                         <div class="comments-list">
-                            <div class="single-comment">
-                                <div class="single-comment__thumb">
-                                    <img src="<c:url value="/img/user/comment_1.png" />" alt="user-1">
-                                </div>
-                                <div class="single-comment__des">
-                                    <p class="single-comment__content">Cho em hỏi mấy anh chị đã ra trường ở OU hiện đã làm công việc gì vậy ạ. Anh chị có xin việc dễ dàng ko. Vì em thấy có nhìu doanh nghiệp ưu tiên bằng ĐH của những trường top.</p>
-                                    <div class="comment-user">
-                                        <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                        <p class="date">01 Tháng 03 2021</p>
+                            <c:forEach items="${blog.comments}" var="comment">
+                                <div class="single-comment">
+                                    <div class="single-comment__thumb">
+                                        <img src="<c:url value="/img/user/comment_1.png" />" alt="user-1">
+                                    </div>
+                                    <div class="single-comment__des">
+                                        <p class="single-comment__content">${comment.content}</p>
+                                        <div class="comment-user">
+                                            <h5><a href="#">${comment.user.fullName}</a></h5>
+                                            <p class="date">${comment.date}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="single-comment">
-                                <div class="single-comment__thumb">
-                                    <img src="<c:url value="/img/user/comment_2.png" />" alt="user-1">
-                                </div>
-                                <div class="single-comment__des">
-                                    <p class="single-comment__content">Một bài viết thực sự củm động :((</p>
-                                    <div class="comment-user">
-                                        <h5><a href="#">Trần Vũ Khang</a></h5>
-                                        <p class="date">02 Tháng 03 2021</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-comment">
-                                <div class="single-comment__thumb">
-                                    <img src="<c:url value="/img/user/comment_3.png" />" alt="user-1">
-                                </div>
-                                <div class="single-comment__des">
-                                    <p class="single-comment__content">học trường nào cũng được, quan trọng là giá trị bản thân có được đánh bóng bởi chính mình hay là không, mới quan trọng. Ví dụ như mấy cuộc thi của L'Oreal, hay Nestlé đâu có cần xem bằng cấp gì, quan trọng là năng lực bản thân mình thể hiện thôi. Nên nếu các bạn đã tin tưởng chọn Ou làm nơi để các bạn trau dồi thì chắc chắn một điều là các bạn đã không có điểm số cao để vào các trường Top lớn. Vì thế, việc bây giờ là các bạn phải cố gắng trau dồi hết mức có thể để bản thân mình có đủ skill, đừng tự ti vì mình học trường thấp hơn mà hãy suy nghĩ rằng mình sẽ giỏi như họ vào một thời điểm trong tương lai, đến lúc đó vững vàng mà chọn doanh nghiệp lớn để vào. dè deeee~</p>
-                                    <div class="comment-user">
-                                        <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                        <p class="date">01 Tháng 03 2021</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-comment">
-                                <div class="single-comment__thumb">
-                                    <img src="<c:url value="/img/user/comment_1.png" />" alt="user-1">
-                                </div>
-                                <div class="single-comment__des">
-                                    <p class="single-comment__content">Bài viết rất xuất sắc</p>
-                                    <div class="comment-user">
-                                        <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                        <p class="date">01 Tháng 03 2021</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="single-comment">
-                                <div class="single-comment__thumb">
-                                    <img src="<c:url value="/img/user/comment_3.png" />" alt="user-1">
-                                </div>
-                                <div class="single-comment__des">
-                                    <p class="single-comment__content">Bài viết rất xuất sắc</p>
-                                    <div class="comment-user">
-                                        <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                        <p class="date">01 Tháng 03 2021</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="comment-box">
@@ -167,7 +121,7 @@
                             <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
                         </div>
                         <div class="user-comment">
-                            <textarea name="" id="" cols="5" rows="2" placeholder="Viết bình luận của bạn..."></textarea>
+                            <textarea name="" id="" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
                             <div class="user-action">
                                 <button class="user-btn back">Hủy</button>
                                 <button class="user-btn submit">Bình luận</button>
@@ -198,42 +152,14 @@
                             Danh mục
                         </h4>
                         <ul class="cate-list">
-                            <li class="cate-list__item">
-                                <a href="#">
-                                    <p>Thực phẩm nhà hàng</p>
-                                    <p>(3)</p>
-                                </a>
-                            </li>
-                            <li class="cate-list__item">
-                                <a href="#">
-                                    <p>Tin tức du lịch</p>
-                                    <p>(10)</p>
-                                </a>
-                            </li>
-                            <li class="cate-list__item">
-                                <a href="#">
-                                    <p>Sản phẩm công nghệ</p>
-                                    <p>(7)</p>
-                                </a>
-                            </li>
-                            <li class="cate-list__item">
-                                <a href="#">
-                                    <p>Chăm sóc sức khỏe</p>
-                                    <p>(50)</p>
-                                </a>
-                            </li>
-                            <li class="cate-list__item">
-                                <a href="#">
-                                    <p>Chuyến tham quan thú vị</p>
-                                    <p>(12)</p>
-                                </a>
-                            </li>
-                            <li class="cate-list__item">
-                                <a href="#">
-                                    <p>Tình yêu du lịch</p>
-                                    <p>(8)</p>
-                                </a>
-                            </li>
+                            <c:forEach var="cate" items="${categories}">
+                                <li class="cate-list__item">
+                                    <a href="#">
+                                        <p>${cate.name}</p>
+                                        <p>(3)</p>
+                                    </a>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </aside>
                     <aside class="single-sidebar-widget recent-post">
@@ -290,30 +216,11 @@
                             Tag
                         </h4>
                         <ul class="tag-list">
-                            <li class="tag-list_item">
-                                <a href="#">love</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">travel</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">skincare</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">life style</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">technology</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">healthy</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">food</a>
-                            </li>
-                            <li class="tag-list_item">
-                                <a href="#">picture</a>
-                            </li>
+                            <c:forEach var="tag" items="${tags}">
+                                <li class="tag-list_item">
+                                    <a href="#">${tag.name}</a>
+                                </li>
+                            </c:forEach>
                         </ul>
                     </aside>
                     <aside class="single-sidebar-widget instagram-feed">

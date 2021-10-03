@@ -160,67 +160,21 @@
                     <div class="tour-detail__content">
                         <div class="comments-area">
                             <h4>05 bình luận</h4>
-                            <div class="comments-list">
-                                <div class="single-comment">
-                                    <div class="single-comment__thumb">
-                                        <img src="<c:url value="/img/user/comment_1.png" />" alt="user-1">
-                                    </div>
-                                    <div class="single-comment__des">
-                                        <p class="single-comment__content">Cho em hỏi mấy anh chị đã ra trường ở OU hiện đã làm công việc gì vậy ạ. Anh chị có xin việc dễ dàng ko. Vì em thấy có nhìu doanh nghiệp ưu tiên bằng ĐH của những trường top.</p>
-                                        <div class="comment-user">
-                                            <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                            <p class="date">01 Tháng 03 2021</p>
+                            <div class="comments-list" id="comments-list-area">
+                                <c:forEach items="${tour.ratings}" var="rating">
+                                    <div class="single-comment">
+                                        <div class="single-comment__thumb">
+                                            <img src="<c:url value="/img/bradcam3.png" />" alt="user-1">
+                                        </div>
+                                        <div class="single-comment__des">
+                                            <p class="single-comment__content">${rating.comment}</p>
+                                            <div class="comment-user">
+                                                <h5><a href="#">${rating.user.fullName}</a></h5>
+                                                <p class="date">${rating.ratingDate}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="single-comment">
-                                    <div class="single-comment__thumb">
-                                        <img src="<c:url value="/img/user/comment_2.png" />" alt="user-1">
-                                    </div>
-                                    <div class="single-comment__des">
-                                        <p class="single-comment__content">Một bài viết thực sự củm động :((</p>
-                                        <div class="comment-user">
-                                            <h5><a href="#">Trần Vũ Khang</a></h5>
-                                            <p class="date">02 Tháng 03 2021</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-comment">
-                                    <div class="single-comment__thumb">
-                                        <img src="<c:url value="/img/user/comment_3.png" />" alt="user-1">
-                                    </div>
-                                    <div class="single-comment__des">
-                                        <p class="single-comment__content">học trường nào cũng được, quan trọng là giá trị bản thân có được đánh bóng bởi chính mình hay là không, mới quan trọng. Ví dụ như mấy cuộc thi của L'Oreal, hay Nestlé đâu có cần xem bằng cấp gì, quan trọng là năng lực bản thân mình thể hiện thôi. Nên nếu các bạn đã tin tưởng chọn Ou làm nơi để các bạn trau dồi thì chắc chắn một điều là các bạn đã không có điểm số cao để vào các trường Top lớn. Vì thế, việc bây giờ là các bạn phải cố gắng trau dồi hết mức có thể để bản thân mình có đủ skill, đừng tự ti vì mình học trường thấp hơn mà hãy suy nghĩ rằng mình sẽ giỏi như họ vào một thời điểm trong tương lai, đến lúc đó vững vàng mà chọn doanh nghiệp lớn để vào. dè deeee~</p>
-                                        <div class="comment-user">
-                                            <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                            <p class="date">01 Tháng 03 2021</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-comment">
-                                    <div class="single-comment__thumb">
-                                        <img src="<c:url value="/img/user/comment_3.png" />" alt="user-1">
-                                    </div>
-                                    <div class="single-comment__des">
-                                        <p class="single-comment__content">Bài viết rất xuất sắc</p>
-                                        <div class="comment-user">
-                                            <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                            <p class="date">01 Tháng 03 2021</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-comment">
-                                    <div class="single-comment__thumb">
-                                        <img src="<c:url value="/img/user/comment_2.png" />" alt="user-1">
-                                    </div>
-                                    <div class="single-comment__des">
-                                        <p class="single-comment__content">Bài viết rất xuất sắc</p>
-                                        <div class="comment-user">
-                                            <h5><a href="#">Cao Ngọc Cường</a></h5>
-                                            <p class="date">01 Tháng 03 2021</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                </c:forEach>
                             </div>
                         </div>
                         <div class="comment-box">
@@ -228,10 +182,10 @@
                                 <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
                             </div>
                             <div class="user-comment">
-                                <textarea name="" id="" cols="5" rows="2" placeholder="Viết bình luận của bạn..."></textarea>
+                                <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
                                 <div class="user-action">
                                     <button class="user-btn back">Hủy</button>
-                                    <button class="user-btn submit">Bình luận</button>
+                                    <button class="user-btn submit" onclick="addCommentTour(${tour.id})">Bình luận</button>
                                 </div>
                             </div>
                         </div> 

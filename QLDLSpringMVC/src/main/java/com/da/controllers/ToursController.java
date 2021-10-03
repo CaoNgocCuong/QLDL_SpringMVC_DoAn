@@ -57,11 +57,6 @@ public class ToursController {
     
     
     
-    
-    
-    
-    
-    
     // ======================= Controller Admin ==========================
     @GetMapping("/admin/tour-management")
     public String tourManagementView(Model model, @RequestParam(value = "tourName", required = false, defaultValue = "") String tourName){

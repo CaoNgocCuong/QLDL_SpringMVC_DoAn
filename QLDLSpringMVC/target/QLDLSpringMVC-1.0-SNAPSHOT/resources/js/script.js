@@ -1,3 +1,55 @@
+// ---------------------------- Moment JS -------------------------------
+var dateItems = document.querySelectorAll('.single-comment__des .comment-user p')
+
+window.onload = function() {
+    for(let i = 0; i < dateItems.length; i++) {
+        let date = dateItems[i]
+        date.innerText = moment(date.innerText).fromNow()
+    }
+}
+
+// --------------------------------- Comment area -----------------------------
+
+let commentArea = document.getElementById("comment-area");
+let btnCancel = document.querySelector(".comment-box .user-comment .user-action .user-btn")
+
+function addCommentTour(tourId) {
+    fetch("/QLDLSpringMVC/api/add-commentTour", {
+        method: 'post',
+        body: JSON.stringify({
+            "content": commentArea.value,
+            "tourId": tourId
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(res) {
+        return res.json();
+    }).then(function(data) {
+        let commentListArea = document.getElementById("comments-list-area");
+        
+        commentListArea.innerHTML =  `
+            <div class="single-comment">
+                <div class="single-comment__thumb">
+                    <img src="https://ngoccuongou.github.io/WebTravel/img/user/comment_2.png" />" alt="user-1">
+                </div>
+                <div class="single-comment__des">
+                    <p class="single-comment__content">${data.comment}</p>
+                    <div class="comment-user">
+                        <h5><a href="#"></a></h5>
+                        <p class="date">${moment(data.ratingDate).fromNow()}</p>
+                    </div>
+                </div>
+            </div>
+        ` +  commentListArea.innerHTML;
+        location.reload();
+   })
+}
+
+btnCancel.onclick = () => {
+    commentArea.value = "";
+}
+
 // Slider automatic start
 function slider(counter, ms, type) {
     let isForward = true
@@ -57,4 +109,5 @@ toursBox.forEach(tour => {
         tour.classList.add('active')
     }
 })
+
 

@@ -80,7 +80,7 @@ public class Tour implements Serializable {
     @OneToMany (mappedBy = "tour", fetch = FetchType.EAGER)
     private Set<TourPhoto> tourPhotos = new HashSet<>();
     
-    @OneToMany (mappedBy = "tour")
+    @OneToMany (mappedBy = "tour", fetch = FetchType.EAGER)
     private Set<Rating> ratings;
 
     /**

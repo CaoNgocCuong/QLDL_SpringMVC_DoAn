@@ -5,8 +5,9 @@
  */
 package com.da.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -34,14 +37,17 @@ public class Rating implements Serializable {
     private String comment;
     
     @Column (name = "rating_date")
+    @Temporal(TemporalType.DATE)
     private Date ratingDate;
     
     @ManyToOne
     @JoinColumn (name = "user_id")
+    @JsonIgnore
     private User user;
     
     @ManyToOne
     @JoinColumn (name = "tour_id")
+    @JsonIgnore
     private Tour tour;
 
     /**
