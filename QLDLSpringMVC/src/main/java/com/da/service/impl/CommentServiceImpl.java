@@ -35,14 +35,20 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public Comment addComment(String content, int postId) {
         Post p = this.blogRepository.getPostById(postId);
-        User user = this.userRepository.getUserById(4);
+        User u = this.userRepository.getUserById(1);
         
-        Comment c = new Comment();
-        c.setContent(content);
-        c.setPost(p);
-        c.setUser(user);
-        c.setDate(new Date());
-        return this.commentRepository.addComment(c);
+        try {
+            Comment c = new Comment();
+            c.setPost(p);
+            c.setUser(u);
+            c.setContent(content);
+            c.setDate(new Date());
+            return this.commentRepository.addComment(c);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+            
+        return null;
     }
     
 }

@@ -30,6 +30,7 @@ public class CommentRepositoryImpl implements CommentRepository {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
             session.save(c);
+            
             return c;
         } catch (HibernateException ex) {
             ex.printStackTrace();

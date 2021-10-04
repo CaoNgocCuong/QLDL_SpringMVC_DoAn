@@ -33,10 +33,10 @@ public class RatingCommentTourServiceImpl implements RatingCommentTourService {
     private RatingCommentTourRepository ratingCommentTourRepository;
     
     @Override
-    public Rating addCommentTour(String comment, int tourId) {
+    public Rating addCommentTour(String comment, int tourId, String username) {
         Tour t = this.toursRepository.getTourById(tourId);
         
-        User u = this.userRepository.getUserById(19);
+        User u = this.userRepository.getUsersByUsername(username);
         Rating r = new Rating();
         r.setComment(comment);
         r.setTour(t);

@@ -78,6 +78,11 @@ public class UserServiceImpl implements UserService{
     public List<User> getUsers(String username) {
         return this.userRepository.getUsers(username);
     }
+    
+    @Override
+    public User getUsersByUsername(String username) {
+        return this.userRepository.getUsersByUsername(username);
+    }
 
     @Override
     public boolean addEmployeeUser(User employee) {
@@ -101,5 +106,4 @@ public class UserServiceImpl implements UserService{
     public User getUserById(int id) {
         return this.userRepository.getUserById(id);
     }
-    
 }

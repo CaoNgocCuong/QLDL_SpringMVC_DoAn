@@ -34,8 +34,9 @@ public class ApiRatingCommentController {
         try {
             String comment = params.get("content");
             int tourId = Integer.parseInt(params.get("tourId"));
+            String username = params.get("username");
             
-            Rating r = this.ratingCommentTourService.addCommentTour(comment, tourId);
+            Rating r = this.ratingCommentTourService.addCommentTour(comment, tourId, username);
             
             return new ResponseEntity<>(r, HttpStatus.CREATED);
             

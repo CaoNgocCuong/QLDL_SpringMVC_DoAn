@@ -181,13 +181,25 @@
                             <div class="user-thumb">
                                 <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
                             </div>
-                            <div class="user-comment">
+                            <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                <div class="user-comment">
                                 <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
                                 <div class="user-action">
-                                    <button class="user-btn back">Hủy</button>
-                                    <button class="user-btn submit" onclick="addCommentTour(${tour.id})">Bình luận</button>
+                                        <button class="user-btn back">Hủy</button>
+                                        <button class="user-btn disabled submit"  onclick="">Bình luận</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:if>
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <div class="user-comment">
+                                <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
+                                <div class="user-action">
+                                        <button class="user-btn back">Hủy</button>
+                                        <c:set value="${pageContext.request.userPrincipal.name}" var="username"/>
+                                        <button class="user-btn submit" onclick="addCommentTour(${tour.id}, '${username}')">Bình luận</button>
+                                    </div>
+                                </div>
+                            </c:if>
                         </div> 
                     </div>
                 </div>

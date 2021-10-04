@@ -12,5 +12,5 @@ import com.da.pojos.Rating;
  * @author CaoNgocCuong
  */
 public interface RatingCommentTourService {
-    Rating addCommentTour(String comment, int tourId);
+    Rating addCommentTour(String comment, int tourId, String username);
 }

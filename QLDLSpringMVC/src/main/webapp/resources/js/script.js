@@ -11,14 +11,21 @@ window.onload = function() {
 // --------------------------------- Comment area -----------------------------
 
 let commentArea = document.getElementById("comment-area");
-let btnCancel = document.querySelector(".comment-box .user-comment .user-action .user-btn")
+let btnCancel = document.querySelector(".comment-box .user-comment .user-action .user-btn");
+let btnSubmit = document.querySelector(".comment-box .user-comment .user-action .user-btn.disabled.submit");
 
-function addCommentTour(tourId) {
+btnSubmit.addEventListener("click", function() {
+    alert("Quý khách vui lòng Đăng nhập để sử dụng tính năng này ♥♥♥");
+});
+
+function addCommentTour(tourId, user) {
+    console.log(user);
     fetch("/QLDLSpringMVC/api/add-commentTour", {
         method: 'post',
         body: JSON.stringify({
             "content": commentArea.value,
-            "tourId": tourId
+            "tourId": tourId,
+            "username": user
         }),
         headers: {
             "Content-Type": "application/json"
