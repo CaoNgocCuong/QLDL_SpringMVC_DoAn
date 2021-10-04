@@ -1,10 +1,11 @@
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\UserService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Tour.java
-C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\CommentRepositoryImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\LikeCommentPostRepository.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\ToursController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\ToursRepositoryImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\RatingCommentTourService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\CategoryService.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\ApiLikeCommentPostController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\configs\HibernateConfig.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\configs\WebApplicationContextConfig.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\ToursRepository.java
@@ -15,6 +16,7 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\TourPhoto.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\BlogRepositoryImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\ToursServiceImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\LikeCommentPostServiceImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\ApiRatingCommentController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\BlogController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Billing.java
@@ -23,8 +25,7 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\ContactController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\TagRepository.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\BlogServiceImpl.java
-C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\ApiLikeCommentController.java
-C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\CommentRepository.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\LikeCommentPostService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\configs\SpringSecurityConfig.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\BlogDetailsController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\TagRepositoryImpl.java
@@ -36,10 +37,9 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\UserRepository.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\HomeController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\RatingCommentTourRepositoryImpl.java
-C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\CommentService.java
-C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\CommentServiceImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\validator\UsernameValidator.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\UserController.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\LikeCommentPostRepositoryImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\AboutController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Comment.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\RatingCommentTourServiceImpl.java

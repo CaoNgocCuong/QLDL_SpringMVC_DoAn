@@ -85,7 +85,7 @@
                         <input type="file" name="file" path="file" id="file-upload-btn" hidden accept="image/*">
                         <div class="wrap-submit">
                             <div class="form-extends">
-                                <p>Bạn đã có tài khoản? <a href="./loginPage.html">Đăng nhập</a> tại đây!</p>
+                                <p>Bạn đã có tài khoản? <a href="<c:url value="/login" />">Đăng nhập</a> tại đây!</p>
                               </div>
                             <button type="submit" class="btn btn-lg">Đăng ký</button>
                         </div>

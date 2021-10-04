@@ -6,7 +6,7 @@
 package com.da.repository.impl;
 
 import com.da.pojos.Comment;
-import com.da.repository.CommentRepository;
+import com.da.repository.LikeCommentPostRepository;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +20,17 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public class CommentRepositoryImpl implements CommentRepository {
-    
+public class LikeCommentPostRepositoryImpl implements LikeCommentPostRepository {
+
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
     
     @Override
-    public Comment addComment(Comment c) {
-        Session session = this.sessionFactory.getObject().getCurrentSession();
+    public Comment addCommentPost(Comment c) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
         try {
-            session.save(c);
+            s.save(c);
             
             return c;
         } catch (HibernateException ex) {

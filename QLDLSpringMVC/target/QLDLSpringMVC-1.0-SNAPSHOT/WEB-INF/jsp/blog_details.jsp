@@ -99,14 +99,14 @@
                     </ul>
                     <div class="comments-area">
                         <h4>05 bình luận</h4>
-                        <div class="comments-list">
+                        <div class="comments-list" id="commentsPost-list">
                             <c:forEach items="${blog.comments}" var="comment">
                                 <div class="single-comment">
                                     <div class="single-comment__thumb">
-                                        <img src="<c:url value="/img/user/comment_1.png" />" alt="user-1">
+                                        <img src="<c:url value="${comment.user.avatar}" />" alt="user-1">
                                     </div>
                                     <div class="single-comment__des">
-                                        <p class="single-comment__content">${comment.content}</p>
+                                        <p class="single-comment__content">${comment.comment}</p>
                                         <div class="comment-user">
                                             <h5><a href="#">${comment.user.fullName}</a></h5>
                                             <p class="date">${comment.date}</p>
@@ -116,18 +116,36 @@
                             </c:forEach>
                         </div>
                     </div>
-                    <div class="comment-box">
-                        <div class="user-thumb">
-                            <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
-                        </div>
-                        <div class="user-comment">
-                            <textarea name="" id="" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
-                            <div class="user-action">
-                                <button class="user-btn back">Hủy</button>
-                                <button class="user-btn submit">Bình luận</button>
+                    <c:if test="${pageContext.request.userPrincipal.name == null}">
+                        <div class="comment-box">
+                            <div class="user-thumb">
+                                <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
                             </div>
-                        </div>
-                    </div>          
+                            <div class="user-comment">
+                                <textarea name="" id="commentPost-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
+                                <div class="user-action">
+                                    <button class="user-btn back">Hủy</button>
+                                    <button class="user-btn disabled submit">Bình luận</button>
+                                </div>
+                            </div>
+                        </div>s
+                    </c:if>
+                    <c:if test="${pageContext.request.userPrincipal.name != null}">
+                        <c:forEach items="${user}" var="u">
+                            <div class="comment-box">
+                                <div class="user-thumb">
+                                    <img src="<c:url value="${u.avatar}" />" alt="${u.fullName}">
+                                </div>
+                                <div class="user-comment">
+                                    <textarea name="" id="commentPost-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
+                                    <div class="user-action">
+                                        <button class="user-btn back">Hủy</button>
+                                        <button class="user-btn submit" onclick="addCommentPost(${blog.id}, '${u.username}')">Bình luận</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:if>         
                 </div>
             </div>
             <div class="col col-lg-4">

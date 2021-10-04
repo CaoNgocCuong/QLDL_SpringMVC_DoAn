@@ -71,13 +71,16 @@ public class UserController {
     }
     
     @GetMapping("/admin/user-management")
-    public String userManagementView(Model model, @RequestParam(value = "userName", required = false, defaultValue = "") String userName) {
+    public String userManagementView(Model model, @RequestParam(value = "userName",
+            required = false, defaultValue = "") String userName) {
         model.addAttribute("users", this.userService.getUsers(userName));
         return "user-management";
     }
     
     @PostMapping("/admin/user-management")
-    public String addEmployee(Model model, @ModelAttribute(value="user") @Valid User employee, BindingResult result) {
+    public String addEmployee(Model model,
+            @ModelAttribute(value="user") @Valid User employee,
+            BindingResult result) {
         String errMsg ="";
         if(!result.hasErrors()){
             if(employee.getPassword().equals(employee.getConfirmPassword())){

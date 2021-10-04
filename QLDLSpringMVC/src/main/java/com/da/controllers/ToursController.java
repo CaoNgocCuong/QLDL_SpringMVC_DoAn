@@ -59,19 +59,22 @@ public class ToursController {
     
     // ======================= Controller Admin ==========================
     @GetMapping("/admin/tour-management")
-    public String tourManagementView(Model model, @RequestParam(value = "tourName", required = false, defaultValue = "") String tourName){
+    public String tourManagementView(Model model, @RequestParam(value = "tourName",
+            required = false, defaultValue = "") String tourName){
         model.addAttribute("tours", this.toursService.getTours(tourName));
         return "tour-management";
     }
     
     @GetMapping("/admin/tour-detail-management")
-    public String tourDetailManagement(Model model, @RequestParam(value = "tourName", required = false, defaultValue = "") String tourName){
+    public String tourDetailManagement(Model model, @RequestParam(value = "tourName",
+            required = false, defaultValue = "") String tourName){
         model.addAttribute("tours", this.toursService.getTours(tourName));
         return "tour-detail-management";
     }
     
     @PostMapping("/admin/tour-management")
-    public String addTour(Model model, @ModelAttribute(value="tour") @Valid Tour tour, BindingResult result){
+    public String addTour(Model model, @ModelAttribute(value="tour") @Valid Tour tour,
+            BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
             
@@ -89,7 +92,9 @@ public class ToursController {
     }
     
     @PostMapping("/admin/tour-detail-management")
-    public String addTourDetail(Model model, @ModelAttribute(value="tourDetail") @Valid TourDetail tourDetail, BindingResult result){
+    public String addTourDetail(Model model,
+            @ModelAttribute(value="tourDetail") @Valid TourDetail tourDetail,
+            BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
             
@@ -107,13 +112,16 @@ public class ToursController {
     }
     
     @GetMapping("/admin/tour-photo-management")
-    public String photoManagement(Model model, @RequestParam(value = "tourName", required = false, defaultValue = "") String tourName){
+    public String photoManagement(Model model, @RequestParam(value = "tourName",
+            required = false, defaultValue = "") String tourName){
         model.addAttribute("tours", this.toursService.getTours(tourName));
         return "tour-photo-management";
     }
     
     @PostMapping("/admin/tour-photo-management")
-    public String addTourPhoto(Model model, @ModelAttribute(value="tourPhoto") @Valid TourPhoto tourPhoto, BindingResult result){
+    public String addTourPhoto(Model model,
+            @ModelAttribute(value="tourPhoto") @Valid TourPhoto tourPhoto,
+            BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
             

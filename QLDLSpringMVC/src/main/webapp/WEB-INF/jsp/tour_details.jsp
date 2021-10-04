@@ -164,7 +164,12 @@
                                 <c:forEach items="${tour.ratings}" var="rating">
                                     <div class="single-comment">
                                         <div class="single-comment__thumb">
-                                            <img src="<c:url value="/img/bradcam3.png" />" alt="user-1">
+                                            <c:if test="${rating.user.avatar.startsWith('https://') == true}" >
+                                                <img src="<c:url value="${rating.user.avatar}" />" alt="${rating.user.fullName}">
+                                            </c:if>
+                                            <c:if test="${rating.user.avatar.startsWith('https://') == false}" >
+                                                <img src="<c:url value="/img/avtar/avatar-anony.png" />" alt="user-anony">
+                                            </c:if>
                                         </div>
                                         <div class="single-comment__des">
                                             <p class="single-comment__content">${rating.comment}</p>
@@ -178,22 +183,27 @@
                             </div>
                         </div>
                         <div class="comment-box">
-                            <div class="user-thumb">
-                                <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
-                            </div>
                             <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                <div class="user-thumb">
+                                    <img src="<c:url value="/img/avtar/avatar-anony.png" />" alt="user">
+                                </div>
                                 <div class="user-comment">
-                                <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
-                                <div class="user-action">
+                                    <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
+                                    <div class="user-action">
                                         <button class="user-btn back">Hủy</button>
                                         <button class="user-btn disabled submit"  onclick="">Bình luận</button>
                                     </div>
                                 </div>
                             </c:if>
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <c:forEach var="u" items="${user}">
+                                    <div class="user-thumb">
+                                        <img src="<c:url value="${u.avatar}" />" alt="${u.fullName}">
+                                    </div>
+                                </c:forEach>
                                 <div class="user-comment">
-                                <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
-                                <div class="user-action">
+                                    <textarea name="" id="comment-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
+                                    <div class="user-action">
                                         <button class="user-btn back">Hủy</button>
                                         <c:set value="${pageContext.request.userPrincipal.name}" var="username"/>
                                         <button class="user-btn submit" onclick="addCommentTour(${tour.id}, '${username}')">Bình luận</button>

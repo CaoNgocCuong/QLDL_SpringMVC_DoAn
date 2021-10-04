@@ -67,7 +67,7 @@
                         </div>
                         <button class="form-submit">Đăng nhập</button>
                         <div class="form-extends">
-                          <p>Bạn chưa có tài khoản? Hãy <a href="./registerPage.html">đăng ký</a> ngay!</p>
+                            <p>Bạn chưa có tài khoản? Hãy <a href="<c:url value="/register" />">đăng ký</a> ngay!</p>
                         </div>
                       </form>
                 </div>

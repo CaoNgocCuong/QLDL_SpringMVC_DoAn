@@ -30,11 +30,11 @@ public class Comment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    private String content;
+    private String comment;
     
-    @Column (name = "like")
+    @Column (name = "love")
     @JsonIgnore
-    private Boolean like;
+    private Boolean love;
     
     @Column (name="date")
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -66,34 +66,6 @@ public class Comment implements Serializable {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-    /**
-     * @return the content
-     */
-    public String getContent() {
-        return content;
-    }
-
-    /**
-     * @param content the content to set
-     */
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    /**
-     * @return the like
-     */
-    public Boolean getLike() {
-        return like;
-    }
-
-    /**
-     * @param like the like to set
-     */
-    public void setLike(Boolean like) {
-        this.like = like;
     }
 
     /**
@@ -136,5 +108,33 @@ public class Comment implements Serializable {
      */
     public void setPost(Post post) {
         this.post = post;
+    }
+
+    /**
+     * @return the comment
+     */
+    public String getComment() {
+        return comment;
+    }
+
+    /**
+     * @param comment the comment to set
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    /**
+     * @return the love
+     */
+    public Boolean getLove() {
+        return love;
+    }
+
+    /**
+     * @param love the love to set
+     */
+    public void setLove(Boolean love) {
+        this.love = love;
     }
 }

@@ -6,7 +6,7 @@
 package com.da.controllers;
 
 import com.da.pojos.Comment;
-import com.da.service.CommentService;
+import com.da.service.LikeCommentPostService;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,28 +21,27 @@ import org.springframework.web.bind.annotation.RestController;
  * @author CaoNgocCuong
  */
 @RestController
-public class ApiLikeCommentController {
+public class ApiLikeCommentPostController {
     
     @Autowired
-    private CommentService commentService;
+    private LikeCommentPostService likeCommentPostService;
     
-    @PostMapping(path="/api/add-commentBlog", produces = {
+    @PostMapping(path = "/api/add-commentPost", produces = {
         MediaType.APPLICATION_JSON_VALUE
     })
-    public ResponseEntity<Comment> addComment(@RequestBody Map<String, String> params) {
+    public ResponseEntity<Comment> addCommentPost(@RequestBody Map<String, String> params) {
         try {
-            String content = params.get("content");
             int postId = Integer.parseInt(params.get("postId"));
+            String content = params.get("content");
+            String username = params.get("username");
             
-            Comment c = this.commentService.addComment(content, postId);
+            Comment c = this.likeCommentPostService.addCommentPost(content, postId, username);
             
-            return new ResponseEntity<>(c, HttpStatus.CREATED);
-            
+            return new ResponseEntity<Comment>(c, HttpStatus.CREATED);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
-    
 }
