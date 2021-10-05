@@ -13,6 +13,7 @@ import com.da.repository.ToursRepository;
 import com.da.repository.UserRepository;
 import com.da.service.RatingCommentTourService;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +45,16 @@ public class RatingCommentTourServiceImpl implements RatingCommentTourService {
         r.setRatingDate(new Date());
         
         return this.ratingCommentTourRepository.addCommentTour(r);
+    }
+
+    @Override
+    public long counterCommentTour(int tourId) {
+        return this.ratingCommentTourRepository.counterCommentTour(tourId);
+    }
+
+    @Override
+    public List<Rating> getCommentsTour(int tourId, int page) {
+        return this.ratingCommentTourRepository.getCommentsTour(tourId, page);
     }
     
 }

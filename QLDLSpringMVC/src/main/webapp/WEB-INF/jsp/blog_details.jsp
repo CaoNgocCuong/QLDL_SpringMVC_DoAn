@@ -34,7 +34,7 @@
                                         <a href="#"><i class="fas fa-user"></i>${blog.author}</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fas fa-comments"></i>03 comments</a>
+                                        <a href="#"><i class="fas fa-comments"></i>${countCommentsPost} bình luận</a>
                                     </li>
                                 </ul>
                             </div>
@@ -49,8 +49,7 @@
                             </div>
                             <div class="blog-cate">
                                 Danh mục:
-                                <a href="#">Sản phẩm công nghệ</a>,
-                                <a href="#">Đời sống trải nghiệm</a>
+                                <a href="#">${blog.category.name}</a>
                             </div>
                             <div class="blog-item__reaction">
                                 <p class="like-info">
@@ -98,9 +97,9 @@
                         </li>
                     </ul>
                     <div class="comments-area">
-                        <h4>05 bình luận</h4>
+                        <h4><c:url value="${countCommentsPost}" /> bình luận</h4>
                         <div class="comments-list" id="commentsPost-list">
-                            <c:forEach items="${blog.comments}" var="comment">
+                            <c:forEach items="${commentsPost}" var="comment">
                                 <div class="single-comment">
                                     <div class="single-comment__thumb">
                                         <img src="<c:url value="${comment.user.avatar}" />" alt="user-1">
@@ -114,7 +113,19 @@
                                     </div>
                                 </div>
                             </c:forEach>
+                            <c:if test="${countCommentsPost == 0}">
+                                <div class="single-comment">
+                                    <h4>Bài viết này hiện chưa có bình luận nào!!!</h4>
+                                </div>
+                            </c:if>
                         </div>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                              <c:forEach end="${Math.ceil(countCommentsPost / 7)}" begin="1" var="counter">
+                                  <li class="page-item"><a class="page-link" href="<c:url value="/blogs/${blog.id}/" />?page=${counter}">${counter}</a></li>
+                              </c:forEach>
+                            </ul>
+                        </nav>
                     </div>
                     <c:if test="${pageContext.request.userPrincipal.name == null}">
                         <div class="comment-box">
@@ -128,7 +139,7 @@
                                     <button class="user-btn disabled submit">Bình luận</button>
                                 </div>
                             </div>
-                        </div>s
+                        </div>
                     </c:if>
                     <c:if test="${pageContext.request.userPrincipal.name != null}">
                         <c:forEach items="${user}" var="u">
@@ -153,7 +164,7 @@
                     <aside class="single-sidebar-widget search-widget">
                         <form action="">
                             <div class="form-group">
-                                <input required="" type="text" name="" id="" placeholder="Nhập từ khóa...">
+                                <input required="" type="text" name="title" id="" placeholder="Nhập từ khóa...">
                                 <div class="input-group-append">
                                     <button class="input-btn">
                                         <i class="fas fa-search"></i>

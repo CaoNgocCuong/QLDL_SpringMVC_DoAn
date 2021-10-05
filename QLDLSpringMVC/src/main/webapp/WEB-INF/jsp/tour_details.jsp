@@ -159,28 +159,40 @@
                     </div>
                     <div class="tour-detail__content">
                         <div class="comments-area">
-                            <h4>05 bình luận</h4>
+                            <h4><c:url value="${counterComments}" /> bình luận</h4>
                             <div class="comments-list" id="comments-list-area">
-                                <c:forEach items="${tour.ratings}" var="rating">
+                                <c:forEach items="${commentsTour}" var="comment">
                                     <div class="single-comment">
                                         <div class="single-comment__thumb">
-                                            <c:if test="${rating.user.avatar.startsWith('https://') == true}" >
-                                                <img src="<c:url value="${rating.user.avatar}" />" alt="${rating.user.fullName}">
+                                            <c:if test="${comment.user.avatar.startsWith('https://') == true}" >
+                                                <img src="<c:url value="${comment.user.avatar}" />" alt="${comment.user.fullName}">
                                             </c:if>
-                                            <c:if test="${rating.user.avatar.startsWith('https://') == false}" >
+                                            <c:if test="${comment.user.avatar.startsWith('https://') == false}" >
                                                 <img src="<c:url value="/img/avtar/avatar-anony.png" />" alt="user-anony">
                                             </c:if>
                                         </div>
                                         <div class="single-comment__des">
-                                            <p class="single-comment__content">${rating.comment}</p>
+                                            <p class="single-comment__content">${comment.comment}</p>
                                             <div class="comment-user">
-                                                <h5><a href="#">${rating.user.fullName}</a></h5>
-                                                <p class="date">${rating.ratingDate}</p>
+                                                <h5><a href="#">${comment.user.fullName}</a></h5>
+                                                <p class="date">${comment.ratingDate}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </c:forEach>
+                                <c:if test="${counterComments == 0}">
+                                    <div class="single-comment">
+                                        <h4>Chuyến đi này hiện chưa có bình luận nào!!!</h4>
+                                    </div>
+                                </c:if>
                             </div>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                  <c:forEach end="${Math.ceil(counterComments / 7)}" begin="1" var="counter">
+                                      <li class="page-item"><a class="page-link" href="<c:url value="/tours/${tour.id}/" />?page=${counter}">${counter}</a></li>
+                                  </c:forEach>
+                                </ul>
+                            </nav>
                         </div>
                         <div class="comment-box">
                             <c:if test="${pageContext.request.userPrincipal.name == null}">

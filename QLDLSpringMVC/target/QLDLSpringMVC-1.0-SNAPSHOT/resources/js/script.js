@@ -14,6 +14,15 @@ let commentArea = document.getElementById("comment-area");
 let commentPostArea = document.getElementById("commentPost-area");
 let btnsCancel = document.querySelectorAll(".comment-box .user-comment .user-action .user-btn");
 let btnsSubmit = document.querySelectorAll(".comment-box .user-comment .user-action .user-btn.disabled.submit");
+let linkCommentTour = document.getElementById("link-comment-tour");
+
+let count = 1;
+if (linkCommentTour) {
+    linkCommentTour.onclick = (event) => {
+        linkCommentTour.href = `${linkCommentTour.href}${++count}`;
+        console.log(count);
+    };
+};
 
 btnsSubmit.forEach(btnSubmit => {
     console.log(btnSubmit);

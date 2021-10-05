@@ -8,6 +8,7 @@ package com.da.controllers;
 import com.da.pojos.Tour;
 import com.da.pojos.TourDetail;
 import com.da.pojos.TourPhoto;
+import com.da.service.RatingCommentTourService;
 import com.da.service.ToursService;
 import com.da.validator.WebAppValidator;
 import java.util.Map;
@@ -36,6 +37,9 @@ public class ToursController {
     @Autowired
     private ToursService toursService;
     
+    @Autowired
+    private RatingCommentTourService ratingCommentTourService;
+    
     
     // ==================== Controller Client =================================
     
@@ -45,13 +49,20 @@ public class ToursController {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
         model.addAttribute("tours", this.toursService.getTours(tourName, page));
         model.addAttribute("counter", this.toursService.countTours());
- 
+        
         return "tours";
     }
     
     @GetMapping("/tours/{tourId}")
-    public String tourDetails(Model model, @PathVariable(value = "tourId") int tourId) {
+    public String tourDetails(Model model, @PathVariable(value = "tourId") int tourId,
+            @RequestParam(required = false) Map<String, String> params) {
+        
+        int page = Integer.parseInt(params.getOrDefault("page", "1"));
+        
         model.addAttribute("tour", this.toursService.getTourById(tourId));
+        model.addAttribute("commentsTour", this.ratingCommentTourService.getCommentsTour(tourId, page));
+        model.addAttribute("counterComments", this.ratingCommentTourService.counterCommentTour(tourId));
+        
         return "tour_details";
     }
     

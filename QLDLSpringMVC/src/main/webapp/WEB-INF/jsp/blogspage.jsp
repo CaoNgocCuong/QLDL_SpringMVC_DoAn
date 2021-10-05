@@ -33,9 +33,9 @@
                                         <li>
                                             <a href="#"><i class="fas fa-user"></i>${post.author}</a>
                                         </li>
-                                        <li>
-                                            <a href="#"><i class="fas fa-comments"></i>03 comments</a>
-                                        </li>
+<!--                                        <li>
+                                                <a href="#"><i class="fas fa-comments"></i>4 bình luận</a>
+                                        </li>-->
                                     </ul>
                                     <div class="read-more">
                                         <a href="<c:url value="/blogs/${post.id}" />" class="read-more-btn">Xem thêm <i class="fas fa-arrow-right"></i></a>
@@ -65,7 +65,7 @@
                     <aside class="single-sidebar-widget search-widget">
                         <form action="">
                             <div class="form-group">
-                                <input required="" type="text" name="" id="" placeholder="Nhập từ khóa...">
+                                <input required="" type="text" name="title" id="" placeholder="Nhập từ khóa...">
                                 <div class="input-group-append">
                                     <button class="input-btn">
                                         <i class="fas fa-search"></i>

@@ -6,6 +6,7 @@
 package com.da.repository;
 
 import com.da.pojos.Rating;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,6 @@ import com.da.pojos.Rating;
  */
 public interface RatingCommentTourRepository {
     Rating addCommentTour(Rating r);
+    List<Rating> getCommentsTour(int tourId, int page);
+    long counterCommentTour(int tourId);
 }

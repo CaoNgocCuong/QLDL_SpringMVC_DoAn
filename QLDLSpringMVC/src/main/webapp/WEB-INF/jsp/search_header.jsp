@@ -18,7 +18,7 @@
                 <div class="search-wrap">
                     <form action="" class="search-form">
                         <div class="form-item">
-                            <input type="text" name="" id="" placeholder="Bạn muốn đi đâu?">
+                            <input type="text" name="tourName" id="" placeholder="Bạn muốn đi đâu?">
                         </div>
                         <div class="form-item">
                             <input type="date" name="" id="">

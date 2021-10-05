@@ -6,6 +6,7 @@
 package com.da.service;
 
 import com.da.pojos.Rating;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,6 @@ import com.da.pojos.Rating;
  */
 public interface RatingCommentTourService {
     Rating addCommentTour(String comment, int tourId, String username);
+    List<Rating> getCommentsTour(int tourId, int page);
+    long counterCommentTour(int tourId);
 }

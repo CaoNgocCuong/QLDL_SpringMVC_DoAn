@@ -13,6 +13,7 @@ import com.da.repository.LikeCommentPostRepository;
 import com.da.repository.UserRepository;
 import com.da.service.LikeCommentPostService;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +46,16 @@ public class LikeCommentPostServiceImpl implements LikeCommentPostService {
         c.setDate(new Date());
         
         return this.likeCommentPostRepository.addCommentPost(c);
+    }
+
+    @Override
+    public List<Comment> getCommentsPost(int postId, int page) {
+        return this.likeCommentPostRepository.getCommentsPost(postId, page);
+    }
+
+    @Override
+    public long countCommentsPost(int blogId) {
+        return this.likeCommentPostRepository.countCommentsPost(blogId);
     }
     
 }

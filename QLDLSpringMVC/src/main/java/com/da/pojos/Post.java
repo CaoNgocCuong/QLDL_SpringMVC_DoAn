@@ -40,8 +40,7 @@ public class Post implements Serializable {
     private String photo;
     private String author;
     private String description;
-    @Column (name = "category_id")
-    private int cateId;
+    
     private Boolean active;
     @Transient
     private MultipartFile file;
@@ -190,20 +189,6 @@ public class Post implements Serializable {
      */
     public void setAuthor(String author) {
         this.author = author;
-    }
-
-    /**
-     * @return the cateId
-     */
-    public int getCateId() {
-        return cateId;
-    }
-
-    /**
-     * @param cateId the cateId to set
-     */
-    public void setCateId(int cateId) {
-        this.cateId = cateId;
     }
 
     /**

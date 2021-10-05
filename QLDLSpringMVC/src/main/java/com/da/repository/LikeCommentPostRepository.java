@@ -6,6 +6,7 @@
 package com.da.repository;
 
 import com.da.pojos.Comment;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,6 @@ import com.da.pojos.Comment;
  */
 public interface LikeCommentPostRepository {
     Comment addCommentPost(Comment c);
+    List<Comment> getCommentsPost(int postId, int page);
+    long countCommentsPost(int blogId);
 }

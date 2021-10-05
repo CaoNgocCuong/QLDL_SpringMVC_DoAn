@@ -129,6 +129,8 @@
     margin-bottom: 35px;
 
     font-size: 1.8rem;
+    
+    color: var(--secondary-color);
 }
 
 .comments-list .single-comment {
