@@ -38,7 +38,7 @@ public class BlogController {
     @Autowired
     private TagService tagService;
     
-    @GetMapping("/blog")
+    @GetMapping("/blogs")
     public String blogView(Model model, @RequestParam(value = "title", required = false, defaultValue = "") String title,
             @RequestParam(required = false) Map<String, String> params) {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));

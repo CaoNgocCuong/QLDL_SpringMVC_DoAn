@@ -55,16 +55,16 @@
                         </h3>
                         <ul class="footer-links">
                             <li class="footer-item">
-                                <a href="">Định giá</a>
+                                <a href="<c:url value="/about" />">Định giá</a>
                             </li>
                             <li class="footer-item">
-                                <a href="">Bộ sưu tập</a>
+                                <a href="<c:url value="/tours" />">Bộ sưu tập</a>
                             </li>
                             <li class="footer-item">
-                                <a href="">Kết nối</a>
+                                <a href="<c:url value="/contact" />">Kết nối</a>
                             </li>
                             <li class="footer-item">
-                                <a href="">Về chúng tôi</a>
+                                <a href="<c:url value="/about" />">Về chúng tôi</a>
                             </li>
                         </ul>
                     </div>

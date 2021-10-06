@@ -6,8 +6,10 @@
 package com.da.repository.impl;
 
 import com.da.pojos.Post;
+import com.da.pojos.Tag;
 import com.da.repository.BlogRepository;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -41,7 +43,9 @@ public class BlogRepositoryImpl implements BlogRepository{
         
         if(!title.isEmpty() && title != null){
             Predicate p = builder.like(root.get("title").as(String.class), String.format("%%%s%%", title));
-            query = query.where(p);
+            Predicate p2 = builder.like(root.get("category").get("name").as(String.class), String.format("%%%s%%", title));
+            Predicate p3 = builder.like(root.<Set<Tag>>join("tags").get("name"), String.format("%%%s%%", title));
+            query = query.where(builder.or(p, p2, p3));
         }
         
         Query q = session.createQuery(query);
@@ -79,6 +83,24 @@ public class BlogRepositoryImpl implements BlogRepository{
         
         return q.getResultList();
     }
+    
+    @Override
+    public List<Post> getPosts() {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = s.getCriteriaBuilder();
+        CriteriaQuery query = builder.createQuery(Post.class);
+        Root root = query.from(Post.class);
+        
+        query = query.select(root);
+        
+        query.orderBy(builder.desc(root.get("date")));
+        
+        Query q = s.createQuery(query);
+        
+        q.setMaxResults(3);
+        
+        return q.getResultList();
+    }
 
     @Override
     public boolean addPost(Post post) {
@@ -99,6 +121,8 @@ public class BlogRepositoryImpl implements BlogRepository{
         
         return session.get(Post.class, id);
     }
+
+
 
     
 }

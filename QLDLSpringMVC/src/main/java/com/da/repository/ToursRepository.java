@@ -22,4 +22,5 @@ public interface ToursRepository {
     boolean addTourDetails(TourDetail tourDetail);
     boolean addTourPhoto(TourPhoto tourPhoto);
     long countTours();
+    long countToursByKw(String kw);
 }

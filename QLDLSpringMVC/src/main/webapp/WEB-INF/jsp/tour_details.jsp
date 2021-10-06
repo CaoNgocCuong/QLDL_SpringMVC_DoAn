@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container tour-detail">
     <div class="row">
@@ -258,9 +259,17 @@
                         <span class="tour-box-price__num">${tour.adultsPrice}</span>
                         <span class="tour-box-price__nor">${Math.floor(tour.adultsPrice * 1.2)}</span>
                     </div>
-                    <div class="tour-box-btn text-center">
-                        <a href="./bookingTour.html" class="btn btn-tdetail">Đặt vé</a>
-                    </div>
+                    <sec:authorize access="!isAuthenticated()" >
+                        <div class="tour-box-btn text-center">
+                            <a href="<c:url value="/login" />" class="btn btn-tdetail" >Vui lòng đăng nhập để đặt vé</a>
+                        </div>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()" >
+                        <div class="tour-box-btn text-center">
+                            <a href="<c:url value="/tours/${tour.id}/booking" />" class="btn btn-tdetail">Đặt vé</a>
+                        </div>
+                    </sec:authorize>
+                    
                 </div>
                 <div class="tour-box-index">
                     <ul>

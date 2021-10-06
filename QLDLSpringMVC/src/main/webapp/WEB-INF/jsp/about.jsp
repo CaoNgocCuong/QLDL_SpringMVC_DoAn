@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- Travel about story start -->
@@ -28,12 +29,12 @@
                             <div class="row">
                                 <div class="col col-lg-5">
                                     <div class="thumb part-left">
-                                        <img src="./img/about-story/thumb-1.png" alt="story-1">
+                                        <img src="<c:url value="/img/about-story/thumb-1.png" />" alt="story-1">
                                     </div>
                                 </div>
                                 <div class="col col-lg-6">
                                     <div class="thumb part-right">
-                                        <img src="./img/about-story/thumb-2.png" alt="story-2">
+                                        <img src="<c:url value="/img/about-story/thumb-2.png" />" alt="story-2">
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@
                     <!-- Testimonial slide start -->
                     <div class="testimonial-slide first">
                         <div class="testimonial-thumb">
-                            <img src="<c:url value="/img/author/author1.png" />" alt="author1">
+                            <img src="<c:url value="/img/author/ba-phuong-hang.jpg" />" alt="Ba Phuong Hang">
                             <span><i class="far fa-comment-dots"></i></span>
                         </div>
                         <div class="testimonial-info">
@@ -32,32 +32,32 @@
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-thumb">
-                            <img src="<c:url value="/img/author/author1.png" />" alt="author1">
+                            <img src="<c:url value="/img/author/be-khang.jpg" />" alt="Be Khang">
                             <span><i class="far fa-comment-dots"></i></span>
                         </div>
                         <div class="testimonial-info">
                             <p class="testimonial-info__content">Nhìn chung chuyến đi rất tốt, mình và bạn mình rất hài lòng. Hướng dẩn viên Khánh rất chuyên nghiệp vui tính nhiệt tình làm việc có tâm.</p>
-                            <h3 class="testimonial-info__author">Lê Công Vinh</h3>
+                            <h3 class="testimonial-info__author">Trần Vũ Khang</h3>
                         </div>
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-thumb">
-                            <img src="<c:url value="/img/author/author1.png" />" alt="author1">
+                            <img src="<c:url value="/img/author/be-duy.jpg" />" alt="Trương Nguyễn Đăng Duy">
                             <span><i class="far fa-comment-dots"></i></span>
                         </div>
                         <div class="testimonial-info">
                             <p class="testimonial-info__content">Mọi thứ đều tuyệt vời Mặc dù chúng thay đổi kỷ nguyên của chúng ta.</p>
-                            <h3 class="testimonial-info__author">Thủy Tiên</h3>
+                            <h3 class="testimonial-info__author">Trương Nguyễn Đăng Duy</h3>
                         </div>
                     </div>
                     <div class="testimonial-slide">
                         <div class="testimonial-thumb">
-                            <img src="<c:url value="/img/author/author1.png" />" alt="author1">
+                            <img src="<c:url value="/img/author/be-cuong.jpg" />" alt="Cao Ngọc Cường">
                             <span><i class="far fa-comment-dots"></i></span>
                         </div>
                         <div class="testimonial-info">
                             <p class="testimonial-info__content">Toàn bộ lịch trình là rất hài lòng. Nó dường như đã được tổ chức tốt để bạn có thể khám phá đầy đủ nhiều nơi trong một khoảng thời gian ngắn. Cảm ơn bạn.</p>
-                            <h3 class="testimonial-info__author">Tuấn Hưng</h3>
+                            <h3 class="testimonial-info__author">Cao Ngọc Cường</h3>
                         </div>
                     </div>
                     <!-- Testimonial slide end -->

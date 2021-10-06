@@ -54,13 +54,24 @@
                 <div class="popular-place-pagi">
                     <ul>
                         <li class="arrow disabled"><i class="fas fa-chevron-left"></i></li>
-                        <c:forEach var="p" begin="1" end="${Math.ceil(counter/9)}">
-                            <li class="num active">
-                                <a href="<c:url value="/"/>?page=${p}">
-                                    ${p}
-                                </a>
-                            </li>
-                        </c:forEach>
+                        <c:if test="${counterKw == 0}">
+                            <c:forEach var="p" begin="1" end="${Math.ceil(counter/9)}">
+                                <li class="num active">
+                                    <a href="<c:url value="/"/>?page=${p}">
+                                        ${p}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:if>
+                        <c:if test="${counterKw != 0}">
+                            <c:forEach var="pi" begin="1" end="${Math.ceil(counterKw/9)}">
+                                <li class="num active">
+                                    <a href="<c:url value="/"/>?page=${pi}">
+                                        ${pi}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:if>
                         <li class="arrow"><i class="fas fa-chevron-right"></i></li>
                     </ul>
                 </div>

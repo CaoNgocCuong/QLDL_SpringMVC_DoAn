@@ -13,6 +13,9 @@
         <div class="row">
             <div class="col col-lg-8">
                 <div class="blog__left-sidebar">
+                    <c:if test="${posts.size() == 0}">
+                       <h3>Hiện không có bài viết nào!!!</h3>
+                    </c:if>
                     <c:forEach var="post" items="${posts}">
                         <article class="blog-item">
                             <div class="blog-item__img">
@@ -45,12 +48,14 @@
                         </article>
                     </c:forEach>
                     
+                    
+                                        
                     <div class="popular-place-pagi">
                         <ul>
                             <li class="arrow disabled"><i class="fas fa-chevron-left"></i></li>
                             <c:forEach begin="1" end="${Math.ceil(counter/5)}" var="page">
                                 <li class="num active">
-                                    <a href="<c:url value="/blog"/>?page=${page}">
+                                    <a href="<c:url value="/blogs/"/>?page=${page}">
                                         ${page}
                                     </a>
                                 </li>
@@ -82,11 +87,11 @@
                             Danh mục
                         </h4>
                         <ul class="cate-list">
-                            <c:forEach var="cate" items="${categories}">
+                            <c:forEach var="category" items="${counterPostsInCate}">
                                 <li class="cate-list__item">
-                                    <a href="#">
-                                        <p>${cate.name}</p>
-                                        <p>(3)</p>
+                                    <a href="<c:url value="/blogs/"/>?title=${category[0]}">
+                                        <p>${category[0]}</p>
+                                        <p>( ${category[1]} )</p>
                                     </a>
                                 </li>
                             </c:forEach>
@@ -96,50 +101,21 @@
                         <h4 class="widget-title">
                             Bài viết gần đây
                         </h4>
-                        <div class="media post-item">
-                            <div class="post-item__img">
-                                <img src="./img/post-sidebar/post_2.png" alt="post-1">
+                        <c:forEach items="${postsDateDes}" var="postDateDes">
+                            <div class="media post-item">
+                                <div class="post-item__img">
+                                    <a href="<c:url value="/blogs/${postDateDes.id}/" />">
+                                        <img src="<c:url value="${postDateDes.photo}" />" alt="${postDateDes.title}">
+                                    </a>
+                                </div>
+                                <div class="post-item__body">
+                                    <h4>
+                                        <a href="<c:url value="/blogs/${postDateDes.id}/" />">${postDateDes.title}</a>
+                                    </h4>
+                                    <p>${postDateDes.date}</p>
+                                </div>
                             </div>
-                            <div class="post-item__body">
-                                <h4>
-                                    <a href="#">Bí kíp tán gái thất truyền của nhà họ Cao</a>
-                                </h4>
-                                <p>01 tháng 3 năm 2021</p>
-                            </div>
-                        </div>
-                        <div class="media post-item">
-                            <div class="post-item__img">
-                                <img src="./img/post-sidebar/post_3.png" alt="post-1">
-                            </div>
-                            <div class="post-item__body">
-                                <h4>
-                                    <a href="#">Bí kíp tán gái thất truyền của nhà họ Cao</a>
-                                </h4>
-                                <p>01 tháng 3 năm 2021</p>
-                            </div>
-                        </div>
-                        <div class="media post-item">
-                            <div class="post-item__img">
-                                <img src="./img/post-sidebar/post_1.png" alt="post-1">
-                            </div>
-                            <div class="post-item__body">
-                                <h4>
-                                    <a href="#">Bí kíp tán gái thất truyền của nhà họ Cao</a>
-                                </h4>
-                                <p>01 tháng 3 năm 2021</p>
-                            </div>
-                        </div>
-                        <div class="media post-item">
-                            <div class="post-item__img">
-                                <img src="./img/post-sidebar/post_4.png" alt="post-1">
-                            </div>
-                            <div class="post-item__body">
-                                <h4>
-                                    <a href="#">Bí kíp tán gái thất truyền của nhà họ Cao</a>
-                                </h4>
-                                <p>01 tháng 3 năm 2021</p>
-                            </div>
-                        </div>
+                        </c:forEach>
                     </aside>
                     <aside class="single-sidebar-widget tag">
                         <h4 class="widget-title">
@@ -148,7 +124,7 @@
                         <ul class="tag-list">
                             <c:forEach var="tag" items="${tags}">
                                 <li class="tag-list_item">
-                                    <a href="#">${tag.name}</a>
+                                    <a href="<c:url value="/blogs/?title=${tag.name}" />">${tag.name}</a>
                                 </li>
                             </c:forEach>
                         </ul>
@@ -160,32 +136,32 @@
                         <ul class="instagram-list clear">
                             <li class="instagram-list__item">
                                 <a href="#">
-                                    <img src="./img/instagram-sidebar/post_10.png" alt="instagram">
+                                    <img src="<c:url value="/img/instagram-sidebar/post_10.png" />" alt="instagram">
                                 </a>
                             </li>
                             <li class="instagram-list__item">
                                 <a href="#">
-                                    <img src="./img/instagram-sidebar/post_5.png" alt="instagram">
+                                    <img src="<c:url value="/img/instagram-sidebar/post_5.png" />" alt="instagram">
                                 </a>
                             </li>
                             <li class="instagram-list__item">
                                 <a href="#">
-                                    <img src="./img/instagram-sidebar/post_6.png" alt="instagram">
+                                    <img src="<c:url value="/img/instagram-sidebar/post_6.png" />" alt="instagram">
                                 </a>
                             </li>
                             <li class="instagram-list__item">
                                 <a href="#">
-                                    <img src="./img/instagram-sidebar/post_7.png" alt="instagram">
+                                    <img src="<c:url value="/img/instagram-sidebar/post_7.png" />" alt="instagram">
                                 </a>
                             </li>
                             <li class="instagram-list__item">
                                 <a href="#">
-                                    <img src="./img/instagram-sidebar/post_9.png" alt="instagram">
+                                    <img src="<c:url value="/img/instagram-sidebar/post_9.png" />" alt="instagram">
                                 </a>
                             </li>
                             <li class="instagram-list__item">
                                 <a href="#">
-                                    <img src="./img/instagram-sidebar/post_8.png" alt="instagram">
+                                    <img src="<c:url value="/img/instagram-sidebar/post_8.png" />" alt="instagram">
                                 </a>
                             </li>
                         </ul>

@@ -64,5 +64,10 @@ public class BlogServiceImpl implements BlogService{
     public Post getPostById(int id) {
         return this.blogRepository.getPostById(id);
     }
+
+    @Override
+    public List<Post> getPosts() {
+        return this.blogRepository.getPosts();
+    }
     
 }

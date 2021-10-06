@@ -17,51 +17,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col col-lg-4">
-                <div class="single-trip">
-                    <div class="single-trip__img">
-                        <img src="<c:url value="/img/trips/trip-1.png" />" alt="trip1">
-                    </div>
-                    <div class="single-trip__info">
-                        <div class="single-trip__date">
-                            <span>Oct 12, 2019</span>
+            <c:forEach items="${postsDateDes}" var="postDateDes">
+                <div class="col col-lg-4">
+                    <div class="single-trip">
+                        <div class="single-trip__img">
+                            <a href="<c:url value="/blogs/${postDateDes.id}/" />">
+                                <img src="<c:url value="${postDateDes.photo}" />" alt="trip1">
+                            </a>
                         </div>
-                        <a href="">
-                            <h3>Journeys Are Best Measured In New Friends</h3>
-                        </a>
+                        <div class="single-trip__info">
+                            <div class="single-trip__date">
+                                <span>${postDateDes.date}</span>
+                            </div>
+                                <a href="<c:url value="/blogs/${postDateDes.id}/" />">
+                                <h3>${postDateDes.title}</h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col col-lg-4">
-                <div class="single-trip">
-                    <div class="single-trip__img">
-                        <img src="<c:url value="/img/trips/trip-2.png" />" alt="trip1">
-                    </div>
-                    <div class="single-trip__info">
-                        <div class="single-trip__date">
-                            <span>Oct 12, 2019</span>
-                        </div>
-                        <a href="">
-                            <h3>Journeys Are Best Measured In New Friends</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-lg-4">
-                <div class="single-trip">
-                    <div class="single-trip__img">
-                        <img src="<c:url value="/img/trips/trip-3.png" />" alt="trip1">
-                    </div>
-                    <div class="single-trip__info">
-                        <div class="single-trip__date">
-                            <span>Oct 12, 2019</span>
-                        </div>
-                        <a href="">
-                            <h3>Journeys Are Best Measured In New Friends</h3>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>

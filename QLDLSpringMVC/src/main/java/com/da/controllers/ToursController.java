@@ -66,6 +66,15 @@ public class ToursController {
         return "tour_details";
     }
     
+    @GetMapping("/tours/{tourId}/booking")
+    public String tourBooking(Model model, @PathVariable(value = "tourId") int tourId) {
+        
+        model.addAttribute("tourBooking", this.toursService.getTourById(tourId));
+        
+        
+        return "tour-booking";
+    }
+    
     
     
     // ======================= Controller Admin ==========================

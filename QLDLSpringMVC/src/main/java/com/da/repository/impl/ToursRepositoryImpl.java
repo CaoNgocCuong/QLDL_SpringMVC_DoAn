@@ -126,4 +126,15 @@ public class ToursRepositoryImpl implements ToursRepository{
         return false;
     }
 
+    @Override
+    public long countToursByKw(String kw) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        Query query = s.createQuery("SELECT COUNT(*) FROM Tour t WHERE t.name LIKE :kw");
+        
+        query.setParameter("kw", "%" + kw + "%");
+        
+        return Long.parseLong(query.getSingleResult().toString());
+    }
+
 }

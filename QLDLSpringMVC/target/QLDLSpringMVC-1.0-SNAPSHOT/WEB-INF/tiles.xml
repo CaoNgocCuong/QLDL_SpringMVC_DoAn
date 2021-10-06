@@ -90,6 +90,11 @@ and open the template in the editor.
         <put-attribute name="destination_popular" value="/WEB-INF/jsp/tour_details.jsp" />
     </definition>
     
+    <definition name="tour-booking" extends="baseLayout">
+        <put-attribute name="title" value="Đặt vé" />
+        <put-attribute name="destination_popular" value="/WEB-INF/jsp/tour_bookings.jsp" />
+    </definition>
+    
     
     <definition name="blog" extends="baseLayout">
         <put-attribute name="title" value="Tin tức" />

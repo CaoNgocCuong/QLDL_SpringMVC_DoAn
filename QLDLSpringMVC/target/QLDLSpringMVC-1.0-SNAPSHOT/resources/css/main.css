@@ -1011,16 +1011,26 @@
 }
 .testimonial-thumb {
     position: relative;
-
     margin-bottom: 45px;
-
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    
     text-align: center;
+
+}
+
+.testimonial-thumb img {
+    width: 100%;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .testimonial-thumb span {
     position: absolute;
     top: 50%;
-    left: 52%;
+    left: 70%;
     padding: 14px;
     border-radius: 50%;
 
@@ -1150,7 +1160,11 @@
 
 .single-trip .single-trip__img img {
     width: 100%;
+    height: 250px;
     border-radius: 5px;
+    
+    object-fit: cover;
+
 }
 
 .single-trip .single-trip__info {

@@ -84,4 +84,9 @@ public class ToursServiceImpl implements ToursService{
         return this.toursRepository.getTourById(id);
     }
 
+    @Override
+    public long countToursByKw(String kw) {
+        return this.toursRepository.countToursByKw(kw);
+    }
+
 }

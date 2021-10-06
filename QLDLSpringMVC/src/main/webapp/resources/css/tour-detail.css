@@ -194,6 +194,8 @@
 
 .tour-box-fix .tour-box-price {
     padding: 4px 12px;
+    
+    text-align: center;
 }
 .tour-box-fix .tour-box-price span {
     font-size: 1.6rem;

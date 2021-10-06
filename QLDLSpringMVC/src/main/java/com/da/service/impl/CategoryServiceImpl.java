@@ -26,5 +26,10 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> getCategories() {
         return this.categoryRepository.getCategories();
     }
+
+    @Override
+    public List<Object> countPostInCate() {
+        return this.categoryRepository.countPostInCate();
+    }
     
 }

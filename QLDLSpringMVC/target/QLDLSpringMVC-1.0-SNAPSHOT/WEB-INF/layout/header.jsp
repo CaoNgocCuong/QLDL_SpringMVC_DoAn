@@ -43,7 +43,7 @@
                         <a href="#">Du lịch <i class="fas fa-caret-down"></i></a>
                         <ul class="sub-nav">
                             <li class="sub-nav__list">
-                                <a href="<c:url value="/tours" />" >Du lịch trong nước</a>
+                                <a href="<c:url value="/tours/" />" >Du lịch trong nước</a>
                             </li>
                             <li class="sub-nav__list">
                                 <a href="#">Du lịch ngoài nước</a>
@@ -54,13 +54,13 @@
                         <a href="">Vé máy bay</a>
                     </li>
                     <li class="navbar-list__item">
-                        <a href="<c:url value="/blog" />">Tin tức</a>
+                        <a href="<c:url value="/blogs/" />">Tin tức</a>
                     </li>
                     <li class="navbar-list__item">
-                        <a href="<c:url value="/contact" />">Liên hệ</a>
+                        <a href="<c:url value="/contact/" />">Liên hệ</a>
                     </li>
                     <li class="navbar-list__item">
-                        <a href="<c:url value="/about" />" >Về chúng tôi</a>
+                        <a href="<c:url value="/about/" />" >Về chúng tôi</a>
                     </li>
                     <sec:authorize access="hasRole('ROLE_ADMIN')">
                         <li class="navbar-list__item">

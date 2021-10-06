@@ -6,6 +6,7 @@
 package com.da.controllers;
 
 import com.da.pojos.User;
+import com.da.service.BlogService;
 import com.da.service.CategoryService;
 import com.da.service.ToursService;
 import com.da.service.UserService;
@@ -42,12 +43,19 @@ public class HomeController {
     @Autowired
     private UserService userService;
     
+    @Autowired
+    private BlogService blogService;
+    
     @ModelAttribute
-    public void commonAttr(Model model) {
+    public void commonAttr(Model model, @RequestParam (value = "tourName", required = false) String tourName) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        
         String username = authentication.getName();
         
+        model.addAttribute("counterPostsInCate", this.categoryService.countPostInCate());
+        model.addAttribute("postsDateDes", this.blogService.getPosts());
         model.addAttribute("user", this.userService.getUsers(username));
+        model.addAttribute("counterKw", this.toursService.countToursByKw(tourName));
     }
     
     @RequestMapping("/")
