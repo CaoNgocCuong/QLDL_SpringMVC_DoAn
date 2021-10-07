@@ -79,13 +79,13 @@
         <div class="main-title">
             <h2><i class="fas fa-images mr-2"></i>Thêm ảnh cho từng chuyến đi</h2>
         </div>
-        <form:form method="post" action="${action}" class="form-add" modelAttribute="tourPhoto" enctype="multipart/form-data">
+        <form:form method="post" action="${action}" class="form-add" modelAttribute="photoOfTour" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <select id="inputListTour" name="tourId" path="tourId" class="form-control form-control-lg">
+                <select id="inputListTour" name="tour" path="tour" class="form-control form-control-lg">
                     <option selected disabled>Chọn mã tour</option>
                     <c:forEach var="tour" items="${tours}">
-                        <option value="${tour.id}">${tour.id}</option>
+                        <option value="${tour.id}">${tour.name}</option>
                     </c:forEach>
                 </select>
             </div>
@@ -93,18 +93,18 @@
                 <label for="inputFileTourDetail" class="form-label col-form-label-lg">Ảnh chuyến đi</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                    <span class="input-group-text">Thêm ảnh</span>
+                        <span class="input-group-text">Thêm ảnh</span>
                     </div>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="inputFileTourDetail" name="file" path="file" accept="image/*">
-                    <label class="custom-file-label" for="inputFileTourDetail">Chọn ảnh</label>
+                        <label class="custom-file-label" for="inputFileTourDetail">Chọn ảnh</label>
+                    </div>
+                </div>
+                <div class="form-group btn-wrapper">
+                    <button type="submit" class="btn btn-lg">Thêm</button>
                 </div>
             </div>
-            <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm</button>
-            </div>
         </form:form>
-    </div>
 </div>
 <!-- Main - content end -->
 </div>

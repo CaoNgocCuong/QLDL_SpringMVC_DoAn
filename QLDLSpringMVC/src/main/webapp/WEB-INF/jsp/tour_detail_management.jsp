@@ -4,10 +4,13 @@
     Author     : Admin
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+<c:url value="/admin/tour-detail-management" var="action"/>
 
 <div class="main-content">
     <div class="main-table">
@@ -77,13 +80,16 @@
         <div class="main-title">
             <h2><i class="fas fa-plus mr-2"></i></i>Thêm chi tiết chuyến đi</h2>
         </div>
-        <form:form class="form-add" modelAttribute="tourDetail">
+        <c:if test="${errMsg != null}">
+            <h3>${errMsg}</h3>
+        </c:if>
+        <form:form class="form-add" method="post" action="${action}" modelAttribute="tourDe" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <select id="inputListTour" name="tourId" path="tourId" class="form-control form-control-lg">
+                <select id="inputListTour" name="tour" path="tour" class="form-control form-control-lg">
                     <option selected disabled>Chọn mã tour</option>
                     <c:forEach var="tour" items="${tours}">
-                        <option value="${tour.id}">${tour.id}</option>
+                        <option value="${tour.id}">${tour.name}</option>
                     </c:forEach>
                 </select>
             </div>

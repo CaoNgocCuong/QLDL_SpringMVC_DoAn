@@ -12,14 +12,16 @@
         <div class="left-part">
             <ul>
                 <li>
-                    <div class="profile">
-                        <div class="avtar-img">
-                            <img src="<c:url value="/img/avtar/avtar.jpg"/>" alt="avtar">
+                    <c:forEach var="userAdmin" items="${user}">
+                        <div class="profile">
+                            <div class="avtar-img">
+                                <img src="<c:url value="${userAdmin.avatar}"/>" alt="${userAdmin.fullName}">
+                            </div>
+                            <div class="avtar-name">
+                                <h3>${userAdmin.fullName}</h3>
+                            </div>
                         </div>
-                        <div class="avtar-name">
-                            <h3>Cao Ngọc Cường</h3>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </li>
                 <li class="have_dots">
                     <span><i class="far fa-envelope"></i></span>

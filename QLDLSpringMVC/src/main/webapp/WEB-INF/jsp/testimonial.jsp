@@ -26,7 +26,7 @@
                             <span><i class="far fa-comment-dots"></i></span>
                         </div>
                         <div class="testimonial-info">
-                            <p class="testimonial-info__content">Tour nói chung là ổn với ng đi du lịch ít ngay. Hướng dẫn viên Tâm thân thiện nhiệt tình, còn biết tư vấn dáng chụp ảnh, rất đáng yêu 😍</p>
+                            <p class="testimonial-info__content">Tour nói chung là ổn với người đi du lịch ít ngày. Hướng dẫn viên thân thiện nhiệt tình, còn biết tư vấn dáng chụp ảnh, rất đáng yêu 😍</p>
                             <h3 class="testimonial-info__author">Bà Phương Hằng</h3>
                         </div>
                     </div>

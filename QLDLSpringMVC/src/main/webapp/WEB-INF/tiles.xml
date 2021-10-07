@@ -151,7 +151,7 @@ and open the template in the editor.
     
     <definition name="tour-photo-management" extends="adminBaseLayout">
         <put-attribute name="title" value="Quản lý ảnh tour" />
-        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_addtourdetail.jsp" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_addtourphoto.jsp" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/tour_photo_management.jsp" />
     </definition>
     

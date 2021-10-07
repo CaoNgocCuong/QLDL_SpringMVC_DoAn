@@ -5,6 +5,9 @@
  */
 package com.da.configs;
 
+import com.da.formatter.CategoryFormatter;
+import com.da.formatter.PostFormatter;
+import com.da.formatter.TourFormatter;
 import com.da.validator.UsernameValidator;
 import com.da.validator.WebAppValidator;
 import java.util.HashSet;
@@ -14,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -67,6 +71,14 @@ public class WebApplicationContextConfig implements WebMvcConfigurer {
     public Validator getValidator() {
         return validator();
     }
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addFormatter(new PostFormatter());
+        registry.addFormatter(new TourFormatter());
+        registry.addFormatter(new CategoryFormatter());
+    }
+    
     
     @Bean
     public WebAppValidator userValidator() {

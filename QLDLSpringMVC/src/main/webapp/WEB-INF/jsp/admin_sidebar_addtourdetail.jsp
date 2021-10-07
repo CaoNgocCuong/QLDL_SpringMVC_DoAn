@@ -6,21 +6,27 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- Side bar start -->
 <div class="side-bar">
     <div class="logo">
         <a href="#"><img src="<c:url value="/img/logo.png" />" alt="travelCK"></a>
     </div>
-    <div class="avtar">
-        <div class="avtar-img">
-            <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="avtar">
+    <c:forEach var="userAdminSide" items="${user}">
+        <div class="avtar">
+            <div class="avtar-img">
+                <img src="<c:url value="${userAdminSide.avatar}" />" alt="${userAdminSide.fullName}">
+            </div>
+            <c:set value="${userAdminSide.userRole}" var="role" />
+            <c:if test="${fn:endsWith(role, 'ADMIN')}">
+                <div class="name-pos">
+                    <h3>${userAdminSide.fullName}</h3>
+                    <h5>Admin</h5>
+                </div>
+            </c:if>
         </div>
-        <div class="name-pos">
-            <h3>Cao Ngọc Cường</h3>
-            <h5>Admin</h5>
-        </div>
-    </div>
+    </c:forEach>
     <div class="side-bar-nav">
         <ul>
             <li>

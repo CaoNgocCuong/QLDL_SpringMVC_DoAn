@@ -12,7 +12,7 @@ import com.da.repository.UserRepository;
 import com.da.service.UserService;
 import java.io.IOException;
 import static java.lang.Boolean.TRUE;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService{
        try {
             Map r = this.cloudinary.uploader().upload(user.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
             user.setAvatar((String) r.get("secure_url"));
+            user.setCreatedDate(new Date());
             return this.userRepository.addUser(user);
        } catch (IOException ex) {
             System.err.println("===ADD===" + ex.getMessage());
@@ -83,6 +84,12 @@ public class UserServiceImpl implements UserService{
     public User getUsersByUsername(String username) {
         return this.userRepository.getUsersByUsername(username);
     }
+    
+    
+    @Override
+    public List<User> getUsersByFullName(String fullName) {
+        return this.userRepository.getUsersByFullName(fullName);
+    }
 
     @Override
     public boolean addEmployeeUser(User employee) {
@@ -93,6 +100,7 @@ public class UserServiceImpl implements UserService{
         try {
              Map r = this.cloudinary.uploader().upload(employee.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
              employee.setAvatar((String) r.get("secure_url"));
+             employee.setCreatedDate(new Date());
              return this.userRepository.addUser(employee);
         } catch (IOException ex) {
              System.err.println("===ADD===" + ex.getMessage());
@@ -106,4 +114,5 @@ public class UserServiceImpl implements UserService{
     public User getUserById(int id) {
         return this.userRepository.getUserById(id);
     }
+
 }

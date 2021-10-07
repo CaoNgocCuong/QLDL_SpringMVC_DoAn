@@ -1,11 +1,12 @@
 <%-- 
-    Document   : admin_side_bar
-    Created on : Sep 14, 2021, 8:48:51 PM
-    Author     : Admin
+    Document   : admin_sidebar_addtourphoto
+    Created on : Oct 7, 2021, 8:43:05 AM
+    Author     : CaoNgocCuong
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- Side bar start -->
 <div class="side-bar">
@@ -29,7 +30,7 @@
     <div class="side-bar-nav">
         <ul>
             <li>
-                <a href="<c:url value="/admin" />" class="link-wrapper active">
+                <a href="<c:url value="/admin" />" class="link-wrapper">
                     <span><i class="fas fa-home"></i></span>
                     <span class="nav-link">Bảng điều khiển</span>
                 </a>        
@@ -41,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper">
+                <div class="link-wrapper active">
                     <span><i class="fas fa-route"></i></span>
                     <span class="nav-link">
                         Quản lý du lịch
@@ -49,18 +50,18 @@
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
                 <ul class="side-bar-subnav">
-                    <li>
+                    <li >
                         <a href="<c:url value="/admin/tour-management" />">
                             <i class="fas fa-plus mr-2"></i>
                             <span class="hide-nav">Thêm chuyến đi</span>
                         </a>
                     </li>
-                    <li>
+                    <li >
                         <a href="<c:url value="/admin/tour-detail-management" />"><i class="fas fa-plus mr-2"></i>
                             <span class="hide-nav">Thêm chi tiết chuyến đi</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="page-3">
                         <a href="<c:url value="/admin/tour-photo-management" />"><i class="fas fa-images mr-2"></i>
                             <span class="hide-nav">Thêm ảnh cho chuyến đi</span>
                         </a>

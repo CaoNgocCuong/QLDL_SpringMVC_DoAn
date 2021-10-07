@@ -47,11 +47,11 @@ public class UserController {
     }
     
     @PostMapping("/register")
-    public String add(Model model, @ModelAttribute(value="user") @Valid User user, BindingResult result) {
+    public String add(Model model, @ModelAttribute(value="userRes") @Valid User userRes, BindingResult result) {
         String errMsg ="";
         if(!result.hasErrors()){
-            if(user.getPassword().equals(user.getConfirmPassword())){
-                if(this.userService.addUser(user) == true)
+            if(userRes.getPassword().equals(userRes.getConfirmPassword())){
+                if(this.userService.addUser(userRes) == true)
                     return "redirect:/";
                 else
                     errMsg = "Đã có lỗi xảy ra!!!";
@@ -71,20 +71,21 @@ public class UserController {
     }
     
     @GetMapping("/admin/user-management")
-    public String userManagementView(Model model, @RequestParam(value = "userName",
-            required = false, defaultValue = "") String userName) {
-        model.addAttribute("users", this.userService.getUsers(userName));
+    public String userManagementView(Model model, @RequestParam(value = "kw",
+            required = false, defaultValue = "") String kw) {
+        model.addAttribute("employee", new User());
+        model.addAttribute("users", this.userService.getUsersByFullName(kw));
         return "user-management";
     }
     
     @PostMapping("/admin/user-management")
     public String addEmployee(Model model,
-            @ModelAttribute(value="user") @Valid User employee,
+            @ModelAttribute(value="employee") @Valid User employee,
             BindingResult result) {
         String errMsg ="";
         if(!result.hasErrors()){
             if(employee.getPassword().equals(employee.getConfirmPassword())){
-                if(this.userService.addEmployeeUser(employee)){
+                if(this.userService.addEmployeeUser(employee) == true){
                     errMsg = "Thêm thành công!";
                     return "redirect:/admin/user-management";
                 }                   

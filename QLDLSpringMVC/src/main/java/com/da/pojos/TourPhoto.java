@@ -35,7 +35,7 @@ public class TourPhoto implements Serializable {
     private MultipartFile file;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "tour_id", insertable = false, updatable = false)
+    @JoinColumn (name = "tour_id", nullable = false)
     private Tour tour;
 
     /**

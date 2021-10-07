@@ -62,6 +62,23 @@ public class UserRepositoryImpl implements UserRepository{
     }
     
     @Override
+    public List<User> getUsersByFullName(String fullName) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<User> query = builder.createQuery(User.class);
+        Root root = query.from(User.class);
+        query.select(root);
+        if(!fullName.isEmpty()){
+            Predicate p = builder.like(root.get("fullName").as(String.class), String.format("%%%s%%", fullName));
+            query = query.where(p); 
+        }
+        
+        
+        Query q = session.createQuery(query);
+        return q.getResultList();
+    }
+    
+    @Override
     public User getUsersByUsername(String username) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -97,5 +114,7 @@ public class UserRepositoryImpl implements UserRepository{
         
         return session.get(User.class, id);
     }
+
+
 
 }

@@ -45,7 +45,7 @@
                             <h2>${errMsg}</h2>
                         </div>
                     </c:if>
-                    <form:form action="${action}" method="post" class="form" modelAttribute="user" enctype="multipart/form-data">
+                    <form:form action="${action}" method="post" class="form" modelAttribute="userRes" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputName" class="form-label col-form-label-lg ">Họ tên<span class="book-required">*</span></label>

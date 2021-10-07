@@ -37,7 +37,7 @@
                     <c:forEach var="post" items="${posts}">
                         <tr>
                             <td>${post.id}</td>
-                            <td>${post.cateId}</td>
+                            <td>${post.category.name}</td>
                             <td>${post.author}</td>
                             <td>${post.title}</td>
                             <td>${post.date}</td>
@@ -56,7 +56,7 @@
         <div class="main-title">
             <h2><i class="fas fa-user-plus mr-2"></i>Thêm bài viết</h2>
         </div>
-        <form:form method="post" action="${action}" class="form-add" modelAttribute="post" enctype="multipart/form-data">
+        <form:form method="post" action="${action}" class="form-add" modelAttribute="addPost" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -67,7 +67,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="inputCate" class="form-label col-form-label-lg">Mã danh mục</label>
-                        <select id="inputCate" name="cateId" path="cateId" class="form-control">
+                        <select id="inputCate" name="category" path="category" class="form-control">
                             <option selected disabled>Chọn danh mục</option>
                             <c:forEach var="cate" items="${cates}">
                                 <option value="${cate.id}">${cate.name}</option>

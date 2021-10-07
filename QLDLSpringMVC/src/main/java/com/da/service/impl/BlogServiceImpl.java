@@ -12,6 +12,7 @@ import com.da.repository.BlogRepository;
 import com.da.service.BlogService;
 import java.io.IOException;
 import static java.lang.Boolean.TRUE;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,7 @@ public class BlogServiceImpl implements BlogService{
        try {
             Map r = this.cloudinary.uploader().upload(post.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
             post.setPhoto((String) r.get("secure_url"));
+            post.setDate(new Date());
             return this.blogRepository.addPost(post);
        } catch (IOException ex) {
             System.err.println("===ADD===" + ex.getMessage());

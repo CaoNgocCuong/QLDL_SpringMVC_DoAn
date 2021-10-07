@@ -53,19 +53,19 @@
                         <div class="space-second">Hoặc</div>
                         <div class="form-group">
                           <label for="username" class="form-label">Tài khoản</label>
-                          <input id="username" name="username" type="text" placeholder="VD: ngoccuong123" class="form-control">
+                          <input id="username" name="username" path="username" type="text" placeholder="VD: ngoccuong123" class="form-control">
                           <span class="form-message"></span>
                         </div>
 
                         <div class="form-group">
                           <label for="password" class="form-label">Mật khẩu</label>
-                          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+                          <input id="password" name="password" path="password"  type="password" placeholder="Nhập mật khẩu" class="form-control">
                           <span class="form-message"></span>
                         </div>
                         <div class="forgot-password">
                           <a href="./management.html">Quên mật khẩu?</a>
                         </div>
-                        <button class="form-submit">Đăng nhập</button>
+                        <button type="submit" class="form-submit">Đăng nhập</button>
                         <div class="form-extends">
                             <p>Bạn chưa có tài khoản? Hãy <a href="<c:url value="/register" />">đăng ký</a> ngay!</p>
                         </div>

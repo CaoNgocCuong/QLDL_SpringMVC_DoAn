@@ -6,7 +6,7 @@
 package com.da.pojos;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,6 +41,7 @@ public class User implements Serializable{
     private String fullName;
     
     @Column (name = "date_created")
+    @Temporal(TemporalType.DATE)
     private Date createdDate;
     
     private String phone;
@@ -96,20 +99,6 @@ public class User implements Serializable{
      */
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    /**
-     * @return the createdDate
-     */
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    /**
-     * @param createdDate the createdDate to set
-     */
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
     }
 
     /**
@@ -292,5 +281,19 @@ public class User implements Serializable{
      */
     public void setFile(MultipartFile file) {
         this.file = file;
+    }
+
+    /**
+     * @return the createdDate
+     */
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    /**
+     * @param createdDate the createdDate to set
+     */
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }

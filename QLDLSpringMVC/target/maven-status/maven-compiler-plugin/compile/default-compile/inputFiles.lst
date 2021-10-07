@@ -23,6 +23,7 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Cancellation.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\BlogService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\ContactController.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\formatter\CategoryFormatter.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\TagRepository.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\BlogServiceImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\LikeCommentPostService.java
@@ -40,6 +41,7 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\validator\UsernameValidator.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\UserController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\LikeCommentPostRepositoryImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\formatter\TourFormatter.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\AboutController.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Comment.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\RatingCommentTourServiceImpl.java
@@ -49,6 +51,7 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\ToursService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\CategoryServiceImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\UserRepositoryImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\formatter\PostFormatter.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\TagService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Post.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\TourDetail.java

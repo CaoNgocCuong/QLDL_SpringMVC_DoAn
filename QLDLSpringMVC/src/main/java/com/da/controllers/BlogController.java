@@ -51,6 +51,8 @@ public class BlogController {
     }
     
     
+    // ------------------------ Controller admin ------------------------
+    
     @GetMapping("/admin/blog-management")
     public String blogManagementView(Model model, @RequestParam(value = "blogTitle", required = false, defaultValue = "") String blogTitle) {
         model.addAttribute("posts", this.blogService.getPosts(blogTitle));
@@ -59,10 +61,10 @@ public class BlogController {
     }
     
     @PostMapping("/admin/blog-management")
-    public String addPost(Model model, @ModelAttribute(value="post") @Valid Post post, BindingResult result){
+    public String addPost(Model model, @ModelAttribute(value="addPost") @Valid Post addPost, BindingResult result){
         String errMsg ="";
 //        if(!result.hasErrors()){
-            if(this.blogService.addPost(post) == true)
+            if(this.blogService.addPost(addPost) == true)
                 return "redirect:/admin/blog-management";
             else
                 errMsg = "Lỗi! Thêm thất bại!";     

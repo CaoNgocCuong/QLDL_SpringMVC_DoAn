@@ -388,7 +388,6 @@ header .head_inner .left-part ul li.have_dots span::before {
 
 .main-content .main-table .user-table {
     display: grid;
-    min-height: 400px;
     overflow-y: auto;
 }
 

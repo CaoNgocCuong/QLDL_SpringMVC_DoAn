@@ -6,7 +6,7 @@
 package com.da.pojos;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -21,6 +21,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,6 +38,9 @@ public class Post implements Serializable {
     private int id;
     private String title;
     private String content;
+    
+    @Column(name="date")
+    @Temporal(TemporalType.DATE)
     private Date date;
     private String photo;
     private String author;
@@ -46,7 +51,7 @@ public class Post implements Serializable {
     private MultipartFile file;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "category_id", insertable = false, updatable = false)
+    @JoinColumn (name = "category_id", nullable = false)
     private Category category;
     
     @OneToMany (mappedBy = "post", fetch = FetchType.EAGER)

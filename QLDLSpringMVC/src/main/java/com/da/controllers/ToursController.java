@@ -88,7 +88,10 @@ public class ToursController {
     @GetMapping("/admin/tour-detail-management")
     public String tourDetailManagement(Model model, @RequestParam(value = "tourName",
             required = false, defaultValue = "") String tourName){
+        
+        model.addAttribute("tourDe", new TourDetail());
         model.addAttribute("tours", this.toursService.getTours(tourName));
+        
         return "tour-detail-management";
     }
     
@@ -103,30 +106,29 @@ public class ToursController {
                 return "redirect:/admin/tour-management";
             }                   
             else
-                errMsg = "Đã có lỗi xảy ra!!!";    
+                errMsg = "Đã có lỗi xảy ra khi add tour!!!";    
         }
         else
-            errMsg = "Đã có lỗi xảy ra!";
+            errMsg = "Đã có lỗi xảy ra không vào được tour!";
         model.addAttribute("errMsg", errMsg);
         return "tour-management";
     }
     
     @PostMapping("/admin/tour-detail-management")
     public String addTourDetail(Model model,
-            @ModelAttribute(value="tourDetail") @Valid TourDetail tourDetail,
+            @ModelAttribute(value="tourDe") @Valid TourDetail tourDe,
             BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
-            
-            if(this.toursService.addTourDetail(tourDetail)){
+            if(this.toursService.addTourDetail(tourDe)){
                 errMsg = "Thêm thành công!";
                 return "redirect:/admin/tour-detail-management";
             }                   
             else
-                errMsg = "Đã có lỗi xảy ra!!!";    
+                errMsg = "Lỗi thêm chi tiết tour!!!";    
         }
         else
-            errMsg = "Đã có lỗi xảy ra!";
+            errMsg = "Đã có lỗi xảy ra không vào được tour!";
         model.addAttribute("errMsg", errMsg);
         return "tour-detail-management";
     }
@@ -134,18 +136,19 @@ public class ToursController {
     @GetMapping("/admin/tour-photo-management")
     public String photoManagement(Model model, @RequestParam(value = "tourName",
             required = false, defaultValue = "") String tourName){
+        model.addAttribute("photoOfTour", new TourPhoto());
         model.addAttribute("tours", this.toursService.getTours(tourName));
         return "tour-photo-management";
     }
     
     @PostMapping("/admin/tour-photo-management")
     public String addTourPhoto(Model model,
-            @ModelAttribute(value="tourPhoto") @Valid TourPhoto tourPhoto,
+            @ModelAttribute(value="photoOfTour") @Valid TourPhoto photoOfTour,
             BindingResult result){
         String errMsg ="";
         if(!result.hasErrors()){
             
-            if(this.toursService.addTourPhoto(tourPhoto)){
+            if(this.toursService.addTourPhoto(photoOfTour)){
                 errMsg = "Thêm thành công!";
                 return "redirect:/admin/tour-photo-management";
             }                   

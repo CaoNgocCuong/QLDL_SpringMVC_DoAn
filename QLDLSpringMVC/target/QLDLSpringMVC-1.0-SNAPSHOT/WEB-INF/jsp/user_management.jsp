@@ -10,12 +10,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<c:url value="/admin/user-management" var="action" />
+
 <div class="main-content">
     <div class="main-table">
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Người dùng trong hệ thống</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" name="userName" placeholder="Tìm kiếm..." required="">
+                <input type="text" name="kw" placeholder="Tìm kiếm..." required="">
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>   
@@ -68,7 +70,7 @@
         <div class="main-title">
             <h2><i class="fas fa-user-plus mr-2"></i>Thêm người dùng</h2>
         </div>
-        <form:form class="form-add" modelAttribute="user" enctype="multipart/form-data">
+        <form:form class="form-add" method="post" action="${action}" modelAttribute="employee" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName" class="form-label col-form-label-lg ">Tên đầy đủ</label>
@@ -78,8 +80,7 @@
                     <div class="form-group">
                         <label for="inputState" class="form-label col-form-label-lg">Vai trò</label>
                         <select id="inputState" class="form-control">
-                            <option selected disabled>Chọn vai trò</option>
-                            <option>Nhân viên</option>
+                            <option selected>Nhân viên</option>
                         </select>
                     </div>
                 </div> 
