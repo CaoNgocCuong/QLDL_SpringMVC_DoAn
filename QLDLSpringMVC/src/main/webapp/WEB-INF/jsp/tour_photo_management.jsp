@@ -79,18 +79,33 @@
         <div class="main-title">
             <h2><i class="fas fa-images mr-2"></i>Thêm ảnh cho từng chuyến đi</h2>
         </div>
+        <c:if test="${errMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login error">
+                    ${errMsg}
+                </span>
+            </div>
+        </c:if>
+        <c:if test="${successMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login success">
+                    ${successMsg}
+                </span>
+            </div>
+        </c:if>
         <form:form method="post" action="${action}" class="form-add" modelAttribute="photoOfTour" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
+                <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi<span class="book-required">*</span></label>
                 <select id="inputListTour" name="tour" path="tour" class="form-control form-control-lg">
                     <option selected disabled>Chọn mã tour</option>
                     <c:forEach var="tour" items="${tours}">
                         <option value="${tour.id}">${tour.name}</option>
                     </c:forEach>
                 </select>
+                <form:errors path="tour" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-group">
-                <label for="inputFileTourDetail" class="form-label col-form-label-lg">Ảnh chuyến đi</label>
+                <label for="inputFileTourDetail" class="form-label col-form-label-lg">Ảnh chuyến đi<span class="book-required">*</span></label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Thêm ảnh</span>

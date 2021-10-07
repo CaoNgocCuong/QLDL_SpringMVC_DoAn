@@ -51,6 +51,11 @@
                           <p><a href="#">Đăng nhập với tài khoản Facebook</a></p>
                         </div>
                         <div class="space-second">Hoặc</div>
+                        <c:if test="${param.error != null}">
+                            <div class="form-group">
+                                <span class="form-message-login">Tài khoản hoặc mật khẩu của bạn không chính xác!</span>
+                            </div>
+                        </c:if>
                         <div class="form-group">
                           <label for="username" class="form-label">Tài khoản</label>
                           <input id="username" name="username" path="username" type="text" placeholder="VD: ngoccuong123" class="form-control">

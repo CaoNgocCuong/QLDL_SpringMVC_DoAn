@@ -41,48 +41,53 @@
                         <p>Dấu <span class="book-required">*</span> là thông tin bắt buộc</p>
                     </div>
                     <c:if test="${errMsg != null}">
-                        <div>
-                            <h2>${errMsg}</h2>
+                        <div class="form-group">
+                            <span class="form-message-login">Đăng ký không thành công ${errMsg}</span>
                         </div>
                     </c:if>
                     <form:form action="${action}" method="post" class="form" modelAttribute="userRes" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputName" class="form-label col-form-label-lg ">Họ tên<span class="book-required">*</span></label>
-                                <input type="text" name="fullName" path="fullName" class="form-control form-control-lg" id="inputName" placeholder="Tên của bạn...">
+                                <form:input type="text"  path="fullName" class="form-control form-control-lg" id="inputName" placeholder="Tên của bạn..." />
+                                <form:errors path="fullName" cssClass="text text-danger form-message" element="span" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="inputEmail" class="form-label col-form-label-lg ">Email<span class="book-required">*</span></label>
-                                <input type="email" name="email" path="email" class="form-control form-control-lg" id="inputEmail" placeholder="Email của bạn...">
+                                <form:input type="email"  path="email" class="form-control form-control-lg" id="inputEmail" placeholder="Email của bạn..." />                             
+                                <form:errors path="email" cssClass="text text-danger form-message" element="span" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputUsername" class="form-label col-form-label-lg ">Tài khoản<span class="book-required">*</span></label>
-                            <input type="text" name="username" path="username" class="form-control form-control-lg" id="inputUsername" placeholder="Nhập tài khoản">
+                            <form:input type="text" path="username" class="form-control form-control-lg" id="inputUsername" placeholder="Nhập tài khoản" />
+                            <form:errors path="username" cssClass="text text-danger form-message" element="span" />
                         </div>
                         <div class="form-group">
                             <label for="inputPassword" class="form-label col-form-label-lg ">Mật khẩu<span class="book-required">*</span></label>
-                            <input type="password" name="password" path="password" class="form-control form-control-lg" id="inputPassword" placeholder="Nhập mật khẩu của bạn...">
+                            <form:input type="password"  path="password" class="form-control form-control-lg" id="inputPassword" placeholder="Nhập mật khẩu của bạn..." />
+                            <form:errors path="password" cssClass="text text-danger form-message" element="span" />
                         </div>
                         <div class="form-group">
                             <label for="confirmPassword" class="form-label col-form-label-lg ">Xác nhận mật khẩu<span class="book-required">*</span></label>
-                            <input type="password" name="confirmPassword" path="confirmPassword" class="form-control form-control-lg" id="confirmPassword" placeholder="Nhập lại mật khẩu của bạn...">
+                            <form:input type="password"  path="confirmPassword" class="form-control form-control-lg" id="confirmPassword" placeholder="Nhập lại mật khẩu của bạn..." />
+                            <form:errors path="confirmPassword" cssClass="text text-danger form-message" element="span" />
                         </div>
                         <button id="custom-upload-btn">Chọn ảnh đại diện</button>
                         <div class="img-wrapper">
                             <div class="image">
-                            <img src="" alt="">
+                                <img src="" alt="">
                             </div>
                             <div class="upload-content">
-                            <div class="upload-icon">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </div>
-                            <div class="upload-text">Chưa có file được chọn!</div>
+                                <div class="upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="upload-text">Chưa có file được chọn!</div>
                             </div>
                             <div id="cancel-btn"><i class="fas fa-times"></i></div>
                             <div class="file-name">Đường dẫn</div>
                         </div>
-                        <input type="file" name="file" path="file" id="file-upload-btn" hidden accept="image/*">
+                        <form:input type="file" path="file" id="file-upload-btn" hidden="true" accept="image/*" />
                         <div class="wrap-submit">
                             <div class="form-extends">
                                 <p>Bạn đã có tài khoản? <a href="<c:url value="/login" />">Đăng nhập</a> tại đây!</p>

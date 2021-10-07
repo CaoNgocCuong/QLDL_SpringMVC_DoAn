@@ -16,6 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -28,7 +30,9 @@ public class TourDetail implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     
+    @NotBlank(message = "{Tour.Blank.error}")
     private String departure;
+    @NotBlank(message = "{Tour.Blank.error}")
     private String destination;
     
     @Column (name = "start_date")
@@ -37,10 +41,12 @@ public class TourDetail implements Serializable {
     @Column (name = "end_date")
     private Date endDate;
     @Column (name = "content")
+    @NotBlank(message = "{Tour.Blank.error}")
     private String content;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "tour_id", nullable = false)
+    @NotNull(message = "{Tour.Blank.error}")
     private Tour tour;
 
     /**

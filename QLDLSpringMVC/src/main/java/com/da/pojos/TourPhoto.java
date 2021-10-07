@@ -16,6 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -36,6 +38,7 @@ public class TourPhoto implements Serializable {
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "tour_id", nullable = false)
+    @NotNull(message = "{Tour.Blank.error}")
     private Tour tour;
 
     /**

@@ -56,12 +56,27 @@
         <div class="main-title">
             <h2><i class="fas fa-user-plus mr-2"></i>Thêm bài viết</h2>
         </div>
+        <c:if test="${errMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login error">
+                    ${errMsg}
+                </span>
+            </div>
+        </c:if>
+        <c:if test="${successMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login success">
+                    ${successMsg}
+                </span>
+            </div>
+        </c:if>
         <form:form method="post" action="${action}" class="form-add" modelAttribute="addPost" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="inputAuthor" class="form-label col-form-label-lg">Tên tác giả</label>
                         <input type="text" name="author" path="author" class="form-control form-control-lg" id="inputAuthor">
+                        <form:errors path="author" cssClass="text text-danger form-message" element="span" />
                     </div>
                 </div> 
                 <div class="col-md-6">
@@ -73,12 +88,14 @@
                                 <option value="${cate.id}">${cate.name}</option>
                             </c:forEach>
                         </select>
+                        <form:errors path="category" cssClass="text text-danger form-message" element="span" />
                     </div>
                 </div> 
             </div>
             <div class="form-group">
                 <label for="inputTitle" class="form-label col-form-label-lg">Tiêu đề bài viết</label>
                 <input type="text" name="title" path="title" class="form-control form-control-lg" id="inputTitle">
+                <form:errors path="title" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -88,7 +105,7 @@
                           <span class="input-group-text">Thêm ảnh</span>
                         </div>
                         <div class="custom-file">
-                        <input type="file" name="file" path="file" accept="image/*" class="custom-file-input" id="inputAvatar">
+                            <input type="file" name="file" required="true" path="file" accept="image/*" class="custom-file-input" id="inputAvatar">
                           <label class="custom-file-label" for="inputAvatar">Chọn ảnh bài viết</label>
                         </div>
                     </div>
@@ -96,11 +113,13 @@
             </div>
             <div class="form-group">
                 <label for="textDescription" class="form-label col-form-label-lg">Mô tả</label>
-                <textarea class="form-control" name="description" path="description" id="textDescription" rows="10"></textarea>
+                <textarea class="form-control" name="description" path="description" id="textDescription" rows="5"></textarea>
+                <form:errors path="description" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-group">
                 <label for="summernoteContent" class="form-label col-form-label-lg">Nội dung</label>
                 <textarea class="form-control" name="content" path="content" id="summernoteContent" name="editordata" rows="10"></textarea>
+                <form:errors path="content" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">
@@ -112,11 +131,6 @@
                 <button type="submit" class="btn btn-lg">Thêm bài</button>
             </div>
         </form:form>
-        <c:if test="${errMsg != null}">
-            <div class = "alert alert-danger">
-                ${errMsg}
-            </div>
-        </c:if>
     </div>
 </div>
 <!-- Main - content end -->

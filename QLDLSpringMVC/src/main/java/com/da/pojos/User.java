@@ -18,6 +18,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,6 +41,7 @@ public class User implements Serializable{
     private int id;
     
     @Column (name = "fullname")
+    @NotBlank(message = "{User.fullName.error}")
     private String fullName;
     
     @Column (name = "date_created")
@@ -46,15 +50,22 @@ public class User implements Serializable{
     
     private String phone;
     
+    @NotBlank(message = "{User.email.lenErr}")
     private String email;
+    
     private String address;
+    
     private String avatar;
     private boolean active;
-    @Size(min = 5, max = 20, message ="{user.username.lenErr}")
+    
+    @Size(min = 3, max = 9, message = "{User.username.lenErr}")
     private String username;
+    
+    @NotBlank(message = "{User.password.lenErr}")
     private String password;
    
     @Transient
+    @NotBlank(message = "{User.comfirmPassword.lenErr}")
     private String confirmPassword;
     
     @Transient

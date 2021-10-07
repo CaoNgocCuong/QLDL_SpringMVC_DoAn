@@ -24,6 +24,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -36,14 +39,21 @@ public class Post implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank(message = "{Post.Blank.error}")
+    @Size(min = 10, message = "{Post.size.error}")
     private String title;
+    @NotBlank(message = "{Post.Blank.error}")
+    @Size(min = 10, message = "{Post.size.error}")
     private String content;
     
     @Column(name="date")
     @Temporal(TemporalType.DATE)
     private Date date;
     private String photo;
+    @NotBlank(message = "{Post.Blank.error}")
     private String author;
+    @NotBlank(message = "{Post.Blank.error}")
+    @Size(min = 10, message = "{Post.size.error}")
     private String description;
     
     private Boolean active;
@@ -52,6 +62,7 @@ public class Post implements Serializable {
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn (name = "category_id", nullable = false)
+    @NotNull(message = "{Post.Blank.error}")
     private Category category;
     
     @OneToMany (mappedBy = "post", fetch = FetchType.EAGER)

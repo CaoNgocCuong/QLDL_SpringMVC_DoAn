@@ -19,6 +19,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -32,22 +37,33 @@ public class Tour implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    @NotBlank(message = "{Tour.Blank.error}")
     private String name;
     
     @Column (name = "tour_type")
+    @NotBlank(message = "{Tour.Blank.error}")
     private String tourType;
     private String photo;
     
     @Column (name = "tour_days")
+    @Min(value = 1, message = "{Tour.minDays.error}")
+    @Max(value = 10, message = "{Tour.maxDays.error}")
     private int tourDays;
     
     @Column (name = "tour_nights")
+    @Min(value = 1, message = "{Tour.minNights.error}")
+    @Max(value = 10, message = "{Tour.maxNights.error}")
     private int tourNights;
     
     @Column (name = "adults_price")
+    @NotNull(message = "{Tour.Blank.error}")
+    @Min(value = 100000, message = "{Tour.minPrices.error}")
+    @Max(value = 10000000, message = "{Tour.maxPrices.error}")
     private BigDecimal adultsPrice;
     
     @Column (name = "children_price")
+    @Min(value = 100000, message = "{Tour.minPrices.error}")
+    @Max(value = 10000000, message = "{Tour.maxPrices.error}")
     private BigDecimal childrenPrice;
     
     @Column (name = "start_date")
@@ -59,13 +75,23 @@ public class Tour implements Serializable {
     @Column (name = "active")
     private Boolean active;
     
+    @NotBlank(message = "{Tour.Blank.error}")
     private String introduction;
+    @NotBlank(message = "{Tour.Blank.error}")
     private String service;
+    @NotBlank(message = "{Tour.Blank.error}")
     private String note;
     @Column (name = "min_customer")
+    @NotNull(message = "{Tour.Blank.error}")
+    @Min(value = 10, message = "{Tour.minCustomers.error}")
+    @Max(value = 50, message = "{Tour.maxCustomers.error}")
     private int minCustomer;
     @Column (name = "max_customer")
+    @NotNull(message = "{Tour.Blank.error}")
+    @Min(value = 10, message = "{Tour.minCustomers.error}")
+    @Max(value = 50, message = "{Tour.maxCustomers.error}")
     private int maxCustomer;
+    @NotBlank(message = "{Tour.Blank.error}")
     private String country;
     
     @Transient

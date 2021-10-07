@@ -42,7 +42,7 @@ public class UserController {
     
     @GetMapping("/register")
     public String registerView(Model model) {
-      model.addAttribute("user", new User());
+      model.addAttribute("userRes", new User());
       return "register";
     }
     
@@ -52,7 +52,7 @@ public class UserController {
         if(!result.hasErrors()){
             if(userRes.getPassword().equals(userRes.getConfirmPassword())){
                 if(this.userService.addUser(userRes) == true)
-                    return "redirect:/";
+                    return "redirect:/login";
                 else
                     errMsg = "Đã có lỗi xảy ra!!!";
             }
@@ -60,7 +60,7 @@ public class UserController {
                 errMsg = "Mật khẩu không khớp!";      
         }
         else
-            errMsg = "Đã có lỗi xảy ra!";
+            errMsg = "Đã có lỗi xảy ra không thêm được người dùng!";
         model.addAttribute("errMsg", errMsg);
         return "register";
     }
@@ -81,13 +81,18 @@ public class UserController {
     @PostMapping("/admin/user-management")
     public String addEmployee(Model model,
             @ModelAttribute(value="employee") @Valid User employee,
-            BindingResult result) {
+            BindingResult result,
+            @RequestParam(value = "kw",
+            required = false, defaultValue = "") String kw) {
         String errMsg ="";
+        String successMsg = "";
         if(!result.hasErrors()){
             if(employee.getPassword().equals(employee.getConfirmPassword())){
                 if(this.userService.addEmployeeUser(employee) == true){
-                    errMsg = "Thêm thành công!";
-                    return "redirect:/admin/user-management";
+                    successMsg = "Thêm thành công!";
+                    model.addAttribute("successMsg", successMsg);
+                    model.addAttribute("users", this.userService.getUsersByFullName(kw));
+                    return "user-management";
                 }                   
                 else
                     errMsg = "Đã có lỗi xảy ra!!!";

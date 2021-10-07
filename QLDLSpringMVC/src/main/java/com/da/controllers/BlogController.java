@@ -54,23 +54,31 @@ public class BlogController {
     // ------------------------ Controller admin ------------------------
     
     @GetMapping("/admin/blog-management")
-    public String blogManagementView(Model model, @RequestParam(value = "blogTitle", required = false, defaultValue = "") String blogTitle) {
+    public String blogManagementView(Model model, @RequestParam(value = "blogTitle",
+            required = false, defaultValue = "") String blogTitle) {
         model.addAttribute("posts", this.blogService.getPosts(blogTitle));
         model.addAttribute("cates", this.categoryService.getCategories());
         return "blog-management";
     }
     
     @PostMapping("/admin/blog-management")
-    public String addPost(Model model, @ModelAttribute(value="addPost") @Valid Post addPost, BindingResult result){
+    public String addPost(Model model, @ModelAttribute(value="addPost") @Valid Post addPost, BindingResult result,
+            @RequestParam(value = "blogTitle", required = false, defaultValue = "") String blogTitle){
         String errMsg ="";
-//        if(!result.hasErrors()){
-            if(this.blogService.addPost(addPost) == true)
-                return "redirect:/admin/blog-management";
+        String successMsg = "";
+        if(!result.hasErrors()){
+            if(this.blogService.addPost(addPost) == true) {
+                successMsg = "Thêm thành công!";
+                model.addAttribute("successMsg", successMsg);
+                model.addAttribute("posts", this.blogService.getPosts(blogTitle));
+                model.addAttribute("cates", this.categoryService.getCategories());
+                return "blog-management";
+            }
             else
                 errMsg = "Lỗi! Thêm thất bại!";     
-//        }
-//        else
-//            errMsg = "Lỗi! Thông tin nhập không hợp lệ!";
+        }
+        else
+            errMsg = "Lỗi! Thông tin nhập không hợp lệ!";
         model.addAttribute("errMsg", errMsg);
         return "blog-management";
     }

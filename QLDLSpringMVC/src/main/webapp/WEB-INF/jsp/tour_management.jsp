@@ -81,76 +81,93 @@
             <h2><i class="fas fa-plus mr-2"></i></i>Thêm chuyến đi</h2>
         </div>
         <c:if test="${errMsg != null}">
-            <div class = "alert alert-danger">
-                ${errMsg}
+            <div class="form-group">
+                <span class="form-message-login error">
+                    ${errMsg}
+                </span>
+            </div>
+        </c:if>
+        <c:if test="${successMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login success">
+                    ${successMsg}
+                </span>
             </div>
         </c:if>
         <form:form action="${action}" class="form-add" modelAttribute="tour" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputName" class="form-label col-form-label-lg ">Tên chuyến đi</label>
+                    <label for="inputName" class="form-label col-form-label-lg ">Tên chuyến đi<span class="book-required">*</span></label>
                     <input type="text" name="name" path="name" class="form-control form-control-lg" id="inputName" placeholder="VD: Du lịch biển đảo">
+                    <form:errors path="name" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="inputTypeTour" class="form-label col-form-label-lg">Loại chuyến đi</label>
+                        <label for="inputTypeTour" class="form-label col-form-label-lg">Loại chuyến đi<span class="book-required">*</span></label>
                         <select id="inputTypeTour" name="tourType" path="tourType" class="form-control">
                             <option selected disabled>Chọn loại</option>
                             <option value="Du lịch trong nước">Du lịch trong nước</option>
                             <option value="Du lịch nước ngoài">Du lịch nước ngoài</option>
                         </select>
+                        <form:errors path="tourType" cssClass="text text-danger form-message" element="span" />
                     </div>
                 </div>  
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputDay" class="form-label col-form-label-lg">Số ngày</label>
+                    <label for="inputDay" class="form-label col-form-label-lg">Số ngày<span class="book-required">*</span></label>
                     <input type="number" name="tourDays" path="tourDays" class="form-control form-control-lg" id="inputDay" value="0" min="0">
+                    <form:errors path="tourDays" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputNight" class="form-label col-form-label-lg">Số đêm</label>
+                    <label for="inputNight" class="form-label col-form-label-lg">Số đêm<span class="book-required">*</span></label>
                     <input type="number" name="tourNights" path="tourNights" class="form-control form-control-lg" id="inputNight" value="0" min="0">
+                    <form:errors path="tourNights" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputMinCustomer" class="form-label col-form-label-lg">Số khách tối thiểu</label>
+                    <label for="inputMinCustomer" class="form-label col-form-label-lg">Số khách tối thiểu<span class="book-required">*</span></label>
                     <input type="number" name="minCustomer" path="minCustomer" class="form-control form-control-lg" id="inputDay" value="0" min="0">
+                    <form:errors path="minCustomer" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputMaxCustomer" class="form-label col-form-label-lg">Số khách tối đa</label>
+                    <label for="inputMaxCustomer" class="form-label col-form-label-lg">Số khách tối đa<span class="book-required">*</span></label>
                     <input type="number" name="maxCustomer" path="maxCustomer" class="form-control form-control-lg" id="inputNight" value="0" min="0">
+                    <form:errors path="maxCustomer" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputPriceAdult" class="form-label col-form-label-lg">Giá người lớn</label>
+                    <label for="inputPriceAdult" class="form-label col-form-label-lg">Giá người lớn<span class="book-required">*</span></label>
                     <div class="input-group">
                         <input type="number" name="adultsPrice" path="adultsPrice" class="form-control" id="inputPriceAdult" aria-label="Dollar amount (with dot and two decimal places)" value="0" min="0">
                         <span class="input-group-text">$</span>
                     </div>
+                    <form:errors path="adultsPrice" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputPriceChild" class="form-label col-form-label-lg">Giá trẻ em</label>
+                    <label for="inputPriceChild" class="form-label col-form-label-lg">Giá trẻ em<span class="book-required">*</span></label>
                     <div class="input-group">
                         <input type="number" name="childrenPrice" path="childrenPrice" class="form-control" id="inputPriceChild" aria-label="Dollar amount (with dot and two decimal places)" value="0" min="0">
                         <span class="input-group-text">$</span>
                     </div>
+                    <form:errors path="childrenPrice" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu</label>
+                    <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu<span class="book-required">*</span></label>
                     <input type="date" name="startDate" path="startDate" class="form-control form-control-lg" id="inputTimeStart">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc</label>
+                    <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc<span class="book-required">*</span></label>
                     <input type="date" name="endDate" path="endDate" class="form-control form-control-lg" id="inputTimeEnd">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputFileTour" class="form-label col-form-label-lg">Ảnh chuyến đi</label>
+                    <label for="inputFileTour" class="form-label col-form-label-lg">Ảnh chuyến đi<span class="book-required">*</span></label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Thêm ảnh</span>
@@ -162,21 +179,25 @@
                     </div>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputCountry" class="form-label col-form-label-lg">Quốc gia</label>
+                    <label for="inputCountry" class="form-label col-form-label-lg">Quốc gia<span class="book-required">*</span></label>
                     <input type="text" name="country" path="country" class="form-control form-control-lg" id="inputCountry">
+                    <form:errors path="country" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="summernote" class="form-label col-form-label-lg">Giới thiệu</label>
+                <label for="summernote" class="form-label col-form-label-lg">Giới thiệu<span class="book-required">*</span></label>
                 <textarea class="form-control" id="summernote" path="introduction" name="introduction" rows="3"></textarea>
+                <form:errors path="introduction" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-group">
-                <label for="summernote3" class="form-label col-form-label-lg">Dịch vụ</label>
+                <label for="summernote3" class="form-label col-form-label-lg">Dịch vụ<span class="book-required">*</span></label>
                 <textarea class="form-control" id="summernote3" path="service" name="service" rows="3"></textarea>
+                <form:errors path="service" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-group">
-                <label for="summernote4" class="form-label col-form-label-lg">Ghi chú</label>
+                <label for="summernote4" class="form-label col-form-label-lg">Ghi chú<span class="book-required">*</span></label>
                 <textarea class="form-control" id="summernote4" path="note" name="note" rows="3"></textarea>
+                <form:errors path="note" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">

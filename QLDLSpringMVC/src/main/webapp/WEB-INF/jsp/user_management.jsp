@@ -70,15 +70,30 @@
         <div class="main-title">
             <h2><i class="fas fa-user-plus mr-2"></i>Thêm người dùng</h2>
         </div>
+        <c:if test="${errMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login error">
+                    ${errMsg}
+                </span>
+            </div>
+        </c:if>
+        <c:if test="${successMsg != null}">
+            <div class="form-group">
+                <span class="form-message-login success">
+                    ${successMsg}
+                </span>
+            </div>
+        </c:if>
         <form:form class="form-add" method="post" action="${action}" modelAttribute="employee" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputName" class="form-label col-form-label-lg ">Tên đầy đủ</label>
+                    <label for="inputName" class="form-label col-form-label-lg ">Tên đầy đủ<span class="book-required">*</span></label>
                     <input type="text" name="fullName" path="fullName" class="form-control form-control-lg" id="inputName" placeholder="VD: Cao Ngoc Cuong">
+                    <form:errors path="fullName" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="inputState" class="form-label col-form-label-lg">Vai trò</label>
+                        <label for="inputState" class="form-label col-form-label-lg">Vai trò<span class="book-required">*</span></label>
                         <select id="inputState" class="form-control">
                             <option selected>Nhân viên</option>
                         </select>
@@ -87,22 +102,26 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputEmail" class="form-label col-form-label-lg">Email</label>
+                    <label for="inputEmail" class="form-label col-form-label-lg">Email<span class="book-required">*</span></label>
                     <input type="email" name="email" path="email" class="form-control form-control-lg" id="inputEmail" placeholder="VD: cuong123@gmail.com">
+                    <form:errors path="email" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputUsername" class="form-label col-form-label-lg">Tài khoản</label>
+                    <label for="inputUsername" class="form-label col-form-label-lg">Tài khoản<span class="book-required">*</span></label>
                     <input type="text" name="username" path="username" id="inputUsername" class="form-control form-control-lg" placeholder="VD: anhquanvjppro">
+                    <form:errors path="username" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputPassword" class="form-label col-form-label-lg">Mật khẩu</label>
+                    <label for="inputPassword" class="form-label col-form-label-lg">Mật khẩu<span class="book-required">*</span></label>
                     <input type="password" name="password" path="password" class="form-control form-control-lg" id="inputPassword" placeholder="Nhập mật khẩu...">
+                    <form:errors path="password" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputConfirmPas" class="form-label col-form-label-lg">Xác nhận mật khẩu</label>
+                    <label for="inputConfirmPas" class="form-label col-form-label-lg">Xác nhận mật khẩu<span class="book-required">*</span></label>
                     <input type="password" name="confirmPassword" path="confirmPassword" class="form-control form-control-lg" id="inputConfirmPas" placeholder="Xác nhận mật khẩu...">
+                    <form:errors path="confirmPassword" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
             <div class="form-group">
@@ -111,14 +130,14 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputAvatar" class="form-label col-form-label-lg">Ảnh cá nhân</label>
+                    <label for="inputAvatar" class="form-label col-form-label-lg">Ảnh cá nhân<span class="book-required">*</span></label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <span class="input-group-text">Thêm ảnh</span>
                         </div>
                         <div class="custom-file">
                             <input type="file" name="file" path="file" class="custom-file-input" id="inputAvatar" accept="image/*">
-                          <label class="custom-file-label" for="inputAvatar">Chọn ảnh cá nhân</label>
+                            <label class="custom-file-label" for="inputAvatar">Chọn ảnh cá nhân</label>
                         </div>
                     </div>
                 </div>
