@@ -40,45 +40,45 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputTourId" class="form-label col-form-label-lg ">Mã tour</label>
-                                    <input type="text" class="form-control form-control-lg" id="inputTourId" disabled="true" value="${tourBooking.id}">
+                                    <input type="text" class="form-control form-control-lg" id="inputTourId" readonly="true" value="${tourBooking.id}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputName" class="form-label col-form-label-lg ">Họ tên <span class="book-required">*</span></label>
-                                    <input type="text" class="form-control form-control-lg" id="inputName" disabled="true" value="${u.fullName}">
+                                    <input type="text" class="form-control form-control-lg" id="inputName" readonly="true" value="${u.fullName}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputEmail" class="form-label col-form-label-lg ">Email <span class="book-required">*</span></label>
-                                    <input type="email" class="form-control form-control-lg" id="inputEmail" disabled="true" value="${u.email}">
+                                    <input type="email" class="form-control form-control-lg" id="inputEmail" readonly="true" value="${u.email}">
                                 </div> 
                                 <div class="form-group col-md-6">
                                     <label for="inputPhone" class="form-label col-form-label-lg ">Số điện thoại <span class="book-required">*</span></label>
-                                    <input type="number" class="form-control form-control-lg" id="inputPhone" disabled="true" value="${u.phone}">
+                                    <input type="number" class="form-control form-control-lg" id="inputPhone" readonly="true" value="${u.phone}">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputMale" class="form-label col-form-label-lg">Số người lớn <span class="book-required">*</span></label>
-                                    <input type="number" class="form-control form-control-lg" id="inputMale" value="0" min="0">
+                                    <label for="inputCountAdults" class="form-label col-form-label-lg">Số người lớn <span class="book-required">*</span></label>
+                                    <input type="number" class="form-control form-control-lg" id="inputCountAdults" value="0" min="0">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputFemale" class="form-label col-form-label-lg">Số người trẻ em <span class="book-required">*</span></label>
-                                    <input type="number" class="form-control form-control-lg" id="inputFemale" value="0" min="0">
+                                    <label for="inputCountChildren" class="form-label col-form-label-lg">Số người trẻ em <span class="book-required">*</span></label>
+                                    <input type="number" class="form-control form-control-lg" id="inputCountChildren" value="0" min="0">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputPriceAdult" class="form-label col-form-label-lg">Giá người lớn</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="inputPriceAdult" aria-label="Dollar amount (with dot and two decimal places)" value="0" min="0">
+                                        <input type="number" class="form-control" id="inputPriceAdult" aria-label="Dollar amount (with dot and two decimal places)" readonly="true" value="${tourBooking.adultsPrice}">
                                         <span class="input-group-text">$</span>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputPriceChild" class="form-label col-form-label-lg">Giá trẻ em</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="inputPriceChild" aria-label="Dollar amount (with dot and two decimal places)" value="0" min="0">
+                                        <input type="number" class="form-control" id="inputPriceChild" aria-label="Dollar amount (with dot and two decimal places)" readonly="true" value="${tourBooking.childrenPrice}">
                                         <span class="input-group-text">$</span>
                                         </div>
                                 </div>
@@ -86,11 +86,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu</label>
-                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeStart" disabled="true" value="${tourBooking.startDate}">
+                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeStart" readonly="true" value="${tourBooking.startDate}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc</label>
-                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeEnd" disabled="true" value="${tourBooking.endDate}">
+                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeEnd" readonly="true" value="${tourBooking.endDate}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -98,7 +98,7 @@
                                 <textarea class="form-control" name="editordata" rows="3"></textarea>
                             </div>
                             <div class="wrap-submit">
-                                <div class="book-tour-total">Tổng thanh toán: <span>1.200.200</span>VNĐ</div>
+                                <div class="book-tour-total">Tổng thanh toán: <span id="price-of-tour">1.200.200</span>VNĐ</div>
                                 <button type="submit" class="btn btn-lg">Đặt vé</button>
                             </div>
                         </form>

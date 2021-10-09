@@ -59,11 +59,12 @@ public class HomeController {
     }
     
     @RequestMapping("/")
-    public String index(Model model, @RequestParam (value="tourName", required=false, defaultValue = "") String tourName, 
+    public String index(Model model, @RequestParam (value="tourName", required=false, defaultValue = " ") String tourName, 
             @RequestParam (required=false) Map<String, String> params) {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
 
-        model.addAttribute("tours", this.toursService.getTours(tourName, page));
+//        model.addAttribute("tours", this.toursService.getTours(tourName, page));
+        model.addAttribute("toursWithComment", this.toursService.getTourWithComment(tourName, page));
         model.addAttribute("counter", this.toursService.countTours());
         model.addAttribute("categories", this.categoryService.getCategories());
         return "index";

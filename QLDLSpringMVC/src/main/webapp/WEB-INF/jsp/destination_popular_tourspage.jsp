@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <c:url value="/tours" var="action" />
 <!-- Popular places start -->
-<section class="travel-main popular-place">
+<section id="popular-tourpage-place-id" class="travel-main popular-place">
     <div class="container">
         <div class="row align-item">
             <div class="col col-lg-12">
@@ -37,18 +37,18 @@
             </div>
         </div>
         <div class="row">
-            <c:forEach var="tour" items="${tours}">
+            <c:forEach var="tourWithComment" items="${toursWithComment}">
                 <div class="col col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
-                            <img src="${tour.photo}" alt="popular place">
-                            <a href="<c:url value="/tours/${tour.id}" />" class="price">${tour.childrenPrice} - ${tour.adultsPrice} (VNĐ)</a>
+                            <img src="${tourWithComment[3]}" alt="popular place">
+                            <a href="<c:url value="/tours/${tourWithComment[0]}" />" class="price">${tourWithComment[7]} - ${tourWithComment[6]} (VNĐ)</a>
                         </div>
                         <div class="place-info">
-                            <a href="<c:url value="/tours/${tour.id}" />">
-                                <h3>${tour.name}</h3>
+                            <a href="<c:url value="/tours/${tourWithComment[0]}" />">
+                                <h3>${tourWithComment[1]}</h3>
                             </a>
-                            <p>${tour.country}</p>
+                            <p>${tourWithComment[14]}</p>
                             <div class="rating-days">
                                 <span>
                                     <i class="far fa-star"></i>
@@ -56,13 +56,12 @@
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
                                     <i class="far fa-star"></i>
-                                    <a href="">(20 bình luận)</a>
+                                    <a href="">(${tourWithComment[15]} bình luận)</a>
                                 </span>
                                 <div class="days">
                                     <i class="far fa-clock"></i>
-                                    <a href="">${tour.tourDays} ngày ${tour.tourNights} đêm</a>
+                                    <a href="">${tourWithComment[4]} ngày ${tourWithComment[5]} đêm</a>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -77,7 +76,7 @@
                         <c:if test="${counterKw == 0}">
                             <c:forEach var="p" begin="1" end="${Math.ceil(counter/9)}">
                                 <li class="num active">
-                                    <a href="<c:url value="/"/>?page=${p}">
+                                    <a href="<c:url value="/tours/"/>?page=${p}#popular-tourpage-place-id">
                                         ${p}
                                     </a>
                                 </li>
@@ -86,7 +85,7 @@
                         <c:if test="${counterKw != 0}">
                             <c:forEach var="pi" begin="1" end="${Math.ceil(counterKw/9)}">
                                 <li class="num active">
-                                    <a href="<c:url value="/"/>?page=${pi}">
+                                    <a href="<c:url value="/tours/"/>?page=${pi}&&tourName=${param.tourName}#popular-tourpage-place-id">
                                         ${pi}
                                     </a>
                                 </li>

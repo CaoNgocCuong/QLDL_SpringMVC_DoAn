@@ -4,8 +4,8 @@
     Author     : Admin
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -24,52 +24,29 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Mã chuyến đi</td>
+                        <td>Mã ảnh chuyến đi</td>
                         <td>Tên chuyến đi</td>
-                        <td>Loại chuyến đi</td>
-                        <td>Quốc gia</td>
-                        <td>Số ngày</td>
-                        <td>Số đêm</td>
-                        <td>Số khách tối thiểu</td>
-                        <td>Số khách tối đa</td>
-                        <td>Vé đã đặt</td>
-                        <td>Vé còn lại</td>
-                        <td>Giá người lớn</td>
-                        <td>Giá trẻ em</td>
-                        <td>Ngày bắt đầu</td>
-                        <td>Ngày kết thúc</td>
-                        <td>Trạng thái</td>
+                        <td>Ảnh</td>
                         <td>Hành động</td>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="tour" items="${tours}">
-                    <tr>
-                        <td>${tour.id}</td>
-                        <td>${tour.name}</td>
-                        <td>${tour.tourType}</td>
-                        <td>${tour.country}</td>
-                        <td>${tour.tourDays}</td>
-                        <td>${tour.tourNights}</td>
-                        <td>${tour.minCustomer}</td>
-                        <td>${tour.maxCustomer}</td>
-                        <td>14</td>
-                        <td>26</td>
-                        <td>${tour.adultsPrice}</td>
-                        <td>${tour.childrenPrice}</td>
-                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.startDate}"/></td>
-                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.endDate}"/></td>
-                        <c:if test="${tour.active == true}">
-                            <td><a href="#" class="btn active">Đang hoạt động</a></td>
-                        </c:if>
-                        <c:if test="${tour.active != true}">
-                            <td><a href="#" class="btn active">Ngưng hoạt động</a></td>
-                        </c:if>
-                        <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                        </td>   
-                    </tr>
+                        <c:forEach items="${tour.tourPhotos}" var="image">
+                            <tr>
+                                <td>${image.id}</td>
+                                <td>${image.tour.name}</td>
+                                <td>
+                                    <a href="${image.photo}" class="img-tour-detail">
+                                        <img src="${image.photo}" alt="${image.photo}" class="img-tour-detail__img"/>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
+                                    <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                                </td>   
+                            </tr>
+                        </c:forEach>
                     </c:forEach>
                 </tbody>
             </table>

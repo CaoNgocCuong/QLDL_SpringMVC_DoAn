@@ -38,7 +38,7 @@
             <li>
                 <a href="<c:url value="/admin/user-management" />" class="link-wrapper">
                     <span><i class="fas fa-users"></i></span>
-                    <span class="nav-link">Quản lý người dùng</span>
+                    <span class="nav-link">Quản lý nhân viên</span>
                 </a>
             </li>
             <li>
@@ -49,7 +49,7 @@
                     </span>
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
-                <ul class="side-bar-subnav">
+                <ul class="side-bar-subnav-1">
                     <li >
                         <a href="<c:url value="/admin/tour-management" />">
                             <i class="fas fa-plus mr-2"></i>
@@ -70,15 +70,42 @@
             </li>
             <li>
                 <a href="<c:url value="/admin/blog-management" />" class="link-wrapper">
-                    <span><i class="fas fa-newspaper"></i></span>
+                    <span><i class="fas fa-database"></i></span>
                     <span class="nav-link">Quản lý tin tức</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="link-wrapper">
-                    <span><i class="fas fa-chart-bar"></i></span>
-                    <span class="nav-link">Thống kê</span>
-                </a>
+                <div class="link-wrapper">
+                    <span><i class="fas fa-route"></i></span>
+                    <span class="nav-link">
+                        Thống kê doanh thu
+                    </span>
+                    <span class="ml-5"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <ul class="side-bar-subnav-2">
+                    <li>
+                        <a href="<c:url value="/admin/stats-tour" />">
+                            <i class="fas fa-chart-pie mr-2"></i>
+                            <span class="hide-nav">Thống kê theo chuyến đi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<c:url value="/admin/stats-tour-month" />">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            <span class="hide-nav">Thống kê chuyến đi theo tháng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<c:url value="/admin/tour-detail-management" />"><i class="fas fa-chart-line mr-2"></i></i>
+                            <span class="hide-nav">Thống kê chuyến đi theo quý</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<c:url value="/admin/stats-tour-year" />"><i class="fas fa-chart-line mr-2"></i>
+                            <span class="hide-nav">Thống kê chuyến đi theo năm</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li> 
                 <a href="<c:url value="/logout" />" class="link-wrapper">

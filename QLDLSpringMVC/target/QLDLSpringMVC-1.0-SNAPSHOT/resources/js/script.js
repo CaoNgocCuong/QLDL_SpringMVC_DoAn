@@ -179,4 +179,33 @@ toursBox.forEach(tour => {
     };
 });
 
+//-------------------------------------------- booking ------------------------
+let inputCountAdults = document.getElementById("inputCountAdults");
+let inputCountChildren = document.getElementById("inputCountChildren");
+let priceOfTour = document.getElementById("price-of-tour");
+let inputPriceAdult = document.getElementById("inputPriceAdult");
+let inputPriceChild = document.getElementById("inputPriceChild");
+let countPriceOfTour = 0;
+priceOfTour.innerText = countPriceOfTour;
+console.log(inputCountAdults);
+let switchPrice =  true;
+if (inputCountAdults) {
+    inputCountAdults.onkeyup = () => {
+        if (countPriceOfTour > 0 &&  switchPrice === true) {
+            countPriceOfTour = 0;
+            switchPrice = !switchPrice;
+        }
+        countPriceOfTour += inputCountAdults.value * inputPriceAdult.value;
+        priceOfTour.innerText = countPriceOfTour;
+    };
+}
 
+if (inputCountChildren) {
+    inputCountChildren.onkeyup = () => {
+        if (countPriceOfTour > 0 && switchPrice === true ) {
+            countPriceOfTour = 0;
+        }
+        countPriceOfTour += inputCountChildren.value * inputPriceChild.value;
+        priceOfTour.innerText = countPriceOfTour;
+    };
+}

@@ -103,13 +103,15 @@ thead tr {
     cursor: pointer;
 }
 
-.side-bar-nav ul li .side-bar-subnav li a {
+.side-bar-nav ul li .side-bar-subnav-1 li a,
+.side-bar-nav ul li .side-bar-subnav-2 li a {
     padding-left: 30px;
 
     color: #494B55;
 }
 
-.side-bar-nav ul li div.link-wrapper ~ .side-bar-subnav {
+.side-bar-nav ul li div.link-wrapper ~ .side-bar-subnav-1,
+.side-bar-nav ul li div.link-wrapper ~ .side-bar-subnav-2 {
     height: 0px;
 
     background-color: #fff;
@@ -117,23 +119,43 @@ thead tr {
     transition: 0.5s;
 }
 
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav {
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 {
     display: block;
-    height: 210px;
+    height: 192px;
 }
 
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-1:nth-child(1),
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-2:nth-child(2),
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-3:nth-child(3) {
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 {
+    display: block;
+    height: 310px;
+}
+
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-1:nth-child(1),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-2:nth-child(2),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-3:nth-child(3),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-4:nth-child(4),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-1:nth-child(1),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-2:nth-child(2),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-3:nth-child(3),
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-4:nth-child(4){
     background-color: var(--primary-color);
 }
 
-.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav li.page-1:nth-child(1) a,
-.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav li.page-1:nth-child(1) a span,
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-2:nth-child(2) a,
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-2:nth-child(2) a span,
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-3:nth-child(3) a,
-.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav li.page-3:nth-child(3) a span {
+.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav-1 li.page-1:nth-child(1) a,
+.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav-1 li.page-1:nth-child(1) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-2:nth-child(2) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-2:nth-child(2) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-3:nth-child(3) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-3:nth-child(3) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-4:nth-child(4) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-1 li.page-4:nth-child(4) a span,
+.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav-2 li.page-1:nth-child(1) a,
+.side-bar-nav div.link-wrapper.active ~ .side-bar-subnav-2 li.page-1:nth-child(1) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-2:nth-child(2) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-2:nth-child(2) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-3:nth-child(3) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-3:nth-child(3) a span,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-4:nth-child(4) a,
+.side-bar-nav ul li div.link-wrapper.active ~ .side-bar-subnav-2 li.page-4:nth-child(4) a span{
     color: #fff;
 }
 
@@ -141,8 +163,10 @@ thead tr {
     color: #494B55;
 }
 
-.side-bar-nav ul li .side-bar-subnav li:hover a,
-.side-bar-nav ul li .side-bar-subnav li:hover a span,
+.side-bar-nav ul li .side-bar-subnav-1 li:hover a,
+.side-bar-nav ul li .side-bar-subnav-1 li:hover a span,
+.side-bar-nav ul li .side-bar-subnav-2 li:hover a,
+.side-bar-nav ul li .side-bar-subnav-2 li:hover a span,
 .side-bar-nav ul li:hover .link-wrapper span {
     color: #fff;
 }

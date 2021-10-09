@@ -110,6 +110,7 @@
 
 .blog__left-sidebar .related-blog .related-blog__item a {
     display: inline-block;
+    width: 100%;
     font-size: 1.4rem;
     font-weight: 500;    
     color: #00a9a1;
@@ -119,6 +120,7 @@
 .related-blog .related-blog__item a img {
     width: 100%;
     height: 150px;
+    object-fit: cover;
 }
 
 /* ------------- comment user --------------- */

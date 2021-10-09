@@ -25,52 +25,31 @@
             <table>
                 <thead>
                     <tr>
-                        <td>Mã chuyến đi</td>
+                        <td>Mã chi tiết chuyến đi</td>
                         <td>Tên chuyến đi</td>
-                        <td>Loại chuyến đi</td>
-                        <td>Quốc gia</td>
-                        <td>Số ngày</td>
-                        <td>Số đêm</td>
-                        <td>Số khách tối thiểu</td>
-                        <td>Số khách tối đa</td>
-                        <td>Vé đã đặt</td>
-                        <td>Vé còn lại</td>
-                        <td>Giá người lớn</td>
-                        <td>Giá trẻ em</td>
+                        <td>Điểm bắt đầu</td>
+                        <td>Điểm đến</td>
                         <td>Ngày bắt đầu</td>
                         <td>Ngày kết thúc</td>
-                        <td>Trạng thái</td>
                         <td>Hành động</td>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="tour" items="${tours}">
-                    <tr>
-                        <td>${tour.id}</td>
-                        <td>${tour.name}</td>
-                        <td>${tour.tourType}</td>
-                        <td>${tour.country}</td>
-                        <td>${tour.tourDays}</td>
-                        <td>${tour.tourNights}</td>
-                        <td>${tour.minCustomer}</td>
-                        <td>${tour.maxCustomer}</td>
-                        <td>14</td>
-                        <td>26</td>
-                        <td>${tour.adultsPrice}</td>
-                        <td>${tour.childrenPrice}</td>
-                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.startDate}"/></td>
-                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.endDate}"/></td>
-                        <c:if test="${tour.active == true}">
-                            <td><a href="#" class="btn active">Đang hoạt động</a></td>
-                        </c:if>
-                        <c:if test="${tour.active != true}">
-                            <td><a href="#" class="btn active">Ngưng hoạt động</a></td>
-                        </c:if>
-                        <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                        </td>   
-                    </tr>
+                        <c:forEach var="tourDetail" items="${tour.tourDetails}">
+                            <tr>
+                                <td>${tourDetail.id}</td>
+                                <td>${tourDetail.tour.name}</td>
+                                <td>${tourDetail.departure}</td>
+                                <td>${tourDetail.destination}</td>
+                                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tourDetail.startDate}"/></td>
+                                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tourDetail.endDate}"/></td>
+                                <td>
+                                    <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
+                                    <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                                </td>   
+                            </tr>
+                        </c:forEach>
                     </c:forEach>
                 </tbody>
             </table>

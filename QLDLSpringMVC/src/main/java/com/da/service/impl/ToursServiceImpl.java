@@ -89,4 +89,9 @@ public class ToursServiceImpl implements ToursService{
         return this.toursRepository.countToursByKw(kw);
     }
 
+    @Override
+    public List<Object> getTourWithComment(String tourName, int page) {
+        return this.toursRepository.getTourWithComment(tourName, page);
+    }
+
 }

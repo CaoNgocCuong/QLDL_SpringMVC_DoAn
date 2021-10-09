@@ -15,10 +15,17 @@
     .side-bar.hide {
         left: 0;
         width: 300px;
+        overflow-y: auto;
     }
 
     header, .main-content {
         margin: 0;
+    }
+    
+    
+    .input-form-stats {
+        width: 100%;
+        margin-left: 0 !important;
     }
 
     .slide-left {
@@ -29,7 +36,8 @@
         display: block;
     }
 
-    .side-bar.hide li .link-wrapper ~ .side-bar-subnav .hide-nav {
+    .side-bar.hide li .link-wrapper ~ .side-bar-subnav-1 .hide-nav,
+    .side-bar.hide li .link-wrapper ~ .side-bar-subnav-2 .hide-nav{
         display: block;
     }
 

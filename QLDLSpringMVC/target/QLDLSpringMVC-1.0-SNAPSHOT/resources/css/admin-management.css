@@ -18,6 +18,41 @@ header .head_inner {
     
 }
 
+.form-label-lg {
+    font-size: 1.4rem;
+}
+
+.heading-stats {
+    font-size: 2.6em !important;
+    color: var(--secondary-color);
+}
+
+.heading-canvas {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    
+    font-size: 3.6rem;
+}
+
+.btn-stats {
+    border: 1px solid #86dbd3;
+    border-radius: 3px;
+    padding: 4px 8px;
+    
+    font-size: 1.4rem;
+    font-weight: 500;
+    
+    color: #fff;
+    background-color: var(--primary-color);
+}
+
+canvas#myTourStats {
+    height: 0px;
+    width: 0px;
+    transition: 0.5s;
+}
+
 .form-group .form-message-login.error {
     border: 1px solid #ffdae6;
     
@@ -207,4 +242,23 @@ header .head_inner {
     .main-content .main-table .user-table table {
         width: 180%;
     }
+}
+
+
+/* ------------ update -------------- */
+.img-tour-detail {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+.img-tour-detail .img-tour-detail__img {
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    
+    object-fit: cover;
+    
 }

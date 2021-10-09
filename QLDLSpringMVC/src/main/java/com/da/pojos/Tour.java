@@ -77,20 +77,25 @@ public class Tour implements Serializable {
     
     @NotBlank(message = "{Tour.Blank.error}")
     private String introduction;
+    
     @NotBlank(message = "{Tour.Blank.error}")
     private String service;
+    
     @NotBlank(message = "{Tour.Blank.error}")
     private String note;
+    
     @Column (name = "min_customer")
     @NotNull(message = "{Tour.Blank.error}")
     @Min(value = 10, message = "{Tour.minCustomers.error}")
     @Max(value = 50, message = "{Tour.maxCustomers.error}")
     private int minCustomer;
+    
     @Column (name = "max_customer")
     @NotNull(message = "{Tour.Blank.error}")
     @Min(value = 10, message = "{Tour.minCustomers.error}")
     @Max(value = 50, message = "{Tour.maxCustomers.error}")
     private int maxCustomer;
+    
     @NotBlank(message = "{Tour.Blank.error}")
     private String country;
     

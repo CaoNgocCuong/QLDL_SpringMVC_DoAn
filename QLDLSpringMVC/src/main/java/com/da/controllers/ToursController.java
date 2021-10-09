@@ -44,10 +44,11 @@ public class ToursController {
     // ==================== Controller Client =================================
     
     @GetMapping("/tours")
-    public String toursView(Model model, @RequestParam(value = "tourName", required = false, defaultValue = "") String tourName,
+    public String toursView(Model model, @RequestParam(value = "tourName", required = false, defaultValue = " ") String tourName,
             @RequestParam(required = false) Map<String, String> params) {
         int page = Integer.parseInt(params.getOrDefault("page", "1"));
-        model.addAttribute("tours", this.toursService.getTours(tourName, page));
+//        model.addAttribute("tours", this.toursService.getTours(tourName, page));
+        model.addAttribute("toursWithComment", this.toursService.getTourWithComment(tourName, page));
         model.addAttribute("counter", this.toursService.countTours());
         
         return "tours";
@@ -130,7 +131,10 @@ public class ToursController {
             if(this.toursService.addTourDetail(tourDe)){
                 successMsg = "Thêm thành công!";
                 model.addAttribute("successMsg", successMsg);
+                model.addAttribute("tourDe", new TourDetail());
+                
                 model.addAttribute("tours", this.toursService.getTours(tourName));
+                
                 return "tour-detail-management";
             }                   
             else

@@ -159,7 +159,7 @@
                         <h3 id="comment"><i class="far fa-comments mr-3"></i>Bình luận</h3>
                     </div>
                     <div class="tour-detail__content">
-                        <div class="comments-area">
+                        <div id="commentTour-area" class="comments-area">
                             <h4><c:url value="${counterComments}" /> bình luận</h4>
                             <div class="comments-list" id="comments-list-area">
                                 <c:forEach items="${commentsTour}" var="comment">
@@ -190,7 +190,7 @@
                             <nav aria-label="Page navigation">
                                 <ul class="pagination">
                                   <c:forEach end="${Math.ceil(counterComments / 7)}" begin="1" var="counter">
-                                      <li class="page-item"><a class="page-link" href="<c:url value="/tours/${tour.id}/" />?page=${counter}">${counter}</a></li>
+                                      <li class="page-item"><a class="page-link" href="<c:url value="/tours/${tour.id}/" />?page=${counter}#commentTour-area">${counter}</a></li>
                                   </c:forEach>
                                 </ul>
                             </nav>
@@ -259,16 +259,9 @@
                         <span class="tour-box-price__num">${tour.adultsPrice}</span>
                         <span class="tour-box-price__nor">${Math.floor(tour.adultsPrice * 1.2)}</span>
                     </div>
-                    <sec:authorize access="!isAuthenticated()" >
-                        <div class="tour-box-btn text-center">
-                            <a href="<c:url value="/login" />" class="btn btn-tdetail" >Vui lòng đăng nhập để đặt vé</a>
-                        </div>
-                    </sec:authorize>
-                    <sec:authorize access="isAuthenticated()" >
-                        <div class="tour-box-btn text-center">
-                            <a href="<c:url value="/tours/${tour.id}/booking" />" class="btn btn-tdetail">Đặt vé</a>
-                        </div>
-                    </sec:authorize>
+                    <div class="tour-box-btn text-center">
+                        <a href="<c:url value="/tours/${tour.id}/booking" />" class="btn btn-tdetail">Đặt vé</a>
+                    </div>
                     
                 </div>
                 <div class="tour-box-index">

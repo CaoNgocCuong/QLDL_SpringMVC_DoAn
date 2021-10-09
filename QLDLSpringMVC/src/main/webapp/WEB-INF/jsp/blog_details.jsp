@@ -74,7 +74,7 @@
                             </li>
                         </c:forEach>
                     </ul>
-                    <div class="comments-area">
+                    <div id="commentPost-area" class="comments-area">
                         <h4><c:url value="${countCommentsPost}" /> bình luận</h4>
                         <div class="comments-list" id="commentsPost-list">
                             <c:forEach items="${commentsPost}" var="comment">
@@ -100,7 +100,7 @@
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
                               <c:forEach end="${Math.ceil(countCommentsPost / 7)}" begin="1" var="counter">
-                                  <li class="page-item"><a class="page-link" href="<c:url value="/blogs/${blog.id}/" />?page=${counter}">${counter}</a></li>
+                                  <li class="page-item"><a class="page-link" href="<c:url value="/blogs/${blog.id}/" />?page=${counter}#commentPost-area">${counter}</a></li>
                               </c:forEach>
                             </ul>
                         </nav>
@@ -108,7 +108,7 @@
                     <c:if test="${pageContext.request.userPrincipal.name == null}">
                         <div class="comment-box">
                             <div class="user-thumb">
-                                <img src="<c:url value="/img/avtar/avtar.jpg" />" alt="user">
+                                <img src="<c:url value="/img/avtar/avatar-anony.png" />" alt="user">
                             </div>
                             <div class="user-comment">
                                 <textarea name="" id="commentPost-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>

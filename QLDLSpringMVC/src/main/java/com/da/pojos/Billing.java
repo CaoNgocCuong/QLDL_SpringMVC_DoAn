@@ -7,6 +7,7 @@ package com.da.pojos;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -30,12 +33,21 @@ public class Billing implements Serializable {
     @Column (name = "money")
     private BigDecimal money;
     
-    @Column (name = "status")
-    private String status;
+    @Column (name = "created_date")
+    private Date createdDate;
     
-    @ManyToOne
-    @JoinColumn (name = "booking_id")
+    @Column (name = "status")
+    private Boolean status;
+    
+    @OneToOne
+    @MapsId
+    @JoinColumn (name = "id")
     private Booking booking;
+
+    public Billing() {
+        createdDate = new Date();
+    }
+        
 
     /**
      * @return the id
@@ -68,14 +80,14 @@ public class Billing implements Serializable {
     /**
      * @return the status
      */
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -91,6 +103,20 @@ public class Billing implements Serializable {
      */
     public void setBooking(Booking booking) {
         this.booking = booking;
+    }
+
+    /**
+     * @return the createdDate
+     */
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    /**
+     * @param createdDate the createdDate to set
+     */
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
     
 }

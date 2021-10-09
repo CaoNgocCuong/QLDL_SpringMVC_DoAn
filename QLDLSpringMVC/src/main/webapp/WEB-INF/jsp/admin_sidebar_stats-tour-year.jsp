@@ -1,13 +1,12 @@
 <%-- 
-    Document   : admin_sidebar_tourmanagement
-    Created on : Sep 25, 2021, 10:00:36 AM
+    Document   : admin_sidebar_stats-tour-year
+    Created on : Oct 9, 2021, 7:22:08 PM
     Author     : CaoNgocCuong
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <!-- Side bar start -->
 <div class="side-bar">
     <div class="logo">
@@ -42,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper active">
+                <div class="link-wrapper">
                     <span><i class="fas fa-route"></i></span>
                     <span class="nav-link">
                         Quản lý du lịch
@@ -50,7 +49,7 @@
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
                 <ul class="side-bar-subnav-1">
-                    <li class="page-1">
+                    <li>
                         <a href="<c:url value="/admin/tour-management" />">
                             <i class="fas fa-plus mr-2"></i>
                             <span class="hide-nav">Thêm chuyến đi</span>
@@ -75,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper">
+                <div class="link-wrapper active">
                     <span><i class="fas fa-database"></i></span>
                     <span class="nav-link">
                         Thống kê doanh thu
@@ -100,7 +99,7 @@
                             <span class="hide-nav">Thống kê chuyến đi theo quý</span>
                         </a>
                     </li>
-                    <li>
+                    <li  class="page-4">
                         <a href="<c:url value="/admin/stats-tour-year" />"><i class="fas fa-chart-line mr-2"></i>
                             <span class="hide-nav">Thống kê chuyến đi theo năm</span>
                         </a>

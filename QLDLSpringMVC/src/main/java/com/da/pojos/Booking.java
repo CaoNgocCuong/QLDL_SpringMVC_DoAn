@@ -31,7 +31,7 @@ public class Booking implements Serializable {
     private int id;
     private int adults;
     private int children;
-    private String status;
+    private Boolean status;
     
     @ManyToOne
     @JoinColumn (name = "user_id")
@@ -41,8 +41,9 @@ public class Booking implements Serializable {
     @JoinColumn (name = "tour_id")
     private Tour tour;
     
-    @OneToMany (mappedBy = "booking")
-    private Set<Billing> billings;
+    @OneToOne (mappedBy = "booking")
+    @PrimaryKeyJoinColumn
+    private Billing billing;
     
     @OneToOne (mappedBy = "booking")
     @PrimaryKeyJoinColumn
@@ -94,14 +95,14 @@ public class Booking implements Serializable {
     /**
      * @return the status
      */
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -134,20 +135,6 @@ public class Booking implements Serializable {
     }
 
     /**
-     * @return the billings
-     */
-    public Set<Billing> getBillings() {
-        return billings;
-    }
-
-    /**
-     * @param billings the billings to set
-     */
-    public void setBillings(Set<Billing> billings) {
-        this.billings = billings;
-    }
-
-    /**
      * @return the cancellation
      */
     public Cancellation getCancellation() {
@@ -159,5 +146,19 @@ public class Booking implements Serializable {
      */
     public void setCancellation(Cancellation cancellation) {
         this.cancellation = cancellation;
+    }
+
+    /**
+     * @return the billing
+     */
+    public Billing getBilling() {
+        return billing;
+    }
+
+    /**
+     * @param billing the billing to set
+     */
+    public void setBilling(Billing billing) {
+        this.billing = billing;
     }
 }

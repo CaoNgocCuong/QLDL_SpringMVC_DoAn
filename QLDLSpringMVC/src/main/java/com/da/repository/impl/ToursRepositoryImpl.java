@@ -137,4 +137,24 @@ public class ToursRepositoryImpl implements ToursRepository{
         return Long.parseLong(query.getSingleResult().toString());
     }
 
+    @Override
+    public List<Object> getTourWithComment(String tourName, int page) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        if (!tourName.isEmpty() && tourName != null) {
+            Query query = s.createQuery("SELECT t.id, t.name, t.tourType, t.photo, t.tourDays, t.tourNights, t.adultsPrice, t.childrenPrice, t.startDate, t.endDate, t.active, t.introduction, t.service, t.note, t.country, count(r.id) FROM Rating r RIGHT OUTER JOIN Tour t ON r.tour = t.id WHERE t.name LIKE :tourName GROUP BY t.name");
+            
+            query.setParameter("tourName", "%" + tourName + "%");
+            
+            int max = 9;
+        
+            query.setMaxResults(max);
+            query.setFirstResult((page - 1) * max);
+
+            return query.getResultList();
+        }
+        
+        return null;
+    }
+
 }

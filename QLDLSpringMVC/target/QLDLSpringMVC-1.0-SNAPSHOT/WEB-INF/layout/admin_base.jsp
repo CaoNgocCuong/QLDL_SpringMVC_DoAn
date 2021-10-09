@@ -37,6 +37,7 @@
         <link href="<c:url value="/css/dashboard.css"/>" rel="stylesheet"/>
         <link href="<c:url value="/css/responsive-adminpage.css"/>" rel="stylesheet"/>
         <link href="<c:url value="/css/admin-management.css"/>" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         
     </head>
     <body>
