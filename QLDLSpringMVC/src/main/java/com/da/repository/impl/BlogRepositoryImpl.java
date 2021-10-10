@@ -61,7 +61,7 @@ public class BlogRepositoryImpl implements BlogRepository{
     @Override
     public long countPosts() {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query query = session.createQuery("SELECT COUNT(*) FROM Post");
+        Query query = session.createQuery("SELECT COUNT(p.id) FROM Post p");
         
         return Long.parseLong(query.getSingleResult().toString());
     }

@@ -115,6 +115,15 @@ public class UserRepositoryImpl implements UserRepository{
         return session.get(User.class, id);
     }
 
-
+    @Override
+    public long countUserWithRole(String role) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        
+        Query query = s.createQuery("SELECT count(u.id) FROM User u WHERE u.userRole = :role");
+        
+        query.setParameter("role", role);
+        
+        return Long.parseLong(query.getSingleResult().toString());
+    }
 
 }

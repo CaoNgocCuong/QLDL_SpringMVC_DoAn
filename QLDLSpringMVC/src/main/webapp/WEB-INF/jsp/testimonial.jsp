@@ -56,7 +56,7 @@
                             <span><i class="far fa-comment-dots"></i></span>
                         </div>
                         <div class="testimonial-info">
-                            <p class="testimonial-info__content">Toàn bộ lịch trình là rất hài lòng. Nó dường như đã được tổ chức tốt để bạn có thể khám phá đầy đủ nhiều nơi trong một khoảng thời gian ngắn. Cảm ơn bạn.</p>
+                            <p class="testimonial-info__content">Toàn bộ lịch trình là rất hài lòng. Nó dường như đã được tổ chức tốt để bạn có thể khám phá đầy đủ nhiều nơi trong một khoảng thời gian ngắn.</p>
                             <h3 class="testimonial-info__author">Cao Ngọc Cường</h3>
                         </div>
                     </div>

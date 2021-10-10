@@ -52,6 +52,7 @@
         <link rel="stylesheet" href="<c:url value="/css/tour-detail.css" />">
         <link rel="stylesheet" href="<c:url value="/css/bookTour.css"/>"/>
         <link rel="stylesheet" href="<c:url value="/css/login.css" />" />
+        <link rel="stylesheet" href="<c:url value="/css/responsive-main.css" />" />
     </head>
     <body>
         <!-- Header -->

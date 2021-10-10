@@ -186,7 +186,9 @@ let priceOfTour = document.getElementById("price-of-tour");
 let inputPriceAdult = document.getElementById("inputPriceAdult");
 let inputPriceChild = document.getElementById("inputPriceChild");
 let countPriceOfTour = 0;
-priceOfTour.innerText = countPriceOfTour;
+if (priceOfTour) {
+    priceOfTour.innerText = countPriceOfTour;
+}
 console.log(inputCountAdults);
 let switchPrice =  true;
 if (inputCountAdults) {
@@ -207,5 +209,12 @@ if (inputCountChildren) {
         }
         countPriceOfTour += inputCountChildren.value * inputPriceChild.value;
         priceOfTour.innerText = countPriceOfTour;
+    };
+}
+
+let barsTop = document.querySelector(".bars-top");
+if (barsTop) {
+    barsTop.onclick = function() {
+        barsTop.classList.toggle("active");
     };
 }

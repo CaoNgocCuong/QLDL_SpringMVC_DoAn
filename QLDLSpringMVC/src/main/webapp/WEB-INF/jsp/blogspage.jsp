@@ -11,7 +11,7 @@
 <section class="travel-main blog">
     <div class="container">
         <div class="row">
-            <div class="col col-lg-8">
+            <div class="col-xs-12 col-md-8 col-lg-8">
                 <div class="blog__left-sidebar">
                     <c:if test="${posts.size() == 0}">
                        <h3>Hiện không có bài viết nào!!!</h3>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="blog__right-sidebar">
                     <aside class="single-sidebar-widget search-widget">
                         <form action="">

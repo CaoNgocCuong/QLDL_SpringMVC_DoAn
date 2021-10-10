@@ -10,7 +10,7 @@
 <section class="travel-variation overlay">
     <div class="container">
         <div class="row">
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-travel">
                     <div class="icon">
                         <img src="<c:url value="/img/train.svg" />" alt="train service">
@@ -19,16 +19,16 @@
                     <p>Một sự thanh thản tuyệt vời đã chiếm hữu toàn bộ tâm hồn tôi.</p>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-travel">
                     <div class="icon">
                         <img src="<c:url value="/img/hotel.svg" />" alt="train service">
                     </div>
-                    <h3>Khách sạn sang trọng</h3>
+                    <h3>Khách sạn tiện nghi sang trọng</h3>
                     <p>Một sự thanh thản tuyệt vời đã chiếm hữu toàn bộ tâm hồn tôi.</p>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-travel">
                     <div class="icon">
                         <img src="<c:url value="/img/world.svg" />" alt="train service">

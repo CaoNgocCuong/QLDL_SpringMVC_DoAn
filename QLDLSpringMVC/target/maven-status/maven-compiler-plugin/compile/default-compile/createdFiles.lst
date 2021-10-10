@@ -6,7 +6,9 @@ com\da\pojos\Rating.class
 com\da\controllers\ApiLikeCommentPostController.class
 com\da\service\impl\TagServiceImpl.class
 com\da\controllers\HomeController.class
+com\da\formatter\TourFormatter.class
 com\da\controllers\UserController.class
+com\da\formatter\PostFormatter.class
 com\da\service\impl\RatingCommentTourServiceImpl.class
 com\da\configs\HibernateConfig.class
 com\da\service\impl\UserServiceImpl.class
@@ -18,8 +20,10 @@ com\da\pojos\TourDetail.class
 com\da\service\CategoryService.class
 com\da\repository\CategoryRepository.class
 com\da\repository\impl\ToursRepositoryImpl.class
+com\da\controllers\Admin_StatsController.class
 com\da\service\impl\ToursServiceImpl.class
 com\da\repository\impl\CategoryRepositoryImpl.class
+com\da\repository\impl\StatsRepositoryImpl.class
 com\da\pojos\Tag.class
 com\da\repository\impl\LikeCommentPostRepositoryImpl.class
 com\da\service\ToursService.class
@@ -34,9 +38,12 @@ com\da\repository\impl\RatingCommentTourRepositoryImpl.class
 com\da\repository\impl\BlogRepositoryImpl.class
 com\da\controllers\Admin_HomeController.class
 com\da\service\BlogService.class
+com\da\repository\StatsRepository.class
+com\da\service\StatsService.class
 com\da\controllers\AboutController.class
 com\da\controllers\BlogDetailsController.class
 com\da\service\UserService.class
+com\da\formatter\CategoryFormatter.class
 com\da\validator\UsernameValidator.class
 com\da\repository\ToursRepository.class
 com\da\configs\DispatcherServletInitializer.class
@@ -46,6 +53,7 @@ com\da\repository\TagRepository.class
 com\da\configs\SecurityWebAppInitializer.class
 com\da\validator\WebAppValidator.class
 com\da\controllers\BlogController.class
+com\da\service\impl\StatsServiceImpl.class
 com\da\pojos\User.class
 com\da\service\RatingCommentTourService.class
 com\da\pojos\Category.class

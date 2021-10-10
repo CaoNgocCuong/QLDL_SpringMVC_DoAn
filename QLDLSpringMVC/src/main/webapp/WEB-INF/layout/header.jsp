@@ -23,9 +23,9 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container no-gutters-mobile">
         <div class="row header">
-            <div class="col col-md-2 col-lg-2">
+            <div class="col col-lg-2 hide-on-tablet">
                 <div class="logo">
                     <h1 class="logo__heading">
                         <a href="#" >
@@ -34,9 +34,12 @@
                     </h1>
                 </div>
             </div>
-            <div class="col col-md-6 col-lg-7">
+            <div class="col-xs-12 col-sm-12  col-md-10 col-lg-8">        
+                <div class="bars-top active">
+                    <i class="fas fa-bars"></i>
+                </div>
                 <ul class="navbar-list">
-                    <li class="navbar-list__item active">
+                    <li class="navbar-list__item">
                         <a href="<c:url value="/" />" >Trang chủ</a>
                     </li>
                     <li class="navbar-list__item">
@@ -69,7 +72,7 @@
                     </sec:authorize>
                 </ul>
             </div>
-            <div class="col col-md-4 col-lg-3">
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
                 <div class="login">
                     <div class="socials-wrap">
                         <ul class="socials-list">
@@ -78,6 +81,12 @@
                             </li>
                             <li class="socials-list__item">
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li class="socials-list__item">
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="socials-list__item">
+                                <a href=""><i class="fab fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -104,7 +113,7 @@
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <!-- Logined -->
                             <div class="wrap">
-                                <span class="user-header">Chào, ${pageContext.request.userPrincipal.name}</span>
+                                <span class="user-header">${pageContext.request.userPrincipal.name}</span>
                                 <i class="fas fa-angle-down user-down"></i>
                                 <ul class="user-dropdown">
                                     <li class="register-text user-manage__text">

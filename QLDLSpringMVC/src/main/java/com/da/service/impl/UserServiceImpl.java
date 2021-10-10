@@ -115,4 +115,9 @@ public class UserServiceImpl implements UserService{
         return this.userRepository.getUserById(id);
     }
 
+    @Override
+    public long countUserWithRole(String role) {
+        return this.userRepository.countUserWithRole(role);
+    }
+
 }

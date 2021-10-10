@@ -30,11 +30,13 @@
 
 .about-story .about-story__thumb .thumb {
     margin-bottom: 52px;
-    min-height: 465px;
+    min-height: 300px;
 }
 
 .about-story .about-story__thumb .thumb img {
     width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .about-story .about-story__thumb .part-left {

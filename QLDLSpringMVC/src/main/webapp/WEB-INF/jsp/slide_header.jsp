@@ -23,8 +23,8 @@
                 <div class="row">
                     <div class="col col-lg-12 slider-text-align">
                         <div class="slider-text">
-                            <h3>Indonesia</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <h3>Việt Nam</h3>
+                            <p>Mang lại dịch vụ hoàn đến với mọi khách hàng</p>
                         </div>
                     </div>
                 </div>
@@ -36,8 +36,8 @@
                 <div class="row">
                     <div class="col col-lg-12 slider-text-align">
                         <div class="slider-text">
-                            <h3>Indonesia</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <h3>Campuchia</h3>
+                            <p>Vương quốc của những kì quan</p>
                         </div>
                     </div>
                 </div>
@@ -49,8 +49,8 @@
                 <div class="row">
                     <div class="col col-lg-12 slider-text-align">
                         <div class="slider-text">
-                            <h3>Indonesia</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <h3>Hàn Quốc</h3>
+                            <p>Hãy tưởng tượng thế giới này là của riêng bạn</p>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="col col-lg-12 slider-text-align">
                         <div class="slider-text">
                             <h3>Indonesia</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            <p>Khía cạnh tươi đẹp của cuộc sống</p>
                         </div>
                     </div>
                 </div>

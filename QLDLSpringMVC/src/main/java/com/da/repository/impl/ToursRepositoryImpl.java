@@ -58,7 +58,7 @@ public class ToursRepositoryImpl implements ToursRepository{
     @Override
     public long countTours() {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query query = session.createQuery("SELECT COUNT(*) FROM Tour");
+        Query query = session.createQuery("SELECT COUNT(t.id) FROM Tour t");
         
         return Long.parseLong(query.getSingleResult().toString());
     }

@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-destination">
                     <div class="thumb">
                         <img src="<c:url value="/img/1.png"/>" alt="thumb1">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-destination">
                     <div class="thumb">
                         <img src="<c:url value="/img/1.png"/>" alt="thumb1">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-destination">
                     <div class="thumb">
                         <img src="<c:url value="/img/1.png"/>" alt="thumb1">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-destination">
                     <div class="thumb">
                         <img src="<c:url value="/img/1.png"/>" alt="thumb1">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-destination">
                     <div class="thumb">
                         <img src="<c:url value="/img/1.png"/>" alt="thumb1">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4">
+            <div class="col-xs-12 col-md-4 col-lg-4">
                 <div class="single-destination">
                     <div class="thumb">
                         <img src="<c:url value="/img/1.png"/>" alt="thumb1">

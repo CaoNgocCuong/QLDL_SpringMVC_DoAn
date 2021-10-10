@@ -20,4 +20,5 @@ public interface UserService extends UserDetailsService {
     List<User> getUsersByFullName(String fullName);
     User getUsersByUsername(String username);
     User getUserById(int id);
+    long countUserWithRole(String role);
 }

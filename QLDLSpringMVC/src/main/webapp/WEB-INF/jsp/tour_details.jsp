@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="container tour-detail">
     <div class="row">
-        <div class="col col-lg-12">
+        <div class="col-xs-12 col-lg-12">
             <div class="tour-title">
                 <h2>${tour.name}</h2>
             </div>
@@ -35,10 +35,10 @@
             </div>  
         </div>
     </div>
-    <div class="row">
+    <div class="row d-reverse-mobile">
         <div class="col col-lg-8">
             <div class="row">
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div id="carouselTourDetailIndicators" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
                           <li data-target="#carouselTourDetailIndicators" data-slide-to="0" class="active"></li>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div class="tour-detail__title">
                         <h3 id="journey"><i class="fas fa-info-circle mr-3"></i>Điểm nhấn hành trình</h3>
                     </div>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div class="tour-detail__title">
                         <h3 id="journey-map"><i class="fas fa-map-marked mr-3"></i>Lịch trình</h3>
                     </div>
@@ -129,7 +129,7 @@
                         </c:forEach>
                     </div>
                 </div>
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div class="tour-detail__title">
                         <h3 id="services"><i class="fas fa-paperclip mr-3"></i>Dịch vụ bao gồm và không bao gồm</h3>
                     </div>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div class="tour-detail__title">
                         <h3 id="note"><i class="far fa-sticky-note mr-3"></i>Ghi chú</h3>
                     </div>
@@ -149,12 +149,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div class="tour-detail__gb">
                         <p class="text-center fs-5"><strong>KÍNH CHÚC QUÝ KHÁCH CHUYẾN ĐI THÚ VỊ VÀ BỔ ÍCH !</strong></p>
                     </div>
                 </div>
-                <div class="col col-lg-12">
+                <div class="col-xs-12 col-lg-12">
                     <div class="tour-detail__title">
                         <h3 id="comment"><i class="far fa-comments mr-3"></i>Bình luận</h3>
                     </div>
@@ -228,7 +228,7 @@
                 </div>
             </div>
         </div>
-        <div class="col col-lg-4">
+        <div class="col-xs-12 col-lg-4">
             <div class="box-right">
                 <div class="tour-box-info">
                     <div class="tour-name">${tour.name}</div>

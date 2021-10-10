@@ -110,6 +110,8 @@ public class StatsRepositoryImpl implements StatsRepository {
         query.groupBy(builder.function("MONTH", Integer.class, rootBilling.get("createdDate")),
                 builder.function("YEAR", Integer.class, rootBilling.get("createdDate")));
         
+        query.orderBy(builder.asc(builder.function("YEAR", Integer.class, rootBilling.get("createdDate"))), builder.asc(builder.function("MONTH", Integer.class, rootBilling.get("createdDate"))));
+        
         Query q = session.createQuery(query);
         
         return q.getResultList();

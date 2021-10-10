@@ -50,12 +50,17 @@ C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Booking.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\ToursService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\CategoryServiceImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\StatsService.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\UserRepositoryImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\impl\StatsServiceImpl.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\formatter\PostFormatter.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\service\TagService.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\StatsRepository.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Post.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\TourDetail.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\BlogRepository.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\Category.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\pojos\User.java
 C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\CategoryRepositoryImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\repository\impl\StatsRepositoryImpl.java
+C:\Users\cncde\Documents\NetBeansProjects\QLDL_SpringMVC_DoAn\QLDLSpringMVC\src\main\java\com\da\controllers\Admin_StatsController.java

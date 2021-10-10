@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             <c:forEach items="${postsDateDes}" var="postDateDes">
-                <div class="col col-lg-4">
+                <div class="col-xs-12 col-md-4 col-lg-4">
                     <div class="single-trip">
                         <div class="single-trip__img">
                             <a href="<c:url value="/blogs/${postDateDes.id}/" />">

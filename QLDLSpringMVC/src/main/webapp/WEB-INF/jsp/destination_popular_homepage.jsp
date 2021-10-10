@@ -19,7 +19,7 @@
         </div>
         <div class="row">
             <c:forEach var="tourWithComment" items="${toursWithComment}">
-                <div class="col col-lg-4">
+                <div class="col-xs-12 col-md-4 col-lg-4">
                     <div class="single-place">
                         <div class="thumb">
                             <img src="${tourWithComment[3]}" alt="popular place">

@@ -365,6 +365,7 @@
 
 .instagram-feed .instagram-list__item a img {
     width: 100%;
+    object-fit: cover;
 }
 
 .newsletter .form-group input {
