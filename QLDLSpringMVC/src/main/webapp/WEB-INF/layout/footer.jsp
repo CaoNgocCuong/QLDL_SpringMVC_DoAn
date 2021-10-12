@@ -135,7 +135,7 @@
                             </div>
                             <div class="single-insta">
                                 <a href="">
-                                    <img src="<c:url value="./img/instagram/6.png"/>" alt="">
+                                    <img src="<c:url value="/img/instagram/6.png"/>" alt="">
                                 </a>
                             </div>
                         </div>

@@ -301,8 +301,7 @@ and open the template in the editor.
     
     .login, .login .user-wrapper {
         justify-content: space-between;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding: 10px;
        
     }
     
@@ -326,6 +325,11 @@ and open the template in the editor.
         padding-bottom: 10px;
         
         color: #FFF;
+    }
+    
+    .header .navbar-list .navbar-list__item a {
+        display: block;
+        padding: 12px 15px;
     }
     
     .search-area .form-ask h3 {
@@ -356,6 +360,7 @@ and open the template in the editor.
     .travel-main,
     .travel-main.popular-place{
         margin: 60px 0;
+        margin-top: 136px;
     }
     
     .travel-variation {
@@ -418,7 +423,9 @@ and open the template in the editor.
     
     .slider,
     #main .bradcam,
-    .testimonial-nav__auto, .testimonial-nav__manual {
+    .testimonial-nav__auto, .testimonial-nav__manual,
+    .header .navbar-list .navbar-list__item::before,
+    .header .navbar-list .navbar-list__item::after {
         display: none;
     }
     
@@ -460,7 +467,7 @@ and open the template in the editor.
     .tour-detail,
     .travel-main.about-story,
     .travel-main.contact-section {
-        margin-top: 80px;
+        margin-top: 136px;
     }
     
     .search-area {
@@ -481,6 +488,7 @@ and open the template in the editor.
         font-size: 2.6rem;
     }
     
+    .header .navbar-list .navbar-list__item,
     .about-story .about-story__thumb .part-left {
         padding: 0;
     }

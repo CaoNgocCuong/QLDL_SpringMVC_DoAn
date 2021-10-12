@@ -39,3 +39,21 @@
 .popular-place .popular-place__box-top ul li:not(:last-child) {
     margin-right: 10px;
 }
+
+
+.form-check-paytour {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-paytour > label.form-check-label {
+    margin-left: 8px;
+    
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-check-paytour > label.form-check-label:hover {
+    color: var(--secondary-color);
+}

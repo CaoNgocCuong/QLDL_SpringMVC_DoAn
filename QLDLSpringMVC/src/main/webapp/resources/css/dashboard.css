@@ -406,7 +406,7 @@ header .head_inner .left-part ul li.have_dots span::before {
 }
 
 .main-content .main-table .main-title h2 {
-    font-size: 1.6em;
+    font-size: 2.6em;
     line-height: 24px;
 }
 
@@ -434,6 +434,16 @@ header .head_inner .left-part ul li.have_dots span::before {
     cursor: pointer;
     text-align: center;
 }
+
+.main-table .user-table table tbody tr td.booking-tour-tbody {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-table .user-table tbody tr td.booking-tour-tbody .btn:not(:last-child) {
+    margin-right: 10px;
+}
+
 
 .main-table .user-table tbody tr td .btn {
     display: inline-block;

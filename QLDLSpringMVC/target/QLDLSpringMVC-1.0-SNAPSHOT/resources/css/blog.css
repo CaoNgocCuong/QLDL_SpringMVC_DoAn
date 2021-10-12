@@ -136,10 +136,10 @@
     padding-right: 10px;
 }
 
-/*.blog-item .blog-item__content .blog-item__info li:first-child::after {
+.blog-item .blog-item__content .blog-item__info li:first-child::after {
     content: "";
     border: 1px solid #ccc;
-}*/
+}
 
 .blog-item .blog-item__content .blog-item__info li a i,
 .blog-item .blog-item__content .blog-item__info li:not(:last-child) {

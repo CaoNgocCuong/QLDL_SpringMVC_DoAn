@@ -94,6 +94,27 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="pay-radio-1" class="form-label col-form-label-lg">Hình thức thanh toán</label>
+                                <div class="form-check form-check-paytour">
+                                    <input class="form-check-input" type="radio" name="paytour" id="pay-radio-1" value="TraTienMat" checked>
+                                    <label class="form-check-label" for="pay-radio-1">
+                                      Thanh toán bằng tiền mặt
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-paytour">
+                                    <input class="form-check-input" type="radio" name="paytour" id="pay-radio-2" value="MoMo">
+                                    <label class="form-check-label" for="pay-radio-2">
+                                      Thanh toán thông qua Ví MoMo
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-paytour">
+                                    <input class="form-check-input" type="radio" name="paytour" id="pay-radio-3" value="Zalopay">
+                                    <label class="form-check-label" for="pay-radio-3">
+                                      Thanh toán thông qua Zalopay
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label for="summernote" class="form-label col-form-label-lg">Ghi chú</label>
                                 <textarea class="form-control" name="editordata" rows="3"></textarea>
                             </div>

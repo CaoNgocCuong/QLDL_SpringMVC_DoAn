@@ -142,7 +142,14 @@ public class ToursRepositoryImpl implements ToursRepository{
         Session s = this.sessionFactory.getObject().getCurrentSession();
         
         if (!tourName.isEmpty() && tourName != null) {
-            Query query = s.createQuery("SELECT t.id, t.name, t.tourType, t.photo, t.tourDays, t.tourNights, t.adultsPrice, t.childrenPrice, t.startDate, t.endDate, t.active, t.introduction, t.service, t.note, t.country, count(r.id) FROM Rating r RIGHT OUTER JOIN Tour t ON r.tour = t.id WHERE t.name LIKE :tourName GROUP BY t.name");
+            Query query = s.createQuery("SELECT t.id, t.name, t.tourType, t.photo,"
+                    + " t.tourDays, t.tourNights, t.adultsPrice, t.childrenPrice,"
+                    + " t.startDate, t.endDate, t.active, t.introduction, t.service,"
+                    + " t.note, t.country, count(r.id)"
+                    + " FROM Rating r RIGHT OUTER JOIN Tour t"
+                    + " ON r.tour = t.id"
+                    + " WHERE t.name LIKE :tourName"
+                    + " GROUP BY t.name");
             
             query.setParameter("tourName", "%" + tourName + "%");
             

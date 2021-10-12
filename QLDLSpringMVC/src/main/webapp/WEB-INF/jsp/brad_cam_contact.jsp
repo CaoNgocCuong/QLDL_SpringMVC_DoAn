@@ -11,7 +11,7 @@
             <div class="col col-lg-12">
                 <div class="bradcam-text">
                     <h3>Kết nối</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, inventore!</p>
+                    <p>Chúng tôi luôn luôn chờ bạn.</p>
                 </div>
             </div>
         </div>

@@ -19,29 +19,29 @@
                     <c:forEach var="post" items="${posts}">
                         <article class="blog-item">
                             <div class="blog-item__img">
-                                <img src="${post.photo}" alt="${post.title}">
-                                <a href="<c:url value="/blogs/${post.id}" />" class="blog-item__date">
-                                    <h3><fmt:formatDate pattern="dd" value="${post.date}" /></h3>
-                                    <p>Tháng <fmt:formatDate pattern="MM" value="${post.date}" /></p>
-                                    <h3><fmt:formatDate pattern="yyyy" value="${post.date}" /></h3>
+                                <img src="${post[5]}" alt="${post[1]}">
+                                <a href="<c:url value="/blogs/${post[0]}" />" class="blog-item__date">
+                                    <h3><fmt:formatDate pattern="dd" value="${post[3]}" /></h3>
+                                    <p>Tháng <fmt:formatDate pattern="MM" value="${post[3]}" /></p>
+                                    <h3><fmt:formatDate pattern="yyyy" value="${post[3]}" /></h3>
                                 </a>
                             </div>
                             <div class="blog-item__content">
                                 <h3 class="blog-item__content-title">
-                                    <a href="<c:url value="/blogs/${post.id}"/>">${post.title}</a>
+                                    <a href="<c:url value="/blogs/${post[0]}/"/>">${post[1]}</a>
                                 </h3>
-                                <p>${post.description}</p>
+                                <p>${post[4]}</p>
                                 <div class="blog-item__wrap">
                                     <ul class="blog-item__info">
                                         <li>
-                                            <a href="#"><i class="fas fa-user"></i>${post.author}</a>
+                                            <a href="<c:url value="/blogs/${post[0]}/" />"><i class="fas fa-user"></i>${post[6]}</a>
                                         </li>
-<!--                                        <li>
-                                                <a href="#"><i class="fas fa-comments"></i>4 bình luận</a>
-                                        </li>-->
+                                        <li>
+                                            <a href="<c:url value="/blogs/${post[0]}/?page=1#commentPost-area" />"><i class="fas fa-comments"></i>${post[7]} bình luận</a>
+                                        </li>
                                     </ul>
                                     <div class="read-more">
-                                        <a href="<c:url value="/blogs/${post.id}" />" class="read-more-btn">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                                        <a href="<c:url value="/blogs/${post[0]}/" />" class="read-more-btn">Xem thêm <i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                             <li class="arrow disabled"><i class="fas fa-chevron-left"></i></li>
                             <c:forEach begin="1" end="${Math.ceil(counter/5)}" var="page">
                                 <li class="num active">
-                                    <a href="<c:url value="/blogs/"/>?page=${page}">
+                                    <a href="<c:url value="/blogs/"/>?page=${page}&&?title=${param.title}">
                                         ${page}
                                     </a>
                                 </li>

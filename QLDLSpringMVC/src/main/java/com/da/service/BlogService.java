@@ -13,7 +13,7 @@ import java.util.List;
  * @author Admin
  */
 public interface BlogService {
-    List<Post> getPosts(String title, int page);
+    List<Object[]> getPosts(String title, int page);
     List<Post> getPosts(String title);
     List<Post> getPosts();
     Post getPostById(int id);

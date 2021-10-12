@@ -1,13 +1,12 @@
 <%-- 
-    Document   : admin_sidebar_tourmanagement
-    Created on : Sep 25, 2021, 10:00:36 AM
+    Document   : admin_sidebar_bookingtour
+    Created on : Oct 12, 2021, 9:15:33 AM
     Author     : CaoNgocCuong
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <!-- Side bar start -->
 <div class="side-bar">
     <div class="logo">
@@ -42,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper active">
+                <div class="link-wrapper">
                     <span><i class="fas fa-route"></i></span>
                     <span class="nav-link">
                         Quản lý du lịch
@@ -50,7 +49,7 @@
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
                 <ul class="side-bar-subnav-1">
-                    <li class="page-1">
+                    <li>
                         <a href="<c:url value="/admin/tour-management" />">
                             <i class="fas fa-plus mr-2"></i>
                             <span class="hide-nav">Thêm chuyến đi</span>
@@ -75,7 +74,7 @@
                 </a>
             </li>
             <li>
-                <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper">
+                <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper active">
                     <span><i class="fas fa-ticket-alt"></i></span>
                     <span class="nav-link">Quản lý đặt vé</span>
                 </a>
@@ -89,7 +88,7 @@
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
                 <ul class="side-bar-subnav-2">
-                    <li>
+                   <li>
                         <a href="<c:url value="/admin/stats-tour" />">
                             <i class="fas fa-chart-pie mr-2"></i>
                             <span class="hide-nav">Thống kê theo chuyến đi</span>
@@ -111,7 +110,7 @@
                             <span class="hide-nav">Thống kê chuyến đi theo năm</span>
                         </a>
                     </li>
-                </ul>
+                </ul >
             </li>
             <li> 
                 <a href="<c:url value="/logout" />" class="link-wrapper">

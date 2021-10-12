@@ -5,9 +5,12 @@
  */
 package com.da.repository.impl;
 
+import com.da.pojos.Category;
+import com.da.pojos.Comment;
 import com.da.pojos.Post;
 import com.da.pojos.Tag;
 import com.da.repository.BlogRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.Query;
@@ -34,28 +37,27 @@ public class BlogRepositoryImpl implements BlogRepository{
     private LocalSessionFactoryBean sessionFactory;
     
     @Override
-    public List<Post> getPosts(String title, int page) {
+    public List<Object[]> getPosts(String title, int page) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<Post> query = builder.createQuery(Post.class);
-        Root root = query.from(Post.class);
-        query = query.select(root);
-        
-        if(!title.isEmpty() && title != null){
-            Predicate p = builder.like(root.get("title").as(String.class), String.format("%%%s%%", title));
-            Predicate p2 = builder.like(root.get("category").get("name").as(String.class), String.format("%%%s%%", title));
-            Predicate p3 = builder.like(root.<Set<Tag>>join("tags").get("name"), String.format("%%%s%%", title));
-            query = query.where(builder.or(p, p2, p3));
+
+        if (!title.isEmpty() && title != null) {
+            Query q = session.createQuery("SELECT p.id, p.title, p.content,"
+                + " p.date, p.description, p.photo, p.author, COUNT(c.id) "
+                + " FROM Comment c  "
+                + " RIGHT OUTER JOIN Post p ON p.id = c.post "
+                + " LEFT OUTER JOIN Category cate ON p.category = cate.id"
+                + " WHERE p.title LIKE :title OR cate.name LIKE :title "
+                + " GROUP BY p.id");
+            
+            q.setParameter("title", "%" + title + "%");
+            int max = 5;
+            q.setMaxResults(max);
+            q.setFirstResult((page - 1) * max);
+            return q.getResultList();
+
         }
         
-        Query q = session.createQuery(query);
-        
-        int max = 5;
-        q.setMaxResults(max);
-        q.setFirstResult((page - 1) * max);
-        
-        
-        return q.getResultList();
+        return null;
     }
 
     @Override

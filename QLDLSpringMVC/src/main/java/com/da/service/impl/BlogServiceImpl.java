@@ -31,7 +31,7 @@ public class BlogServiceImpl implements BlogService{
     private Cloudinary cloudinary;
     
     @Override
-    public List<Post> getPosts(String title, int page) {
+    public List<Object[]> getPosts(String title, int page) {
         
         return this.blogRepository.getPosts(title, page);
     }

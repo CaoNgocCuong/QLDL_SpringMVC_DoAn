@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12  col-md-10 col-lg-8">        
-                <div class="bars-top active">
+                <div class="bars-top">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="navbar-list">

@@ -78,6 +78,9 @@ canvas#myTourStats {
     max-height: 400px;
 }
 
+.main-content .main-table .user-table.booking-tour {
+    max-height: unset;
+}
 
 .main-content .main-table .form-search {
     position: relative;
@@ -104,7 +107,6 @@ canvas#myTourStats {
     right: 0;
     width: 15%;
     height: 100%;
-    padding-top: 5px;
     border: none;
     font-size: 2em;
     text-align: center;

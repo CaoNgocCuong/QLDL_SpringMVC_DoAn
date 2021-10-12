@@ -14,7 +14,7 @@
             <div class="col col-lg-12">
                 <div class="bradcam-text">
                     <h3>Tin Tức</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, inventore!</p>
+                    <p>Cuộc đời là những chuyến đi Trải nghiệm Khám Phá chính bản thân mình</p>
                 </div>
             </div>
         </div>

@@ -75,6 +75,12 @@
                 </a>
             </li>
             <li>
+                <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper">
+                    <span><i class="fas fa-ticket-alt"></i></span>
+                    <span class="nav-link">Quản lý đặt vé</span>
+                </a>
+            </li>
+            <li>
                 <div class="link-wrapper">
                     <span><i class="fas fa-route"></i></span>
                     <span class="nav-link">
