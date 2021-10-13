@@ -167,6 +167,12 @@ and open the template in the editor.
         <put-attribute name="admin_content" value="/WEB-INF/jsp/bookingtour_management.jsp" />
     </definition>
     
+    <definition name="cancel-ticket-management" extends="adminBaseLayout">
+        <put-attribute name="title" value="Quản lý đặt vé" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_cancelTicket.jsp" />
+        <put-attribute name="admin_content" value="/WEB-INF/jsp/cancel_ticket.jsp" />
+    </definition>
+    
     <definition name="stats-tour" extends="adminBaseLayout">
         <put-attribute name="title" value="Thống kê báo cáo theo chuyến đi" />
         <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_stats-tour.jsp" />

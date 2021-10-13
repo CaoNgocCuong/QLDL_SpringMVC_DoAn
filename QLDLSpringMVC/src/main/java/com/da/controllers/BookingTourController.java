@@ -52,4 +52,10 @@ public class BookingTourController {
         model.addAttribute("bookings", this.bookingService.getBookings(bookingId));
         return "bookingtour-management";
     }
+    
+    
+    @GetMapping("/admin/cancel-ticket/")
+    public String cancelTicket() {
+        return "cancel-ticket-management";
+    }
 }

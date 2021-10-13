@@ -1,6 +1,6 @@
 <%-- 
-    Document   : admin_sidebar_bookingtour
-    Created on : Oct 12, 2021, 9:15:33 AM
+    Document   : admin_sidebar_cancelTicket
+    Created on : Oct 13, 2021, 7:44:45 PM
     Author     : CaoNgocCuong
 --%>
 
@@ -82,13 +82,13 @@
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
                 <ul class="side-bar-subnav-1">
-                    <li class="page-1">
+                    <li>
                         <a href="<c:url value="/admin/bookingtour-management/" />">
                             <i class="fas fa-ticket-alt mr-2"></i>
                             <span class="hide-nav">Quản lý trạng thái vé</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="page-2">
                         <a href="<c:url value="/admin/cancel-ticket/" />">
                             <i class="fas fa-strikethrough mr-2"></i>
                             <span class="hide-nav">Hủy vé</span>
