@@ -50,7 +50,7 @@
                                 </c:if>
                             </td>
                             <td class="booking-tour-tbody">
-                                <a href="#" class="btn denied">Hủy vé</a>
+                                <a href="<c:url value="/admin/cancel-ticket/" />" class="btn denied">Hủy vé</a>
 <!--                                <a href="#" class="btn active">Chuyển trạng thái</a>-->
                             </td>
                         </tr>

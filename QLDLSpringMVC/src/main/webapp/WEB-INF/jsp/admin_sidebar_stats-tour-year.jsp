@@ -41,31 +41,10 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper">
-                    <span><i class="fas fa-route"></i></span>
-                    <span class="nav-link">
-                        Quản lý du lịch
-                    </span>
-                    <span class="ml-5"><i class="fas fa-angle-down"></i></span>
-                </div>
-                <ul class="side-bar-subnav-1">
-                    <li>
-                        <a href="<c:url value="/admin/tour-management" />">
-                            <i class="fas fa-plus mr-2"></i>
-                            <span class="hide-nav">Thêm chuyến đi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<c:url value="/admin/tour-detail-management" />"><i class="fas fa-plus mr-2"></i>
-                            <span class="hide-nav">Thêm chi tiết chuyến đi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<c:url value="/admin/tour-photo-management" />"><i class="fas fa-images mr-2"></i>
-                            <span class="hide-nav">Thêm ảnh cho chuyến đi</span>
-                        </a>
-                    </li>
-                </ul>
+                <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper">
+                    <i class="fas fa-ticket-alt mr-2"></i>
+                    <span class="hide-nav">Quản lý đặt vé</span>
+                </a>
             </li>
             <li>
                 <a href="<c:url value="/admin/blog-management" />" class="link-wrapper">

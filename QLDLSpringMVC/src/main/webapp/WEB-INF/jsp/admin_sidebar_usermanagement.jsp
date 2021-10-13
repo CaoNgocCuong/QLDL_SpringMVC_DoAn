@@ -74,27 +74,10 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper">
-                    <span><i class="fas fa-database"></i></span>
-                    <span class="nav-link">
-                        Quản lý đặt vé
-                    </span>
-                    <span class="ml-5"><i class="fas fa-angle-down"></i></span>
-                </div>
-                <ul class="side-bar-subnav-1">
-                   <li>
-                        <a href="<c:url value="/admin/bookingtour-management/" />">
-                            <i class="fas fa-ticket-alt mr-2"></i>
-                            <span class="hide-nav">Quản lý trạng thái vé</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<c:url value="/admin/cancel-ticket/" />">
-                            <i class="fas fa-strikethrough mr-2"></i>
-                            <span class="hide-nav">Hủy vé</span>
-                        </a>
-                    </li>
-                </ul>
+                <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper">
+                    <i class="fas fa-ticket-alt mr-2"></i>
+                    <span class="hide-nav">Quản lý đặt vé</span>
+                </a>
             </li>
             <li>
                 <div class="link-wrapper">

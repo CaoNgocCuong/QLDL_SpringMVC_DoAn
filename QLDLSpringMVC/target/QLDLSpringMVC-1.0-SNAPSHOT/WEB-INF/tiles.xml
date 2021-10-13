@@ -169,7 +169,7 @@ and open the template in the editor.
     
     <definition name="cancel-ticket-management" extends="adminBaseLayout">
         <put-attribute name="title" value="Quản lý đặt vé" />
-        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_cancelTicket.jsp" />
+        <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_bookingtour.jsp" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/cancel_ticket.jsp" />
     </definition>
     
