@@ -1,4 +1,5 @@
 com\da\repository\BlogRepository.class
+com\da\service\impl\BookingServiceImpl.class
 com\da\repository\LikeCommentPostRepository.class
 com\da\service\LikeCommentPostService.class
 com\da\pojos\TourPhoto.class
@@ -17,6 +18,7 @@ com\da\pojos\Comment.class
 com\da\service\impl\LikeCommentPostServiceImpl.class
 com\da\repository\impl\TagRepositoryImpl.class
 com\da\pojos\TourDetail.class
+com\da\repository\BookingRepository.class
 com\da\service\CategoryService.class
 com\da\repository\CategoryRepository.class
 com\da\repository\impl\ToursRepositoryImpl.class
@@ -24,6 +26,8 @@ com\da\controllers\Admin_StatsController.class
 com\da\service\impl\ToursServiceImpl.class
 com\da\repository\impl\CategoryRepositoryImpl.class
 com\da\repository\impl\StatsRepositoryImpl.class
+com\da\repository\impl\BookingRepositoryImpl.class
+com\da\controllers\BookingTourController.class
 com\da\pojos\Tag.class
 com\da\repository\impl\LikeCommentPostRepositoryImpl.class
 com\da\service\ToursService.class
@@ -50,6 +54,7 @@ com\da\configs\DispatcherServletInitializer.class
 com\da\pojos\Post.class
 com\da\service\impl\CategoryServiceImpl.class
 com\da\repository\TagRepository.class
+com\da\service\BookingService.class
 com\da\configs\SecurityWebAppInitializer.class
 com\da\validator\WebAppValidator.class
 com\da\controllers\BlogController.class

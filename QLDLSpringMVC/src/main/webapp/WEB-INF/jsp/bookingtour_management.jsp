@@ -14,7 +14,7 @@
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Danh sách đặt vé</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" name="tourName" placeholder="Tìm kiếm..." required="">
+                <input type="text" name="bookingId" placeholder="Tìm kiếm..." required="">
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>    
@@ -22,8 +22,8 @@
             <table>
                 <thead>
                     <tr>
+                        <td>Mã booking</td>
                         <td>Mã chuyến đi</td>
-                        <td>Tên chuyến đi</td>
                         <td>Tên khách hàng</td>
                         <td>Số người lớn</td>
                         <td>Số trẻ em</td>
@@ -33,262 +33,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td  class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Du lịch Hà Nội</td>
-                        <td>Cao Ngọc Cường</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>11.000.000 VNĐ</td>
-                        <td>
-                            <a href="#" class="btn denied">Chưa thanh toán</a>
-                            <a href="#" class="btn active">Đã thanh toán</a>
-                        </td>
-                        <td class="booking-tour-tbody">
-                            <a href="#" class="btn denied">Hủy vé</a>
-                            <a href="#" class="btn active">Chuyển trạng thái</a>
-                        </td>
-                    </tr>
+                    <c:forEach var="b" items="${bookings}">
+                        <tr>
+                            <td>${b.id}</td>
+                            <td>${b.tour.id}</td>
+                            <td>${b.user.fullName}</td>
+                            <td>${b.adults}</td>
+                            <td>${b.children}</td>
+                            <td>11.000.000 VNĐ</td>
+                            <td>
+                                <c:if test="${b.status == false}">
+                                    <a href="#" class="btn denied">Chưa thanh toán</a>
+                                </c:if>
+                                <c:if test="${b.status == true}">
+                                    <a href="#" class="btn active">Đã thanh toán</a>
+                                </c:if>
+                            </td>
+                            <td class="booking-tour-tbody">
+                                <a href="#" class="btn denied">Hủy vé</a>
+<!--                                <a href="#" class="btn active">Chuyển trạng thái</a>-->
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

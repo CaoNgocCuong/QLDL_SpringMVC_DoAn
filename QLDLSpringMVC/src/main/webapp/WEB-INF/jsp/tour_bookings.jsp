@@ -6,6 +6,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <div class="book-tour-wrap">
     <div class="container book-tour">
         <div class="row">
@@ -36,11 +38,11 @@
                         <p>Dấu <span class="book-required">*</span> là thông tin bắt buộc</p>
                     </div>
                     <c:forEach items="${user}" var="u">
-                        <form class="form-add">
+                        <form:form method="post" modelAttribute="booking" class="form-add">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputTourId" class="form-label col-form-label-lg ">Mã tour</label>
-                                    <input type="text" class="form-control form-control-lg" id="inputTourId" readonly="true" value="${tourBooking.id}">
+                                    <input type="text" name="tour" class="form-control form-control-lg" id="inputTourId" readonly="true" value="${tourBooking.id}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputName" class="form-label col-form-label-lg ">Họ tên <span class="book-required">*</span></label>
@@ -60,11 +62,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputCountAdults" class="form-label col-form-label-lg">Số người lớn <span class="book-required">*</span></label>
-                                    <input type="number" class="form-control form-control-lg" id="inputCountAdults" value="0" min="0">
+                                    <input type="number" name="adults" class="form-control form-control-lg" id="inputCountAdults" value="0" min="0">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputCountChildren" class="form-label col-form-label-lg">Số người trẻ em <span class="book-required">*</span></label>
-                                    <input type="number" class="form-control form-control-lg" id="inputCountChildren" value="0" min="0">
+                                    <input type="number" name="children" class="form-control form-control-lg" id="inputCountChildren" value="0" min="0">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -94,35 +96,38 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="pay-radio-1" class="form-label col-form-label-lg">Hình thức thanh toán</label>
+                                <label for="pay-radio-1" class="form-label col-form-label-lg">Phương thức thanh toán</label>
                                 <div class="form-check form-check-paytour">
-                                    <input class="form-check-input" type="radio" name="paytour" id="pay-radio-1" value="TraTienMat" checked>
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="pay-radio-1" value="TraTienMat" checked>
                                     <label class="form-check-label" for="pay-radio-1">
                                       Thanh toán bằng tiền mặt
                                     </label>
                                 </div>
                                 <div class="form-check form-check-paytour">
-                                    <input class="form-check-input" type="radio" name="paytour" id="pay-radio-2" value="MoMo">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="pay-radio-2" value="MoMo">
                                     <label class="form-check-label" for="pay-radio-2">
                                       Thanh toán thông qua Ví MoMo
                                     </label>
                                 </div>
                                 <div class="form-check form-check-paytour">
-                                    <input class="form-check-input" type="radio" name="paytour" id="pay-radio-3" value="Zalopay">
+                                    <input class="form-check-input" type="radio" name="paymentMethod" id="pay-radio-3" value="ZaloPay">
                                     <label class="form-check-label" for="pay-radio-3">
-                                      Thanh toán thông qua Zalopay
+                                      Thanh toán thông qua ZaloPay
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="summernote" class="form-label col-form-label-lg">Ghi chú</label>
-                                <textarea class="form-control" name="editordata" rows="3"></textarea>
+                                <textarea class="form-control" name="note" rows="3"></textarea>
+                            </div>
+                            <div hidden="true">
+                                <input name="userId" value="${u.id}">
                             </div>
                             <div class="wrap-submit">
                                 <div class="book-tour-total">Tổng thanh toán: <span id="price-of-tour">1.200.200</span>VNĐ</div>
                                 <button type="submit" class="btn btn-lg">Đặt vé</button>
                             </div>
-                        </form>
+                        </form:form>
                     </c:forEach>
 
                 </div>

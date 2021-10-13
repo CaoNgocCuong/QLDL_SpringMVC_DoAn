@@ -190,13 +190,9 @@ if (priceOfTour) {
     priceOfTour.innerText = countPriceOfTour;
 }
 console.log(inputCountAdults);
-let switchPrice =  true;
+//let switchPrice =  true;
 if (inputCountAdults) {
     inputCountAdults.onkeyup = () => {
-        if (countPriceOfTour > 0 &&  switchPrice === true) {
-            countPriceOfTour = 0;
-            switchPrice = !switchPrice;
-        }
         countPriceOfTour += inputCountAdults.value * inputPriceAdult.value;
         priceOfTour.innerText = countPriceOfTour;
     };
@@ -204,8 +200,8 @@ if (inputCountAdults) {
 
 if (inputCountChildren) {
     inputCountChildren.onkeyup = () => {
-        if (countPriceOfTour > 0 && switchPrice === true ) {
-            countPriceOfTour = 0;
+        if(inputPriceChild === null){
+            inputCountChildren.value = 0;
         }
         countPriceOfTour += inputCountChildren.value * inputPriceChild.value;
         priceOfTour.innerText = countPriceOfTour;
