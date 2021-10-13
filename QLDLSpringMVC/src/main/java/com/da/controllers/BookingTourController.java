@@ -20,4 +20,10 @@ public class BookingTourController {
     public String bookingTour() {
         return "bookingtour-management";
     }
+    
+    
+    @GetMapping("/admin/cancel-ticket/")
+    public String cancelTicket() {
+        return "cancel-ticket-management";
+    }
 }
