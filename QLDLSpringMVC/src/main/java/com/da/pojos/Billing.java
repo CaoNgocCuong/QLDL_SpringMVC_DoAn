@@ -18,6 +18,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -34,10 +36,9 @@ public class Billing implements Serializable {
     private BigDecimal money;
     
     @Column (name = "created_date")
+    @Temporal(TemporalType.DATE)
     private Date createdDate;
     
-    @Column (name = "status")
-    private Boolean status;
     
     @OneToOne
     @MapsId
@@ -77,19 +78,6 @@ public class Billing implements Serializable {
         this.money = money;
     }
 
-    /**
-     * @return the status
-     */
-    public Boolean getStatus() {
-        return status;
-    }
-
-    /**
-     * @param status the status to set
-     */
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
 
     /**
      * @return the booking

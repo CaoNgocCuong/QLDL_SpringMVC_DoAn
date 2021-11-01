@@ -138,7 +138,7 @@ and open the template in the editor.
     </definition>
     
     <definition name="blog-management" extends="adminBaseLayout">
-        <put-attribute name="title" value="Quản lý tour" />
+        <put-attribute name="title" value="Quản lý tin tức" />
         <put-attribute name="admin_side_bar" value="/WEB-INF/jsp/admin_sidebar_blogmanagement.jsp" />
         <put-attribute name="admin_content" value="/WEB-INF/jsp/blog_management.jsp" />
     </definition>

@@ -5,6 +5,8 @@
 package com.da.repository;
 
 import com.da.pojos.Booking;
+import com.da.pojos.Cancellation;
+import com.da.pojos.User;
 import java.util.List;
 
 /**
@@ -14,4 +16,6 @@ import java.util.List;
 public interface BookingRepository {
     boolean addBooking(Booking booking);
     List<Booking> getBookings(int bookingId);
+    Booking getBookingById(int bookingId);
+    boolean cancelBooking(Cancellation can);
 }

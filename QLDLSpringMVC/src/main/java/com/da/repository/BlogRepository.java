@@ -19,4 +19,5 @@ public interface BlogRepository {
     Post getPostById(int id);
     boolean addPost(Post post);
     long countPosts();
+    boolean deletePost(int id);
 }

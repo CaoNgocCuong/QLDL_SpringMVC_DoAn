@@ -17,6 +17,7 @@ import java.util.List;
 public interface ToursRepository {
     List<Tour> getTours(String tourName, int page);
     List<Tour> getTours(String tourName);
+    List<Tour> getTours(int id);
     List<Object> getTourWithComment(String tourName, int page);
     Tour getTourById(int id);
     boolean addTour(Tour tour);
@@ -24,4 +25,7 @@ public interface ToursRepository {
     boolean addTourPhoto(TourPhoto tourPhoto);
     long countTours();
     long countToursByKw(String kw);
+    boolean deletePhoto(int id);
+    boolean deleteTourDetail(int id);
+    boolean deleteTour(int id);
 }

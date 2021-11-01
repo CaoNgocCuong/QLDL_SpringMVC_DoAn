@@ -91,7 +91,10 @@ public class ToursRepositoryImpl implements ToursRepository{
     public boolean addTour(Tour tour) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(tour);
+            if(tour.getId() > 0)
+                session.update(tour);
+            else
+                session.save(tour);
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add tour error==" + e.getMessage());
@@ -104,7 +107,10 @@ public class ToursRepositoryImpl implements ToursRepository{
     public boolean addTourDetails(TourDetail tourDetail) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(tourDetail);
+            if(tourDetail.getId() > 0)
+                session.update(tourDetail);
+            else
+                session.save(tourDetail);
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add tour error==" + e.getMessage());
@@ -117,7 +123,10 @@ public class ToursRepositoryImpl implements ToursRepository{
     public boolean addTourPhoto(TourPhoto tourPhoto) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(tourPhoto);
+            if(tourPhoto.getId() > 0)
+                session.update(tourPhoto);
+            else
+                session.save(tourPhoto);
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add tour error==" + e.getMessage());
@@ -162,6 +171,69 @@ public class ToursRepositoryImpl implements ToursRepository{
         }
         
         return null;
+    }
+
+    @Override
+    public List<Tour> getTours(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> query = builder.createQuery(Tour.class);
+        Root root = query.from(Tour.class);
+        query = query.select(root);
+        
+        if(id != 0){
+            Predicate p = builder.equal(root.get("id").as(Integer.class), id);
+            query = query.where(p);
+        }
+        
+        Query q = session.createQuery(query);
+        
+        return q.getResultList();
+    }
+
+    @Override
+    public boolean deletePhoto(int id) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            TourPhoto t = session.get(TourPhoto.class, id);
+            session.delete(t);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
+    }
+
+    @Override
+    public boolean deleteTourDetail(int id) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            TourDetail t = session.get(TourDetail.class, id);
+            session.delete(t);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
+    }
+
+    @Override
+    public boolean deleteTour(int id) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            Tour t = session.get(Tour.class, id);
+            session.delete(t);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
     }
 
 }

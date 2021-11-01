@@ -23,7 +23,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -73,7 +72,7 @@ public class Tour implements Serializable {
     private Date endDate;
     
     @Column (name = "active")
-    private Boolean active;
+    private boolean active;
     
     @NotBlank(message = "{Tour.Blank.error}")
     private String introduction;
@@ -257,14 +256,14 @@ public class Tour implements Serializable {
     /**
      * @return the active
      */
-    public Boolean getActive() {
+    public boolean getActive() {
         return active;
     }
 
     /**
      * @param active the active to set
      */
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 

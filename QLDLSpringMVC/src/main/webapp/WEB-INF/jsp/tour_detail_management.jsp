@@ -17,9 +17,15 @@
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Danh sách chuyến đi</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" name="tourName" placeholder="Tìm kiếm..." required="">
-                <button><i class="fas fa-search"></i></button>
+                <input type="text" id="inputSearch" name="tourId" placeholder="Tìm kiếm..." required="">
+                <button id="btnSearch"><i class="fas fa-search"></i></button>
             </form>
+            <select id="listTour" class="form-control form-control-lg" onchange="getTourDetails()">
+                <option selected disabled>Chọn mã chuyến đi</option>
+            <c:forEach var="t" items="${listTour}">
+                <option value="${t.id}">${t.id}</option> 
+            </c:forEach>
+            </select>
         </div>   
         <div class="user-table">
             <table>
@@ -38,16 +44,18 @@
                     <c:forEach var="tour" items="${tours}">
                         <c:forEach var="tourDetail" items="${tour.tourDetails}">
                             <tr>
-                                <td>${tourDetail.id}</td>
+                                <td id="tourDetailId${tourDetail.id}">${tourDetail.id}</td>
+                                <td id="tourId${tourDetail.id}" hidden>${tour.id}</td>
                                 <td>${tourDetail.tour.name}</td>
-                                <td>${tourDetail.departure}</td>
-                                <td>${tourDetail.destination}</td>
-                                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tourDetail.startDate}"/></td>
-                                <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tourDetail.endDate}"/></td>
+                                <td id="departure${tourDetail.id}">${tourDetail.departure}</td>
+                                <td id="destination${tourDetail.id}">${tourDetail.destination}</td>
+                                <td id="startDate${tourDetail.id}"><fmt:formatDate pattern="dd-MM-yyyy" value="${tourDetail.startDate}"/></td>
+                                <td id="endDate${tourDetail.id}"><fmt:formatDate pattern="dd-MM-yyyy" value="${tourDetail.endDate}"/></td>
                                 <td>
-                                    <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                                    <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
-                                </td>   
+                                    <a class="user-edit" href="javascript:;" onclick="getTourDetailInfo(${tourDetail.id})"><i class="fas fa-user-edit"></i></a>
+                                    <a class="user-delete" href="javascript:;" onclick="deleteTourDetail(${tourDetail.id})"><i class="fas fa-user-slash"></i></a>
+                                </td>
+                                <td id="content${tourDetail.id}" hidden>${tourDetail.content}</td>
                             </tr>
                         </c:forEach>
                     </c:forEach>
@@ -111,8 +119,10 @@
                 <textarea class="form-control" id="summernote" name="content" path="content" rows="3"></textarea>
                 <form:errors path="content" cssClass="text text-danger form-message" element="span" />
             </div>
+            <input type="text" name="id" id="inputId" hidden value="0">
             <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm</button>
+                <button type="submit" id="abt" class="btn btn-lg">Thêm</button>
+                <button type="reset" class="btn btn-lg" onclick="setButton()">Làm mới</button>
             </div>
         </form:form>
     </div>
@@ -123,8 +133,9 @@
         $(id).summernote({
             placeholder: placeholder,
             tabsize: 2,
-            height: 100,
+            height: 300
         });
     }
     summernote('#summernote', 'Nhập lịch trình chuyến đi')
 </script>
+<script src="<c:url value="/js/tour.js" />"></script>

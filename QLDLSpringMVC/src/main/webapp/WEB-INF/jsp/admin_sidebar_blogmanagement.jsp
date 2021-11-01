@@ -52,17 +52,17 @@
                     <li>
                         <a href="<c:url value="/admin/tour-management" />">
                             <i class="fas fa-plus mr-2"></i>
-                            <span class="hide-nav">Thêm chuyến đi</span>
+                            <span class="hide-nav">Chuyến đi</span>
                         </a>
                     </li>
                     <li>
                         <a href="<c:url value="/admin/tour-detail-management" />"><i class="fas fa-plus mr-2"></i>
-                            <span class="hide-nav">Thêm chi tiết chuyến đi</span>
+                            <span class="hide-nav">Chi tiết chuyến đi</span>
                         </a>
                     </li>
                     <li>
                         <a href="<c:url value="/admin/tour-photo-management" />"><i class="fas fa-images mr-2"></i>
-                            <span class="hide-nav">Thêm ảnh cho chuyến đi</span>
+                            <span class="hide-nav">Ảnh chuyến đi</span>
                         </a>
                     </li>
                 </ul>
@@ -75,8 +75,8 @@
             </li>
             <li>
                 <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper">
-                    <i class="fas fa-ticket-alt mr-2"></i>
-                    <span class="hide-nav">Quản lý đặt vé</span>
+                    <span><i class="fas fa-ticket-alt"></i></span>
+                    <span class="nav-link">Quản lý đặt vé</span>
                 </a>
             </li>
             <li>
@@ -122,3 +122,5 @@
     </div>
 </div>
 <!-- Side bar end -->
+
+<script src="<c:url value="/js/script-adminpage.js" />"></script>

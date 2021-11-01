@@ -28,12 +28,13 @@ import javax.persistence.Transient;
 @Entity
 @Table (name = "booking")
 public class Booking implements Serializable {
+    
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
     private int adults;
     private int children;
-    private Boolean status;
+    private int status;
     @Column(name = "payment_method")
     private String paymentMethod;
     private String note;
@@ -103,14 +104,14 @@ public class Booking implements Serializable {
     /**
      * @return the status
      */
-    public Boolean getStatus() {
+    public int getStatus() {
         return status;
     }
 
     /**
      * @param status the status to set
      */
-    public void setStatus(Boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

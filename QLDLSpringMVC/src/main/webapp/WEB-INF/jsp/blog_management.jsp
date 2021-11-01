@@ -35,16 +35,21 @@
                 </thead>
                 <tbody>
                     <c:forEach var="post" items="${posts}">
+                        <div class="blog-item__content-detail" id="content${post.id}" hidden="true">
+                            ${post.content}
+                        </div>
                         <tr>
                             <td>${post.id}</td>
+                            <td id="cate${post.id}" hidden="true">${post.category.id}</td>
                             <td>${post.category.name}</td>
-                            <td>${post.author}</td>
-                            <td>${post.title}</td>
+                            <td id="author${post.id}">${post.author}</td>
+                            <td id="title${post.id}">${post.title}</td>
+                            <td id="des${post.id}" hidden="true">${post.description}</td>
                             <td>${post.date}</td>
-                            <td><a href="#" class="btn active">${post.active}</a></td>
+                            <td><a href="#" class="btn active" id="active${post.id}">${post.active}</a></td>
                             <td>
-                                <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                                <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                                <a class="user-edit" href="javascript:;" onclick="getPostInfo(${post.id})"><i class="fas fa-user-edit"></i></a>
+                                <a class="user-delete" href="javascript:;" onclick="deletePost(${post.id})"><i class="fas fa-user-slash"></i></a>
                             </td>   
                         </tr>
                     </c:forEach>
@@ -85,7 +90,7 @@
                         <select id="inputCate" name="category" path="category" class="form-control">
                             <option selected disabled>Chọn danh mục</option>
                             <c:forEach var="cate" items="${cates}">
-                                <option value="${cate.id}">${cate.name}</option>
+                                <option id="category${cate.id}" value="${cate.id}">${cate.name}</option>
                             </c:forEach>
                         </select>
                         <form:errors path="category" cssClass="text text-danger form-message" element="span" />
@@ -118,29 +123,22 @@
             </div>
             <div class="form-group">
                 <label for="summernoteContent" class="form-label col-form-label-lg">Nội dung</label>
-                <textarea class="form-control" name="content" path="content" id="summernoteContent" name="editordata" rows="10"></textarea>
+                <textarea class="form-control" name="content" id="summernoteContent" name="editordata" rows="10"></textarea>
                 <form:errors path="content" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">
+                <input class="form-check-input" type="checkbox" name="active" id="activeCheck" checked="true">
                 <label class="form-check-label" for="activeCheck">
                     Active
                 </label>
             </div>
+            <input type="text" id="inputId" name="id" hidden="true" value="0">
             <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm bài</button>
+                <button type="submit" class="btn btn-lg" id="abt">Thêm bài</button>
+                <button type="reset" class="btn btn-lg" onclick="setButton()">Làm mới</button>
             </div>
         </form:form>
     </div>
 </div>
 <!-- Main - content end -->
-<script>
-    function summernote(id, placeholder) {
-        $(id).summernote({
-            placeholder: placeholder,
-            tabsize: 2,
-            height: 100
-        });
-    }
-    summernote('#summernoteContent', 'Nhập nội dung cho bài viết')
-</script>
+<script src="<c:url value="/js/blog.js" />"></sript>

@@ -45,13 +45,15 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean addUser(User user) {
        String pass = user.getPassword();
-       user.setPassword(this.passwordEncoder.encode(pass));
+       if(pass != null)
+           user.setPassword(this.passwordEncoder.encode(pass));
        user.setUserRole(User.ROLE_USER);
        user.setActive(TRUE);
+       if(user.getCreatedDate() == null)
+           user.setCreatedDate(new Date());
        try {
             Map r = this.cloudinary.uploader().upload(user.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
-            user.setAvatar((String) r.get("secure_url"));
-            user.setCreatedDate(new Date());
+            user.setAvatar((String) r.get("secure_url"));                
             return this.userRepository.addUser(user);
        } catch (IOException ex) {
             System.err.println("===ADD===" + ex.getMessage());
@@ -93,18 +95,31 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean addEmployeeUser(User employee) {
-        String pass = employee.getPassword();
-        employee.setPassword(this.passwordEncoder.encode(pass));
-        employee.setUserRole(User.ROLE_EMPLOYEE);
-        employee.setActive(TRUE);
+        
+        
         try {
-             Map r = this.cloudinary.uploader().upload(employee.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
-             employee.setAvatar((String) r.get("secure_url"));
-             employee.setCreatedDate(new Date());
-             return this.userRepository.addUser(employee);
+            String pass = employee.getPassword();
+            if(pass.equals(this.userRepository.getUserById(employee.getId())) == true)
+                employee.setPassword(this.userRepository.getUserById(employee.getId()).getPassword());
+            else
+                employee.setPassword(this.passwordEncoder.encode(pass));
+            employee.setUserRole(User.ROLE_EMPLOYEE);
+            if(this.userRepository.getUserById(employee.getId()) == null)
+                employee.setCreatedDate(new Date());
+            else
+                employee.setCreatedDate(this.userRepository.getUserById(employee.getId()).getCreatedDate());
+            if(employee.getPhone() == "" || employee.getPhone().isEmpty())
+                employee.setPhone(null);
+            if(!employee.getFile().isEmpty() && employee.getFile() != null){
+               Map r = this.cloudinary.uploader().upload(employee.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+               employee.setAvatar((String) r.get("secure_url"));
+            }
+            else
+                employee.setAvatar(this.userRepository.getUserById(employee.getId()).getAvatar());
+            return this.userRepository.addUser(employee);
         } catch (IOException ex) {
-             System.err.println("===ADD===" + ex.getMessage());
-             ex.printStackTrace();
+            System.err.println("===ADD===" + ex.getMessage());
+            ex.printStackTrace();
         }  
 
         return false;
@@ -118,6 +133,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public long countUserWithRole(String role) {
         return this.userRepository.countUserWithRole(role);
+    }
+
+    @Override
+    public boolean deleteUser(int id) {
+        return this.userRepository.deleteUser(id);
     }
 
 }

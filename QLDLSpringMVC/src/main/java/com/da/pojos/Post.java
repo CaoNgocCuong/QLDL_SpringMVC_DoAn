@@ -56,7 +56,8 @@ public class Post implements Serializable {
     @Size(min = 10, message = "{Post.size.error}")
     private String description;
     
-    private Boolean active;
+    private boolean active;
+    
     @Transient
     private MultipartFile file;
     
@@ -140,14 +141,14 @@ public class Post implements Serializable {
     /**
      * @return the active
      */
-    public Boolean getActive() {
+    public boolean getActive() {
         return active;
     }
 
     /**
      * @param active the active to set
      */
-    public void setActive(Boolean active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 

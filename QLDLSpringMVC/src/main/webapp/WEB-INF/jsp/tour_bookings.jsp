@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="book-tour-wrap">
     <div class="container book-tour">
@@ -62,11 +63,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputCountAdults" class="form-label col-form-label-lg">Số người lớn <span class="book-required">*</span></label>
-                                    <input type="number" name="adults" class="form-control form-control-lg" id="inputCountAdults" value="0" min="0">
+                                    <input type="number" name="adults" class="form-control form-control-lg" id="inputCountAdults" value="0" min="0" oninput="total_payment()">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputCountChildren" class="form-label col-form-label-lg">Số người trẻ em <span class="book-required">*</span></label>
-                                    <input type="number" name="children" class="form-control form-control-lg" id="inputCountChildren" value="0" min="0">
+                                    <input type="number" name="children" class="form-control form-control-lg" id="inputCountChildren" value="0" min="0" oninput="total_payment()">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -88,11 +89,11 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputTimeStart" class="form-label col-form-label-lg">Ngày bắt đầu</label>
-                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeStart" readonly="true" value="${tourBooking.startDate}">
+                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeStart" readonly="true" value="<fmt:formatDate pattern="dd-MM-yyyy" value="${tourBooking.startDate}"/>">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputTimeEnd" class="form-label col-form-label-lg">Ngày kết thúc</label>
-                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeEnd" readonly="true" value="${tourBooking.endDate}">
+                                    <input type="datetime" class="form-control form-control-lg" id="inputTimeEnd" readonly="true" value="<fmt:formatDate pattern="dd-MM-yyyy" value="${tourBooking.endDate}"/>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -124,7 +125,7 @@
                                 <input name="userId" value="${u.id}">
                             </div>
                             <div class="wrap-submit">
-                                <div class="book-tour-total">Tổng thanh toán: <span id="price-of-tour">1.200.200</span>VNĐ</div>
+                                <div class="book-tour-total">Tổng thanh toán: <span id="price-of-tour" ></span>VNĐ</div>
                                 <button type="submit" class="btn btn-lg">Đặt vé</button>
                             </div>
                         </form:form>

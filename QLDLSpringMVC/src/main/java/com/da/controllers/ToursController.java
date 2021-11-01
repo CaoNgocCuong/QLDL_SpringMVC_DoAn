@@ -12,8 +12,11 @@ import com.da.service.RatingCommentTourService;
 import com.da.service.ToursService;
 import com.da.validator.WebAppValidator;
 import java.util.Map;
+import javassist.Loader;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,6 +42,7 @@ public class ToursController {
     
     @Autowired
     private RatingCommentTourService ratingCommentTourService;
+    
     
     
     // ==================== Controller Client =================================
@@ -87,11 +91,12 @@ public class ToursController {
     }
     
     @GetMapping("/admin/tour-detail-management")
-    public String tourDetailManagement(Model model, @RequestParam(value = "tourName",
-            required = false, defaultValue = "") String tourName){
+    public String tourDetailManagement(Model model, @RequestParam(value = "tourId",
+            required = false, defaultValue = "0") int tourId){
         
         model.addAttribute("tourDe", new TourDetail());
-        model.addAttribute("tours", this.toursService.getTours(tourName));
+        model.addAttribute("tours", this.toursService.getTours(tourId));
+        model.addAttribute("listTour", this.toursService.getTours(0));
         
         return "tour-detail-management";
     }
@@ -148,10 +153,11 @@ public class ToursController {
     }
     
     @GetMapping("/admin/tour-photo-management")
-    public String photoManagement(Model model, @RequestParam(value = "tourName",
-            required = false, defaultValue = "") String tourName){
+    public String photoManagement(Model model, @RequestParam(value = "tourId",
+            required = false, defaultValue = "0") int tourId){
         model.addAttribute("photoOfTour", new TourPhoto());
-        model.addAttribute("tours", this.toursService.getTours(tourName));
+        model.addAttribute("tours", this.toursService.getTours(tourId));
+        model.addAttribute("listTour", this.toursService.getTours(0));
         return "tour-photo-management";
     }
     
@@ -180,4 +186,5 @@ public class ToursController {
         model.addAttribute("successMsg", successMsg);
         return "tour-photo-management";
     }
+    
 }

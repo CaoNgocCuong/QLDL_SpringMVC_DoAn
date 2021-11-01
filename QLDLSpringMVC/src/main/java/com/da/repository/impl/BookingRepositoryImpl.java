@@ -4,8 +4,15 @@
  */
 package com.da.repository.impl;
 
+import com.da.pojos.Billing;
 import com.da.pojos.Booking;
+import com.da.pojos.Cancellation;
+import com.da.pojos.User;
 import com.da.repository.BookingRepository;
+import com.da.service.ToursService;
+import com.da.service.UserService;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -29,11 +36,16 @@ public class BookingRepositoryImpl implements BookingRepository{
 
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+    @Autowired
+    private ToursService tourService;
     @Override
     public boolean addBooking(Booking booking) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(booking);
+            if (booking.getId() > 0)
+                session.update(booking);
+            else
+                session.save(booking);    
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add booking error==" + e.getMessage());
@@ -54,10 +66,32 @@ public class BookingRepositoryImpl implements BookingRepository{
             Predicate p = builder.equal(root.get("id").as(Integer.class), bookingId);
             query = query.where(p);
         }
-        
+        Predicate pr = builder.equal(root.get("status").as(Integer.class), 0);
+        query.where(pr);
         Query q = session.createQuery(query);
         
         return q.getResultList();
     }
+
+    @Override
+    public Booking getBookingById(int bookingId) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Booking.class, bookingId);
+    }
+
+    @Override
+    public boolean cancelBooking(Cancellation can) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(can);
+            return true;
+        } catch (HibernateException e) {
+            System.err.println("==Cancel booking error==" + e.getMessage());
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     
 }

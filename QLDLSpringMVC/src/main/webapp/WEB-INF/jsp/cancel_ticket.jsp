@@ -28,24 +28,24 @@
                 </span>
             </div>
         </c:if>
-        <form method="post" action="" class="form-add" enctype="multipart/form-data">
+        <form:form method="post" action="" modelAttribute="can" class="form-add" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="inputTour" class="form-label col-form-label-lg">Mã chuyến đi</label>
-                <input type="text" name="" class="form-control form-control-lg" id="inputTour" readonly="true" value="011">
+                <input type="text" name="" class="form-control form-control-lg" id="inputTour" readonly="true" value="${booking.tour.id}"}">
                 <%--<form:errors path="title" cssClass="text text-danger form-message" element="span" />--%>
             </div>
             <div class="form-group">
                 <label for="inputBooking" class="form-label col-form-label-lg">Mã đặt vé</label>
-                <input type="text" name="" class="form-control form-control-lg" id="inputBooking" readonly="true" value="011">
+                <input type="text" name="id" class="form-control form-control-lg" id="inputBooking" readonly="true" value="${booking.id}">
                 <%--<form:errors path="title" cssClass="text text-danger form-message" element="span" />--%>
             </div>
             <div class="form-group">
                 <label for="inputReasons" class="form-label col-form-label-lg">Lý do hủy vé</label>
-                <textarea class="form-control" name="" id="inputReasons" rows="5"></textarea>
+                <textarea class="form-control" name="reason" id="inputReasons" rows="5"></textarea>
             </div>
             <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm</button>
+                <button type="submit" class="btn btn-lg">Xác nhận</button>
             </div>
-        </form>
+        </form:form>
     </div>
 </div>

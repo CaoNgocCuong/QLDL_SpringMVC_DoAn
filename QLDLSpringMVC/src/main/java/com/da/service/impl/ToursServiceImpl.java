@@ -48,14 +48,17 @@ public class ToursServiceImpl implements ToursService{
 
     @Override
     public boolean addTour(Tour tour) {
-        tour.setActive(TRUE);
         try {
-             Map r = this.cloudinary.uploader().upload(tour.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
-             tour.setPhoto((String) r.get("secure_url"));
-             return this.toursRepository.addTour(tour);
+            if(!tour.getFile().isEmpty() && tour.getFile() != null){
+                Map r = this.cloudinary.uploader().upload(tour.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+                tour.setPhoto((String) r.get("secure_url"));
+            }
+            else
+                tour.setPhoto(this.toursRepository.getTourById(tour.getId()).getPhoto());
+            return this.toursRepository.addTour(tour);
         } catch (IOException ex) {
-             System.err.println("===ADD===" + ex.getMessage());
-             ex.printStackTrace();
+            System.err.println("===ADD===" + ex.getMessage());
+            ex.printStackTrace();
         }  
 
         return false;
@@ -92,6 +95,26 @@ public class ToursServiceImpl implements ToursService{
     @Override
     public List<Object> getTourWithComment(String tourName, int page) {
         return this.toursRepository.getTourWithComment(tourName, page);
+    }
+
+    @Override
+    public List<Tour> getTours(int id) {
+        return this.toursRepository.getTours(id);
+    }
+
+    @Override
+    public boolean deletePhoto(int id) {
+        return this.toursRepository.deletePhoto(id);
+    }
+
+    @Override
+    public boolean deleteTourDetail(int id) {
+        return this.toursRepository.deleteTourDetail(id);
+    }
+
+    @Override
+    public boolean deleteTour(int id) {
+        return this.toursRepository.deleteTour(id);
     }
 
 }

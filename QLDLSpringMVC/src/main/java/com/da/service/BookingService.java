@@ -5,6 +5,7 @@
 package com.da.service;
 
 import com.da.pojos.Booking;
+import com.da.pojos.Cancellation;
 import java.util.List;
 
 /**
@@ -14,4 +15,6 @@ import java.util.List;
 public interface BookingService {
     boolean addBooking(Booking booking);
     List<Booking> getBookings(int bookingId);
+    Booking getBookingById(int bookingId);
+    boolean cancelBooking(Cancellation can);
 }

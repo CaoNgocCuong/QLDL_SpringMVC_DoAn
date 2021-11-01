@@ -1,3 +1,4 @@
+com\da\repository\BillingRepository.class
 com\da\repository\BlogRepository.class
 com\da\service\impl\BookingServiceImpl.class
 com\da\repository\LikeCommentPostRepository.class
@@ -14,16 +15,19 @@ com\da\service\impl\RatingCommentTourServiceImpl.class
 com\da\configs\HibernateConfig.class
 com\da\service\impl\UserServiceImpl.class
 com\da\pojos\Booking.class
+com\da\service\BillingService.class
 com\da\pojos\Comment.class
 com\da\service\impl\LikeCommentPostServiceImpl.class
 com\da\repository\impl\TagRepositoryImpl.class
 com\da\pojos\TourDetail.class
 com\da\repository\BookingRepository.class
+com\da\controllers\ApiTourController.class
 com\da\service\CategoryService.class
 com\da\repository\CategoryRepository.class
 com\da\repository\impl\ToursRepositoryImpl.class
 com\da\controllers\Admin_StatsController.class
 com\da\service\impl\ToursServiceImpl.class
+com\da\repository\impl\BillingRepositoryImpl.class
 com\da\repository\impl\CategoryRepositoryImpl.class
 com\da\repository\impl\StatsRepositoryImpl.class
 com\da\repository\impl\BookingRepositoryImpl.class
@@ -49,10 +53,13 @@ com\da\controllers\BlogDetailsController.class
 com\da\service\UserService.class
 com\da\formatter\CategoryFormatter.class
 com\da\validator\UsernameValidator.class
+com\da\service\impl\BillingServiceImpl.class
+com\da\controllers\ApiUserController.class
 com\da\repository\ToursRepository.class
 com\da\configs\DispatcherServletInitializer.class
 com\da\pojos\Post.class
 com\da\service\impl\CategoryServiceImpl.class
+com\da\controllers\ApiBlogController.class
 com\da\repository\TagRepository.class
 com\da\service\BookingService.class
 com\da\configs\SecurityWebAppInitializer.class
@@ -67,5 +74,6 @@ com\da\configs\SpringSecurityConfig.class
 com\da\controllers\ContactController.class
 com\da\configs\WebApplicationContextConfig.class
 com\da\pojos\Tour.class
+com\da\controllers\ApiBookingController.class
 com\da\controllers\ToursController.class
 com\da\pojos\Billing.class

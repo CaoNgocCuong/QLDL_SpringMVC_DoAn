@@ -18,7 +18,9 @@
                 <button><i class="fas fa-search"></i></button>
             </form>
         </div>    
+        
         <div class="user-table booking-tour">
+            <c:if test="${!bookings.isEmpty()}">
             <table>
                 <thead>
                     <tr>
@@ -40,23 +42,33 @@
                             <td>${b.user.fullName}</td>
                             <td>${b.adults}</td>
                             <td>${b.children}</td>
-                            <td>11.000.000 VNĐ</td>
+                            <td>${b.adults * b.tour.adultsPrice + b.children * b.tour.childrenPrice} VNĐ</td>
                             <td>
-                                <c:if test="${b.status == false}">
+                                <c:if test="${b.status == 0}">
                                     <a href="#" class="btn denied">Chưa thanh toán</a>
                                 </c:if>
-                                <c:if test="${b.status == true}">
+                                <c:if test="${b.status == 1}">
                                     <a href="#" class="btn active">Đã thanh toán</a>
+                                </c:if>
+                                <c:if test="${b.status == 2}">
+                                    <a href="#" class="btn active">Đã hủy</a>
                                 </c:if>
                             </td>
                             <td class="booking-tour-tbody">
-                                <a href="<c:url value="/admin/cancel-ticket/" />" class="btn denied">Hủy vé</a>
-<!--                                <a href="#" class="btn active">Chuyển trạng thái</a>-->
+                                <c:if test="${b.status == 0}">
+                                <a href="<c:url value="/admin/bookingtour-management/cancel-ticket/${b.id}" />" class="btn denied">Hủy vé</a>
+                                <a href="javascript:;" onclick="addBill(${b.id})" class="btn active">Chuyển trạng thái</a>
+                                </c:if>
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
+            </c:if>
+            <c:if test="${bookings.isEmpty()}">
+                <h1 class="text-danger">Chưa có booking nào chưa thanh toán.</h1>
+            </c:if>
         </div>
     </div
 </div>
+<script src="<c:url value="/js/script.js" />"></script>

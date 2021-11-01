@@ -185,27 +185,18 @@ let inputCountChildren = document.getElementById("inputCountChildren");
 let priceOfTour = document.getElementById("price-of-tour");
 let inputPriceAdult = document.getElementById("inputPriceAdult");
 let inputPriceChild = document.getElementById("inputPriceChild");
-let countPriceOfTour = 0;
-if (priceOfTour) {
-    priceOfTour.innerText = countPriceOfTour;
-}
-console.log(inputCountAdults);
-//let switchPrice =  true;
-if (inputCountAdults) {
-    inputCountAdults.onkeyup = () => {
-        countPriceOfTour += inputCountAdults.value * inputPriceAdult.value;
-        priceOfTour.innerText = countPriceOfTour;
-    };
-}
 
-if (inputCountChildren) {
-    inputCountChildren.onkeyup = () => {
-        if(inputPriceChild === null){
-            inputCountChildren.value = 0;
-        }
-        countPriceOfTour += inputCountChildren.value * inputPriceChild.value;
-        priceOfTour.innerText = countPriceOfTour;
-    };
+function total_payment() {
+   var adultPrice = parseFloat(inputPriceAdult.value);
+   var childPrice = parseFloat(inputPriceChild.value);
+   var num_adults = parseFloat(inputCountAdults.value);
+   var num_children = parseFloat(inputCountChildren.value);
+   if (isNaN(num_adults))
+       num_adults = 0;
+   if (isNaN(num_children))
+       num_children = 0;
+   var total = num_adults * adultPrice + num_children * childPrice;
+   priceOfTour.innerText = total;
 }
 
 let barsTop = document.querySelector(".bars-top");
@@ -213,4 +204,21 @@ if (barsTop) {
     barsTop.onclick = function() {
         barsTop.classList.toggle("active");
     };
+}
+
+function addBill(bookingId){
+    if (confirm("Xác nhận thanh thanh toán cho booking " + bookingId + "?") === true) { 
+        fetch('/QLDLSpringMVC/api/admin/bookingtour-management/' + bookingId,{
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function(res) {
+            alert("Đã xác nhận thanh toán cho booking " + bookingId);
+            location.reload();
+            return res.json();
+        }).then(function(data) {
+            location.reload();
+        });
+    }
 }

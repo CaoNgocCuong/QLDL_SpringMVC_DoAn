@@ -108,7 +108,10 @@ public class BlogRepositoryImpl implements BlogRepository{
     public boolean addPost(Post post) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(post);
+            if(post.getId() > 0)
+                session.update(post);
+            else
+                session.save(post);
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add post error==" + e.getMessage());
@@ -122,6 +125,21 @@ public class BlogRepositoryImpl implements BlogRepository{
         Session session = this.sessionFactory.getObject().getCurrentSession();
         
         return session.get(Post.class, id);
+    }
+
+    @Override
+    public boolean deletePost(int id) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            Post p = session.get(Post.class, id);
+            session.delete(p);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
     }
 
 

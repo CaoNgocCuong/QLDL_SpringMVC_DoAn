@@ -48,11 +48,17 @@ public class BlogServiceImpl implements BlogService{
 
     @Override
     public boolean addPost(Post post) {
-       post.setActive(TRUE);
        try {
-            Map r = this.cloudinary.uploader().upload(post.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
-            post.setPhoto((String) r.get("secure_url"));
-            post.setDate(new Date());
+            if(!post.getFile().isEmpty() && post.getFile() != null){
+                Map r = this.cloudinary.uploader().upload(post.getFile().getBytes(), ObjectUtils.asMap("resource_type", "auto"));
+                post.setPhoto((String) r.get("secure_url"));
+            }
+            else
+                post.setPhoto(this.blogRepository.getPostById(post.getId()).getPhoto());
+            if(this.blogRepository.getPostById(post.getId()) == null)
+                post.setDate(new Date());
+            else
+                post.setDate(this.blogRepository.getPostById(post.getId()).getDate());
             return this.blogRepository.addPost(post);
        } catch (IOException ex) {
             System.err.println("===ADD===" + ex.getMessage());
@@ -70,6 +76,11 @@ public class BlogServiceImpl implements BlogService{
     @Override
     public List<Post> getPosts() {
         return this.blogRepository.getPosts();
+    }
+
+    @Override
+    public boolean deletePost(int id) {
+        return this.blogRepository.deletePost(id);
     }
     
 }

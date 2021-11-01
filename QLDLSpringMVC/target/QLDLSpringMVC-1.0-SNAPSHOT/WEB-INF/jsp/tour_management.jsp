@@ -27,48 +27,51 @@
                     <tr>
                         <td>Mã chuyến đi</td>
                         <td>Tên chuyến đi</td>
-                        <td>Loại chuyến đi</td>
                         <td>Quốc gia</td>
-                        <td>Số ngày</td>
-                        <td>Số đêm</td>
+                        <td>Số ngày/đêm</td>
                         <td>Số khách tối thiểu</td>
                         <td>Số khách tối đa</td>
                         <td>Vé đã đặt</td>
-                        <td>Vé còn lại</td>
-                        <td>Giá người lớn</td>
-                        <td>Giá trẻ em</td>
-                        <td>Ngày bắt đầu</td>
-                        <td>Ngày kết thúc</td>
+                        <td>Giá người lớn/trẻ em</td>
+                        <td>Thời gian</td>
                         <td>Trạng thái</td>
                         <td>Hành động</td>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="tour" items="${tours}">
+                    <div id="intro${tour.id}" hidden>${tour.introduction}</div>
+                    <div id="service${tour.id}" hidden>${tour.service}</div>
+                    <div id="note${tour.id}" hidden>${tour.note}</div>
                     <tr>
-                        <td>${tour.id}</td>
-                        <td>${tour.name}</td>
-                        <td>${tour.tourType}</td>
-                        <td>${tour.country}</td>
-                        <td>${tour.tourDays}</td>
-                        <td>${tour.tourNights}</td>
-                        <td>${tour.minCustomer}</td>
-                        <td>${tour.maxCustomer}</td>
-                        <td>14</td>
-                        <td>26</td>
-                        <td>${tour.adultsPrice}</td>
-                        <td>${tour.childrenPrice}</td>
-                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.startDate}"/></td>
-                        <td><fmt:formatDate pattern="dd-MM-yyyy" value="${tour.endDate}"/></td>
-                        <c:if test="${tour.active == true}">
-                            <td><a href="#" class="btn active">Đang hoạt động</a></td>
-                        </c:if>
-                        <c:if test="${tour.active != true}">
-                            <td><a href="#" class="btn active">Ngưng hoạt động</a></td>
-                        </c:if>
+                        <td id="tourId${tour.id}">${tour.id}</td>
+                        <td id="tourName${tour.id}">${tour.name}</td>
+                        <td id="tourType${tour.id}" hidden>${tour.tourType}</td>
+                        <td id="country${tour.id}">${tour.country}</td>
+                        <td id="time${tour.id}">${tour.tourDays}/${tour.tourNights}</td>
+                        <td id="minCus${tour.id}">${tour.minCustomer}</td>
+                        <td id="maxCus${tour.id}">${tour.maxCustomer}</td>
+                        <td id="booked${tour.id}">14</td>
+                        <td id="price${tour.id}">${tour.adultsPrice}/${tour.childrenPrice}</td>
+                        <!--<td>${tour.childrenPrice}</td>-->
+                        <td id="date${tour.id}">
+                            <fmt:formatDate pattern="dd/MM/yyyy" value="${tour.startDate}"/>
+                            <br>-<br>
+                            <fmt:formatDate pattern="dd/MM/yyyy" value="${tour.endDate}"/>
+                        </td>
                         <td>
-                            <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                            <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                            <a href="#" class="btn active" id="active${tour.id}">
+                                <c:if test="${tour.active == true}">
+                                    Đang hoạt động
+                                </c:if>
+                                <c:if test="${tour.active == false}">
+                                    Ngưng hoạt động
+                                </c:if>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="user-edit" href="javascript:;" onclick="getTourInfo(${tour.id})"><i class="fas fa-user-edit"></i></a>
+                            <a class="user-delete" href="javascript:;" onclick="deleteTour(${tour.id})"><i class="fas fa-user-slash"></i></a>
                         </td>   
                     </tr>
                     </c:forEach>
@@ -128,12 +131,12 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputMinCustomer" class="form-label col-form-label-lg">Số khách tối thiểu<span class="book-required">*</span></label>
-                    <input type="number" name="minCustomer" path="minCustomer" class="form-control form-control-lg" id="inputDay" value="0" min="0">
+                    <input type="number" name="minCustomer" path="minCustomer" class="form-control form-control-lg" id="inputMin" value="0" min="0">
                     <form:errors path="minCustomer" cssClass="text text-danger form-message" element="span" />
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputMaxCustomer" class="form-label col-form-label-lg">Số khách tối đa<span class="book-required">*</span></label>
-                    <input type="number" name="maxCustomer" path="maxCustomer" class="form-control form-control-lg" id="inputNight" value="0" min="0">
+                    <input type="number" name="maxCustomer" path="maxCustomer" class="form-control form-control-lg" id="inputMax" value="0" min="0">
                     <form:errors path="maxCustomer" cssClass="text text-danger form-message" element="span" />
                 </div>
             </div>
@@ -185,46 +188,35 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="summernote" class="form-label col-form-label-lg">Giới thiệu<span class="book-required">*</span></label>
-                <textarea class="form-control" id="summernote" path="introduction" name="introduction" rows="3"></textarea>
+                <label for="summernoteIntro" class="form-label col-form-label-lg">Giới thiệu<span class="book-required">*</span></label>
+                <textarea class="form-control" id="summernoteIntro" path="introduction" name="introduction" rows="3"></textarea>
                 <form:errors path="introduction" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-group">
-                <label for="summernote3" class="form-label col-form-label-lg">Dịch vụ<span class="book-required">*</span></label>
-                <textarea class="form-control" id="summernote3" path="service" name="service" rows="3"></textarea>
+                <label for="summernoteService" class="form-label col-form-label-lg">Dịch vụ<span class="book-required">*</span></label>
+                <textarea class="form-control" id="summernoteService" path="service" name="service" rows="3"></textarea>
                 <form:errors path="service" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-group">
-                <label for="summernote4" class="form-label col-form-label-lg">Ghi chú<span class="book-required">*</span></label>
-                <textarea class="form-control" id="summernote4" path="note" name="note" rows="3"></textarea>
+                <label for="summernoteNote" class="form-label col-form-label-lg">Ghi chú<span class="book-required">*</span></label>
+                <textarea class="form-control" id="summernoteNote" path="note" name="note" rows="3"></textarea>
                 <form:errors path="note" cssClass="text text-danger form-message" element="span" />
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">
+                <input class="form-check-input" name="active" type="checkbox" id="activeCheck" checked="true">
                 <label class="form-check-label" for="activeCheck">
                     Active
                 </label>
             </div>
+            <input name="id" type="text" hidden id="tourId" value="0">
             <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm</button>
+                <button type="submit" id="abt" class="btn btn-lg">Thêm</button>
+                <button type="reset" class="btn btn-lg" onclick="setBtn()">Làm mới</button>
             </div>
         </form:form>
     </div>
 </div>
 <!-- Main - content end -->
-</div>
-
 
 <!-- Script -->
-<script>
-    function summernote(id, placeholder) {
-        $(id).summernote({
-            placeholder: placeholder,
-            tabsize: 2,
-            height: 100,
-        });
-    }
-    summernote('#summernote', 'Nhập điểm nhấn hành trình')
-    summernote('#summernote3', 'Nhập dịch vụ chuyến đi')
-    summernote('#summernote4', 'Nhập ghi chú chuyến đi')
-</script>
+<script src="<c:url value="/js/tour.js"/>"></script>

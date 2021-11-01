@@ -16,15 +16,22 @@
         <div class="row main-title d-flex justify-content-between">
             <h2 class="col-12 col-md-6">Danh sách chuyến đi</h2>
             <form action="" class="col-12 col-md-6 form-search justify-content-between">
-                <input type="text" name="tourName" placeholder="Tìm kiếm..." required="">
-                <button><i class="fas fa-search"></i></button>
+                <input type="text" id="inputSearch" name="tourId" placeholder="Tìm kiếm..." required="">
+                <button id="btnSearch"><i class="fas fa-search"></i></button>
             </form>
+            <select id="listTour" class="form-control form-control-lg" onchange="getTourDetails()">
+                <option selected disabled>Chọn mã chuyến đi</option>
+            <c:forEach var="t" items="${listTour}">
+                <option value="${t.id}">${t.name}</option> 
+            </c:forEach>
+            </select>
         </div>   
         <div class="user-table">
             <table>
                 <thead>
                     <tr>
-                        <td>Mã ảnh chuyến đi</td>
+                        <td>Mã ảnh</td>
+                        <td>Mã chuyến đi</td>
                         <td>Tên chuyến đi</td>
                         <td>Ảnh</td>
                         <td>Hành động</td>
@@ -34,7 +41,8 @@
                     <c:forEach var="tour" items="${tours}">
                         <c:forEach items="${tour.tourPhotos}" var="image">
                             <tr>
-                                <td>${image.id}</td>
+                                <td id="id${image.id}">${image.id}</td>
+                                <td id="tourId${image.id}">${image.tour.id}</td>
                                 <td>${image.tour.name}</td>
                                 <td>
                                     <a href="${image.photo}" class="img-tour-detail">
@@ -42,8 +50,8 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                                    <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                                    <a class="user-edit" href="javascript:;" onclick="getTourPhoto(${image.id})"><i class="fas fa-user-edit"></i></a>
+                                    <a class="user-delete" href="javascript:;" onclick="deletePhoto(${image.id})"><i class="fas fa-user-slash"></i></a>
                                 </td>   
                             </tr>
                         </c:forEach>
@@ -75,7 +83,7 @@
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi<span class="book-required">*</span></label>
                 <select id="inputListTour" name="tour" path="tour" class="form-control form-control-lg">
                     <option selected disabled>Chọn mã tour</option>
-                    <c:forEach var="tour" items="${tours}">
+                    <c:forEach var="tour" items="${listTour}">
                         <option value="${tour.id}">${tour.name}</option>
                     </c:forEach>
                 </select>
@@ -92,8 +100,10 @@
                         <label class="custom-file-label" for="inputFileTourDetail">Chọn ảnh</label>
                     </div>
                 </div>
+                <input type="text" name="id" value="0" hidden id="inputId">
                 <div class="form-group btn-wrapper">
-                    <button type="submit" class="btn btn-lg">Thêm</button>
+                    <button type="submit" id="abt" class="btn btn-lg">Thêm</button>
+                    <button type="reset" class="btn btn-lg" onclick="setPhotoButton()">Làm mới</button>
                 </div>
             </div>
         </form:form>
@@ -108,11 +118,12 @@
         $(id).summernote({
             placeholder: placeholder,
             tabsize: 2,
-            height: 100,
+            height: 100
         });
     }
-    summernote('#summernote', 'Nhập điểm nhấn hành trình')
-    summernote('#summernote2', 'Nhập lịch trình chuyến đi')
-    summernote('#summernote3', 'Nhập dịch vụ chuyến đi')
-    summernote('#summernote4', 'Nhập ghi chú chuyến đi')
+    summernote('#summernote', 'Nhập điểm nhấn hành trình');
+    summernote('#summernote2', 'Nhập lịch trình chuyến đi');
+    summernote('#summernote3', 'Nhập dịch vụ chuyến đi');
+    summernote('#summernote4', 'Nhập ghi chú chuyến đi');
 </script>
+<script src="<c:url value="/js/tour.js"/>"></script>

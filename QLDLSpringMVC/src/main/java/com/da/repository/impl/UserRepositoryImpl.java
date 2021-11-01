@@ -35,7 +35,10 @@ public class UserRepositoryImpl implements UserRepository{
     public boolean addUser(User user) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(user);
+            if(user.getId() > 0)
+                session.update(user);
+            else
+                session.save(user);
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add user error==" + e.getMessage());
@@ -56,7 +59,8 @@ public class UserRepositoryImpl implements UserRepository{
             query = query.where(p); 
         }
         
-        
+//        Predicate pr = builder.equal(root.get("userRole").as(String.class), "ROLE_EMPLOYEE");
+//        query = query.where(pr);
         Query q = session.createQuery(query);
         return q.getResultList();
     }
@@ -99,7 +103,11 @@ public class UserRepositoryImpl implements UserRepository{
     public boolean addEmployeeUser(User employee) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try {
-            session.save(employee);
+            if(employee.getId() > 0)
+                session.update(employee);
+            else{
+                session.save(employee);
+            }
             return true;
         } catch (HibernateException e) {
             System.err.println("==Add employee error==" + e.getMessage());
@@ -126,4 +134,18 @@ public class UserRepositoryImpl implements UserRepository{
         return Long.parseLong(query.getSingleResult().toString());
     }
 
+    @Override
+    public boolean deleteUser(int id) {
+        try {
+            Session session = this.sessionFactory.getObject().getCurrentSession();
+            User u = session.get(User.class, id);
+            session.delete(u);
+            
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        
+        return false;
+    }
 }

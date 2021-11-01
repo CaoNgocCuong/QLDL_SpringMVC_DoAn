@@ -38,29 +38,26 @@
                 </thead>
                 <tbody>
                     <c:forEach var="user" items="${users}">
+                        <c:set var="userRole" value="${user.userRole}"/>
+                        <c:if test="${fn:endsWith(userRole, 'EMPLOYEE')}">
                         <tr>
                             <td>${user.id}</td>
-                            <td>${user.fullName}</td>
-                            <td>${user.phone}</td>
-                            <td>${user.email}</td>
-                            <td>${user.address}</td>
+                            <td id="fullName${user.id}">${user.fullName}</td>
+                            <td id="username${user.id}" hidden="true">${user.username}</td>
+                            <td id="password${user.id}" hidden="true">${user.password}</td>
+                            <td id="avatar${user.id}" hidden="true">${user.avatar}</td>
+                            <td id="phone${user.id}">${user.phone}</td>
+                            <td id="email${user.id}">${user.email}</td>
+                            <td id="address${user.id}">${user.address}</td>
                             <td><fmt:formatDate pattern="dd-MM-yyyy" value="${user.createdDate}"/></td>
-                            <c:set var="userRole" value="${user.userRole}"/>
-                            <c:if test="${fn:endsWith(userRole, 'USER')}">
-                                <td>Khách</td>
-                            </c:if>
-                            <c:if test="${fn:endsWith(userRole, 'EMPLOYEE')}">
-                                <td>Nhân viên</td>
-                            </c:if>
-                            <c:if test="${fn:endsWith(userRole, 'ADMIN')}">
-                                <td>Admin</td>
-                            </c:if>
-                            <td><a href="#" class="btn active">${user.active}</a></td>
+                            <td>Nhân viên</td>
+                            <td id="active${user.id}"><a href="#" class="btn active">${user.active}</a></td>
                             <td>
-                                <a class="user-edit" href="#"><i class="fas fa-user-edit"></i></a>
-                                <a class="user-delete" href="#"><i class="fas fa-user-slash"></i></a>
+                                <a class="user-edit" href="javascript:;" onclick="getUserInfo(${user.id})"><i class="fas fa-user-edit"></i></a>
+                                <a class="user-delete" href="javascript:;" onclick="deleteUser(${user.id})"><i class="fas fa-user-slash"></i></a>
                             </td>   
                         </tr>
+                        </c:if>
                     </c:forEach>
                 </tbody>
             </table>
@@ -84,7 +81,7 @@
                 </span>
             </div>
         </c:if>
-        <form:form class="form-add" method="post" action="${action}" modelAttribute="employee" enctype="multipart/form-data">
+        <form:form id="myForm" class="form-add" method="post" action="${action}" modelAttribute="employee" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName" class="form-label col-form-label-lg ">Tên đầy đủ<span class="book-required">*</span></label>
@@ -147,14 +144,17 @@
                 </div>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="activeCheck" checked="true">
+                <input class="form-check-input" type="checkbox" name="active" id="activeCheck" checked="true">
                 <label class="form-check-label" for="activeCheck">
                     Active
                 </label>
             </div>
+                <form:input type="text" id="inputId" path="id" hidden="true" value="0"/>
             <div class="form-group btn-wrapper">
-                <button type="submit" class="btn btn-lg">Thêm</button>
+                <button type="submit" class="btn btn-lg" id="abt">Thêm</button>
+                <button type="reset" class="btn btn-lg" onclick="document.getElementById('abt').innerText = 'Thêm';">Làm mới</button>
             </div>
         </form:form>
     </div>
 </div>
+<script src="<c:url value="/js/user.js" />"></script>
