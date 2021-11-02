@@ -36,5 +36,10 @@ public class StatsServiceImpl implements StatsService {
     public List<Object[]> tourYearStats(String kw, Date fromDate, Date toDate) {
         return this.statsRepository.tourYearStats(kw, fromDate, toDate);
     }
+
+    @Override
+    public List<Object[]> tourStatsQuarter(int year) {
+        return this.statsRepository.tourStatsQuarter(year);
+    }
     
 }

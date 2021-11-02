@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<c:url value="/admin/tour-detail-management" />"><i class="fas fa-chart-line mr-2"></i></i>
+                        <a href="<c:url value="/admin/stats-tour-quarter" />"><i class="fas fa-chart-pie mr-2"></i>
                             <span class="hide-nav">Thống kê chuyến đi theo quý</span>
                         </a>
                     </li>

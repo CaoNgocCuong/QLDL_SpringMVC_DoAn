@@ -9,6 +9,7 @@ import com.da.pojos.Billing;
 import com.da.pojos.Booking;
 import com.da.pojos.Tour;
 import com.da.repository.StatsRepository;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -154,6 +155,22 @@ public class StatsRepositoryImpl implements StatsRepository {
         
         Query q = session.createQuery(query);
         
+        return q.getResultList();
+    }
+
+    @Override
+    public List<Object[]> tourStatsQuarter(int year) {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        Query q = s.createQuery("SELECT quarter(t.endDate), "
+                + "CASE WHEN SUM((t.childrenPrice * b.children) + (t.adultsPrice * adults)) IS NULL THEN 0 ELSE SUM((t.childrenPrice * b.children) + (t.adultsPrice * adults)) END,"
+                + "YEAR(t.endDate) FROM Tour t "
+                + "LEFT OUTER JOIN Booking b "
+                + "ON t.id = b.tour "
+                + "WHERE YEAR(t.endDate) = :year "
+                + "GROUP BY quarter(t.endDate)"
+                + "ORDER BY quarter(t.endDate)");
+        
+        q.setParameter("year", year);
         return q.getResultList();
     }
     

@@ -8,6 +8,7 @@ package com.da.controllers;
 import com.da.service.StatsService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Year;
 import java.util.Date;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +88,15 @@ public class Admin_StatsController {
         
         model.addAttribute("tourStatsMonth", this.statsService.tourMonthStats(kw, fromDate, toDate));
         return "stats-tour-month";
+    }
+    
+    @GetMapping("/admin/stats-tour-quarter")
+    public String adminStatsTourQuarter(Model model, @RequestParam(required = false) Map<String, String> params) {
+        
+        String year = params.getOrDefault("year", Year.now().toString());
+        model.addAttribute("statsQuarter", this.statsService.tourStatsQuarter(Integer.parseInt(year)));
+        model.addAttribute("year", year);
+        return "stats-tour-quarter";
     }
     
     @RequestMapping("/admin/stats-tour-year")

@@ -16,4 +16,5 @@ public interface StatsRepository {
     List<Object[]> tourStats(String kw, Date fromDate, Date toDate);
     List<Object[]> tourMonthStats(String kw, Date fromDate, Date toDate);
     List<Object[]> tourYearStats(String kw, Date fromDate, Date toDate);
+    List<Object[]> tourStatsQuarter(int year);
 }

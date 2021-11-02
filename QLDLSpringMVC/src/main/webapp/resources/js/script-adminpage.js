@@ -97,6 +97,32 @@ function tourMonthStatsChart(idEle, toursLabel=[], toursInfo=[]) {
     new Chart(ctx, config);
 }
 
+function tourQuarterStatsChart(idEle, toursLabel = [], toursInfo = []) {
+    let colors = [];
+    
+    for (let i = 0; i < toursLabel.length; i++) {
+        colors.push(generateColors());
+    }
+    
+     const data = {
+        labels: toursLabel,
+        datasets: [{
+          label: 'Thống kê doanh thu chuyến đi theo quý',
+          data: toursInfo,
+          backgroundColor: colors,
+          hoverOffset: 4
+        }]
+    };
+    
+    const config = {
+        type: 'doughnut',
+        data: data
+    };
+    
+    let ctx = document.getElementById(idEle).getContext("2d");
+    new Chart(ctx, config);
+};
+
 function tourYearStatsChart(idEle, toursLabel=[], toursInfo=[]) {
     
     let colors = [];

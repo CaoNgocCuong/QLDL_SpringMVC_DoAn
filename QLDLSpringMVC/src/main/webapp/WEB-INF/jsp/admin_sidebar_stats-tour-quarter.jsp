@@ -1,13 +1,12 @@
 <%-- 
-    Document   : admin_sidebar_tourmanagement
-    Created on : Sep 25, 2021, 10:00:36 AM
+    Document   : admin_sidebar_stats-tour-quarter
+    Created on : Nov 2, 2021, 9:05:24 AM
     Author     : CaoNgocCuong
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
 <!-- Side bar start -->
 <div class="side-bar">
     <div class="logo">
@@ -42,7 +41,7 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper active">
+                <div class="link-wrapper">
                     <span><i class="fas fa-route"></i></span>
                     <span class="nav-link">
                         Quản lý du lịch
@@ -50,7 +49,7 @@
                     <span class="ml-5"><i class="fas fa-angle-down"></i></span>
                 </div>
                 <ul class="side-bar-subnav-1">
-                    <li class="page-1">
+                    <li>
                         <a href="<c:url value="/admin/tour-management" />">
                             <i class="fas fa-plus mr-2"></i>
                             <span class="hide-nav">Chuyến đi</span>
@@ -69,9 +68,9 @@
                 </ul>
             </li>
             <li>
-                <a href="<c:url value="/admin/blog-management" />" class="link-wrapper">
-                    <span><i class="fas fa-newspaper"></i></span>
-                    <span class="nav-link">Quản lý tin tức</span>
+                <a href="<c:url value="/admin/bookingtour-management/" />" class="link-wrapper">
+                    <span><i class="fas fa-ticket-alt"></i></span>
+                    <span class="nav-link">Quản lý đặt vé</span>
                 </a>
             </li>
             <li>
@@ -81,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <div class="link-wrapper">
+                <div class="link-wrapper active">
                     <span><i class="fas fa-database"></i></span>
                     <span class="nav-link">
                         Thống kê doanh thu
@@ -101,7 +100,7 @@
                             <span class="hide-nav">Thống kê chuyến đi theo tháng</span>
                         </a>
                     </li>
-                    <li>
+                    <li  class="page-3">
                         <a href="<c:url value="/admin/stats-tour-quarter" />"><i class="fas fa-chart-pie mr-2"></i>
                             <span class="hide-nav">Thống kê chuyến đi theo quý</span>
                         </a>
@@ -123,3 +122,4 @@
     </div>
 </div>
 <!-- Side bar end -->
+
