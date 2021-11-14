@@ -54,7 +54,9 @@
                             <td id="active${user.id}"><a href="#" class="btn active">${user.active}</a></td>
                             <td>
                                 <a class="user-edit" href="javascript:;" onclick="getUserInfo(${user.id})"><i class="fas fa-user-edit"></i></a>
+                                <c:if test="${user.bookings.isEmpty()}">
                                 <a class="user-delete" href="javascript:;" onclick="deleteUser(${user.id})"><i class="fas fa-user-slash"></i></a>
+                                </c:if>
                             </td>   
                         </tr>
                         </c:if>

@@ -76,7 +76,7 @@ public class ToursServiceImpl implements ToursService{
             tourPhoto.setPhoto((String) r.get("secure_url"));
             return this.toursRepository.addTourPhoto(tourPhoto);
        } catch (IOException ex) {
-            System.err.println("===ADD===" + ex.getMessage());
+            System.err.println("===ADD PHOTO===" + ex.getMessage());
             ex.printStackTrace();
        }  
        return false;

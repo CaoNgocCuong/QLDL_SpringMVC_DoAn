@@ -57,3 +57,22 @@
 .form-check-paytour > label.form-check-label:hover {
     color: var(--secondary-color);
 }
+
+.booking-notify .booking-back {
+    margin-left: 4px;
+    
+    font-size: 1.7rem;
+    font-weight: 500;
+    
+    color: var(--secondary-color);
+    transition: 0.3s;
+}
+
+.booking-notify .booking-back:hover {
+    opacity: 0.8;
+}
+
+.travel-main.travel-main-booking {
+    margin-top: 192px;
+    margin-bottom: 50px;
+}

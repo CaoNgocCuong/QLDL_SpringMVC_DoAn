@@ -435,6 +435,10 @@ header .head_inner .left-part ul li.have_dots span::before {
     text-align: center;
 }
 
+.main-table .user-table td.user-table__tour-action {
+    text-align: left;
+}
+
 .main-table .user-table table tbody tr td.booking-tour-tbody {
     display: flex;
     justify-content: space-between;

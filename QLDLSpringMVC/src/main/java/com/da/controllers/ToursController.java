@@ -80,6 +80,11 @@ public class ToursController {
         return "tour-booking";
     }
     
+    @GetMapping("/tours/{tourId}/booking-success")
+    public String tourBookingSuccess() {
+        return "tour-booking-success";
+    }
+    
     
     
     // ======================= Controller Admin ==========================

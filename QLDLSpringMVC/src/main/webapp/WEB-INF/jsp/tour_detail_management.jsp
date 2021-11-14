@@ -86,7 +86,7 @@
                 <label for="inputListTour" class="form-label col-form-label-lg">Mã chuyến đi<span class="book-required">*</span></label>
                 <select id="inputListTour" name="tour" path="tour" class="form-control form-control-lg">
                     <option selected disabled>Chọn mã tour</option>
-                    <c:forEach var="tour" items="${tours}">
+                    <c:forEach var="tour" items="${listTour}">
                         <option value="${tour.id}">${tour.name}</option>
                     </c:forEach>
                 </select>

@@ -39,7 +39,7 @@ public class BookingTourController {
         String errMsg ="";
         if(!result.hasErrors()){
             if(this.bookingService.addBooking(booking) == true)
-                return "redirect:/tours/{tourId}/booking";
+                return "redirect:/tours/{tourId}/booking-success";
             else
                 errMsg = "Đã có lỗi xảy ra, không đặt tour được!!!";    
         }

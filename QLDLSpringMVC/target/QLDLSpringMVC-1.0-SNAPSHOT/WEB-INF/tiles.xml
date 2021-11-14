@@ -95,6 +95,10 @@ and open the template in the editor.
         <put-attribute name="destination_popular" value="/WEB-INF/jsp/tour_bookings.jsp" />
     </definition>
     
+    <definition name="tour-booking-success" extends="baseLayout">
+        <put-attribute name="title" value="Đặt vé" />
+        <put-attribute name="destination_popular" value="/WEB-INF/jsp/tour_bookings_success.jsp" />
+    </definition>
     
     <definition name="blog" extends="baseLayout">
         <put-attribute name="title" value="Tin tức" />
@@ -113,6 +117,7 @@ and open the template in the editor.
         <put-attribute name="slide_header" value="/WEB-INF/jsp/brad_cam_contact.jsp" />
         <put-attribute name="contact" value="/WEB-INF/jsp/contact.jsp" />
     </definition>
+    
     
     <definition name="about" extends="baseLayout">
         <put-attribute name="title" value="Về chúng tôi" />
