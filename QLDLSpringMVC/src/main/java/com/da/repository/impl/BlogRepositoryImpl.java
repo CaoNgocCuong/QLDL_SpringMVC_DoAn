@@ -46,7 +46,7 @@ public class BlogRepositoryImpl implements BlogRepository{
                 + " FROM Comment c  "
                 + " RIGHT OUTER JOIN Post p ON p.id = c.post "
                 + " LEFT OUTER JOIN Category cate ON p.category = cate.id"
-                + " WHERE p.title LIKE :title OR cate.name LIKE :title "
+                + " WHERE p.active = 1 AND (p.title LIKE :title OR cate.name LIKE :title)"
                 + " GROUP BY p.id");
             
             q.setParameter("title", "%" + title + "%");

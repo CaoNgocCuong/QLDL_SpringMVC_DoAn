@@ -117,4 +117,9 @@ public class ToursServiceImpl implements ToursService{
         return this.toursRepository.deleteTour(id);
     }
 
+    @Override
+    public List<Tour> getActiveTour(String tourName, int page) {
+        return this.toursRepository.getActiveTour(tourName, page);
+    }
+
 }

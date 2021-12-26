@@ -10,6 +10,8 @@ import com.da.service.UserService;
 import com.da.validator.WebAppValidator;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -35,6 +37,8 @@ public class UserController {
     @Autowired
     private WebAppValidator userValidator;
     
+    @Autowired
+    private MailSender mailSender;
 //    @InitBinder
 //    public void initBinder(WebDataBinder binder){
 //        binder.setValidator(userValidator);
@@ -51,8 +55,12 @@ public class UserController {
         String errMsg ="";
         if(!result.hasErrors()){
             if(userRes.getPassword().equals(userRes.getConfirmPassword())){
-                if(this.userService.addUser(userRes) == true)
+                if(this.userService.addUser(userRes) == true){
+                    sendMail("vukhang297@gmail.com", userRes.getEmail(), "Travel CK", "Ban da dang ky thanh vien Travel CK thanh cong"
+                            + " voi ten dang nhap la: " + userRes.getUsername()
+                            + "\nNhanh tay chon cho minh mot tour du lich hap dan ngay nao!");
                     return "redirect:/login";
+                }                   
                 else
                     errMsg = "Đã có lỗi xảy ra!!!";
             }
@@ -106,4 +114,15 @@ public class UserController {
 
         return "user-management";
     }
+    public void sendMail(String from, String to, String subject, String content){
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(from);
+        mailMessage.setTo(to);
+        mailMessage.setSubject(subject);
+        mailMessage.setText(content);
+        
+        mailSender.send(mailMessage);
+    }
 }
+
+

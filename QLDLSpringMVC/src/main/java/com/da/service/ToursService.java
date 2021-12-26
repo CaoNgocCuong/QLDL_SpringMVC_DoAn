@@ -18,6 +18,7 @@ public interface ToursService {
     List<Tour> getTours(String tourName, int page);
     List<Tour> getTours(String tourName);
     List<Tour> getTours(int id);
+    List<Tour> getActiveTour(String tourName, int page);
     List<Object> getTourWithComment(String tourName, int page);
     Tour getTourById(int id);
     boolean addTour(Tour tour);

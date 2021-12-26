@@ -157,7 +157,7 @@ public class ToursRepositoryImpl implements ToursRepository{
                     + " t.note, t.country, count(r.id)"
                     + " FROM Rating r RIGHT OUTER JOIN Tour t"
                     + " ON r.tour = t.id"
-                    + " WHERE t.name LIKE :tourName"
+                    + " WHERE t.name LIKE :tourName AND t.active = 1"
                     + " GROUP BY t.name");
             
             query.setParameter("tourName", "%" + tourName + "%");
@@ -234,6 +234,32 @@ public class ToursRepositoryImpl implements ToursRepository{
         }
         
         return false;
+    }
+
+    @Override
+    public List<Tour> getActiveTour(String tourName, int page) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Tour> query = builder.createQuery(Tour.class);
+        Root root = query.from(Tour.class);
+        query = query.select(root);
+        Predicate a = builder.equal(root.get("active").as(Integer.class), 1);
+        query = query.where(a);
+        if(!tourName.isEmpty() && tourName != null){
+            Predicate p = builder.like(root.get("name").as(String.class), String.format("%%%s%%", tourName));
+            
+            query = query.where(p);
+            Predicate ac = builder.equal(root.get("active").as(Integer.class), 1);
+            query = query.where(ac);
+        }
+        
+        Query q = session.createQuery(query);
+        
+        int max = 9;
+        q.setMaxResults(max);
+        q.setFirstResult((page - 1) * max);
+        
+        return q.getResultList();
     }
 
 }
