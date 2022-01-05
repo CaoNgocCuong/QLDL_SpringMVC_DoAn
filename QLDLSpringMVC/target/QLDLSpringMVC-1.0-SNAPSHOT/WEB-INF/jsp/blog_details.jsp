@@ -126,7 +126,7 @@
                                     <img src="<c:url value="${u.avatar}" />" alt="${u.fullName}">
                                 </div>
                                 <div class="user-comment">
-                                    <textarea name="" id="commentPost-area" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
+                                    <textarea name="" id="commentPost-area-main" cols="5" rows="1" placeholder="Viết bình luận của bạn..."></textarea>
                                     <div class="user-action">
                                         <button class="user-btn back">Hủy</button>
                                         <button class="user-btn submit" onclick="addCommentPost(${blog.id}, '${u.username}')">Bình luận</button>

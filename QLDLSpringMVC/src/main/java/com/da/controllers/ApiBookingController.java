@@ -42,7 +42,7 @@ public class ApiBookingController {
         this.bookingService.addBooking(b);
         this.billingService.addBill(bookingId);
         User u = userService.getUserById(b.getUser().getId());
-        sendMail("vukhang297@gmail.com", u.getEmail(), "Travel CK", "Chung toi da xac nhan ban thanh toan thanh cong. "
+        sendMail("ngoccuong01032000@gmail.com", u.getEmail(), "Travel CK", "Chung toi da xac nhan ban thanh toan thanh cong. "
                 + "Travel CK xin chan thanh cam on quy khach " + u.getFullName() + " da tin tuong su dung dich vu cua chung toi!"
                 + "\nMa booking cua ban la: " + String.valueOf(bookingId)
                 + "\nSo luong nguoi lon: " + String.valueOf(b.getAdults()) + "\nSo luong tre em: " + String.valueOf(b.getChildren()));

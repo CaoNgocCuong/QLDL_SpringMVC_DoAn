@@ -11,7 +11,7 @@ window.onload = function() {
 // --------------------------------- Comment area -----------------------------
 
 let commentArea = document.getElementById("comment-area");
-let commentPostArea = document.getElementById("commentPost-area");
+let commentPostArea = document.getElementById("commentPost-area-main");
 let btnsCancel = document.querySelectorAll(".comment-box .user-comment .user-action .user-btn");
 let btnsSubmit = document.querySelectorAll(".comment-box .user-comment .user-action .user-btn.disabled.submit");
 let linkCommentTour = document.getElementById("link-comment-tour");

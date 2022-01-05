@@ -5,6 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Popular places start -->
 <section id="popular-place-id" class="travel-main popular-place">
@@ -23,7 +24,7 @@
                     <div class="single-place">
                         <div class="thumb">
                             <img src="${tourWithComment[3]}" alt="popular place">
-                            <a href="<c:url value="/tours/${tourWithComment[0]}" />" class="price">${tourWithComment[7]} - ${tourWithComment[6]} (VNĐ)</a>
+                            <a href="<c:url value="/tours/${tourWithComment[0]}" />" class="price"><fmt:formatNumber currencySymbol="VND" value="${tourWithComment[7]}" /> - <fmt:formatNumber currencySymbol="VND" value="${tourWithComment[6]}" /> VNĐ</a>
                         </div>
                         <div class="place-info">
                             <a href="<c:url value="/tours/${tourWithComment[0]}" />">

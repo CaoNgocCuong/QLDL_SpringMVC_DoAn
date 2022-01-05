@@ -162,7 +162,7 @@ public class StatsRepositoryImpl implements StatsRepository {
     public List<Object[]> tourStatsQuarter(int year) {
         Session s = this.sessionFactory.getObject().getCurrentSession();
         Query q = s.createQuery("SELECT quarter(t.endDate), "
-                + "CASE WHEN SUM((t.childrenPrice * b.children) + (t.adultsPrice * adults)) IS NULL"
+                + "CASE WHEN SUM((t.childrenPrice * b.children) + (t.adultsPrice * adults)) IS NULL "
                 + "THEN 0 ELSE SUM((t.childrenPrice * b.children) + (t.adultsPrice * adults)) END,"
                 + "YEAR(t.endDate) FROM Tour t "
                 + "LEFT OUTER JOIN Booking b "

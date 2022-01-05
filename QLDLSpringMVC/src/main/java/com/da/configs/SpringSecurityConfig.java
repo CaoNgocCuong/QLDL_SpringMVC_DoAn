@@ -53,8 +53,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("vukhang297@gmail.com");
-        mailSender.setPassword("khangbum10a8");
+        mailSender.setUsername("ngoccuong01032000@gmail.com");
+        mailSender.setPassword("caongoccuong");
         
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");

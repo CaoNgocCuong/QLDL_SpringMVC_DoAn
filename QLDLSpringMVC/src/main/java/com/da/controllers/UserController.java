@@ -56,7 +56,7 @@ public class UserController {
         if(!result.hasErrors()){
             if(userRes.getPassword().equals(userRes.getConfirmPassword())){
                 if(this.userService.addUser(userRes) == true){
-                    sendMail("vukhang297@gmail.com", userRes.getEmail(), "Travel CK", "Ban da dang ky thanh vien Travel CK thanh cong"
+                    sendMail("ngoccuong01032000@gmail.com", userRes.getEmail(), "Travel CK", "Ban da dang ky thanh vien Travel CK thanh cong"
                             + " voi ten dang nhap la: " + userRes.getUsername()
                             + "\nNhanh tay chon cho minh mot tour du lich hap dan ngay nao!");
                     return "redirect:/login";
